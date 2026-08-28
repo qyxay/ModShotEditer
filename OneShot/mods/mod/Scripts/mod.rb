@@ -44,10 +44,10 @@ begin
 
   # ---- 2) 置位 Solstice 关键开关 ----
   perma_flags[152 - 151] = true   # 152 "Beat the game once" → 二周目入口(核心)
-  perma_flags[154 - 151] = true   # 154 "Saved world once"  → 放太阳结局(前置)
-  perma_flags[160 - 151] = true   # 160 "Beat Solstice"     → 直接完成2周目(至日线通关标记)
+  # perma_flags[154 - 151] = true   # 154 "Saved world once"  → 放太阳结局(前置)
+  # perma_flags[160 - 151] = true   # 160 "Beat Solstice"     → 直接完成2周目(至日线通关标记)
   # perma_flags[153 - 151] = true # (可选)153 "Smashed bulb once"
-
+  # perma_flags[160] = true
   # ---- 3) 写回 p-settings.dat(格式与原版 write_perma_flags 完全一致) ----
   Dir.mkdir(save_path) unless File.exist?(save_path)
   File.open(pset, 'wb') do |f|
@@ -67,6 +67,23 @@ begin
     f.puts "sw152(Beat game once)=#{perma_flags[1]}  sw154(Saved world)=#{perma_flags[3]}  sw160(Beat Solstice)=#{perma_flags[9]}"
     f.puts "pset=#{pset}"
     f.puts "fake_save_deleted=#{fake_deleted}"
+  end
+
+  # ---- 6) 回忆模式: 若存在 mods\mod\replay.txt, 启动强制进 Last room(Map255) 告别/回忆场景 ----
+  #     (Map255 ev3 'Goodbye' 条件未启用=无条件激活, 进去即自动播放 Niko 告别演出)
+  replay_flag = File.join(__dir__, 'replay.txt')
+  if File.exist?(replay_flag)
+    if defined?(Game_Map) && Game_Map.method_defined?(:setup)
+      class Game_Map
+        alias_method :setup_without_replay, :setup
+        def setup(map_id)
+          setup_without_replay(255)   # Last room: 回忆/告别场景
+        end
+      end
+      File.open(File.join(__dir__, 'replay_mode_on.txt'), 'w') { |f| f.puts "replay ON #{Time.now} -- 删掉 replay.txt 恢复正常" }
+    end
+  else
+    File.delete(File.join(__dir__, 'replay_mode_on.txt')) if File.exist?(File.join(__dir__, 'replay_mode_on.txt'))
   end
 
   File.open("mod_loaded.txt", "w") do |f|
