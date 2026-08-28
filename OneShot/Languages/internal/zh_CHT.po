@@ -1,0 +1,264 @@
+msgctxt "TRSTR_EMPTY"
+msgid ""
+msgstr ""
+
+#: screen.cpp:51
+msgctxt "TRSTR_JOURNAL_TITLE"
+msgid "The Journal"
+msgstr "日誌"
+
+#: settingsmenu.cpp:89
+msgctxt "TRSTR_KEYBIND_A"
+msgid "A Button"
+msgstr "A鍵"
+
+#: settingsmenu.cpp:90
+msgctxt "TRSTR_KEYBIND_B"
+msgid "B Button"
+msgstr "B鍵"
+
+#: settingsmenu.cpp:91
+msgctxt "TRSTR_KEYBIND_X"
+msgid "X Button"
+msgstr "X鍵"
+
+#: settingsmenu.cpp:92
+msgctxt "TRSTR_KEYBIND_Y"
+msgid "Y Button"
+msgstr "Y鍵"
+
+#: settingsmenu.cpp:93
+msgctxt "TRSTR_KEYBIND_BACK"
+msgid "Back Button"
+msgstr "返回鍵"
+
+#: settingsmenu.cpp:94
+msgctxt "TRSTR_KEYBIND_GUIDE"
+msgid "Guide Button"
+msgstr "指南鍵"
+
+#: settingsmenu.cpp:95
+msgctxt "TRSTR_KEYBIND_START"
+msgid "Start Button"
+msgstr "開始鍵"
+
+#: settingsmenu.cpp:96
+msgctxt "TRSTR_KEYBIND_LSTICK"
+msgid "Left Stick"
+msgstr "左搖桿"
+
+#: settingsmenu.cpp:97
+msgctxt "TRSTR_KEYBIND_RSTICK"
+msgid "Right Stick"
+msgstr "右搖桿"
+
+#: settingsmenu.cpp:98
+msgctxt "TRSTR_KEYBIND_LSHOULDER"
+msgid "Left Shoulder"
+msgstr "LS鍵"
+
+#: settingsmenu.cpp:99
+msgctxt "TRSTR_KEYBIND_RSHOULDER"
+msgid "Right Shoulder"
+msgstr "RS鍵"
+
+#: settingsmenu.cpp:100
+msgctxt "TRSTR_KEYBIND_PADU"
+msgid "D-Pad (Up)"
+msgstr "方向鍵（上）"
+
+#: settingsmenu.cpp:101
+msgctxt "TRSTR_KEYBIND_PADD"
+msgid "D-Pad (Down)"
+msgstr "方向鍵（下）"
+
+#: settingsmenu.cpp:102
+msgctxt "TRSTR_KEYBIND_PADL"
+msgid "D-Pad (Left)"
+msgstr "方向鍵（左）"
+
+#: settingsmenu.cpp:103
+msgctxt "TRSTR_KEYBIND_PADR"
+msgid "D-Pad (Right)"
+msgstr "方向鍵（右）"
+
+#: settingsmenu.cpp:117
+msgctxt "TRSTR_KEYBIND_SHIFT"
+msgid "Shift"
+msgstr "Shift鍵"
+
+#: settingsmenu.cpp:123
+msgctxt "TRSTR_KEYBIND_UNK"
+msgid "Unknown key"
+msgstr "未知的按鍵"
+
+#: settingsmenu.cpp:125
+msgctxt "TRSTR_KEYBIND_KEYFMT"
+msgid "%s Key"
+msgstr "%s鍵"
+
+#: settingsmenu.cpp:136
+msgctxt "TRSTR_KEYBIND_LSTICKL"
+msgid "Left Stick (Left)"
+msgstr "左搖桿（左）"
+
+#: settingsmenu.cpp:138
+msgctxt "TRSTR_KEYBIND_LSTICKR"
+msgid "Left Stick (Right)"
+msgstr "左搖桿（右）"
+
+#: settingsmenu.cpp:141
+msgctxt "TRSTR_KEYBIND_LSTICKU"
+msgid "Left Stick (Up)"
+msgstr "左搖桿（上）"
+
+#: settingsmenu.cpp:143
+msgctxt "TRSTR_KEYBIND_LSTICKD"
+msgid "Left Stick (Down)"
+msgstr "左搖桿（下）"
+
+#: settingsmenu.cpp:146
+msgctxt "TRSTR_KEYBIND_RSTICKL"
+msgid "Right Stick (Left)"
+msgstr "右搖桿（左）"
+
+#: settingsmenu.cpp:148
+msgctxt "TRSTR_KEYBIND_RSTICKR"
+msgid "Right Stick (Right)"
+msgstr "右搖桿（右）"
+
+#: settingsmenu.cpp:151
+msgctxt "TRSTR_KEYBIND_RSTICKU"
+msgid "Right Stick (Up)"
+msgstr "右搖桿（上）"
+
+#: settingsmenu.cpp:153
+msgctxt "TRSTR_KEYBIND_RSTICKD"
+msgid "Right Stick (Down)"
+msgstr "右搖桿（下）"
+
+#: settingsmenu.cpp:155
+msgctxt "TRSTR_KEYBIND_LTRIGGER"
+msgid "Left Trigger"
+msgstr "LT鍵"
+
+#: settingsmenu.cpp:157
+msgctxt "TRSTR_KEYBIND_RTRIGGER"
+msgid "Right Trigger"
+msgstr "RT鍵"
+
+#: settingsmenu.cpp:162
+#, c-format
+msgctxt "TRSTR_KEYBIND_JOYBTTNFMT"
+msgid "Joy Button %d"
+msgstr "搖桿按鍵%d"
+
+#: settingsmenu.cpp:187
+#, c-format
+msgctxt "TRSTR_KEYBIND_JOYHATFMT"
+msgid "Joy Hat %d:%c"
+msgstr "搖桿十字鍵%d:%c"
+
+#: settingsmenu.cpp:192
+#, c-format
+msgctxt "TRSTR_KEYBIND_JOYAXISFMT"
+msgid "Joy Axis %d%c"
+msgstr "搖桿軸%d%c"
+
+#  Displays this message when waiting for an input to bind to an action
+#: settingsmenu.cpp:592
+#, c-format
+msgctxt "TRSTR_KEYBIND_KEYPROMPT"
+msgid "Press key or joystick button for \"%s\""
+msgstr "按下按鍵或搖桿按鍵以「%s」"
+
+#  Window title
+#: settingsmenu.cpp:1033
+msgctxt "TRSTR_KEYBIND_TITLE"
+msgid "Key bindings"
+msgstr "按鍵綁定"
+
+#: settingsmenu.cpp:1078
+msgctxt "TRSTR_KEYBIND_RESET"
+msgid "Reset defaults"
+msgstr "重設為預設值"
+
+#: settingsmenu.cpp:1079
+msgctxt "TRSTR_CANCEL"
+msgid "Cancel"
+msgstr "取消"
+
+#: settingsmenu.cpp:1080
+msgctxt "TRSTR_ACCEPT"
+msgid "Accept"
+msgstr "接受"
+
+#: settingsmenu.cpp:1086
+msgctxt "TRSTR_KEYBIND_INSTRUCT"
+msgid "Use left click to bind a slot, right click to clear its binding"
+msgstr "點擊左鍵綁定一格，點擊右鍵清除綁定"
+
+#: settingsmenu.cpp:1089
+msgctxt "TRSTR_KEYBIND_CONFLICT"
+msgid "Warning: Same physical action bound to multiple slots"
+msgstr "警告：有同一項操作綁定至多格"
+
+#: settingsmenu.cpp:69
+msgctxt "TRSTR_KEYBIND_UP"
+msgid "Up"
+msgstr "上"
+
+#: settingsmenu.cpp:70
+msgctxt "TRSTR_KEYBIND_LEFT"
+msgid "Left"
+msgstr "左"
+
+#: settingsmenu.cpp:71
+msgctxt "TRSTR_KEYBIND_ACTION"
+msgid "Action"
+msgstr "操作"
+
+#: settingsmenu.cpp:72
+msgctxt "TRSTR_KEYBIND_MENU"
+msgid "Menu"
+msgstr "選單"
+
+#: settingsmenu.cpp:73
+msgctxt "TRSTR_KEYBIND_CANCEL"
+msgid "CANCEL"
+msgstr "取消"
+
+#: settingsmenu.cpp:74
+msgctxt "TRSTR_KEYBIND_L"
+msgid "L"
+msgstr "左"
+
+#: settingsmenu.cpp:76
+msgctxt "TRSTR_KEYBIND_DOWN"
+msgid "Down"
+msgstr "下"
+
+#: settingsmenu.cpp:77
+msgctxt "TRSTR_KEYBIND_RIGHT"
+msgid "Right"
+msgstr "右"
+
+#: settingsmenu.cpp:78
+msgctxt "TRSTR_KEYBIND_RUN"
+msgid "Run"
+msgstr "奔跑"
+
+#: settingsmenu.cpp:79
+msgctxt "TRSTR_KEYBIND_DEACTIVATE"
+msgid "Deactivate"
+msgstr "停用"
+
+#: settingsmenu.cpp:80
+msgctxt "TRSTR_KEYBIND_ITEMS"
+msgid "Items"
+msgstr "項目"
+
+#: settingsmenu.cpp:81
+msgctxt "TRSTR_KEYBIND_R"
+msgid "R"
+msgstr "右"

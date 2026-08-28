@@ -1,0 +1,45 @@
+#include <winver.h>
+#include <winuser.h>
+
+#define VERSION_RES 2, 0, 0, 0
+
+#define IDI_ICON 1
+#define IDI_MANIFEST 1
+
+IDI_ICON ICON "icon.ico"
+IDI_MANIFEST RT_MANIFEST "manifest.xml"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION VERSION_RES
+PRODUCTVERSION VERSION_RES
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+FILEFLAGS VS_FF_DEBUG
+#else
+FILEFLAGS 0x0
+#endif
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE VFT2_UNKNOWN
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "000004B0"
+        {
+            VALUE "FileDescription",  "OneShot"
+            VALUE "FileVersion",      "2.0.0"
+            VALUE "ProductName",      "ModShot"
+            VALUE "ProductVersion",   "2.0.0"
+            VALUE "InternalName",     "ModShot"
+            VALUE "OriginalFilename", "modshot.exe"
+            VALUE "CompanyName",      "hat_kid"
+            VALUE "LegalCopyright",   "(c) 2024, hat_kid. Licensed under GPL-2.0 or later."
+            VALUE "Comment",          "Built from Git hash: 9388a25c0f2ca182eb7fa340256cbe5be07d008d"
+        }
+    }
+
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0, 1200
+    }
+}

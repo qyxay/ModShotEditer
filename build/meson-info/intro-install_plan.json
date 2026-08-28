@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/modshot.exe": {
+      "destination": "{bindir}/modshot.exe",
+      "tag": "runtime",
+      "subproject": null,
+      "install_rpath": null,
+      "build_rpaths": []
+    }
+  }
+}

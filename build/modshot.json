@@ -1,0 +1,5 @@
+{
+  "gameFolder": "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot",
+  "patches": [ "mods/mod" ],
+  "preloadScript": [ "mods/mod/Scripts/mod.rb" ]
+}

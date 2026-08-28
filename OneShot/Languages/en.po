@@ -1,0 +1,27 @@
+
+# Translation template for OneShot
+msgid ""
+msgstr ""
+
+# Language code
+msgid "en"
+msgstr "English"
+
+# version string
+msgid "POT_VERSION"
+msgstr "en.1"
+
+msgid "NAME_SWEARS"
+msgstr "fuck,shit,ass,cock,damn,penis,tiddy,titty,cunt,whore"
+
+msgid "NAME_NIKOS"
+msgstr "niko"
+
+msgid "NAMES_LIKE_NIKO"
+msgstr "nico,nikko,nicco,nikoh,nicoh"
+
+msgid "NAMES_LIKE_MOMDAD"
+msgstr "mom,dad,mommy,daddy,mama,papa"
+
+msgid "NAMES_GROSS"
+msgstr "poo,pee,fart,stinky,piss,poop,slimy"

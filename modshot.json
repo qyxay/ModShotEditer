@@ -1,0 +1,430 @@
+{
+    // ModShot configuration file.
+    // Lines starting with '//' are comments.
+
+    // About filesystem paths specified in this config file:
+    // 
+    // The "gameFolder" path is resolved either relative to the directory
+    // containing the ModShot executable (the default behavior), or relative
+    // to the Current Working Directory (when compiled with -DWORKDIR_CURRENT).
+    // All other paths are resolved relative to "gameFolder" and ignoring
+    // both RTPs and encrypted archives.
+    // 
+    // Since this is JSON, any backslashes (\) in paths needs to be escaped
+    // (i.e. a single backslash becomes a double backslash).
+    // If that's too much hassle, you can use a single forward slash instead.
+
+    // Some influential environment variables, set them to either "1" or "0":
+    // 
+    // "MKXPZ_WINDOWS_CONSOLE"
+    //   Enables/disables the extra console window on Windows.
+    //   It appears by default whenever ModShot is started in Debug mode. (e.g.
+    //   RPG Maker playtest or has provided "debug"/"test" as command argument)
+    // 
+    // "MKXPZ_FOLDER_SELECT"
+    //   Allows the manual selection of the game's folder at startup.
+    //   Only available on macOS platform at the moment.
+    // 
+    // "MKXPZ_MACOS_METAL"
+    //   Setting this will influence the rendering backend used.
+    //   Probably not a good idea to mess with it unless you have some kind
+    //   of issue.
+    //   OpenGL backend is default on Intel Macs, and Metal backend
+    //   is the default on Macs with Apple Silicon.
+    //   This takes priority over the config option if it's set.
+    // 
+    // "MTL_HUD_ENABLED"
+    //   On macOS 13 Ventura and over, provided the Metal backend is used,
+    //   this will enable a Metal Performance HUD containing more details
+    //   than the built-in framerate display.
+
+    // =========================================================================
+
+    // Continuously display average FPS in window title.
+    // This can always be toggled with F2 key at runtime.
+    // (Default: false)
+    // 
+    // "displayFPS": false,
+
+    // Continuously print average FPS to console output.
+    // This setting does not affect the window title FPS display
+    // toggled via F2 key.
+    // (Default: false)
+    // 
+    // "printFPS": false,
+
+    // Whether make the window resizable or not.
+    // (Default: false)
+    // 
+    // "winResizable": false,
+
+    // Start game in fullscreen instead.
+    // This can be toggled with Alt+Enter at runtime
+    // if "anyAltToggleFS" is enabled in config.
+    // Ignored when running in Steam Big Picture Mode.
+    // (Default: false)
+    // 
+    // "fullscreen": false,
+
+    // Preserve game screen aspect ratio, as opposed to Stretch-to-Fill.
+    // (Default: true)
+    // 
+    // "fixedAspectRatio": true,
+
+    // Apply smooth interpolation when game screen is upscaled:
+    //   0: Nearest-Neighbor
+    //   1: Bilinear
+    //   2: Bicubic
+    //   3: Lanczos3
+    //   4: xBRZ (available on GPLv3 builds)
+    // (Default: 0)
+    // 
+    // "smoothScaling": 0,
+
+    // Apply smooth interpolation when game screen is downscaled.
+    // (Same possible values as "smoothScaling" config)
+    // (Default: 0)
+    // 
+    // "smoothScalingDown": 0,
+
+    // Apply smooth interpolation when bitmaps are upscaled.
+    // (Same possible values as "smoothScaling" config)
+    // (Default: 0)
+    // 
+    // "bitmapSmoothScaling": 0,
+
+    // Apply smooth interpolation when bitmaps are downscaled.
+    // (Same possible values as "smoothScaling" config)
+    // (Default: 0)
+    // 
+    // "bitmapSmoothScalingDown": 0,
+
+    // Apply MipMap interpolation when game screen or bitmaps are downscaled.
+    // Requires "smoothScalingDown" or "bitmapSmoothScalingDown" config
+    // to be set to 1.
+    // (Default: false)
+    // 
+    // "smoothScalingMipmaps": false,
+
+    // Sharpness when using Bicubic scaling.
+    // A good starting range is 0 to 100, but you may wish to go outside
+    // that range in either direction.
+    // (Default: 100)
+    // 
+    // "bicubicSharpness": 100,
+
+    // Scaling factor for xBRZ interpolation.
+    // Set to at least the ratio of your window size to the game's
+    // native resolution.
+    // (Default: 1.0)
+    // 
+    // "xbrzScalingFactor": 4.0,
+
+    // Replace the game's graphics files with external High-Res files
+    // provided in the 'Hires' directory.
+    // You will also need to set the below Scaling Factors.
+    // (Default: false)
+    // 
+    // "enableHires": false,
+
+    // Scaling factor for textures (bitmaps).
+    // Higher values will look better if you use High-Res textures.
+    // (Default: 1.0)
+    // 
+    // "textureScalingFactor": 4.0,
+
+    // Scaling factor for screen framebuffer.
+    // Higher values will look better if you use High-Res textures.
+    // (Default: 1.0)
+    // 
+    // "framebufferScalingFactor": 4.0,
+
+    // Scaling factor for tileset atlas.
+    // Higher values will look better if you use High-Res textures.
+    // (Default: 1.0)
+    // 
+    // "atlasScalingFactor": 4.0,
+
+    // Sync game screen redraws to the system screen refresh rate.
+    // (Default: true)
+    // 
+    // "vsync": true,
+
+    // Specify the window width on startup.
+    // If set to 0, it will default to the default resolution width
+    // specific to the RGSS version: 640 in RGSS1, 544 in RGSS2 or higher.
+    // 
+    // "defScreenW": 640,
+
+    // Specify the window height on startup.
+    // If set to 0, it will default to the default resolution height
+    // specific to the RGSS version: 480 in RGSS1, 416 in RGSS2 or higher.
+    // 
+    // "defScreenH": 480,
+
+    // Override the game window title.
+    // 
+    // "windowTitle": "My Custom Title",
+
+    // Enforce a static frame rate.
+    // Set 0 to disable.
+    // (Default: 0)
+    // 
+    // "fixedFramerate": 0,
+
+    // Skip (don't draw) frames when behind.
+    // Can be changed at runtime, but this is the default value
+    // when the game starts.
+    // (Default: false)
+    // 
+    // "frameSkip": false,
+
+    // Use a fixed framerate that is approx.
+    // Equal to the native screen refresh rate.
+    // This is different from "fixedFramerate" because the actual frame rate
+    // is reported back to the game, ensuring correct timers.
+    // If the screen refresh rate cannot be determined, this option
+    // is force-disabled.
+    // This option may be force-disabled at build time.
+    // (Default: false)
+    // 
+    // "syncToRefreshrate": false,
+
+    // A list of fonts to render without alpha blending.
+    // (Default: none)
+    // 
+    // "solidFonts": [
+    //     "Arial",
+    //     "Times New Roman",
+    // ],
+
+    // Prefer the use of Metal over OpenGL backend on macOS.
+    // This defaults to false under Intel Macs, and true under Apple Silicon
+    // ones (which merely emulate OpenGL anyway).
+    // 
+    // Try changing this if you have graphics problems.
+    // Metal is far better, but ANGLE may not initialize correctly
+    // on some Intel machines.
+    // 
+    // On Apple Silicon it's probably better to not touch it.
+    // Emulated OpenGL is buggy, and it will also break things like
+    // the Steam overlay.
+    // (Default: true if Apple Silicon, false if Intel Mac)
+    // 
+    // "preferMetalRenderer": true,
+
+    // Work around buggy graphics drivers which don't properly synchronize
+    // texture access, most apparent when text doesn't show up or the map
+    // tileset doesn't render at all.
+    // (Default: false)
+    // 
+    // "subImageFix": false,
+
+    // Enable framebuffer blitting if the driver is capable of it.
+    // Some drivers carry buggy implementations of this functionality,
+    // so disabling it can be used as a workaround.
+    // Does nothing on macOS.
+    // Force-disabled when "smoothScaling" or "smoothScalingDown" isn't
+    // Nearest-Neighbor or Bilinear.
+    // (Default: false)
+    // 
+    // "enableBlitting": false,
+
+    // Limit the maximum size (width and height dimensions) of most textures
+    // ModShot will create (exceptions are rendering backbuffers and similar).
+    // If set to 0, the hardware maximum is used.
+    // This is useful for recording traces that can be played back on machines
+    // with lower specs.
+    // Set 0 for keep to hardware maximum limits.
+    // (Default: 0)
+    // 
+    // "maxTextureSize": 0,
+
+    // Scale up the game screen by an integer amount, as large as the current
+    // window size allows, before doing any last additional scalings
+    // to fill part or all of the remaining window space
+    // (or none at all if "lastMileScaling" is disabled).
+    // If "fixedAspectRatio" is disabled, the integer scale factors
+    // in horizontal and vertical direction can differ depending on how much
+    // space is available, otherwise they are forced to the smaller of the two.
+    // (Default: false)
+    // 
+    // "integerScalingActive": false,
+
+    // When integer scaling is enabled, this option controls whether
+    // the scaled game screen is further scaled (with linear interpolation
+    // when "smoothScaling" is enabled) to fill the rest of the game window.
+    // Note that this option still respects "fixedAspectRatio".
+    // (Default: true)
+    // 
+    // "integerScalingLastMile": true,
+
+    // Sets the base path of the game from provided directory path.
+    // (Default: current directory where the executable is located)
+    // 
+    // "gameFolder": ".",
+
+    // Use either Right or Left Alt and Enter to toggle fullscreen at runtime.
+    // (Default: false)
+    // 
+    // "anyAltToggleFS": false,
+
+    // Enable triggering game soft reset (RGSSReset) on F12 key.
+    // (Default: false)
+    // 
+    // "enableReset": false,
+
+    // Enable settings (keybinding) menu on F1 key.
+    // (Default: true)
+    // 
+    // "enableSettings": true,
+
+    // Allow symlinks for game assets to be followed.
+    // (Default: false)
+    // 
+    // "allowSymlinks": false,
+
+    // Organization and Application name to build the directory path
+    // where ModShot will store game specific data
+    // (e.g. key bindings or game save data).
+    // If not specified, ModShot will use "Oneshot" for Application name
+    // and "." for Organization name.
+    // 
+    // "dataPathOrg": "MyCompanyName",
+    // "dataPathApp": "MyModName",
+
+    // Sets the game window icon image from provided file path.
+    // (Default: none)
+    // 
+    // "iconPath": "path/to/icon.png",
+
+    // Instead of playing an RPG Maker game,
+    // execute a single Ruby script instead.
+    // (Default: none)
+    // 
+    // "customScript": "path/to/script.rb",
+
+    // Define raw Ruby scripts (e.g. compatibility wrappers) to be executed
+    // before the actual 'Data/Scripts.rxdata' execution starts.
+    // (Default: none)
+    // 
+    // "preloadScript": [
+    //     "Scripts/preload/patches.rb",
+    //     "Scripts/preload/mod.rb"
+    // ],
+
+    // Index all accessible assets via their lower case path.
+    // Emulates Windows case insensitivity.
+    // (Default: true)
+    // 
+    // "pathCache": true,
+
+    // Add directories or archives to the asset search path (usually RTP)
+    // (multiple allowed).
+    // You can use folders, RGSS archives, and any archive formats supported
+    // by PhysicsFS.
+    // See the compatibility list at: https://www.icculus.org/physfs/docs/html/
+    // (Default: none)
+    // 
+    // "RTP": [
+    //     "path/to/rtp1",
+    //     "path/to/rtp2.zip",
+    //     "path/to/Game.rgssad",
+    // ],
+
+    // Similar to the RTP option, except items are loaded before
+    // the game archive and folder, for incremental game updates or modding.
+    // (Default: none)
+    // 
+    // "patches": [
+    //     "path/to/patch1",
+    //     "path/to/patch2.zip",
+    //     "path/to/mod.zip"
+    // ],
+
+    // Use the script names as filename in warnings and error messages.
+    // (Default: true)
+    // 
+    // "useScriptNames": true,
+
+    // Font substitutions allow drop-in replacements of fonts to be used
+    // without changing the RGSS game scripts.
+    // For example, providing 'Open Sans' when the game thinks
+    // it's using 'Arial'.
+    // Font family to be substituted and replacement family are separated
+    // by one sole '>'. Be careful not to include any spaces.
+    // This is not connected to the built-in font, which is always used
+    // when a non-existing font family is requested by RGSS script.
+    // (Default: none)
+    // 
+    // "fontSub": [
+    //     "Arial>Open Sans",
+    //     "Times New Roman>Liberation Serif"
+    // ],
+
+    // Because ModShot is usually distributed as a standalone build,
+    // no predefined load paths are initialized ($:, $LOAD_PATH)
+    // in the MRI backend.
+    // With this option, they can be specified manually (e.g. when using
+    // a system libruby.so). It is however recommended to statically link
+    // all required gems into libruby.so.
+    // (Default: none)
+    // 
+    // "rubyLoadpath": [
+    //     "rubylib/3.1.0"
+    // ],
+
+    // Determines whether MJIT is enabled.
+    // This probably won't work unless you also have the header file
+    // that it needs.
+    // Only works with Ruby 2.6 or higher.
+    // This Ruby feature is experimental.
+    // (default: false)
+    // 
+    // "JITEnable": false,
+
+    // Determines what level of verbosity to use when logging MJIT events.
+    // Starts at 0, which is next to nothing. Set it higher to see more.
+    // (Default: 0)
+    // 
+    // "JITVerboseLevel": 0,
+
+    // Determines how many compiled methods that Ruby will keep
+    // in its MJIT cache.
+    // (Default: 100)
+    // 
+    // "JITMaxCache": 100,
+
+    // Determines how many times a function has to be called before
+    // it is compiled by MJIT.
+    // (Default: 10000)
+    // 
+    // "JITMinCalls": 10000,
+
+    // Determines whether YJIT is enabled.
+    // Only works with Ruby 3.1 or higher.
+    // This Ruby feature is experimental.
+    // (Default: false)
+    // 
+    // "YJITEnable": false,
+
+    // Number of OpenAL sources to allocate for SE playback.
+    // If there are a lot of sounds playing at the same time and audibly
+    // cutting each other off, try increasing this number.
+    // (Default: 6, Maximum: 64)
+    // 
+    // "SESourceCount": 6,
+
+    // Number of streams to open for BGM tracks.
+    // If the game needs multitrack audio, this should be set to
+    // as many available tracks as the game needs.
+    // (Default: 1, Maximum: 16)
+    // 
+    // "BGMTrackCount": 1,
+
+    // Dump tileset atlas.
+    // For debugging purposes.
+    // (Default: false)
+    // 
+    // "dumpAtlas": false
+}

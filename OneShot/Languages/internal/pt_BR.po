@@ -1,0 +1,264 @@
+# MKXP internal strings (OneShot).
+msgid ""
+msgstr ""
+
+#: screen.cpp:51
+msgctxt "TRSTR_JOURNAL_TITLE"
+msgid "The Journal"
+msgstr "O Diário"
+
+#: settingsmenu.cpp:89
+msgctxt "TRSTR_KEYBIND_A"
+msgid "A Button"
+msgstr "Botão A"
+
+#: settingsmenu.cpp:90
+msgctxt "TRSTR_KEYBIND_B"
+msgid "B Button"
+msgstr "Botão B"
+
+#: settingsmenu.cpp:91
+msgctxt "TRSTR_KEYBIND_X"
+msgid "X Button"
+msgstr "Botão X"
+
+#: settingsmenu.cpp:92
+msgctxt "TRSTR_KEYBIND_Y"
+msgid "Y Button"
+msgstr "Botão Y"
+
+#: settingsmenu.cpp:93
+msgctxt "TRSTR_KEYBIND_BACK"
+msgid "Back Button"
+msgstr "Botão Voltar"
+
+#: settingsmenu.cpp:94
+msgctxt "TRSTR_KEYBIND_GUIDE"
+msgid "Guide Button"
+msgstr "Botão Guia"
+
+#: settingsmenu.cpp:95
+msgctxt "TRSTR_KEYBIND_START"
+msgid "Start Button"
+msgstr "Botão Iniciar"
+
+#: settingsmenu.cpp:96
+msgctxt "TRSTR_KEYBIND_LSTICK"
+msgid "Left Stick"
+msgstr "Controle esquerdo"
+
+#: settingsmenu.cpp:97
+msgctxt "TRSTR_KEYBIND_RSTICK"
+msgid "Right Stick"
+msgstr "Controle direito"
+
+#: settingsmenu.cpp:98
+msgctxt "TRSTR_KEYBIND_LSHOULDER"
+msgid "Left Shoulder"
+msgstr "Botão esquerdo"
+
+#: settingsmenu.cpp:99
+msgctxt "TRSTR_KEYBIND_RSHOULDER"
+msgid "Right Shoulder"
+msgstr "Botão direito"
+
+#: settingsmenu.cpp:100
+msgctxt "TRSTR_KEYBIND_PADU"
+msgid "D-Pad (Up)"
+msgstr "Direcional (cima)"
+
+#: settingsmenu.cpp:101
+msgctxt "TRSTR_KEYBIND_PADD"
+msgid "D-Pad (Down)"
+msgstr "Direcional (baixo)"
+
+#: settingsmenu.cpp:102
+msgctxt "TRSTR_KEYBIND_PADL"
+msgid "D-Pad (Left)"
+msgstr "Direcional (esquerda)"
+
+#: settingsmenu.cpp:103
+msgctxt "TRSTR_KEYBIND_PADR"
+msgid "D-Pad (Right)"
+msgstr "Direcional (direita)"
+
+#: settingsmenu.cpp:117
+msgctxt "TRSTR_KEYBIND_SHIFT"
+msgid "Shift"
+msgstr "Shift"
+
+#: settingsmenu.cpp:123
+msgctxt "TRSTR_KEYBIND_UNK"
+msgid "Unknown key"
+msgstr "Tecla desconhecida"
+
+#: settingsmenu.cpp:125
+msgctxt "TRSTR_KEYBIND_KEYFMT"
+msgid "%s Key"
+msgstr "Tecla %s"
+
+#: settingsmenu.cpp:136
+msgctxt "TRSTR_KEYBIND_LSTICKL"
+msgid "Left Stick (Left)"
+msgstr "Controle esquerdo (esquerda)"
+
+#: settingsmenu.cpp:138
+msgctxt "TRSTR_KEYBIND_LSTICKR"
+msgid "Left Stick (Right)"
+msgstr "Controle esquerdo (direita)"
+
+#: settingsmenu.cpp:141
+msgctxt "TRSTR_KEYBIND_LSTICKU"
+msgid "Left Stick (Up)"
+msgstr "Controle esquerdo (cima)"
+
+#: settingsmenu.cpp:143
+msgctxt "TRSTR_KEYBIND_LSTICKD"
+msgid "Left Stick (Down)"
+msgstr "Controle esquerdo (baixo)"
+
+#: settingsmenu.cpp:146
+msgctxt "TRSTR_KEYBIND_RSTICKL"
+msgid "Right Stick (Left)"
+msgstr "Controle direito (esquerda)"
+
+#: settingsmenu.cpp:148
+msgctxt "TRSTR_KEYBIND_RSTICKR"
+msgid "Right Stick (Right)"
+msgstr "Controle direito (direita)"
+
+#: settingsmenu.cpp:151
+msgctxt "TRSTR_KEYBIND_RSTICKU"
+msgid "Right Stick (Up)"
+msgstr "Controle direito (cima)"
+
+#: settingsmenu.cpp:153
+msgctxt "TRSTR_KEYBIND_RSTICKD"
+msgid "Right Stick (Down)"
+msgstr "Controle direito (baixo)"
+
+#: settingsmenu.cpp:155
+msgctxt "TRSTR_KEYBIND_LTRIGGER"
+msgid "Left Trigger"
+msgstr "Gatilho esquerdo"
+
+#: settingsmenu.cpp:157
+msgctxt "TRSTR_KEYBIND_RTRIGGER"
+msgid "Right Trigger"
+msgstr "Gatilho direito"
+
+#: settingsmenu.cpp:162
+msgctxt "TRSTR_KEYBIND_JOYBTTNFMT"
+#, c-format
+msgid "Joy Button %d"
+msgstr "Botão do joystick %d"
+
+#: settingsmenu.cpp:187
+msgctxt "TRSTR_KEYBIND_JOYHATFMT"
+#, c-format
+msgid "Joy Hat %d:%c"
+msgstr "Joy Pad %d:%c"
+
+#: settingsmenu.cpp:192
+msgctxt "TRSTR_KEYBIND_JOYAXISFMT"
+#, c-format
+msgid "Joy Axis %d%c"
+msgstr "Eixo do joystick %d%c"
+
+#: settingsmenu.cpp:592
+msgctxt "TRSTR_KEYBIND_KEYPROMPT"
+#, c-format
+#  Displays this message when waiting for an input to bind to an action
+msgid "Press key or joystick button for \"%s\""
+msgstr "Aperte a tecla ou botão do joystick para “%s”"
+
+#: settingsmenu.cpp:1033
+msgctxt "TRSTR_KEYBIND_TITLE"
+#  Window title
+msgid "Key bindings"
+msgstr "Vínculos de tecla"
+
+#: settingsmenu.cpp:1078
+msgctxt "TRSTR_KEYBIND_RESET"
+msgid "Reset defaults"
+msgstr "Redefinir para padrões"
+
+#: settingsmenu.cpp:1079
+msgctxt "TRSTR_CANCEL"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: settingsmenu.cpp:1080
+msgctxt "TRSTR_ACCEPT"
+msgid "Accept"
+msgstr "Aceitar"
+
+#: settingsmenu.cpp:1086
+msgctxt "TRSTR_KEYBIND_INSTRUCT"
+msgid "Use left click to bind a slot, right click to clear its binding"
+msgstr "Clique com o botão esquerdo para vincular um espaço e com o botão direito para desvincular"
+
+#: settingsmenu.cpp:1089
+msgctxt "TRSTR_KEYBIND_CONFLICT"
+msgid "Warning: Same physical action bound to multiple slots"
+msgstr "Atenção: a mesma ação física está vinculada a mais de um espaço"
+
+#: settingsmenu.cpp:69
+msgctxt "TRSTR_KEYBIND_UP"
+msgid "Up"
+msgstr "Para cima"
+
+#: settingsmenu.cpp:70
+msgctxt "TRSTR_KEYBIND_LEFT"
+msgid "Left"
+msgstr "Para esquerda"
+
+#: settingsmenu.cpp:71
+msgctxt "TRSTR_KEYBIND_ACTION"
+msgid "Action"
+msgstr "Ação"
+
+#: settingsmenu.cpp:72
+msgctxt "TRSTR_KEYBIND_MENU"
+msgid "Menu"
+msgstr "Menu"
+
+#: settingsmenu.cpp:73
+msgctxt "TRSTR_KEYBIND_CANCEL"
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+#: settingsmenu.cpp:74
+msgctxt "TRSTR_KEYBIND_L"
+msgid "L"
+msgstr "L"
+
+#: settingsmenu.cpp:76
+msgctxt "TRSTR_KEYBIND_DOWN"
+msgid "Down"
+msgstr "Para baixo"
+
+#: settingsmenu.cpp:77
+msgctxt "TRSTR_KEYBIND_RIGHT"
+msgid "Right"
+msgstr "Para direita"
+
+#: settingsmenu.cpp:78
+msgctxt "TRSTR_KEYBIND_RUN"
+msgid "Run"
+msgstr "Correr"
+
+#: settingsmenu.cpp:79
+msgctxt "TRSTR_KEYBIND_DEACTIVATE"
+msgid "Deactivate"
+msgstr "Desativar"
+
+#: settingsmenu.cpp:80
+msgctxt "TRSTR_KEYBIND_ITEMS"
+msgid "Items"
+msgstr "Itens"
+
+#: settingsmenu.cpp:81
+msgctxt "TRSTR_KEYBIND_R"
+msgid "R"
+msgstr "R"

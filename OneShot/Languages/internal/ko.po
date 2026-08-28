@@ -1,0 +1,264 @@
+# MKXP internal strings (OneShot).
+msgid ""
+msgstr ""
+
+#: screen.cpp:51
+msgctxt "TRSTR_JOURNAL_TITLE"
+msgid "The Journal"
+msgstr "저널"
+
+#: settingsmenu.cpp:89
+msgctxt "TRSTR_KEYBIND_A"
+msgid "A Button"
+msgstr "A 버튼"
+
+#: settingsmenu.cpp:90
+msgctxt "TRSTR_KEYBIND_B"
+msgid "B Button"
+msgstr "B 버튼"
+
+#: settingsmenu.cpp:91
+msgctxt "TRSTR_KEYBIND_X"
+msgid "X Button"
+msgstr "X 버튼"
+
+#: settingsmenu.cpp:92
+msgctxt "TRSTR_KEYBIND_Y"
+msgid "Y Button"
+msgstr "Y 버튼"
+
+#: settingsmenu.cpp:93
+msgctxt "TRSTR_KEYBIND_BACK"
+msgid "Back Button"
+msgstr "뒤로 버튼"
+
+#: settingsmenu.cpp:94
+msgctxt "TRSTR_KEYBIND_GUIDE"
+msgid "Guide Button"
+msgstr "안내 버튼"
+
+#: settingsmenu.cpp:95
+msgctxt "TRSTR_KEYBIND_START"
+msgid "Start Button"
+msgstr "시작 버튼"
+
+#: settingsmenu.cpp:96
+msgctxt "TRSTR_KEYBIND_LSTICK"
+msgid "Left Stick"
+msgstr "왼쪽 스틱 "
+
+#: settingsmenu.cpp:97
+msgctxt "TRSTR_KEYBIND_RSTICK"
+msgid "Right Stick"
+msgstr "오른쪽 스틱"
+
+#: settingsmenu.cpp:98
+msgctxt "TRSTR_KEYBIND_LSHOULDER"
+msgid "Left Shoulder"
+msgstr "왼쪽 어깨"
+
+#: settingsmenu.cpp:99
+msgctxt "TRSTR_KEYBIND_RSHOULDER"
+msgid "Right Shoulder"
+msgstr "오른쪽 어깨"
+
+#: settingsmenu.cpp:100
+msgctxt "TRSTR_KEYBIND_PADU"
+msgid "D-Pad (Up)"
+msgstr "D-패드(위)"
+
+#: settingsmenu.cpp:101
+msgctxt "TRSTR_KEYBIND_PADD"
+msgid "D-Pad (Down)"
+msgstr "D-패드(아래)"
+
+#: settingsmenu.cpp:102
+msgctxt "TRSTR_KEYBIND_PADL"
+msgid "D-Pad (Left)"
+msgstr "D-패드(왼쪽)"
+
+#: settingsmenu.cpp:103
+msgctxt "TRSTR_KEYBIND_PADR"
+msgid "D-Pad (Right)"
+msgstr "D-패드(오른쪽)"
+
+#: settingsmenu.cpp:117
+msgctxt "TRSTR_KEYBIND_SHIFT"
+msgid "Shift"
+msgstr "Shift"
+
+#: settingsmenu.cpp:123
+msgctxt "TRSTR_KEYBIND_UNK"
+msgid "Unknown key"
+msgstr "알 수 없는 키"
+
+#: settingsmenu.cpp:125
+msgctxt "TRSTR_KEYBIND_KEYFMT"
+msgid "%s Key"
+msgstr "%s 키"
+
+#: settingsmenu.cpp:136
+msgctxt "TRSTR_KEYBIND_LSTICKL"
+msgid "Left Stick (Left)"
+msgstr "왼쪽 스틱(왼쪽)"
+
+#: settingsmenu.cpp:138
+msgctxt "TRSTR_KEYBIND_LSTICKR"
+msgid "Left Stick (Right)"
+msgstr "왼쪽 스틱(오른쪽)"
+
+#: settingsmenu.cpp:141
+msgctxt "TRSTR_KEYBIND_LSTICKU"
+msgid "Left Stick (Up)"
+msgstr "왼쪽 스틱(위)"
+
+#: settingsmenu.cpp:143
+msgctxt "TRSTR_KEYBIND_LSTICKD"
+msgid "Left Stick (Down)"
+msgstr "왼쪽 스틱(아래)"
+
+#: settingsmenu.cpp:146
+msgctxt "TRSTR_KEYBIND_RSTICKL"
+msgid "Right Stick (Left)"
+msgstr "오른쪽 스틱(왼쪽)"
+
+#: settingsmenu.cpp:148
+msgctxt "TRSTR_KEYBIND_RSTICKR"
+msgid "Right Stick (Right)"
+msgstr "오른쪽 스틱(오른쪽)"
+
+#: settingsmenu.cpp:151
+msgctxt "TRSTR_KEYBIND_RSTICKU"
+msgid "Right Stick (Up)"
+msgstr "오른쪽 스틱(위)"
+
+#: settingsmenu.cpp:153
+msgctxt "TRSTR_KEYBIND_RSTICKD"
+msgid "Right Stick (Down)"
+msgstr "오른쪽 스틱(아래)"
+
+#: settingsmenu.cpp:155
+msgctxt "TRSTR_KEYBIND_LTRIGGER"
+msgid "Left Trigger"
+msgstr "왼쪽 트리거 "
+
+#: settingsmenu.cpp:157
+msgctxt "TRSTR_KEYBIND_RTRIGGER"
+msgid "Right Trigger"
+msgstr "오른쪽 트리거"
+
+#: settingsmenu.cpp:162
+msgctxt "TRSTR_KEYBIND_JOYBTTNFMT"
+#, c-format
+msgid "Joy Button %d"
+msgstr "조이 버튼 %d"
+
+#: settingsmenu.cpp:187
+msgctxt "TRSTR_KEYBIND_JOYHATFMT"
+#, c-format
+msgid "Joy Hat %d:%c"
+msgstr "조이 모자 %d:%c"
+
+#: settingsmenu.cpp:192
+msgctxt "TRSTR_KEYBIND_JOYAXISFMT"
+#, c-format
+msgid "Joy Axis %d%c"
+msgstr "조이 축 %d%c"
+
+#: settingsmenu.cpp:592
+msgctxt "TRSTR_KEYBIND_KEYPROMPT"
+#, c-format
+#  Displays this message when waiting for an input to bind to an action
+msgid "Press key or joystick button for \"%s\""
+msgstr "\"%s\"에 대한 키 또는 조이스틱 버튼을 누르세요."
+
+#: settingsmenu.cpp:1033
+msgctxt "TRSTR_KEYBIND_TITLE"
+#  Window title
+msgid "Key bindings"
+msgstr "키 결합"
+
+#: settingsmenu.cpp:1078
+msgctxt "TRSTR_KEYBIND_RESET"
+msgid "Reset defaults"
+msgstr "기본 재설정"
+
+#: settingsmenu.cpp:1079
+msgctxt "TRSTR_CANCEL"
+msgid "Cancel"
+msgstr "취소"
+
+#: settingsmenu.cpp:1080
+msgctxt "TRSTR_ACCEPT"
+msgid "Accept"
+msgstr "허용"
+
+#: settingsmenu.cpp:1086
+msgctxt "TRSTR_KEYBIND_INSTRUCT"
+msgid "Use left click to bind a slot, right click to clear its binding"
+msgstr "슬롯을 결합하려면 왼쪽 클릭을 이용하고 결합을 지우려면 오른쪽 클릭을 이용하세요."
+
+#: settingsmenu.cpp:1089
+msgctxt "TRSTR_KEYBIND_CONFLICT"
+msgid "Warning: Same physical action bound to multiple slots"
+msgstr "경고: 같은 물리적 위치가 여러 슬롯에 결합되어 있습니다."
+
+#: settingsmenu.cpp:69
+msgctxt "TRSTR_KEYBIND_UP"
+msgid "Up"
+msgstr "위"
+
+#: settingsmenu.cpp:70
+msgctxt "TRSTR_KEYBIND_LEFT"
+msgid "Left"
+msgstr "왼쪽"
+
+#: settingsmenu.cpp:71
+msgctxt "TRSTR_KEYBIND_ACTION"
+msgid "Action"
+msgstr "동작"
+
+#: settingsmenu.cpp:72
+msgctxt "TRSTR_KEYBIND_MENU"
+msgid "Menu"
+msgstr "메뉴"
+
+#: settingsmenu.cpp:73
+msgctxt "TRSTR_KEYBIND_CANCEL"
+msgid "CANCEL"
+msgstr "취소"
+
+#: settingsmenu.cpp:74
+msgctxt "TRSTR_KEYBIND_L"
+msgid "L"
+msgstr "L"
+
+#: settingsmenu.cpp:76
+msgctxt "TRSTR_KEYBIND_DOWN"
+msgid "Down"
+msgstr "아래"
+
+#: settingsmenu.cpp:77
+msgctxt "TRSTR_KEYBIND_RIGHT"
+msgid "Right"
+msgstr "오른쪽"
+
+#: settingsmenu.cpp:78
+msgctxt "TRSTR_KEYBIND_RUN"
+msgid "Run"
+msgstr "뛰기"
+
+#: settingsmenu.cpp:79
+msgctxt "TRSTR_KEYBIND_DEACTIVATE"
+msgid "Deactivate"
+msgstr "비활성화"
+
+#: settingsmenu.cpp:80
+msgctxt "TRSTR_KEYBIND_ITEMS"
+msgid "Items"
+msgstr "아이템"
+
+#: settingsmenu.cpp:81
+msgctxt "TRSTR_KEYBIND_R"
+msgid "R"
+msgstr "R"

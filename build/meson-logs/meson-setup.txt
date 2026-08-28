@@ -1,0 +1,41 @@
+The Meson build system
+Version: 1.12.0
+Source dir: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z
+Build dir: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build
+Build type: native build
+Project name: ModShot
+Project version: 2.0.0
+C compiler for the host machine: cc (gcc 16.2.0 "cc (Rev3, Built by MSYS2 project) 16.2.0")
+C linker for the host machine: cc ld.bfd 2.47.20260726
+C++ compiler for the host machine: c++ (gcc 16.2.0 "c++ (Rev3, Built by MSYS2 project) 16.2.0")
+C++ linker for the host machine: c++ ld.bfd 2.47.20260726
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Program xxd found: YES (C:\Users\Qyxay\Desktop\onehsot\ModShot-mkxp-z\windows\build-mingw64\bin/xxd.exe)
+Program git found: YES (C:\msys64\usr\bin/git.exe)
+Found pkg-config: YES (C:\msys64\mingw64\bin/pkg-config.exe) 3.0.5
+Run-time dependency gl found: YES
+Run-time dependency zlib found: YES 1.3.0.zlib-ng
+Run-time dependency physfs found: YES 3.2.0
+Library iconv found: YES
+Run-time dependency uchardet found: YES 0.0.8
+Run-time dependency ogg found: YES 1.3.5
+Run-time dependency vorbis found: YES 1.3.7
+Run-time dependency vorbisfile found: YES 1.3.7
+Run-time dependency theora found: YES 1.2.0
+Run-time dependency libpng found: YES 1.6.43
+Run-time dependency libjpeg found: YES 3.0.2
+Run-time dependency pixman-1 found: YES 0.42.2
+Run-time dependency openal found: YES 1.23.1
+Run-time dependency sdl2 found: YES 2.30.3
+Run-time dependency sdl2_image found: YES 2.8.2
+Run-time dependency sdl2_ttf found: YES 2.22.0
+Run-time dependency sdl2_sound found: YES 2.0.2
+Library Secur32 found: YES
+Run-time dependency ruby-3.1 found: YES 3.1.0
+Configuring manifest.xml using configuration
+Configuring resource.rc using configuration
+Windows resource compiler: GNU windres (GNU Binutils) 2.47.20260726
+Build targets in project: 2
+
+Found ninja-1.13.2 at C:\msys64\mingw64\bin/ninja.exe

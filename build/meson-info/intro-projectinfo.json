@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "descriptive_name": "ModShot",
+  "license": [
+    "GPL-2.0 or later"
+  ],
+  "license_files": [],
+  "subproject_dir": "subprojects",
+  "subprojects": []
+}

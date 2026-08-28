@@ -1,0 +1,1 @@
+ruby 3.1.5p252 (2024-04-23 revision 1945f8dc0e) [x64-mingw64]

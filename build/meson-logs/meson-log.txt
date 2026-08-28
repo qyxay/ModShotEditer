@@ -1,0 +1,1049 @@
+Build started at 2026-08-27T21:09:04.784998
+Main binary: C:/msys64/mingw64/bin/python.exe
+Build Options: 
+Python system: Windows
+The Meson build system
+Version: 1.12.0
+Source dir: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z
+Build dir: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build
+Build type: native build
+Project name: ModShot
+Project version: 2.0.0
+-----------
+Detecting compiler via: `icl ""` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `cl /?` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `cc --version` -> 0
+stdout:
+cc (Rev3, Built by MSYS2 project) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: -cpp -x c -E -dM -
+-----
+-----------
+Detecting linker via: `cc -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils) 2.47.20260726
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 16.2.0
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Qyxay\AppData\Local\Temp\ccikux9g.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib --version -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+-----------
+Sanity check compiler command line: cc -D_FILE_OFFSET_BITS=64 -o sanity_check_for_c.exe sanity_check_for_c.c -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Sanity check built target output for host machine c compiler
+ -- Running test binary command:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_c.exe
+-----------
+Sanity check: `C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_c.exe` -> 0
+ -- stdout:
+ 
+ -- stderr:
+ 
+ -- returncode: 0
+C compiler for the host machine: cc (gcc 16.2.0 "cc (Rev3, Built by MSYS2 project) 16.2.0")
+C linker for the host machine: cc ld.bfd 2.47.20260726
+-----------
+Detecting archiver via: `gcc-ar --version` -> 0
+stdout:
+GNU ar (GNU Binutils) 2.47.20260726
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+-----------
+-----------
+Detecting compiler via: `icl ""` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `cl /?` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `c++ --version` -> 0
+stdout:
+c++ (Rev3, Built by MSYS2 project) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: -cpp -x c++ -E -dM -
+-----
+-----------
+Detecting linker via: `c++ -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils) 2.47.20260726
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 16.2.0
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Qyxay\AppData\Local\Temp\ccfeqSLW.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib --version -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+-----------
+Sanity check compiler command line: c++ -D_FILE_OFFSET_BITS=64 -o sanity_check_for_cpp.exe sanity_check_for_cpp.cpp -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Sanity check built target output for host machine cpp compiler
+ -- Running test binary command:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_cpp.exe
+-----------
+Sanity check: `C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_cpp.exe` -> 0
+ -- stdout:
+ 
+ -- stderr:
+ 
+ -- returncode: 0
+C++ compiler for the host machine: c++ (gcc 16.2.0 "c++ (Rev3, Built by MSYS2 project) 16.2.0")
+C++ linker for the host machine: c++ ld.bfd 2.47.20260726
+-----------
+Detecting compiler via: `icl ""` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `cl /?` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `cc --version` -> 0
+stdout:
+cc (Rev3, Built by MSYS2 project) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: -cpp -x c -E -dM -
+-----
+-----------
+Detecting linker via: `cc -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils) 2.47.20260726
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 16.2.0
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Qyxay\AppData\Local\Temp\ccgYsaho.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib --version -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+-----------
+Sanity check compiler command line: cc -D_FILE_OFFSET_BITS=64 -o sanity_check_for_c.exe sanity_check_for_c.c -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Sanity check built target output for build machine c compiler
+ -- Running test binary command:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_c.exe
+-----------
+Sanity check: `C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_c.exe` -> 0
+ -- stdout:
+ 
+ -- stderr:
+ 
+ -- returncode: 0
+C compiler for the build machine: cc (gcc 16.2.0 "cc (Rev3, Built by MSYS2 project) 16.2.0")
+C linker for the build machine: cc ld.bfd 2.47.20260726
+-----------
+Detecting compiler via: `icl ""` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `cl /?` -> [WinError 2] 系统找不到指定的文件。
+-----------
+Detecting compiler via: `c++ --version` -> 0
+stdout:
+c++ (Rev3, Built by MSYS2 project) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: -cpp -x c++ -E -dM -
+-----
+-----------
+Detecting linker via: `c++ -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils) 2.47.20260726
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 16.2.0
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Qyxay\AppData\Local\Temp\ccShhIP5.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib --version -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+-----------
+Sanity check compiler command line: c++ -D_FILE_OFFSET_BITS=64 -o sanity_check_for_cpp.exe sanity_check_for_cpp.cpp -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Sanity check built target output for build machine cpp compiler
+ -- Running test binary command:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_cpp.exe
+-----------
+Sanity check: `C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/sanity_check_for_cpp.exe` -> 0
+ -- stdout:
+ 
+ -- stderr:
+ 
+ -- returncode: 0
+C++ compiler for the build machine: c++ (gcc 16.2.0 "c++ (Rev3, Built by MSYS2 project) 16.2.0")
+C++ linker for the build machine: c++ ld.bfd 2.47.20260726
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Running command: C:\msys64\usr\bin/sh.exe -c "echo $MKXPZ_PREFIX"
+--- stdout ---
+C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64
+
+--- stderr ---
+
+
+Program xxd found: YES (C:\Users\Qyxay\Desktop\onehsot\ModShot-mkxp-z\windows\build-mingw64\bin/xxd.exe)
+Program git found: YES (C:\msys64\usr\bin/git.exe)
+Running command: C:\msys64\usr\bin/git.exe rev-parse HEAD
+--- stdout ---
+9388a25c0f2ca182eb7fa340256cbe5be07d008d
+
+--- stderr ---
+
+
+Pkg-config binary missing from cross or native file, or env var undefined.
+Trying a default Pkg-config fallback at pkg-config
+Found pkg-config: YES (C:\msys64\mingw64\bin/pkg-config.exe) 3.0.5
+Determining dependency 'gl' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion gl` -> 1
+stderr:
+Package gl was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gl.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'gl' not found
+-----------
+Run-time dependency gl found: YES
+Determining dependency 'zlib' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion zlib` -> 0
+stdout:
+1.3.0.zlib-ng
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags zlib` -> 0
+stdout:
+-DWITH_GZFILEOP
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs zlib` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lz
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs zlib` -> 0
+stdout:
+-lz
+-----------
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpkm2c2by4
+Code:
+
+        #include<stddef.h>
+        #include<stdio.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        }
+-----------
+Command line: `c++ C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpkm2c2by4/testfile.cpp -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpkm2c2by4/output.exe -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE -fpermissive` -> 0
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpne8qbc0r
+Code:
+
+-----------
+Command line: `c++ C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpne8qbc0r/testfile.cpp -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpne8qbc0r/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE -fpermissive --print-search-dirs` -> 0
+stdout:
+install: C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/
+programs: =C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/
+libraries: =C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/x86_64-w64-mingw32/16.2.0/;C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/;C:/msys64/mingw64/bin/../../mingw64/lib/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../../mingw64/lib/../lib/;C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../;C:/msys64/mingw64/bin/../../mingw64/lib/
+-----------
+Run-time dependency zlib found: YES 1.3.0.zlib-ng
+Determining dependency 'physfs' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion physfs` -> 0
+stdout:
+3.2.0
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags physfs` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs physfs` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lphysfs
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs physfs` -> 0
+stdout:
+-lphysfs
+-----------
+Run-time dependency physfs found: YES 3.2.0
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpaob8sv06
+Code:
+
+        #include<stddef.h>
+        #include<stdio.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        }
+-----------
+Command line: `cc C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpaob8sv06/testfile.c -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpaob8sv06/output.exe -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE` -> 0
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpukr6eahk
+Code:
+
+-----------
+Command line: `cc C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpukr6eahk/testfile.c -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpukr6eahk/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE --print-search-dirs` -> 0
+stdout:
+install: C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/
+programs: =C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/
+libraries: =C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/x86_64-w64-mingw32/16.2.0/;C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/;C:/msys64/mingw64/bin/../../mingw64/lib/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../../mingw64/lib/../lib/;C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../;C:/msys64/mingw64/bin/../../mingw64/lib/
+-----------
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmp91q8mh7t
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmp91q8mh7t/testfile.c -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmp91q8mh7t/output.exe -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libiconv.a -Wl,--allow-shlib-undefined` -> 0
+Library iconv found: YES
+Determining dependency 'uchardet' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion uchardet` -> 0
+stdout:
+0.0.8
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags uchardet` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/uchardet
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs uchardet` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -luchardet -lstdc++
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs uchardet` -> 0
+stdout:
+-luchardet -lstdc++
+-----------
+Run-time dependency uchardet found: YES 0.0.8
+Determining dependency 'ogg' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion ogg` -> 0
+stdout:
+1.3.5
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags ogg` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs ogg` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -logg
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs ogg` -> 0
+stdout:
+-logg
+-----------
+Run-time dependency ogg found: YES 1.3.5
+Determining dependency 'vorbis' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion vorbis` -> 0
+stdout:
+1.3.7
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags vorbis` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs vorbis` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lvorbis -logg
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs vorbis` -> 0
+stdout:
+-lvorbis -logg
+-----------
+Run-time dependency vorbis found: YES 1.3.7
+Determining dependency 'vorbisfile' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion vorbisfile` -> 0
+stdout:
+1.3.7
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags vorbisfile` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs vorbisfile` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lvorbisfile -lvorbis -logg
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs vorbisfile` -> 0
+stdout:
+-lvorbisfile -lvorbis -logg
+-----------
+Run-time dependency vorbisfile found: YES 1.3.7
+Determining dependency 'theora' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion theora` -> 0
+stdout:
+1.2.0
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags theora` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs theora` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -ltheora -logg
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs theora` -> 0
+stdout:
+-ltheora -logg
+-----------
+Run-time dependency theora found: YES 1.2.0
+Determining dependency 'libpng' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion libpng` -> 0
+stdout:
+1.6.43
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags libpng` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/libpng16 -DWITH_GZFILEOP
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs libpng` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lpng16 -lm -lz
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs libpng` -> 0
+stdout:
+-lpng16 -lm -lz
+-----------
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpxy_0a2qj
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `c++ C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpxy_0a2qj/testfile.cpp -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpxy_0a2qj/output.exe -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE -fpermissive -lm -Wl,--allow-shlib-undefined` -> 0
+Run-time dependency libpng found: YES 1.6.43
+Determining dependency 'libjpeg' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion libjpeg` -> 0
+stdout:
+3.0.2
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags libjpeg` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs libjpeg` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -ljpeg
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs libjpeg` -> 0
+stdout:
+-ljpeg
+-----------
+Run-time dependency libjpeg found: YES 3.0.2
+Determining dependency 'pixman-1' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion pixman-1` -> 0
+stdout:
+0.42.2
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags pixman-1` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/pixman-1
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs pixman-1` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lpixman-1
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs pixman-1` -> 0
+stdout:
+-lpixman-1
+-----------
+Run-time dependency pixman-1 found: YES 0.42.2
+Determining dependency 'openal' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion openal` -> 0
+stdout:
+1.23.1
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags openal` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/AL -DAL_LIBTYPE_STATIC
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs openal` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lOpenAL32 -lwinmm -latomic -lm
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs openal` -> 0
+stdout:
+-lOpenAL32 -lwinmm -latomic -lm
+-----------
+Run-time dependency openal found: YES 1.23.1
+Determining dependency 'sdl2' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion sdl2` -> 0
+stdout:
+2.30.3
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags sdl2` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2 -Dmain=SDL_main
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs sdl2` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs sdl2` -> 0
+stdout:
+-lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8
+-----------
+Run-time dependency sdl2 found: YES 2.30.3
+Determining dependency 'SDL2_image' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion SDL2_image` -> 0
+stdout:
+2.8.2
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags SDL2_image` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2 -Dmain=SDL_main
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs SDL2_image` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lSDL2_image -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs SDL2_image` -> 0
+stdout:
+-lSDL2_image -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8
+-----------
+Run-time dependency sdl2_image found: YES 2.8.2
+Determining dependency 'SDL2_ttf' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion SDL2_ttf` -> 0
+stdout:
+2.22.0
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags SDL2_ttf` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2 -Dmain=SDL_main -IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/harfbuzz -IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/freetype2 -IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/libpng16 -DWITH_GZFILEOP
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs SDL2_ttf` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lSDL2_ttf -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8 -lharfbuzz -lm -pthread -lfreetype -lpng16 -lm -lz
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs SDL2_ttf` -> 0
+stdout:
+-lSDL2_ttf -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8 -lharfbuzz -lm -pthread -lfreetype -lpng16 -lm -lz
+-----------
+Run-time dependency sdl2_ttf found: YES 2.22.0
+Determining dependency 'SDL2_sound' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion SDL2_sound` -> 0
+stdout:
+2.0.2
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --cflags SDL2_sound` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2 -Dmain=SDL_main
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs SDL2_sound` -> 0
+stdout:
+-LC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -lSDL2_sound -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --static --libs SDL2_sound` -> 0
+stdout:
+-lSDL2_sound -lmingw32 -mwindows -lSDL2main -lSDL2 -lm -lkernel32 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lversion -luuid -ladvapi32 -lsetupapi -lshell32 -ldinput8
+-----------
+Run-time dependency sdl2_sound found: YES 2.0.2
+Running compile:
+Working directory:  C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpn5o59j84
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpn5o59j84/testfile.c -o C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/build/meson-private/tmpn5o59j84/output.exe -D_FILE_OFFSET_BITS=64 -O0 -U_FORTIFY_SOURCE -lSecur32 -Wl,--allow-shlib-undefined` -> 0
+Library Secur32 found: YES
+Determining dependency 'ruby-3.1' with pkg-config executable 'C:\\msys64\\mingw64\\bin/pkg-config.exe'
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --modversion ruby-3.1` -> 0
+stdout:
+3.1.0
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --cflags ruby-3.1` -> 0
+stdout:
+-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/ruby-3.1.0/x64-mingw64 -IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/ruby-3.1.0
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --libs ruby-3.1` -> 0
+stdout:
+-L/c/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -Wl,--enable-auto-image-base,--enable-auto-import -lx64-msvcrt-ruby310 -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --libs ruby-3.1` -> 0
+stdout:
+-L/c/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib -Wl,--enable-auto-image-base,--enable-auto-import -lx64-msvcrt-ruby310 -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt
+-----------
+Run-time dependency ruby-3.1 found: YES 3.1.0
+Configuring manifest.xml using configuration
+Configuring resource.rc using configuration
+Windows resource compiler: GNU windres (GNU Binutils) 2.47.20260726
+Build targets in project: 2
+
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir zlib` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables zlib` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+symbol_prefix
+libdir
+sharedlibdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir physfs` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables physfs` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir uchardet` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables uchardet` -> 0
+stdout:
+pcfiledir
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir ogg` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables ogg` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir vorbis` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables vorbis` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir vorbisfile` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables vorbisfile` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir theora` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables theora` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir libpng` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables libpng` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir libjpeg` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables libjpeg` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir pixman-1` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables pixman-1` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir openal` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables openal` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir sdl2` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables sdl2` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir SDL2_image` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables SDL2_image` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir SDL2_ttf` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables SDL2_ttf` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir SDL2_sound` -> 0
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --print-variables SDL2_sound` -> 0
+stdout:
+pcfiledir
+prefix
+exec_prefix
+libdir
+includedir
+-----------
+env[PKG_CONFIG_PATH]: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/pkgconfig
+env[PKG_CONFIG]: C:\msys64\mingw64\bin/pkg-config.exe
+-----------
+Called: `C:\msys64\mingw64\bin/pkg-config.exe --variable=bindir ruby-3.1` -> 0
+stdout:
+C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/bin
+-----------
+Got pkg-config variable bindir : C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/bin
+Found ninja-1.13.2 at C:\msys64\mingw64\bin/ninja.exe
+Running compile:
+Working directory:  C:/Users/Qyxay/AppData/Local/Temp/tmpneeas9jy
+Code:
+int i = static_cast<int>(0);
+-----------
+Command line: `c++ C:/Users/Qyxay/AppData/Local/Temp/tmpneeas9jy/testfile.cpp -o C:/Users/Qyxay/AppData/Local/Temp/tmpneeas9jy/output.obj -D_FILE_OFFSET_BITS=64 -c -std=c++14` -> 0
+Compiler accepts -std=c++14: YES
+Failed to guess install tag for install script: sh C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/install.sh 0  
+Command line for building ['modshot.exe'] is long, using a response file
+Failed to guess install tag for install script: sh C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/install.sh 0  
+Failed to guess install tag for install script: sh C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/install.sh 0  
+Failed to guess install tag for install script: sh C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/install.sh 0  

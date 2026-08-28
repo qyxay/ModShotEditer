@@ -1,0 +1,411 @@
+[
+  {
+    "name": "gl",
+    "type": "system",
+    "version": "unknown",
+    "compile_args": [],
+    "link_args": [
+      "-lopengl32"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": []
+  },
+  {
+    "name": "zlib",
+    "type": "pkgconfig",
+    "version": "1.3.0.zlib-ng",
+    "compile_args": [
+      "-DWITH_GZFILEOP"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libz.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_zlib"
+    ]
+  },
+  {
+    "name": "physfs",
+    "type": "pkgconfig",
+    "version": "3.2.0",
+    "compile_args": [],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libphysfs.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_physfs"
+    ]
+  },
+  {
+    "name": "uchardet",
+    "type": "pkgconfig",
+    "version": "0.0.8",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/uchardet"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libuchardet.a",
+      "C:/msys64/mingw64/lib/libstdc++.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_uchardet"
+    ]
+  },
+  {
+    "name": "ogg",
+    "type": "pkgconfig",
+    "version": "1.3.5",
+    "compile_args": [],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libogg.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_ogg"
+    ]
+  },
+  {
+    "name": "vorbis",
+    "type": "pkgconfig",
+    "version": "1.3.7",
+    "compile_args": [],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libvorbis.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libogg.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_vorbis"
+    ]
+  },
+  {
+    "name": "vorbisfile",
+    "type": "pkgconfig",
+    "version": "1.3.7",
+    "compile_args": [],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libvorbisfile.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libvorbis.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libogg.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_vorbisfile"
+    ]
+  },
+  {
+    "name": "theora",
+    "type": "pkgconfig",
+    "version": "1.2.0",
+    "compile_args": [],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libtheora.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libogg.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_theora"
+    ]
+  },
+  {
+    "name": "libpng",
+    "type": "pkgconfig",
+    "version": "1.6.43",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/libpng16",
+      "-DWITH_GZFILEOP"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libpng16.a",
+      "-lm",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libz.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_png"
+    ]
+  },
+  {
+    "name": "libjpeg",
+    "type": "pkgconfig",
+    "version": "3.0.2",
+    "compile_args": [],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libjpeg.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_jpeg"
+    ]
+  },
+  {
+    "name": "pixman-1",
+    "type": "pkgconfig",
+    "version": "0.42.2",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/pixman-1"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libpixman-1.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_pixman"
+    ]
+  },
+  {
+    "name": "openal",
+    "type": "pkgconfig",
+    "version": "1.23.1",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/AL",
+      "-DAL_LIBTYPE_STATIC"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libOpenAL32.a",
+      "C:/msys64/mingw64/lib/libwinmm.a",
+      "C:/msys64/mingw64/lib/libatomic.a",
+      "-lm"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_openal"
+    ]
+  },
+  {
+    "name": "sdl2",
+    "type": "pkgconfig",
+    "version": "2.30.3",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2",
+      "-Dmain=SDL_main"
+    ],
+    "link_args": [
+      "C:/msys64/mingw64/lib/libmingw32.a",
+      "-mwindows",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2main.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2.a",
+      "-lm",
+      "C:/msys64/mingw64/lib/libkernel32.a",
+      "C:/msys64/mingw64/lib/libuser32.a",
+      "C:/msys64/mingw64/lib/libgdi32.a",
+      "C:/msys64/mingw64/lib/libwinmm.a",
+      "C:/msys64/mingw64/lib/libimm32.a",
+      "C:/msys64/mingw64/lib/libole32.a",
+      "C:/msys64/mingw64/lib/liboleaut32.a",
+      "C:/msys64/mingw64/lib/libversion.a",
+      "C:/msys64/mingw64/lib/libuuid.a",
+      "C:/msys64/mingw64/lib/libadvapi32.a",
+      "C:/msys64/mingw64/lib/libsetupapi.a",
+      "C:/msys64/mingw64/lib/libshell32.a",
+      "C:/msys64/mingw64/lib/libdinput8.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_sdl2"
+    ]
+  },
+  {
+    "name": "SDL2_image",
+    "type": "pkgconfig",
+    "version": "2.8.2",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2",
+      "-Dmain=SDL_main"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2_image.a",
+      "C:/msys64/mingw64/lib/libmingw32.a",
+      "-mwindows",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2main.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2.a",
+      "-lm",
+      "C:/msys64/mingw64/lib/libkernel32.a",
+      "C:/msys64/mingw64/lib/libuser32.a",
+      "C:/msys64/mingw64/lib/libgdi32.a",
+      "C:/msys64/mingw64/lib/libwinmm.a",
+      "C:/msys64/mingw64/lib/libimm32.a",
+      "C:/msys64/mingw64/lib/libole32.a",
+      "C:/msys64/mingw64/lib/liboleaut32.a",
+      "C:/msys64/mingw64/lib/libversion.a",
+      "C:/msys64/mingw64/lib/libuuid.a",
+      "C:/msys64/mingw64/lib/libadvapi32.a",
+      "C:/msys64/mingw64/lib/libsetupapi.a",
+      "C:/msys64/mingw64/lib/libshell32.a",
+      "C:/msys64/mingw64/lib/libdinput8.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_sdl2_image"
+    ]
+  },
+  {
+    "name": "SDL2_ttf",
+    "type": "pkgconfig",
+    "version": "2.22.0",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2",
+      "-Dmain=SDL_main",
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/harfbuzz",
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/freetype2",
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/libpng16",
+      "-DWITH_GZFILEOP"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2_ttf.a",
+      "C:/msys64/mingw64/lib/libmingw32.a",
+      "-mwindows",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2main.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2.a",
+      "-lm",
+      "C:/msys64/mingw64/lib/libkernel32.a",
+      "C:/msys64/mingw64/lib/libuser32.a",
+      "C:/msys64/mingw64/lib/libgdi32.a",
+      "C:/msys64/mingw64/lib/libwinmm.a",
+      "C:/msys64/mingw64/lib/libimm32.a",
+      "C:/msys64/mingw64/lib/libole32.a",
+      "C:/msys64/mingw64/lib/liboleaut32.a",
+      "C:/msys64/mingw64/lib/libversion.a",
+      "C:/msys64/mingw64/lib/libuuid.a",
+      "C:/msys64/mingw64/lib/libadvapi32.a",
+      "C:/msys64/mingw64/lib/libsetupapi.a",
+      "C:/msys64/mingw64/lib/libshell32.a",
+      "C:/msys64/mingw64/lib/libdinput8.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libharfbuzz.a",
+      "-pthread",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libfreetype.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libpng16.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libz.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_sdl2_ttf"
+    ]
+  },
+  {
+    "name": "SDL2_sound",
+    "type": "pkgconfig",
+    "version": "2.0.2",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/SDL2",
+      "-Dmain=SDL_main"
+    ],
+    "link_args": [
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2_sound.a",
+      "C:/msys64/mingw64/lib/libmingw32.a",
+      "-mwindows",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2main.a",
+      "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libSDL2.a",
+      "-lm",
+      "C:/msys64/mingw64/lib/libkernel32.a",
+      "C:/msys64/mingw64/lib/libuser32.a",
+      "C:/msys64/mingw64/lib/libgdi32.a",
+      "C:/msys64/mingw64/lib/libwinmm.a",
+      "C:/msys64/mingw64/lib/libimm32.a",
+      "C:/msys64/mingw64/lib/libole32.a",
+      "C:/msys64/mingw64/lib/liboleaut32.a",
+      "C:/msys64/mingw64/lib/libversion.a",
+      "C:/msys64/mingw64/lib/libuuid.a",
+      "C:/msys64/mingw64/lib/libadvapi32.a",
+      "C:/msys64/mingw64/lib/libsetupapi.a",
+      "C:/msys64/mingw64/lib/libshell32.a",
+      "C:/msys64/mingw64/lib/libdinput8.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "dep_sdl2_sound"
+    ]
+  },
+  {
+    "name": "ruby-3.1",
+    "type": "pkgconfig",
+    "version": "3.1.0",
+    "compile_args": [
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/ruby-3.1.0/x64-mingw64",
+      "-IC:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/include/ruby-3.1.0"
+    ],
+    "link_args": [
+      "-Wl,--enable-auto-image-base,--enable-auto-import",
+      "c:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/windows/build-mingw64/lib/libx64-msvcrt-ruby310.dll.a",
+      "C:/msys64/mingw64/lib/libshell32.a",
+      "C:/msys64/mingw64/lib/libws2_32.a",
+      "C:/msys64/mingw64/lib/libiphlpapi.a",
+      "C:/msys64/mingw64/lib/libimagehlp.a",
+      "C:/msys64/mingw64/lib/libshlwapi.a",
+      "C:/msys64/mingw64/lib/libbcrypt.a"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": []
+  }
+]
