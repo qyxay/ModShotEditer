@@ -17,9 +17,9 @@ require "rxdata_stub"
 require "json"
 require "fileutils"
 
-GAME_DIR = "C:/Program Files (x86)/Steam/steamapps/common/OneShot"
+GAME_DIR = "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot"
 # 注意: mod 目录必须在游戏目录内 (modshot.json 的 patches 相对 gameFolder 解析)
-MOD_DIR  = GAME_DIR + "/mods/MyMod/Data"
+MOD_DIR  = GAME_DIR + "/mods/mod/Data"
 
 WRITE_GAME = ARGV.delete("--game")
 DATA_DIR = WRITE_GAME ? "#{GAME_DIR}/Data" : MOD_DIR
