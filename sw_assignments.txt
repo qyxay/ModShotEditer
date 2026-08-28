@@ -1,0 +1,80 @@
+# OneShot (ModShot) — $game_switches 赋值位置全量清单
+# 生成时间: 2026-08-28  (扫描 xscripts/*.rb + Data/Map*.rxdata + CommonEvents.rxdata)
+
+## 0. 唯一赋值入口 (所有赋值都经过这里)
+xscripts/0003_Game_Switches.rb:33  def []=(switch_id, value)  ->  @data[switch_id] = value
+  - 读取: 0003_Game_Switches.rb:19 def [](switch_id)
+  - 事件解释器(Interpreter)的 code121 也最终调用这里
+  - => 想在 mod 里 hook 所有开关赋值, 只需 monkey-patch 这个方法
+
+## 1. 脚本层直接赋值 (xscripts/*.rb)
+0045_Window_Item.rb:184        $game_switches[1]   = true    (使用物品后)
+0054_Window_Settings.rb:51     $game_switches[251] = true    (设置窗口-语言)
+0054_Window_Settings.rb:53     $game_switches[251] = false
+0054_Window_Settings.rb:57     $game_switches[252] = true    (设置窗口-音量?)
+0054_Window_Settings.rb:59     $game_switches[252] = false
+0054_Window_Settings.rb:63     $game_switches[253] = true    (设置窗口-全屏?)
+0054_Window_Settings.rb:65     $game_switches[253] = false
+0054_Window_Settings.rb:384    $game_switches[251] = false
+0054_Window_Settings.rb:386    $game_switches[251] = true
+0054_Window_Settings.rb:396    $game_switches[252] = false
+0054_Window_Settings.rb:398    $game_switches[252] = true
+0054_Window_Settings.rb:408    $game_switches[253] = false
+0054_Window_Settings.rb:410    $game_switches[253] = true
+0077_Scene_Title.rb:187        $game_switches[157] = false   (标题 "..." 记忆菜单)
+0077_Scene_Title.rb:194        $game_switches[157] = true    (点 "..." 时)
+
+## 2. 事件层 code121 (开关操作) — perma 段 151~175 详情
+### 152 = Beat the game once (二周目入口)
+  Map11  ev30  [1]   152=0
+  Map11  ev99  [2]   152=0
+  Map60  ev12 pg2 [171]  152=0   (山顶放太阳结局流程)
+  Map61  ev3   [102] 152=0
+  Map258 ev1 'niko reflection' [70]  152=1   (!!! 游戏内唯一设 152=1 的地方: 记忆场景开场)
+  Map262 ev6   [1]   152=0
+### 153 = Smashed bulb once (砸灯泡结局)
+  Map61  ev3   [103] 153=0
+  Map262 ev6   [2]   153=0
+### 154 = Saved world once (放太阳结局)
+  Map11  ev30  [2]   154=0
+  Map60  ev12 pg2 [172]  154=0
+### 155 (Rue 对话系列)
+  Map91  ev89  [0]   155=0
+  Map137 ev9   [19]  155=0
+  Map232 ev89  [0]   155=0
+  Map262 ev6   [3]   155=0
+### 156
+  Map137 ev12  [47]  156=0
+### 160 = Beat Solstice (至日线通关)
+  Map255 ev3  [164]  160=0   (Last room 告别结局清零)
+  Map262 ev11 [0]    160=0
+  => 没有任何代码设置 160=1 ! 只能由外部(mod/存档编辑器)写入
+
+## 3. 事件层 code121 — 其它重点开关
+### 22 (38处, 最热: 谜题解决/NPC状态)
+  Map2 pc, Map43 calamus, Map67, Map101-102, Map167/173/174/175 puzzle,
+  Map196, Map206 boat, Map208 NIKO STARTS HERE, Map210, Map221-222, Map225,
+  Map228 plight, Map230, Map237 kip, Map239, Map243 silver trigger, Map248, Map257 ...
+### 73 (21处: 照片)
+  Map85 npc_camera, Map134/235 photo
+### 124 (14处: 日记/journal)
+  Map106/108/218(0/1切换), Map119, Map221, CE49 'Translated Journal'
+### 190 (9处: x room time / 冻结卧室状态)
+  Map86/228 'not x room time'=1, Map97/229 'x room time'=0/1, Map245, CE41
+### 198 (3处: checkpoint save 标记)
+  CE41 'Load Save' =1, CE42 'checkpoint save' =0/=1
+### 196 (1处)
+  CE34 'QUIT GAME' [18] =0  (退出时记录进度)
+### 317 (2处: 世界机器中心方块通过后清零)
+  Map131 ev9 pg3, Map242 ev9 pg3 (cmds=317 那个)
+### 323 (1处)
+  Map259 ev7 (Post Encounter) =0
+### 1 (保存世界后)
+  CE0 'Use Item' [340] =1, 0045_Window_Item.rb:184 =true
+### 251/252/253 (settings), 176-250 (梦/冻结/checkpoint 段), 300-325 (结局/世界机器段)
+
+## 4. 归纳
+- 事件层脚本调用(code 355/655)中没有 `$game_switches[x]=y` 形式的简单赋值(都走 code121 或复杂表达式)
+- perma 段 151-175 在事件里几乎全是 =0 清理, 唯一 =1 的是 Map258 的 152
+- 151-175 的持久化: 由 p-settings.dat (perma_flags) 在 load_perma_flags 时批量写入 $game_switches
+- 160(Beat Solstice) 无任何 =1 赋值 -> 我们的 mod 直接写 p-settings 是唯一途径
