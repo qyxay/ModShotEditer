@@ -1,0 +1,4 @@
+OK 2026-08-28 16:31:34 +0800
+sw152(Beat game once)=true  sw154(Saved world)=true  sw160(Beat Solstice)=true
+pset=C:\Users\Qyxay\AppData\Roaming\Oneshot/p-settings.dat
+fake_save_deleted=false

@@ -1,3 +1,2 @@
-mod loaded at 2026-08-28 15:41:59 +0800
+mod loaded at 2026-08-28 16:31:34 +0800
 Platform: Windows  Language: zh_CN
-data_directory = C:\Users\Qyxay\AppData\Roaming\Oneshot\

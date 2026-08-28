@@ -10,7 +10,10 @@
 #        152=true  → 新游戏直接"床醒来"进 Map2(Start) = 二周目/Solstice 线
 #      - 开关154 = "Saved world once"(放太阳结局)  开关160 = "Beat Solstice"(通至日)
 #      - save_progress.oneshot(假存档) 存在与否影响结局后的冻结/继续逻辑
-#    本脚本启动时把 152/154 置位并删假存档, 模拟"一周目已通关", 从而直进至日线
+#    本脚本启动时把 152/154/160 置位并删假存档, 模拟"一周目+二周目均已通关", 从而:
+#      - 新游戏直接从"床醒来"进二周目(至日线)
+#      - 标题出现 "..." 记忆菜单(需 160&&152, 点它进 Last room 记忆场景)
+#      - niko 立绘切换为"记忆"形态(0000_RPG.rb 中 160 控制)
 # ============================================================
 
 begin
@@ -42,6 +45,7 @@ begin
   # ---- 2) 置位 Solstice 关键开关 ----
   perma_flags[152 - 151] = true   # 152 "Beat the game once" → 二周目入口(核心)
   perma_flags[154 - 151] = true   # 154 "Saved world once"  → 放太阳结局(前置)
+  perma_flags[160 - 151] = true   # 160 "Beat Solstice"     → 直接完成2周目(至日线通关标记)
   # perma_flags[153 - 151] = true # (可选)153 "Smashed bulb once"
 
   # ---- 3) 写回 p-settings.dat(格式与原版 write_perma_flags 完全一致) ----
