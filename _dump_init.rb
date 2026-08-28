@@ -1,11 +1,17 @@
 # 读 System.rxdata 的 start_map_id + dump Map001/Map002 INIT 事件
 $LOAD_PATH.unshift 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/rmtools'
 require 'rxdata_stub'
+module RPG
+  class System
+    class Words; end
+    class TestBattler; end
+  end
+end
 DATA_DIR = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
 
 sys = Marshal.load(File.binread("#{DATA_DIR}/System.rxdata"))
-puts "start_map_id=#{sys.start_map_id} start_x=#{sys.start_x} start_y=#{sys.start_y}"
-puts "title_name=#{sys.title_name}"
+puts "start_map_id=#{sys.instance_variable_get(:@start_map_id)} start=#{sys.instance_variable_get(:@start_x)},#{sys.instance_variable_get(:@start_y)}"
+puts "title_name=#{sys.instance_variable_get(:@title_name)}"
 
 def dump_all_events(file, label)
   m = Marshal.load(File.binread("#{DATA_DIR}/#{file}"))
@@ -16,7 +22,8 @@ def dump_all_events(file, label)
     ev.pages.each_with_index do |pg, pi|
       list = pg.instance_variable_get(:@list)
       cond = pg.instance_variable_get(:@condition)
-      sw = cond.respond_to?(:switch1_id) ? "sw1=#{cond.switch1_id}#{cond.switch1_valid ? '(valid)' : ''} sw2=#{cond.switch2_id}#{cond.switch2_valid ? '(valid)' : ''} var=#{cond.variable_id}#{cond.variable_valid ? '(valid)' : ''}=#{cond.variable_value} selfsw=#{cond.self_switch_valid ? cond.self_switch_ch : '-'}" : '?'
+      g = lambda { |k| cond.respond_to?(k) ? cond.send(k) : (cond.instance_variables.include?("@#{k}".to_sym) ? cond.instance_variable_get("@#{k}") : '?') }
+      sw = "sw1=#{g.call(:switch1_id)}#{g.call(:switch1_valid) ? '(v)' : ''} sw2=#{g.call(:switch2_id)}#{g.call(:switch2_valid) ? '(v)' : ''} var=#{g.call(:variable_id)}#{g.call(:variable_valid) ? '(v)' : ''}=#{g.call(:variable_value)} selfsw=#{g.call(:self_switch_valid) ? g.call(:self_switch_ch) : '-'}"
       puts "  page#{pi} cond[#{sw}] cmds=#{list.size}"
       list.each_with_index do |cmd, ci|
         c = cmd.code; p = cmd.parameters
