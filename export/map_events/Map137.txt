@@ -1,0 +1,22 @@
+Map 137: rue  (40x40, tileset=16)
+
+  Event 1: Rue @ (22,20)
+  Event 2: EV002 @ (19,27)
+  Event 3: EV003 @ (20,27)
+  Event 4: indoor graphic @ (16,26)
+  Event 5: EV005 @ (19,25)
+  Event 6: EV006 @ (20,25)
+  Event 7: EV007 @ (19,20)
+    Page0: trigger=0  <face @niko There's no one here...>
+    Page1: trigger=0  <face @niko It's a big tree, with leaves!\>\nHaven't seen one of these since I was back home...>
+  Event 8: EV008 @ (20,20)
+    Page0: trigger=0  <face @niko There's no one here...>
+    Page1: trigger=0  <face @niko It's a big tree, with leaves!\>\nHaven't seen one of these since I was back home...>
+  Event 9: map events @ (14,20)
+    Page0: trigger=3  <face @niko_speak Whoa!\>\n\@niko \p? Did you see that fox just now?> | <face @niko_speak It just ran behind the tree...>
+    Page1: trigger=3  <face @rue_dark ...> | <face @rue_dark I'm sorry if you are looking for me.> | <face @rue_dark But I cannot talk to you.> | <face @rue_dark Not now...> | <face @niko Um...> | <face @rue_dark ...> | <face @rue_dark But... can you promise me something?> | <face @niko Huh?> | <face @rue_dark If... you can find a way to return...> | <face @rue_dark ...please do.> | <face @niko Er...\.\.\@niko2 What... do you mean by that?> | <face @niko ...\>\n\@niko_eyeclosed No reply...>
+  Event 10: EV010 @ (19,22)
+  Event 11: EV011 @ (20,22)
+  Event 12: EV012 @ (21,20)
+    Page0: trigger=0  <face @rue We will meet again.> | <face @niko ...?> | <face @rue_talk So you found a way back after all.> | <face @niko_speak Eh? \>\n\@niko But I've never been here before...> | <face @rue That means...> | <face @rue ...> | <face @rue_talk Have you... met the others?> | <face @niko2 ...others? \>\n\@niko2 You're the only fox I've seen...> | <face @niko_speak Wait! There's that one plush in Calamus and Alula's house, right \p?> | <face @rue ...> | <face @rue_sad Sigh.> | <face @rue It's not time.> | <face @niko ...?> | <face @rue ...we will meet again.> | <face @rue_smile Hello, Niko.> | <face @niko Hello...> | <face @rue ...oh?> | <face @rue_talk You're back again...> | <face @rue But...\.\.\@rue_sad I said it was not time...> | <face @niko ...?> | <face @rue ...> | <face @rue Are you here to keep me company, then?> | <face @rue_smile Guess I can't refuse that.> | <face @rue ...I am Rue.> | <face @rue_sad You will probably not remember my name in a while.\.\.\n\@rue_smile ...But I would still like to know yours.> | <face @niko I'm... \.\.not sure what you're talking about.> | <face @niko_speak But my name is Niko!> | <face @rue ...Niko.> | <face @rue_smile I shall remember that!> | <face @rue_smile I'm glad you do not mind coming back.> | <face @rue_talk To be perfectly honest...> | <face @rue_sad It may be this way for a while, actually.> | <face @niko ...?> | <face @rue ...But in time, that will change.> | <face @niko2 The... sun?> | <face @rue_smile \p can see this, right?> | <face @niko ...yeah?> | <face @rue_smile Then \p will understand.> | <face @rue_smile Oh, you're here!> | <face @rue I was starting to miss you...> | <face @rue_smile ...Guess I got used to your company, after all.> | <face @niko2 ...pardon?> | <face @rue Do not worry. Carry on.>
+  Event 13: EV013 @ (14,19)

@@ -1,0 +1,17 @@
+Map 104: courtyard  (70x50, tileset=13)
+
+  Event 1: south door @ (34,39)
+  Event 2: south door @ (35,39)
+  Event 3: north door @ (34,19)
+  Event 4: north door @ (35,19)
+  Event 5: north door @ (20,12)
+  Event 6: north door @ (21,12)
+  Event 7: north door @ (49,12)
+  Event 8: north door @ (48,12)
+  Event 9: EV009 @ (35,28)
+    Page0: trigger=0  <face What am I gonna do!!!> | <face My robot!!!> | <face @niko_speak What happened?> | <face I don't know! I left for a minute and...>
+  Event 10: EV010 @ (37,28)
+    Page0: trigger=0  <face [P\.\.%LE\.ASE \.\. D;O NOT \.\.\.AP\.PR##OACH]> | <face @niko3 ...>
+  Event 11: EV011 @ (37,27)
+  Event 12: EV012 @ (38,28)
+  Event 13: EV013 @ (38,27)

@@ -1,0 +1,6 @@
+Map 251: Birdhall  (100x25, tileset=5)
+
+  Event 1: sqrzbgone @ (45,8)
+  Event 2: EV002 @ (52,6)
+  Event 3: EV003 @ (51,6)
+  Event 15: EV015 @ (19,2)

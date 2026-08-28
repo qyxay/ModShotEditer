@@ -1,0 +1,14 @@
+Map 49: Apartments  (80x80, tileset=6)
+
+  Event 1: east exit @ (41,38)
+  Event 2: entrance @ (25,39)
+  Event 3: outdoor graphic @ (26,33)
+  Event 4: EV004 @ (32,37)
+    Page0: trigger=0  <face APARTMENTS>
+  Event 5: EV005 @ (30,42)
+    Page0: trigger=0  <face APARTMENTS>
+  Event 6: EV006 @ (39,42)
+    Page0: trigger=0  <face APARTMENTS>
+  Event 7: FAST TRAVEL @ (26,39)
+  Event 8: EV008 @ (41,36)
+  Event 9: EV009 @ (37,43)

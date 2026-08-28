@@ -1,0 +1,29 @@
+Map 34: House 5 - storage  (40x30, tileset=5)
+
+  Event 1: door @ (18,12)
+  Event 2: Map Events @ (11,10)
+    Page0: trigger=3  <face @niko A jar of some sort of grain.>
+    Page1: trigger=3  <face @niko This looks like flour!>
+    Page2: trigger=3  <face @niko Oats.>
+    Page3: trigger=3  <face @niko Heads of wheat.>
+  Event 3: EV003 @ (16,16)
+    Page0: trigger=0  <face A cat does sound nice...> | <face Maybe I'll ask my cousin to find one in the city for me.> | <face He just moved there.> | <face This is it... the last of our grain surpluses...> | <face And now we're dealing with a vermin problem...> | <face @niko Maybe you can get cats?> | <face @niko_eyeclosed Not that I'm a cat, I mean...> | <face @alula What's a cat?> | <face @niko_eyeclosed Something that I'm not!> | <face @alula ?> | <face @niko_speak It's an animal that walks on four legs and hunts mice and rats!> | <face @alula_gasp Like a fox?> | <face @niko I... guess?> | <face @alula_speak Foxes are cool!>
+  Event 4: indoors @ (13,9)
+  Event 5: wheat @ (16,14)
+  Event 6: wheat @ (15,17)
+  Event 7: wheat @ (21,15)
+  Event 8: wheat @ (20,19)
+  Event 9: wheat @ (19,16)
+  Event 10: wheat @ (16,18)
+  Event 11: wheat @ (15,16)
+  Event 12: wheat @ (15,15)
+  Event 13: wheat @ (19,14)
+  Event 14: wheat @ (20,17)
+  Event 15: wheat @ (19,19)
+  Event 16: wheat @ (21,18)
+  Event 17: wheat @ (20,14)
+  Event 18: wheat @ (19,13)
+  Event 19: wheat @ (18,19)
+  Event 20: wheat @ (21,16)
+  Event 21: wheat @ (17,19)
+  Event 22: wheat @ (17,13)

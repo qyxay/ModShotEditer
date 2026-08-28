@@ -1,0 +1,16 @@
+Map 201: rue  (40x40, tileset=16)
+
+  Event 1: EV001 @ (19,23)
+  Event 2: EV002 @ (19,27)
+  Event 3: EV003 @ (20,27)
+  Event 4: indoor graphic @ (16,26)
+  Event 5: EV005 @ (20,23)
+  Event 7: EV007 @ (19,20)
+    Page0: trigger=0  <face @niko There's no one here...>
+    Page1: trigger=0  <face @niko It's a big tree, with leaves!\>\nHaven't seen one of these since I was back home...>
+  Event 8: EV008 @ (20,20)
+    Page0: trigger=0  <face @niko There's no one here...>
+    Page1: trigger=0  <face @niko It's a big tree, with leaves!\>\nHaven't seen one of these since I was back home...>
+  Event 12: rue @ (19,18)
+    Page0: trigger=3  <face @rue !> | <face @rue You're here!!!> | <face @niko2 Rue!> | <face @niko5 That's... you, right?> | <face @rue Yes.> | <face @rue_talk Niko!> | <face @niko2 Are you... are you Rue?> | <face @rue Yes.> | <face @rue Did you... \.\.already meet the others?> | <face @niko2 Yeah... \.\.\@niko_distressed2 but...> | <face @rue_sigh ...everything is in place, then.> | <face @rue Come on, let's go back to the clock room.>
+  Event 13: EV013 @ (14,19)

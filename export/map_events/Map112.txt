@@ -1,0 +1,37 @@
+Map 112: 2nd room  (56x40, tileset=14)
+
+  Event 1: exit @ (27,28)
+  Event 2: exit @ (28,28)
+  Event 3: west door @ (14,20)
+  Event 4: west door @ (14,21)
+  Event 5: east door @ (41,20)
+  Event 6: east door @ (41,21)
+  Event 7: north door @ (27,14)
+  Event 8: north door @ (28,14)
+  Event 9: niko remarks about silver/kip @ (31,12)
+    Page0: trigger=3  <face @niko Hey \p?> | <face @niko_speak Doesn't the lady look...kind of familiar to you?> | <face @niko I wonder if she's related to the robot lady who gave me the amber.> | <face @niko_eyeclosed I almost want to ask her about it...> | <face @niko ...should I?>
+  Event 10: indoor graphic @ (24,30)
+  Event 11: EV011 @ (25,16)
+    Page0: trigger=0  <face @niko_eyeclosed She's still asleep...> | <face None of us have been sleeping very well in light of recent events...> | <face The square particles took out a few of my robots last week, and> | <face @niko ...> | <face @niko_eyeclosed She fell asleep...>
+  Event 12: EV012 @ (34,20)
+    Page0: trigger=0  <face I can barely keep my eyes open, man...> | <face How does Dr. Silverpoint get all that energy?>
+  Event 13: EV013 @ (20,22)
+    Page0: trigger=0  <face Hmm... I wonder what The Author would do in this situation...> | <face Dr. Silverpoint usually references his works.>
+  Event 14: coals @ (32,15)
+  Event 15: coals @ (31,15)
+  Event 16: coals @ (34,15)
+  Event 17: coals @ (35,15)
+  Event 18: coals @ (36,15)
+  Event 19: coals @ (37,15)
+  Event 20: coals @ (38,15)
+  Event 21: coals @ (39,15)
+  Event 22: coals @ (16,15)
+  Event 23: coals @ (17,15)
+  Event 24: coals @ (18,15)
+  Event 25: coals @ (19,15)
+  Event 26: coals @ (20,15)
+  Event 27: coals @ (21,15)
+  Event 28: EV028 @ (23,14)
+    Page0: trigger=0  <face @niko A coffee machine. It's almost empty.>
+  Event 29: EV029 @ (24,14)
+    Page0: trigger=0  <face @niko A warm pot of coffee.>

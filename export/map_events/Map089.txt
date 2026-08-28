@@ -1,0 +1,6 @@
+Map 89: IGNORE ToLibrary  (60x25, tileset=6)
+
+  Event 1: EV001 @ (10,8)
+  Event 2: EV002 @ (10,9)
+  Event 3: EV003 @ (10,10)
+  Event 4: EV004 @ (10,11)

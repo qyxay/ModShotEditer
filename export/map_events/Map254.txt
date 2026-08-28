@@ -1,0 +1,12 @@
+Map 254: sleepville  (40x40, tileset=7)
+
+  Event 1: Map events @ (15,12)
+    Page0: trigger=3  <face @niko I can't sleep now, \p.> | <face @niko_speak I gotta take this guy to the elevators!> | <face @niko_eyeclosed I'm a little tired from walking.> | <face @niko_speak Is it alright if I take a nap?> | <face > | <face @niko_eyeclosed Ah, well... \>\n\@niko I suppose there's more work to do.>
+  Event 2: bed @ (17,22)
+  Event 3: bed @ (17,21)
+  Event 4: bed @ (17,20)
+  Event 5: bed @ (18,20)
+  Event 6: bed @ (19,21)
+  Event 7: bed @ (18,22)
+  Event 8: south exit @ (17,17)
+  Event 9: south exit @ (18,17)

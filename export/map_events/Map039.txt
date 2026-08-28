@@ -1,0 +1,25 @@
+Map 39: Maize  (88x80, tileset=10)
+
+  Event 1: init @ (59,35)
+  Event 2: maize @ (25,36)
+    Page0: trigger=0  <face @niko What should I do, \p?> | <face > | <face @niko Here!> | <face @maize .\..\..\..\..\..> | <face @maize .......\.warm...> | <face @maize_smile1 I have... almost forgotten...> | <face @maize_smile1 It's so warm...> | <face @niko That's... good, right?> | <face @maize_smile1 Th...the vines should be gone now...> | <face @maize_smile2 I'm not afraid anymore.>
+    Page1: trigger=0  <face @maize_smile2 I'm not afraid anymore.> | <face @maize_smile2 Thank you...> | <face @alula_oh ...\.\.\@alula_pout ...> | <face @niko_speak ...Alula? You okay?> | <face @niko_eyeclosed ...she just looked away.>
+    Page2: trigger=0  <face @niko_distressed2 She's gone...> | <face @niko Oh... \>\nThere's something on the ground here.> | <face @niko_speak It looks like...a kernel of corn?> | <face @niko She must've left it behind.>
+  Event 3: map events @ (24,31)
+    Page0: trigger=3  <face @maize ...S...\.\.savior...?> | <face @maize I can't believe it...\.\.\nYou're real...> | <face @niko_shock ....miss?> | <face @niko_speak Are you... alright?> | <face @maize No....> | <face @niko_speak W-we should get you to the village! \.\.\nMaybe they could-> | <face @maize It's....okay...\.\nIt's okay.....\.\n...too late for me.> | <face @niko_speak But...> | <face @maize ...the sun....> | <face @maize I haven't seen it... I haven't felt it in so long...> | <face @maize ...\.\.Savior, if it's not too much trouble...\.\.\nCan you lend me the sun for a while?> | <face @niko I...\.\.\@niko_speak Will it make you better?> | <face @maize .\..\..\.No.\. It will not save me.> | <face @maize I just want to experience the sun one more time before I... \.\.Well...> | <face @niko_eyeclosed Oh...> | <face @maize Would it...\.\.\nWould it be too selfish of me to ask?>
+  Event 4: maize trigger @ (22,41)
+  Event 5: maize trigger @ (23,41)
+  Event 6: maize trigger @ (24,41)
+  Event 7: maize trigger @ (25,41)
+  Event 8: maize trigger @ (26,41)
+  Event 9: maize trigger @ (27,41)
+  Event 10: maize trigger @ (28,41)
+  Event 11: lightbulb @ (25,37)
+    Page1: trigger=0  <face @niko2 It's the sun.> | <face @niko We're leaving it with her for now.> | <face @alula_pout ...ah.>
+    Page2: trigger=0  <face @niko_surprised T-\.The light's gone out...!> | <face @niko_shock ...> | <face @niko_distressed \p...> | <face @niko_distressed2 Do you know... what happened?> | <face @niko_speak You...\.\.\@niko really?> | <face @niko_speak but...\. but...\.\.> | <face @niko_distressed Oh.....> | <face @niko_distressed What am I gonna do?>
+    Page3: trigger=3  <face @niko_speak It... \. lit up again?> | <face @niko_eyeclosed ...phew.>
+  Event 12: exit left @ (68,36)
+  Event 13: exit right @ (69,36)
+  Event 14: glow @ (25,39)
+  Event 15: EV015 @ (25,38)
+  Event 16: EV016 @ (25,35)

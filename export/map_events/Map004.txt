@@ -1,0 +1,34 @@
+Map 4: Livingroom  (52x30, tileset=1)
+
+  Event 1: north door @ (21,9)
+  Event 2: east door @ (35,12)
+  Event 3: west door top @ (16,11)
+  Event 4: Map Events @ (15,7)
+    Page0: trigger=3  <face @ed [The refrigerator is empty.]> | <face @ed [Inside the refrigerator is a \c[2]bottle of alcohol\c[0].]> | <face @ed [Niko takes it.]>
+    Page1: trigger=3  <face @ed [Niko readies the branch...]> | <face @ed [It doesn't manage to light.]> | <face @ed [Niko readies the branch...]> | <face @niko_speak Ah!> | <face @ed [The TV gives off a dangerous-looking \c[3]spark\c[0].]>
+    Page3: trigger=3  <face @ed [Just a table.]>
+    Page4: trigger=3  <face @ed [Just a chair.]>
+  Event 5: fridge left @ (31,17)
+  Event 6: fridge right @ (32,17)
+  Event 7: tv left @ (24,10)
+  Event 8: nopass @ (25,10)
+  Event 10: EV010 @ (26,19)
+    Page0: trigger=0  <face @ed [The sink won't turn on.]>
+  Event 11: fire action @ (29,10)
+    Page0: trigger=0  <face @ed [The wood in the fireplace looks like it was never used.]> | <face @ed [Perhaps it could be \c[6]lit\c[0].]>
+    Page1: trigger=0  <face @ed [The \c[6]flames\c[0] are dim but comforting.]>
+  Event 12: EV012 @ (27,19)
+    Page0: trigger=0  <face @ed [The sink won't turn on.]>
+  Event 13: key @ (27,12)
+    Page0: trigger=0  <face @ed [Something on the ground glimmers in the firelight.]> | <face @ed [It appears to be a small metallic object,\nwedged into a crack in the floor.]> | <face @ed [Niko digs it out.]>
+  Event 14: ambient @ (12,7)
+  Event 15: nopass @ (23,10)
+  Event 16: EV016 @ (29,12)
+  Event 17: niko hello @ (22,6)
+    Page0: trigger=3  <face @niko_speak Helloooo?\>\n\@niko ...anyone?>
+  Event 18: door event parallel @ (19,6)
+  Event 19: EV019 @ (20,6)
+  Event 20: table @ (30,20)
+  Event 21: table @ (31,20)
+  Event 22: chair @ (32,20)
+  Event 23: chair @ (29,20)

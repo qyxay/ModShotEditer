@@ -1,0 +1,19 @@
+Map 47: City gate  (120x100, tileset=6)
+
+  Event 1: south exit @ (47,55)
+  Event 2: guardian @ (46,45)
+  Event 3: exit @ (103,45)
+    Page0: trigger=1  <face @niko_eyeclosed I don't want to go back...>
+  Event 4: halt @ (50,45)
+  Event 5: halt @ (50,46)
+  Event 6: halt @ (47,47)
+  Event 7: npc_guardian @ (47,45)
+  Event 8: halt @ (47,46)
+  Event 9: halt @ (50,47)
+  Event 11: FAST TRAVEL @ (102,45)
+  Event 12: south exit @ (19,31)
+  Event 13: EV013 @ (46,41)
+    Page0: trigger=3  <face @red_gatekeeper [...Interesting Book You Got There...]> | <face @red_gatekeeper [It Is Written In A Language I Do Not Recognize.]> | <face @red_gatekeeper [...Perhaps You Should Find A Way To Decipher It When You're At The Library.]> | <face @red_gatekeeper [It May Be Of Help.]> | <face @red_gatekeeper [Hello Again, Messiah, Do You Need Help?]> | <face @niko Well...> | <face @red_gatekeeper [Very Well. You Need To Find A Way To Get To The Library On The Surface.]> | <face @red_gatekeeper [Off You Go Then, Off You Go...]>
+    Page1: trigger=3  <face @red_gatekeeper [Ah, The Sun.]> | <face @red_gatekeeper [Hello, Messiah. Welcome To The Refuge.]> | <face @red_gatekeeper [Do You Understand What You Must Do Here?]> | <face @niko I'm supposed to go inside the Tower, right?> | <face @niko I already see the Tower! So I guess we must be close.> | <face @niko_speak Where's the entrance?> | <face @red_gatekeeper [On The Surface.]> | <face @niko_speak The surface?> | <face @red_gatekeeper [Look Down, Small One.]> | <face @niko Oooh, \.\.\@niko_speak we're pretty high up!> | <face @niko_speak I guess I gotta get down a lot of stairs! \>\n\@niko Or find an elevator.> | <face @red_gatekeeper [Correct.]> | <face @red_gatekeeper [However, The Tower Is A Sacred Place.]> | <face @red_gatekeeper [Finding The Entrance May Be Easy, But That Alone Will Not Be Enough.]> | <face @niko What...do you mean?> | <face @red_gatekeeper [Once You Reach The Surface, I Recommend Visiting The Library For Leads.]> | <face @niko Alright...> | <face @niko_speak Thank you!> | <face @red_gatekeeper [Off You Go, Then. I Wish You Luck.]>
+    Page3: trigger=3  <face @red_gatekeeper [I'm Afraid This Area Is Off-Limits For You.]> | <face @red_gatekeeper [Only The Bearer Of The Sacred Kernel Is Permitted Access To The Garden.]> | <face @niko_speak Oh! \.\.\@niko Like...\.\. a kernel of corn...?> | <face @niko_speak I have this! \.\.\>\@niko It was left behind by the plant lady in the Glen.> | <face @red_gatekeeper [...\>\nThat Is Indeed The Kernel.]> | <face @red_gatekeeper [Then, It Is Your Duty To Regrow Her.\>\nDo You Understand What You Must Do?]> | <face @niko Um...> | <face @red_gatekeeper [Good.]> | <face @red_gatekeeper [Take The Seed To The Garden.\>\nPlant It In The Pot In The Center.]> | <face @red_gatekeeper [You May Now Pass Through Here To Access The Garden.]>
+  Event 14: npc_guardian @ (45,45)

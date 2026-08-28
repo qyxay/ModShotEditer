@@ -1,0 +1,15 @@
+Map 108: Power room  (40x40, tileset=14)
+
+  Event 1: !generator @ (20,16)
+  Event 2: npc_mechanic @ (20,17)
+    Page0: trigger=0  <face [I AM THE POWER ROOM MECHANIC.]> | <face [DO YOU HAVE AN ISSUE TO REPORT?]> | <face @niko Do you know anything about an elevator code?> | <face [ELEVATOR CODE...]> | <face [COMMAND NOT RECOGNIZED]> | <face @niko_eyeclosed Well, worth a shot.> | <face [I AM THE POWER ROOM MECHANIC.]> | <face [DO YOU HAVE AN ISSUE TO REPORT?]> | <face @niko Yeah, actually...> | <face @niko_speak The surface access elevator appears to be broken!> | <face @niko There's a button missing, and...> | <face @niko_speak Can you go take a look?> | <face [...]> | <face [LEAVING THIS ROOM IS NOT IN MY PROGRAMMING.]> | <face @niko_eyeclosed Ah, nevermind...> | <face [I AM ONLY ABLE TO FIX ISSUES IN THIS BUILDING.]> | <face [SORRY FOR THE INCONVENIENCE.]> | <face @niko It's okay...>
+  Event 3: computer @ (23,20)
+    Page0: trigger=0  <face @niko Some kind of computer terminal...>
+  Event 4: tape @ (18,23)
+    Page0: trigger=0  <face @niko A tape dispenser.> | <face @niko Oh, of course! I gotta tape it together or it might fall apart.> | <face @niko_speak Good thinking, \p!> | <face @niko Oh, I could hold it together with tape.> | <face @niko_eyeclosed I should've done this in the first place...> | <face @niko If I cut off a piece of tape to keep it would just lose its stickiness.> | <face @niko_speak It's bolted to the table...>
+  Event 5: west exit @ (11,26)
+  Event 6: stapler @ (16,23)
+    Page0: trigger=0  <face @niko A stapler.> | <face @niko_speak It's bolted to the table...>
+  Event 7: outdoor graphic @ (10,21)
+  Event 8: EV008 @ (17,23)
+    Page0: trigger=0  <face $They are just bolted so people won't steal them.> | <face $Feel free to use, though!>

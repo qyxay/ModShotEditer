@@ -1,0 +1,23 @@
+Map 238: Power room  (40x40, tileset=5)
+
+  Event 1: EV001 @ (16,23)
+  Event 2: !generator @ (16,13)
+  Event 3: robot standing @ (16,19)
+    Page0: trigger=0  <face [DO WHAT YOU MUST.]> | <face [HELLO, PERSON.]> | <face [THIS IS THE MAIN GENERATOR OF THE GLEN.]> | <face @niko Hello...> | <face @niko Would you happen to know where I can find a battery for a flying machine?> | <face @niko2 It's... kind of an emergency.> | <face [I DO NOT KNOW WHAT A FLYING MACHINE IS.]> | <face [BUT ANY SORT OF LARGE MACHINERY WOULD REQUIRE A HIGH CAPACITY POWER CELL.]> | <face [FOR EXAMPLE, THE GENERATOR IN THIS ROOM UTILIZES SUCH A DEVICE.]> | <face @niko_eyeclosed Oh right... I almost forgot...> | <face @niko We had to fix the battery for this thing in the Barrens, didn't we, \p?> | <face [IF THIS IS AN EMERGENCY FOR LIVING BEINGS...] \>\n[YOU CAN USE THE BATTERY FROM THE GENERATOR.]> | <face @niko_speak Oh!> | <face @niko2 Wait... \.\.but if we take the battery here...> | <face @niko3 ...all of you guys would lose power, wouldn't you?> | <face @niko4 Maybe \p and I should go find another one.> | <face [NEGATIVE.]> | <face [THIS IS THE ONLY BATTERY IN THE GLEN POWERFUL ENOUGH TO BE USED AS A STANDALONE UNIT.]> | <face [IF IT IS A DIRE SITUATION, THEN DO WHAT YOU MUST.]> | <face @niko4 Oh...>
+    Page1: trigger=0  <face @niko_eyeclosed ...we depowered it...>
+  Event 4: EV004 @ (16,12)
+    Page0: trigger=0  <face @niko3 ...I guess we have no choice but to take this, \p...> | <face @niko_eyeclosed ...> | <face @niko Looks like a generator...> | <face [PLEASE DO NOT STAND TOO CLOSE TO THE GENERATOR.]> | <face [IF YOU HAVE INQUIRIES, PLEASE ASK ME INSTEAD.]>
+    Page1: trigger=0  <face @niko The battery's gone now...> | <face @niko_speak We should remember to bring it back once we're done with it!>
+  Event 5: EV005 @ (17,18)
+  Event 6: EV006 @ (15,18)
+  Event 7: fireflies @ (15,16)
+    Page0: trigger=0  <face @niko A couple of fireflies are buzzing about in this jar.>
+  Event 8: fireflies @ (17,16)
+    Page0: trigger=0  <face @niko A couple of fireflies are buzzing about in this jar.>
+  Event 9: fireflies @ (19,16)
+    Page0: trigger=0  <face @niko A couple of fireflies are buzzing about in this jar.>
+  Event 10: fireflies @ (13,16)
+    Page0: trigger=0  <face @niko A couple of fireflies are buzzing about in this jar.>
+  Event 11: EV011 @ (19,18)
+  Event 12: EV012 @ (13,18)
+  Event 13: indoors @ (10,7)

@@ -34,9 +34,13 @@ Dir.glob("#{DATA_DIR}/Map*.rxdata").sort.each do |f|
     m = Marshal.load(File.binread(f))
     next unless m.respond_to?(:events)
     m.events.each do |eid, ev|
-      next unless ev.respond_to?(:pages)
-      ev.pages.each_with_index do |pg, pi|
-        scan_list(page_cmds(pg), "#{File.basename(f)} ev##{eid} pg#{pi}")
+      begin
+        next unless ev.respond_to?(:pages)
+        ev.pages.each_with_index do |pg, pi|
+          scan_list(page_cmds(pg), "#{File.basename(f)} ev##{eid} pg#{pi}")
+        end
+      rescue Exception => e
+        puts "EV FAIL #{File.basename(f)} ev##{eid}: #{e.class} #{e.message}"
       end
     end
   rescue Exception => e
@@ -47,4 +51,11 @@ end
 if File.exist?(CE_PATH)
   begin
     arr = Marshal.load(File.binread(CE_PATH))
-    a
+    arr.each_with_index do |ce, i|
+      scan_list(page_cmds(ce), "CommonEvent##{i}")
+    end
+  rescue Exception => e
+    puts "CE FAIL: #{e.message}"
+  end
+end
+puts '==完成=='

@@ -1,0 +1,8 @@
+Map 144: T6  (20x15, tileset=19)
+
+  Event 1: EV001 @ (6,4)
+  Event 2: EV002 @ (11,5)
+  Event 3: EV003 @ (4,5)
+  Event 4: EV004 @ (9,4)
+  Event 5: EV005 @ (13,6)
+  Event 6: set journal @ (1,1)

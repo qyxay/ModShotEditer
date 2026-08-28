@@ -1,0 +1,17 @@
+Map 50: stairwell  (50x55, tileset=7)
+
+  Event 1: EV001 @ (25,22)
+    Page0: trigger=0  <face @niko Some of the trash spilled out on the floor.>
+  Event 2: stairs @ (22,44)
+  Event 3: EV003 @ (22,21)
+  Event 4: stairs @ (23,44)
+  Event 5: EV005 @ (23,21)
+  Event 6: EV006 @ (24,22)
+    Page0: trigger=0  <face @niko_eyeclosed It's full...>
+  Event 7: EV007 @ (21,22)
+    Page0: trigger=0  <face @niko Looks like an old phone.>
+  Event 8: EV008 @ (35,25)
+    Page0: trigger=0  <face @niko A small tree.>
+  Event 9: EV009 @ (10,25)
+    Page0: trigger=0  <face @niko A small tree.>
+  Event 11: indoor graphic @ (18,33)

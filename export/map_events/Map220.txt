@@ -1,0 +1,26 @@
+Map 220: Cafe inside  (50x50, tileset=7)
+
+  Event 1: ling @ (17,39)
+    Page0: trigger=0  <face @ling_hm So...> | <face @ling Can I... get you anything to eat?> | <face @niko2 No thank you!> | <face @niko_eyeclosed (Even though I could go for some pancakes right now...)> | <face @niko_eyeclosed (There just isn't time...)> | <face @ling_hm At least people won't starve here...> | <face @ling_smile The perks of using a cafe as an emergency shelter, huh?> | <face @ling2 Oh!> | <face @ling Hello, Messiah!> | <face @ling_hm You, um...> | <face @ling_sigh You came at a bad time...> | <face @ling_hm The apartment in the west sector got destroyed by squares a day ago...> | <face @ling_sigh Terrible, isn't it?> | <face @niko_eyeclosed Yeah...> | <face @ling_hm2 Ah, but at least the evacuees seem to be doing ok.> | <face @ling_hm2 We're letting them stay here for now.>
+  Event 2: EV002 @ (26,40)
+    Page0: trigger=0  <face ...............> | <face @niko .......................> | <face ...............................> | <face @niko_speak ...................................> | <face .............................................> | <face @niko_eyeclosed ...same as usual, huh...>
+  Event 3: EV003 @ (24,38)
+    Page0: trigger=0  <face @niko_eyeclosed Now's not really the time to talk to penguins, \p...> | <face @niko2 Oh, it's that penguin...> | <face @niko_eyeclosed ...yep.>
+  Event 4: entrance @ (9,39)
+  Event 5: entrance @ (9,40)
+  Event 6: EV006 @ (30,30)
+    Page0: trigger=0  <face @niko Milk and sugar.> | <face @niko_speak I like both!> | <face @niko_eyeclosed ...but not in coffee.>
+  Event 7: EV007 @ (29,30)
+    Page0: trigger=0  <face @Niko A coffee machine.> | <face @niko_speak It's nearly full!>
+  Event 8: indoor graphic @ (10,33)
+  Event 9: EV009 @ (35,35)
+    Page0: trigger=0  <face I don't know what I'm gonna do without Model C-WT 2nd gen unit 4E!> | <face Our apartment got evacuated while my parents were at work...> | <face ...I'm waiting for them to pick us up now.> | <face I hope they're ok...> | <face At least my robot's with me...>
+  Event 12: EV012 @ (36,35)
+    Page0: trigger=0  <face [SQUARES ARE BAD]> | <face [SQUARES MAKE THE PEOPLE EVACUATE]> | <face [EVACUATION MAKES THE GIRL SAD]> | <face [SQUARES ARE BAD]>
+  Event 13: EV013 @ (31,34)
+    Page0: trigger=0  <face Scarves are great.> | <face If I had my stuff back.. I'd knit one for everyone here!> | <face Hey.> | <face @niko Hi...> | <face Is it me, or is it really cold outside?> | <face @niko2 ...y'know, now that you've mentioned it...> | <face @niko_eyeclosed (it IS really chilly this time around, \p...)> | <face Good thing you've got a scarf, huh?> | <face @niko Mhm!>
+  Event 14: ram @ (33,37)
+  Event 15: EV015 @ (32,37)
+    Page0: trigger=0  <face Bessie's lookin pretty bummed about this too...> | <face There there, girl...> | <face Dang it!> | <face I JUST moved into my apartment!> | <face Now where am I gonna go!>
+  Event 16: npc_mason @ (32,31)
+    Page0: trigger=0  <face @mason Black clovers are so resilient...\.\.I wonder how they do it?> | <face @mason It's really a shame that the Glen is starting to erode so fast now...> | <face @mason Soon, the world won't have much room for plants left...> | <face @mason ...asides from black clovers, I mean.> | <face @mason Bummer!> | <face @mason I had to leave most of my plants behind.> | <face @mason This stinks!> | <face @niko_eyeclosed Sorry to hear...> | <face @mason Oh, speaking of plants...> | <face @mason I heard the Glen is just COVERED in vines now.> | <face @mason Is that true?> | <face @niko_eyeclosed ...yeah...> | <face @niko2 The plant lady was using them to keep the land from falling away...> | <face @mason The plant spirit?\.\. Maize?> | <face @mason I figured...> | <face @mason ...say, how is she doing?> | <face @niko_distressed2 ...> | <face @mason ...ah.> | <face @mason ...she's... gone, isn't she?> | <face @niko_eyeclosed She said she was using up the last of her powers...> | <face @mason I wouldn't be surprised.> | <face @mason She always did her best to protect everyone...>

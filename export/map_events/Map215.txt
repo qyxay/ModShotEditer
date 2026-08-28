@@ -1,0 +1,66 @@
+Map 215: Elevator deck  (120x80, tileset=6)
+
+  Event 1: west exit @ (32,30)
+  Event 2: npc_plight @ (60,48)
+    Page0: trigger=0  <face @plight Come oonnn...> | <face @plight_wtf Come oonnnnnnn!> | <face @plight_wtf Now, of all times...!> | <face @niko ...Uh> | <face @niko_speak ....Excuse me...>
+    Page1: trigger=3  <face @plight_shock Woah!> | <face @plight ... you're... you!> | <face @plight_worry (Ah geez, I didn't think I was gonna run into...)> | <face @niko The elevator is missing a button, right?> | <face @plight_worry ...how did you know?> | <face @niko_83c ...> | <face @niko_speak \p and I will help you fix it!> | <face @plight_worry2 ...seriously?> | <face @plight_sigh Oh thank goodness.> | <face @plight_worry2 The evacuees are counting on this...\> on me...> | <face @plight_worry But... I've been here for hours and can't figure out a thing!> | <face @niko2 ....\.\.evacuees?> | <face @plight Y'know... from the west apartments.> | <face @plight_worry The square stuff wrecked the place yesterday...> | <face @niko3 Oh....> | <face @plight_sigh Right now everyone's crowded in the cafe.\nWe really want to get everyone to the surface as soon as possible, though.> | <face @plight3 The library on the surface doubles as a shelter for situations like this.> | <face @niko I see...> | <face @niko2 ...wait... didn't we find the magnets and stuff in the apartments, \p?> | <face @plight_worry The... what?> | <face @niko_eyeclosed Looks like we'll have to find some other way to fix the button, \p...> | <face @plight_scared HOLY F\.\.\@plight_worry UDGE> | <face @niko3 ...> | <face @niko_eyeclosed ... Looks like \p and I will need to find another way down altogether...> | <face @plight_worry But...\.\. this is the only elevator in the area...> | <face @niko We'll... think of something.>
+  Event 3: demo trigger @ (3,4)
+    Page0: trigger=1  <face [NO TRESPASSING!]> | <face @niko Oh...excuse me!>
+  Event 4: EV004 @ (60,49)
+    Page0: trigger=0  <face @plight_worry Uh...> | <face @plight3 Let me know if you need my help with anything...>
+    Page1: trigger=0  <face @niko_speak We found some elevators!> | <face @plight_shock What??> | <face @plight_worry ...seriously?> | <face @plight_worry2 I've literally never seen another one in this area!> | <face @niko It WAS in a locked room...> | <face @plight_worry Oh....> | <face @plight_worry2 Do they... uh... \.\.\.\@plight_worry work?> | <face @niko_eyeclosed We don't know yet...> | <face @niko One of them has a lever that's out of my reach.> | <face @niko_speak ...wait! You can help us!> | <face @plight_worry What...> | <face @niko You should be able to reach the lever, cuz...\>\n\@niko_speak You're taller than me!> | <face @plight3 Ooh... \@plight_worry I... guess I am?> | <face @plight So...\.\. show me the way, I suppose...> | <face @niko Mhm!>
+  Event 7: south exit @ (91,57)
+  Event 8: east exit @ (90,30)
+  Event 9: elevator doors @ (60,46)
+    Page0: trigger=0  <face @niko It's an elevator.>
+    Page1: trigger=0  <face @niko_speak Let's find another way down!>
+  Event 10: robot @ (3,3)
+    Page0: trigger=0  <face [HELLO.]> | <face [THIS AREA IS UNAUTHORIZED FOR DEMO.]> | <face [SORRY ABOUT THE INCONVENIENCE.]> | <face @niko ...Demo?> | <face [I CANNOT LET YOU THROUGH.]>
+  Event 11: north exit @ (58,17)
+  Event 12: block @ (57,46)
+  Event 13: block @ (58,46)
+  Event 14: block @ (59,46)
+  Event 15: block @ (61,46)
+  Event 16: button @ (62,46)
+    Page0: trigger=0  <face @niko The elevator's button panel.>
+  Event 17: block @ (63,46)
+  Event 18: EV018 @ (77,29)
+    Page0: trigger=0  <face TO: OFFICE>
+  Event 19: demo glitch 1 @ (61,45)
+  Event 20: EV020 @ (77,46)
+    Page0: trigger=0  <face TO:\nOFFICE BUILDING AND\nCAFE>
+  Event 22: Map Events @ (60,40)
+    Page0: trigger=3  <face @plight_worry Hey, where are you going?>
+    Page1: trigger=3  <face @plight_unknown Come ooonnnnnnn!> | <face @plight_unknown Come ooonnnnnnnnnnnnnnnnnnnnnnnnnnnn!!!!!> | <face @plight_unknown Work already!!!> | <face @niko_speak Huh?> | <face @niko Oh right...\@niko_eyeclosed The elevator guy.>
+    Page3: trigger=3  <face @plight_unknown AAAAUHGGHHHH!!!!> | <face @niko_speak I think we should go talk to the guy first, \p...>
+  Event 24: EV024 @ (79,53)
+  Event 30: EV030 @ (78,54)
+  Event 31: demo glitch 1 @ (60,45)
+  Event 32: demo glitch 2 @ (59,45)
+  Event 33: demo glitch 2 @ (59,47)
+  Event 34: plight introduction @ (59,27)
+  Event 35: plight introduction @ (60,27)
+  Event 36: force meet @ (47,31)
+  Event 37: force meet @ (47,32)
+  Event 38: force meet @ (73,48)
+  Event 39: force meet @ (73,49)
+  Event 40: EV040 @ (96,46)
+    Page0: trigger=0  <face PATH CLOSED>
+  Event 41: EV041 @ (91,52)
+    Page0: trigger=0  <face TO: CAFE>
+  Event 42: EV042 @ (43,29)
+    Page0: trigger=0  <face TO: APARTMENTS>
+  Event 44: south exit @ (18,68)
+  Event 45: demo glitch 2 @ (61,47)
+  Event 46: demo glitch 1 @ (60,47)
+  Event 47: FAST TRAVEL @ (62,47)
+  Event 48: south exit @ (41,59)
+  Event 49: force meet @ (47,48)
+  Event 50: force meet @ (47,49)
+  Event 51: force meet @ (73,31)
+  Event 52: force meet @ (73,32)
+  Event 53: EV053 @ (100,48)
+  Event 54: EV054 @ (78,46)
+  Event 55: EV055 @ (39,31)
+  Event 56: EV056 @ (40,29)
+  Event 57: EV057 @ (40,32)

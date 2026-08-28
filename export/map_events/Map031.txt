@@ -1,0 +1,21 @@
+Map 31: House 2 - tower  (40x30, tileset=5)
+
+  Event 1: door @ (18,12)
+  Event 2: spinning child npc @ (16,14)
+    Page0: trigger=0  <face I'm getting dizzy!> | <face @niko_eyeclosed Told ya!> | <face @alula_speak Why are you spinning around like that?> | <face @niko_speak You're gonna get dizzy!> | <face I'm the Tower!> | <face @niko_speak Huh?> | <face Grandpa says the Tower used to spin allll the time bringing sunlight to the world!> | <face I wanna see it too!> | <face @alula_gasp Same!> | <face @alula_pout I've only seen the sun when I was a little baby...> | <face @niko Well, I'm here now...> | <face @niko I guess it'll only be a matter of time again.> | <face @niko You're gonna get dizzy if you keep spinning around like that...> | <face I'm the Tower!> | <face @niko_speak Huh?> | <face Grandpa says the Tower used to spin allll the time bringing sunlight to the world!> | <face I wanna see it too!> | <face @niko Well, I'm here now...> | <face @niko I guess it'll only be a matter of time again.>
+  Event 3: coals @ (21,13)
+  Event 4: stew @ (22,13)
+    Page0: trigger=0  <face @niko_speak Peas!>
+  Event 5: fireflies @ (15,16)
+    Page0: trigger=0  <face @niko The fireflies light up this room.>
+  Event 6:  @ (21,15)
+    Page0: trigger=0  <face @niko The fireflies light up this room.>
+  Event 7: EV007 @ (15,18)
+  Event 8: EV008 @ (21,17)
+  Event 9: EV009 @ (14,13)
+  Event 10: EV010 @ (15,13)
+  Event 11: EV011 @ (20,13)
+    Page0: trigger=0  <face @niko Full of dried beans.>
+  Event 12: EV012 @ (14,17)
+    Page0: trigger=0  <face @niko An empty jar.>
+  Event 13: indoors @ (13,9)

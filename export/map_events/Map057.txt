@@ -1,0 +1,9 @@
+Map 57: Junction  (40x50, tileset=5)
+
+  Event 1: EV001 @ (21,18)
+    Page0: trigger=0  <face [HELLO, PERSON!]> | <face [PLEASE DO NOTE THAT THE RUINS BELOW ARE PARTIALLY FLOODED.]> | <face @niko_speak Oh!> | <face @niko Should we...not be here?> | <face [THERE IS NO IMMEDIATE DANGER.]> | <face [USING THIS AREA AS A DWELLING IS NOT RECOMMENDED, HOWEVER.]>
+  Event 2: the wall exit left @ (12,24)
+  Event 3: the wall exit right @ (13,24)
+  Event 4: ruins entrance left @ (28,27)
+  Event 5: ruins entrance right @ (29,27)
+  Event 6: indoors @ (9,11)

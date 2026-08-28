@@ -1,0 +1,21 @@
+Map 196: backhall  (144x30, tileset=18)
+
+  Event 1: EV001 @ (18,21)
+  Event 2: EV002 @ (19,21)
+  Event 3: proto @ (35,14)
+    Page0: trigger=0  <face @proto2b [...I would appreciate it if you do not linger here.]>
+    Page1: trigger=0  <face @proto1 [Hi.]>
+  Event 4: silver @ (32,16)
+    Page0: trigger=0  <face @silver2 [I don't even know where this tunnel leads...]>
+    Page1: trigger=0  <face @silver [Let's go.]>
+  Event 5: EV005 @ (34,15)
+    Page0: trigger=0  <face @niko So this is the way out?> | <face @silver [There wasn't any data on this path in the server room...]> | <face @proto2 [It's new.]> | <face @proto1 [Niko, get in the minecart.]> | <face @niko O-Okay.>
+  Event 6: EV006 @ (28,15)
+  Event 7: EV007 @ (29,15)
+  Event 8: EV008 @ (36,15)
+    Page2: trigger=0  <face @proto1 [Please keep moving forward.]>
+  Event 9: EV009 @ (37,15)
+  Event 10: EV010 @ (38,15)
+  Event 11: EV011 @ (54,15)
+    Page0: trigger=1  <face @ed [I tried.]> | <face @ed [I really did!]> | <face @ed [But I...]> | <face @ed [...dE St ablIzi Nng]> | <face @ed [I'm sorry, Niko.]> | <face @ed [I    tR IE d tO PrOTE cT yOU.]> | <face @ed [...bu t c An't hold it o f f foRevER.]> | <face @niko3 What was that?> | <face @proto_gasp2 [...HERE TOO?]> | <face @silver3 [Watch out!]>
+  Event 13: EV013 @ (36,14)

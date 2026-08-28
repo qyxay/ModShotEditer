@@ -1,0 +1,5 @@
+Map 20: basement  (55x30, tileset=1)
+
+  Event 1: lightbulb @ (35,14)
+  Event 2: door @ (12,14)
+  Event 3: EV003 @ (22,14)

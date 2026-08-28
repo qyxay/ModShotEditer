@@ -1,0 +1,2211 @@
+===== Items.rxdata =====  (Array 86 项, index 0 为 nil 占位)
+
+[Item 1] lightbulb
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A large lightbulb. It's the sun.
+  element_set          
+  hit                  100
+  icon_name            item_start_lightbulb
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 lightbulb
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 2] television remote
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's too hard to read in the dark light.
+  element_set          
+  hit                  100
+  icon_name            item_start_remote
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 television remote
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 3] bottle of alcohol
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The smell of the liquid is repugnant.
+  element_set          
+  hit                  100
+  icon_name            item_start_bottle
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 bottle of alcohol
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 4] dry branch
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A flaky, dry branch from the bathroom plant.
+  element_set          
+  hit                  100
+  icon_name            item_start_branch
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 dry branch
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 5] wet branch
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The tip of the branch is soaked with alcohol.
+  element_set          
+  hit                  100
+  icon_name            item_start_branch_wet
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 wet branch
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 6] torch
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Doesn't give off much light.
+  element_set          
+  hit                  100
+  icon_name            item_start_torch
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 torch
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 7] basement key
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          This thing looks old.
+  element_set          
+  hit                  100
+  icon_name            item_start_key
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 basement key
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 8] camera
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A broken camera with a large screwed-in lens.
+  element_set          
+  hit                  100
+  icon_name            item_blue_camera
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 camera
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 9] screwdriver
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Phillips-head.
+  element_set          
+  hit                  100
+  icon_name            item_blue_screwdriver
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 screwdriver
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 10] lens
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A large glass lens.
+  element_set          
+  hit                  100
+  icon_name            item_blue_lens
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 lens
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 11] empty bottle
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The smell of alcohol lingers.
+  element_set          
+  hit                  100
+  icon_name            item_start_bottle_empty
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 empty bottle
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 12] broken battery
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Apparently a battery.  It has some broken glass in it.
+  element_set          
+  hit                  100
+  icon_name            item_blue_battery_broken
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 broken battery
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 13] empty battery
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          An intact, rechargable battery. Currently empty.
+  element_set          
+  hit                  100
+  icon_name            item_blue_battery_empty
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 empty battery
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 14] charged battery
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A working, rechargable battery. Maximum power.
+  element_set          
+  hit                  100
+  icon_name            item_blue_battery_full
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 charged battery
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 15] bottle of smoke
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's full of noxious fumes.
+  element_set          
+  hit                  100
+  icon_name            item_blue_bottle_smoke
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 bottle of smoke
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 16] bottle of acid
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's full of a thick liquid acid.
+  element_set          
+  hit                  100
+  icon_name            item_blue_bottle_acid
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 bottle of acid
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 17] wet sponge
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Sponge soaked with acidic cleaning solution.
+  element_set          
+  hit                  100
+  icon_name            item_blue_sponge
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 wet sponge
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 18] crowbar
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Makeshift crowbar made from a pipe.
+  element_set          
+  hit                  100
+  icon_name            item_blue_prybar
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 crowbar
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 19] metal rod
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It weighs surprisingly little.
+  element_set          
+  hit                  100
+  icon_name            item_blue_rod
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 metal rod
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 20] sponge
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A flat sponge with a rough surface.
+  element_set          
+  hit                  100
+  icon_name            item_blue_sponge
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 sponge
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 21] empty syringe
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The needle is particularly long.
+  element_set          
+  hit                  100
+  icon_name            item_blue_syringe_empty
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 empty syringe
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 22] filled syringe
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's full of the strange liquid from the pond.
+  element_set          
+  hit                  100
+  icon_name            item_blue_syringe_full
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 filled syringe
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 23] amber
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A piece of glowing amber with a black clover inside.
+  element_set          
+  hit                  100
+  icon_name            item_blue_coin
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 amber
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 24] strange journal
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Found in the Barrens. It's written in an unknown language.
+  element_set          
+  hit                  100
+  icon_name            item_blue_journal
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 strange journal
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 25] feather
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A long and slender feather with glowing edges.
+  element_set          
+  hit                  100
+  icon_name            item_green_feather
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 feather
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 26] bottle of dye
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A small vial filled with dark blue liquid used for dying wool.
+  element_set          
+  hit                  100
+  icon_name            item_green_ink
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 bottle of dye
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 27] tube of water
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The label says "water sample".
+  element_set          
+  hit                  100
+  icon_name            water_normal
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 tube of water
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 28] seed
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's a seed apparently left behind by Maize.
+  element_set          
+  hit                  100
+  icon_name            item_green_corn
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 seed
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 29] wool
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's... kind of useless.
+  element_set          
+  hit                  100
+  icon_name            item_green_wool
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 wool
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 30] feather pen
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A pen made from dipping a feather into ink.
+  element_set          
+  hit                  100
+  icon_name            item_green_pen
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 feather pen
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 31] die
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A die with glowing dots.
+  element_set          
+  hit                  100
+  icon_name            item_red_die
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 die
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 32] button (?)
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A simple button made from a coffee tin.
+  element_set          
+  hit                  100
+  icon_name            item_red_button
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 button (?)
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 33] magnetized (?) button
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A button with magnets loosely attached.
+  element_set          
+  hit                  100
+  icon_name            item_red_magnetized_button
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 magnetized (?) button
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 34] taped button
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The magnets are secured with tape.
+  element_set          
+  hit                  100
+  icon_name            item_red_button_taped
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 taped button
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 35] you tried
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It's the thought that counts.
+  element_set          
+  hit                  100
+  icon_name            item_red_youtried
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 you tried
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 36] magnets
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          An assortment of colorful magnets.
+  element_set          
+  hit                  100
+  icon_name            item_red_magnets
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 magnets
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 37] metal can
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Made of aluminum. Says "COFFEE GROUNDS".
+  element_set          
+  hit                  100
+  icon_name            item_red_tin
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 metal can
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 38] scissors
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A pair of scissors found amidst hair.
+  element_set          
+  hit                  100
+  icon_name            item_red_scissors
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 scissors
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 39] weird film
+  animation1_id        0
+  animation2_id        0
+  common_event_id      16
+  consumable           true
+  description          A transparent sheet filled with numbers.
+  element_set          
+  hit                  100
+  icon_name            item_red_film
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 weird film
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 40] concave lens
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A large lens, curved inward.
+  element_set          
+  hit                  100
+  icon_name            item_red_lens_concave
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 concave lens
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 41] convex lens
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A large lens, curved outward
+  element_set          
+  hit                  100
+  icon_name            item_red_lens_convex
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 convex lens
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 42] thin lens
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A delicately thin lens.
+  element_set          
+  hit                  100
+  icon_name            item_red_lens_thin
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 thin lens
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 43] thick lens
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A large, thick lens.
+  element_set          
+  hit                  100
+  icon_name            item_red_lens_thick
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 thick lens
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 44] glitter glue
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A small tube of pink glitter glue.
+  element_set          
+  hit                  100
+  icon_name            item_red_gluestick
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 glitter glue
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 45] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Not a cat!
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 46] Kip's library card
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The name says "Kip Silverpoint Ph.D."
+  element_set          
+  hit                  100
+  icon_name            item_red_librarycard
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 Kip's library card
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 47] gas mask
+  animation1_id        0
+  animation2_id        0
+  common_event_id      38
+  consumable           true
+  description          A mask used to filter air for breathing.
+  element_set          
+  hit                  100
+  icon_name            item_blue_gasmask
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 gas mask
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 48] rubber gloves
+  animation1_id        0
+  animation2_id        0
+  common_event_id      37
+  consumable           true
+  description          Gloves designed to prevent chemical damage.
+  element_set          
+  hit                  100
+  icon_name            item_blue_glove
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 rubber gloves
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 49] boots
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          These boots will make it possible to move quickly.
+  element_set          
+  hit                  100
+  icon_name            
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 boots
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 50] novelty T-shirt
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          "I herded rams and all I got was this lousy T-shirt!"
+  element_set          
+  hit                  100
+  icon_name            item_green_ramshirt
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 novelty T-shirt
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 51] "Kip" 's library card
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Library card from Kip. Niko's own photo is glued on.
+  element_set          
+  hit                  100
+  icon_name            item_red_librarycard_niko
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 "Kip" 's library card
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 52] Library card (sticky)
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          There's glitter glue all over her photo now...
+  element_set          
+  hit                  100
+  icon_name            item_red_librarycard_glue
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 Library card (sticky)
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 53] photo of Niko (sticky)
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The back of the photo is covered in glitter glue.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo_glue
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko (sticky)
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 54] DEBUG SAVE
+  animation1_id        0
+  animation2_id        0
+  common_event_id      41
+  consumable           true
+  description          USE THIS TO SAVE
+  element_set          
+  hit                  100
+  icon_name            item_debug_save
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 DEBUG SAVE
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 55] dirt
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A bag of dirt, for growing plants
+  element_set          
+  hit                  100
+  icon_name            item_red_dirt
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 dirt
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 56] water pill
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Goes in water, supposedly.
+  element_set          
+  hit                  100
+  icon_name            water_pill
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 water pill
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 57] medicated water
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The water pill is dissolved in it.
+  element_set          
+  hit                  100
+  icon_name            water_medicated
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 medicated water
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 58] clover
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A black clover.
+  element_set          
+  hit                  100
+  icon_name            clover
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 clover
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 59] empty tube
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          An empty tube.  Used to hold water.
+  element_set          
+  hit                  100
+  icon_name            water_empty
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 empty tube
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 60] bottle of pond water
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          It has the consistency of glue.
+  element_set          
+  hit                  100
+  icon_name            item_blue_bottle_liquid
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 bottle of pond water
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 61] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Not a cat!
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 62] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A backup!
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 63] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          3rd time's the charm?
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 64] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          This is kind of fun.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 65] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Lookin' Good.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 66] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Niko blinked in this one.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo_blink
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 67] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Nice.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 68] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Very photogenic.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 69] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          Can't have too much of a good thing!
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 70] photo of Niko
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          The ultimate photo.
+  element_set          
+  hit                  100
+  icon_name            item_red_photo
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 photo of Niko
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 71] Key 1
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            key1
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 Key 1
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 72] Key 2
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            key2
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 Key 2
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 73] Key 3
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            key3
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 Key 3
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 74] glowing journal
+  animation1_id        0
+  animation2_id        0
+  common_event_id      66
+  consumable           true
+  description          It's glowing now...?
+  element_set          
+  hit                  100
+  icon_name            item_blue_journal_glow
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 glowing journal
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 75] memory disk
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A floppy disk.
+  element_set          
+  hit                  100
+  icon_name            item_floppy
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 memory disk
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 76] memory disk (backup)
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A floppy disk containing a backup.
+  element_set          
+  hit                  100
+  icon_name            item_floppy2
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 memory disk (backup)
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 77] charged battery
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A working, rechargable battery.
+  element_set          
+  hit                  100
+  icon_name            item_green_battery
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 charged battery
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 78] music box
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          A wind-up music box.
+  element_set          
+  hit                  100
+  icon_name            item_music_box
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 music box
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 79] 
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 80] 
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 81] GEORGE REROLLER
+  animation1_id        0
+  animation2_id        0
+  common_event_id      72
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            item_george_picker
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 GEORGE REROLLER
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 82] PLIGHT SKIP
+  animation1_id        0
+  animation2_id        0
+  common_event_id      73
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            item_plight_skip
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 PLIGHT SKIP
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 83] 
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 84] 
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0
+
+[Item 85] 
+  animation1_id        0
+  animation2_id        0
+  common_event_id      0
+  consumable           true
+  description          
+  element_set          
+  hit                  100
+  icon_name            
+  mdef_f               0
+  menu_se              (silent)
+  minus_state_set      
+  name                 
+  occasion             0
+  parameter_points     0
+  parameter_type       0
+  pdef_f               0
+  plus_state_set       
+  price                0
+  recover_hp           0
+  recover_hp_rate      0
+  recover_sp           0
+  recover_sp_rate      0
+  scope                0
+  variance             0

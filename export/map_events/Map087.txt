@@ -1,0 +1,13 @@
+Map 87: Library entrance  (70x60, tileset=13)
+
+  Event 1: west exit @ (11,40)
+  Event 2: entrance @ (33,23)
+  Event 3: entrance @ (34,23)
+  Event 4: entrance @ (35,23)
+  Event 5: EV005 @ (27,20)
+    Page0: trigger=0  <face A quick death promises the least pain, don't you agree?> | <face @niko ...> | <face When the world ends, would it be better if it was gone in an instant, or slowly fading away?> | <face @niko ...> | <face To be honest, I'd rather the former.>
+  Event 6: FAST TRAVEL @ (34,24)
+  Event 7: EV007 @ (36,25)
+    Page0: trigger=0  <face [HELLO, PERSON.]> | <face [THE LIBRARY IS UP AHEAD.]> | <face @niko_speak Thanks!>
+  Event 8: pancake hint @ (32,20)
+    Page1: trigger=3  <face @niko Hey, \p?> | <face @niko_speak Do you remember where the cafe is?> | <face > | <face @niko Oh, good!> | <face @niko_eyeclosed Oh...> | <face @niko_speak Wait! I think I remember!\>\n\@niko It's up the elevator, and then we take a right and go down some stairs!> | <face @niko I'm asking because...well...> | <face @niko_eyeclosed I'm... a little hungry....> | <face @niko_speak Actually I'm REALLY hungry!\>\n\@niko I haven't eaten anything since I got here...> | <face @niko So...is it ok if we go get some food before we enter the Tower?> | <face @niko_pancakes I hope they have pancakes...>

@@ -1,0 +1,13 @@
+Map 66: passage  (200x25, tileset=5)
+
+  Event 1: EV001 @ (16,18)
+  Event 2: EV002 @ (17,18)
+  Event 3: EV003 @ (33,8)
+  Event 4: EV004 @ (33,7)
+  Event 5: alula npc @ (28,8)
+    Page1: trigger=3  <face @alula_pout Niko?> | <face @alula_oh Niko? What's wrong?> | <face @niko Huh?> | <face @calamus_shock You looked like you were about to faint!> | <face @niko_eyeclosed It happened again...> | <face @niko_speak Earlier I was in the Barrens area, and I kind of... saw something?\>\n\@niko It was like a dream, but only for a split second...> | <face @calamus_speak A vision?> | <face @niko2 Vision?> | <face @calamus Like something a prophet would see.> | <face @niko_speak Whoa!> | <face @calamus_speak I mean, if you can talk to \p, it would make sense, right?> | <face @niko I... guess?> | <face @calamus ...or not, I don't know. \>\n\@calamus_smile I've only read about it before.> | <face @niko Oooh...\>\n\@niko_speak Anyway, what is this place?> | <face @niko It looks like it used to lead somewhere.> | <face @alula_speak Yeah, the sacred grounds!\>\n\@alula It's been a while since we went there...> | <face @calamus We don't have a way getting there now, remember?\>\nThere isn't a boat and none of us can swim, and...> | <face @niko_speak What's...the sacred grounds?> | <face @calamus It's where our people are buried.> | <face @alula Sometimes we go there to visit mom!\>\n\@alula_oh Well, her grave, anyway.> | <face @niko_eyeclosed Oh....\>\n\@niko_speak -wait, how do you get there?\>\n\@niko I thought you said there isn't a boat?> | <face @alula Oh, our friend helps us!> | <face @calamus He has some sort of machine that allows him to fly.> | <face @alula Sometimes he takes us along!> | <face @calamus But like I was about to say, we haven't seen him around for a while.> | <face @alula I wonder when he'll come back?\>\nI wish we could go see mom again...> | <face @niko ...> | <face @calamus Come on, Alula, let's go back to the courtyard now.> | <face @alula_speak Okay!>
+  Event 6: calamus npc @ (26,7)
+  Event 7: indoors @ (12,1)
+  Event 8: EV008 @ (13,1)
+  Event 9: EV009 @ (31,7)
+    Page0: trigger=0  <face @niko It's a clover.>

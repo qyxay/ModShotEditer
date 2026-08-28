@@ -1,0 +1,21 @@
+Map 35: House 6 - death is coming  (40x30, tileset=5)
+
+  Event 1: door @ (15,12)
+  Event 2: coals @ (17,13)
+  Event 3: stew @ (18,13)
+    Page0: trigger=0  <face @niko Looks like moss...> | <face @niko_speak I guess people eat those!>
+  Event 4: pessimistic npc @ (20,16)
+    Page0: trigger=0  <face If nothing else, I'm sure everyone would like to see the sun again!> | <face @alula_speak Yeah!> | <face It's slowly being chipped away already.\nBut it's still trying to stay alive, I think.> | <face Doesn't matter... one day the world will finally give up this fight.> | <face I just hope I'm not alive to see it.> | <face @alula But the savior is here!> | <face That won't fix the root of the problem.> | <face @niko Just like the other lady said...> | <face @alula_oh Other... lady?> | <face @niko_speak Yeah! She's this robot and she seemed kinda sad...> | <face @alula_pout Ah...> | <face Oh! But don't lose heart!\nWithout the sun, the world will die much faster.> | <face At the very least...\nI'm sure everyone would like to see the sun again.> | <face Right, little one?> | <face @alula_speak Yup!> | <face It's slowly being chipped away already.\nBut it's still trying to stay alive, I think.> | <face Doesn't matter... one day the world will finally give up this fight.> | <face I just hope I'm not alive to see it.> | <face @niko_speak I'm bringing back the sun, though...> | <face That won't fix the root of the problem.> | <face @niko Just like the other lady said...> | <face But don't lose heart!\nWithout the sun, the world will die much faster.> | <face At the very least...\nI'm sure everyone would like to see the sun again.>
+  Event 5: fireflies @ (18,17)
+  Event 6: fireflies @ (17,17)
+  Event 7: fireflies @ (19,17)
+  Event 8: EV008 @ (17,19)
+  Event 9: EV009 @ (18,19)
+  Event 10: EV010 @ (19,19)
+  Event 11: indoors @ (13,9)
+  Event 12: EV012 @ (14,14)
+  Event 13: EV013 @ (15,14)
+  Event 14: EV014 @ (14,16)
+  Event 15: EV015 @ (15,16)
+  Event 16: EV016 @ (14,13)
+  Event 17: EV017 @ (22,17)

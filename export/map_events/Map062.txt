@@ -1,0 +1,9 @@
+Map 62: Elevator  (40x30, tileset=20)
+
+  Event 1: elevator door @ (19,12)
+  Event 2: asdf @ (18,12)
+  Event 3: EV003 @ (16,8)
+  Event 4: EV004 @ (13,8)
+  Event 5: EV005 @ (22,8)
+    Page0: trigger=4  <face @niko ...\>\n\@niko_speak Sure is taking a while...> | <face @niko I guess this elevator leads to the top of the Tower, \p...> | <face @niko ...> | <face @niko_speak ...are you excited, \p?\>\n\@niko We're finally gonna save the world...> | <face @niko_speak And I know it's for real this time, cuz you're here!> | <face @niko And then...\>\n\@niko_speak ...I'll get to go home for real this time, too!> | <face @niko I can't wait to see everyone again...> | <face @niko_speak Are you okay, \p?\>\n\@niko You seem a little quiet...> | <face > | <face @niko_speak ...yeah?> | <face @niko_speak ...?> | <face > | <face @niko ...I'm listening.> | <face @niko_speak What's going on, \p?> | <face > | <face @niko ...?> | <face > | <face @niko ...wh \>\@niko3 ...what's that supposed to mean, \p?> | <face > | <face > | <face @niko_shock What??\>\n\@niko3 ...But won't that... \>\n\@niko_distressed2 ...But won't that end the world?> | <face > | <face @niko_eyeclosed I don't want that to happen...> | <face @niko2 So... what happens when we save the world?\>\n\@niko_distressed ...what happens to me...?> | <face > | <face @niko_shock You... don't?> | <face @niko3 ...> | <face @niko_distressed2 .....>
+  Event 6: map events @ (17,8)

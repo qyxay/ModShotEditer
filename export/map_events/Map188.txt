@@ -1,0 +1,29 @@
+Map 188: Start purple  (50x30, tileset=21)
+
+  Event 1: bed top left @ (14,16)
+  Event 2: bed top right @ (15,16)
+  Event 3: bed bottom left @ (14,17)
+    Page1: trigger=0  <face @ed [Niko just woke up here.]>
+  Event 4: bed bottom right @ (15,17)
+    Page2: trigger=0  <face @ed [Niko just woke up here.]>
+  Event 5: hat left @ (14,15)
+  Event 6: hat left @ (15,15)
+  Event 7: intro @ (14,14)
+    Page0: trigger=3  <face @niko ...> | <face @niko_speak H-hello?> | <face @niko .....>
+  Event 8: pc @ (17,16)
+    Page0: trigger=0  <face @niko It won't turn on.> | <face Input Password:> | <face \c[4]\v[57] \c[2]\v[58] \c[1]\v[59] \c[3]\v[60] \c[0]\..\..\..> | <face \c[2]Access Granted.> | <face @desktop ...> | <face @desktop You found me.> | <face @desktop ....Why?> | <face @desktop You're already too late.\nNot much of the world\nremains.> | <face @desktop This will be apparent\nonce you go outside.> | <face @desktop This place was never\nworth saving.> | <face @desktop ...Do you still want to try?> | <face @desktop Then, remember this:> | <face @desktop Your actions here\nwill affect Niko.> | <face @desktop Your "mission" is\nto help Niko leave.> | <face @desktop And most importantly...> | <face @ed [Niko hears the sound of a door unlocking.]> | <face \c[1]Access Denied.>
+  Event 9: west door @ (11,18)
+  Event 10: south door @ (19,22)
+    Page0: trigger=1  <face @ed [The door is locked.]>
+  Event 11: remote @ (23,18)
+    Page0: trigger=0  <face @ed [There's a \c[7]TV remote\c[0] here.]> | <face @ed [Niko picks it up.]>
+  Event 13: Map Events @ (13,12)
+    Page0: trigger=3  <face @ed [Dusty books.]> | <face @ed [It's too dark to read in here.]>
+  Event 14: bookshelf left @ (19,16)
+  Event 15: bookshelf right @ (20,16)
+  Event 17: panorama @ (15,11)
+  Event 18: nopass @ (18,16)
+  Event 19: nopass @ (16,16)
+  Event 21: EV021 @ (22,20)
+  Event 22: bed bottom left @ (14,18)
+  Event 23: bed bottom left @ (15,18)

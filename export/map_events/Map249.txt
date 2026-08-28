@@ -1,0 +1,77 @@
+Map 249: study  (55x55, tileset=26)
+
+  Event 1: screen1 @ (20,17)
+  Event 2: screen2 @ (25,17)
+  Event 3: screen3 @ (30,17)
+  Event 4: screen4 @ (35,17)
+  Event 5: screen5 @ (20,24)
+    Page0: trigger=0  <face @niko A bulletin board with lots of papers on it.>
+  Event 6: screen6 @ (25,24)
+  Event 7: screen7 @ (30,24)
+  Event 8: screen8 @ (35,24)
+  Event 9: Map Events @ (13,19)
+    Page0: trigger=3  <face @niko It's a shelf full of books.> | <face @niko It's a shelf full of books.>
+    Page1: trigger=3  <face @niko It's a tea set.> | <face @niko There's a glass tea set on the table.> | <face @cedric_hmm Tea DOES sound really nice right now...> | <face @cedric_sigh Too bad there's no water in here...>
+    Page2: trigger=3  <face @niko Black clovers in a glass case.>
+    Page3: trigger=3  <face @niko It's a big book on the table.> | <face @niko It's a big book on the table.>
+    Page4: trigger=3  <face @niko It's a pilot's helmet.>
+    Page5: trigger=3  <face @niko The door is gone.> | <face @niko2 The door is... gone?> | <face @proto2b [Well, the door does not exist without us there.]> | <face @niko_eyeclosed Guess I can't go back out, huh...> | <face @proto2 [...Do you need to?]> | <face @niko_eyeclosed ...not really.>
+    Page6: trigger=3  <face @rue_sigh That was... quite peculiar...> | <face @cedric_sigh2 I'll say!> | <face @proto_jealous [...]> | <face @cedric_talk Hey, this is...> | <face @rue_oh ...The World Machine.>
+    Page7: trigger=3  <face @niko_speak It's a blueprint!> | <face @niko A big, detailed drawing of a machine with lots of tv screens.> | <face @proto2b [...That's called a blueprint, Niko.]> | <face @niko_pancakes ...So THAT's what a blueprint is!>
+  Event 10: shelf @ (15,25)
+  Event 11: shelf @ (16,25)
+  Event 12: shelf @ (17,25)
+  Event 13: shelf @ (40,25)
+  Event 14: shelf @ (41,25)
+  Event 15: teapot @ (18,29)
+  Event 16: teapot @ (19,29)
+  Event 17: teapot @ (20,29)
+  Event 18: teapot @ (17,29)
+  Event 19: EV019 @ (26,29)
+    Page0: trigger=0  <face @niko_speak They're watercolor sticks!>
+  Event 20: clovers @ (35,31)
+  Event 21: clovers @ (36,31)
+  Event 22: clovers @ (39,31)
+  Event 23: clovers @ (40,31)
+  Event 24: clovers @ (27,29)
+  Event 25: clovers @ (28,29)
+  Event 26: clovers @ (29,29)
+  Event 27: EV027 @ (22,27)
+    Page0: trigger=0  <face @niko It's a piece of amber on a string.> | <face @niko_eyeclosed Looks just like that necklace the robot lady showed me...>
+  Event 28: EV028 @ (15,31)
+    Page0: trigger=0  <face @niko A coat rack with a scarf and a big jacket.>
+  Event 29: shelf @ (26,27)
+  Event 30: shelf @ (25,27)
+  Event 31: EV031 @ (27,33)
+  Event 32: EV032 @ (28,33)
+  Event 33: EV033 @ (29,33)
+  Event 34: EV034 @ (27,31)
+  Event 35: EV035 @ (28,31)
+  Event 36: EV036 @ (29,31)
+  Event 37: cedric walkin @ (27,34)
+  Event 38: rue walkin @ (28,34)
+  Event 39: proto walkin @ (29,34)
+  Event 40: EV040 @ (27,24)
+    Page0: trigger=0  <face @rue_talk The room ahead doesn't really lead anywhere, but...> | <face @rue \p should still remember what to do here.>
+  Event 41: EV041 @ (24,25)
+    Page0: trigger=0  <face @cedric_sigh Of course, this is just a copy of it...> | <face @cedric This is my father's study.> | <face @cedric_sigh It feels like...\.\. he's still here, doesn't it?> | <face @cedric_sigh ...like he's still with us.> | <face @rue_sad ...Yeah.> | <face @proto2b [...]>
+  Event 42: EV042 @ (32,25)
+    Page0: trigger=0  <face @proto2b [...]> | <face @proto2b [...This place contains a lot of memories.]> | <face @proto_eyeclosed [I am... grateful, to see it again.]>
+  Event 43: EV043 @ (27,22)
+  Event 44: EV044 @ (28,22)
+  Event 45: EV045 @ (29,22)
+  Event 46: EV046 @ (23,30)
+    Page0: trigger=0  <face @niko It's a stack of books.>
+  Event 47: EV047 @ (19,24)
+    Page0: trigger=0  <face @niko A bulletin board with lots of papers on it.> | <face @niko_speak Photos too!>
+  Event 48: EV048 @ (18,24)
+    Page0: trigger=0  <face @niko A bulletin board with lots of papers on it.> | <face @niko A scribbly drawing is pinned up here.>
+  Event 49: EV049 @ (36,24)
+    Page0: trigger=0  <face @niko It's a big photo.> | <face @niko2 Wait, no...\.\. it's a painting!> | <face @niko_eyeclosed Hard to tell at first...>
+  Event 50: shelf @ (37,25)
+  Event 51: shelf @ (38,25)
+  Event 52: shelf @ (39,25)
+  Event 53: EV053 @ (32,29)
+    Page0: trigger=0  <face @niko A box filled with folders and loose paper.>
+  Event 54: EV054 @ (33,29)
+    Page0: trigger=0  <face @niko A box full of notebooks and sketchbooks.>

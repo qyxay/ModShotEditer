@@ -1,0 +1,23 @@
+Map 235: Photo center  (40x40, tileset=14)
+
+  Event 1: light @ (18,10)
+  Event 2: photo spot @ (18,9)
+    Page0: trigger=1  <face @niko_speak Uh... cheese?> | <face @niko_wtf Ouch, m-my eyes...>
+  Event 3: photo @ (18,13)
+    Page0: trigger=0  <face @niko_speak It's a photo of me!> | <face @niko ...are my eyes always this big?> | <face @niko_speak It's another photo of me!> | <face @niko Good thinking, \p.  It's a good idea to have a backup.> | <face @niko It's another photo of me...> | <face @niko_speak Three is enough, right?> | <face @niko It's another photo of me...> | <face @niko_83c This is kind of fun!> | <face @niko It's a photo of me.> | <face @niko_speak This one turned out pretty good!> | <face @niko It's a photo of me.> | <face @niko_speak Oh no!\>\n\@niko_eyeclosed I blinked in this one...> | <face @niko_speak It's another photo of me!> | <face @niko Nice.> | <face @niko It's a photo of me.> | <face @niko_speak All of these are turning out pretty good!> | <face @niko It's a photo of me.> | <face @niko_speak How many of these do we need, \p?> | <face @niko It's a photo of me...> | <face @niko_eyeclosed And the camera is out of film now...> | <face @niko There's a slot here.\>\nLooks like paper or something might come out from it.>
+  Event 4: photo @ (18,14)
+  Event 5: !lens @ (15,15)
+  Event 6: EV006 @ (17,17)
+  Event 7: EV007 @ (18,17)
+  Event 8: EV008 @ (19,17)
+  Event 9: slot1 @ (15,13)
+  Event 10: slot2 @ (16,13)
+  Event 11: slot3 @ (20,13)
+  Event 12: slot4 @ (21,13)
+  Event 13: puzzle solved @ (12,10)
+  Event 14: !lens @ (16,15)
+  Event 15: !lens @ (20,15)
+  Event 16: !lens @ (21,15)
+  Event 17: switch @ (19,13)
+    Page0: trigger=0  <face @niko It's out of film...> | <face @niko ...\>\nI guess that wasn't the right combination, \p.> | <face @niko ...\>\nIt didn't do anything.>
+  Event 18: indoor graphic @ (14,19)

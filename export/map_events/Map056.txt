@@ -1,0 +1,1 @@
+Map 56: Teleport  (200x200, tileset=19)

@@ -1,0 +1,13 @@
+Map 262: language debug  (20x15, tileset=9)
+
+  Event 1: EV001 @ (3,3)
+  Event 2: EV002 @ (6,3)
+  Event 3: EV003 @ (9,3)
+  Event 4: EV004 @ (12,3)
+  Event 5: EV005 @ (15,3)
+  Event 6: EV006 @ (3,9)
+  Event 7: EV007 @ (6,9)
+  Event 8: EV008 @ (9,9)
+  Event 9: EV009 @ (12,9)
+  Event 10: EV010 @ (15,9)
+  Event 11: EV011 @ (3,12)

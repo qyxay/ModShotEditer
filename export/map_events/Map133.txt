@@ -1,0 +1,11 @@
+Map 133: water room  (40x40, tileset=5)
+
+  Event 1: EV001 @ (19,23)
+  Event 2: EV002 @ (20,23)
+  Event 3: robot standing @ (20,17)
+    Page0: trigger=0  <face [TAKE CARE NOW, PERSON!]> | <face [HELLO, LIVING PERSON.]> | <face @niko Hello.> | <face [I HAVE COLLECTED A DUPLICATE WATER SAMPLE.]> | <face [WOULD YOU LIKE IT?]> | <face @niko Um...> | <face [MY PROGRAMMING SAYS THAT ORGANIC BEINGS NEED WATER TO SURVIVE.]> | <face [SO I SHALL OFFER IT TO YOU.]> | <face @niko Oh, uh,\. \@niko_speak Sure! We'll take it.>
+  Event 4: EV004 @ (16,19)
+    Page0: trigger=0  <face [BEEP BOOP. WATER COLLECTION PROJECT RESUMING...]>
+  Event 5: EV005 @ (23,17)
+    Page0: trigger=0  <face @niko It's full of little glass tubes of water.> | <face [WATER SAMPLES!]>
+  Event 6: indoors @ (13,9)

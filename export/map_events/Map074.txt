@@ -1,0 +1,12 @@
+Map 74: Top floor  (70x27, tileset=7)
+
+  Event 1: west exit @ (10,12)
+  Event 2: west exit @ (10,13)
+  Event 3: east exit @ (59,12)
+  Event 4: east exit @ (59,13)
+  Event 5: Map Events @ (28,20)
+    Page0: trigger=3  <face @niko The door is locked from the inside.>
+  Event 6: south door @ (30,20)
+  Event 7: south door @ (31,20)
+  Event 8: indoor graphic @ (50,16)
+  Event 9: EV009 @ (12,11)

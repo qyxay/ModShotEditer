@@ -1,0 +1,3 @@
+Map 26: basement after sun  (55x30, tileset=1)
+
+  Event 2: door @ (12,14)

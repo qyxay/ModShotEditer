@@ -1,0 +1,41 @@
+===== Enemies.rxdata ===== (Array 2 项, index 0 通常为 nil 占位)
+
+[1]
+  RPG::Enemy ""
+    actions:
+    [1 items]
+      [0]
+      RPG::Enemy::Action
+        basic                = 0
+        condition_hp         = 100
+        condition_level      = 1
+        condition_switch_id  = 0
+        condition_turn_a     = 0
+        condition_turn_b     = 1
+        kind                 = 0
+        rating               = 5
+        skill_id             = 1
+    agi                  = 50
+    animation1_id        = 0
+    animation2_id        = 0
+    armor_id             = 0
+    atk                  = 100
+    battler_hue          = 0
+    battler_name         = 
+    dex                  = 50
+    element_ranks        = Table(1D 2x1, 2 cells)
+    eva                  = 0
+    exp                  = 0
+    gold                 = 0
+    id                   = 1
+    int                  = 50
+    item_id              = 0
+    maxhp                = 500
+    maxsp                = 500
+    mdef                 = 100
+    name                 = 
+    pdef                 = 100
+    state_ranks          = Table(1D 2x1, 2 cells)
+    str                  = 50
+    treasure_prob        = 100
+    weapon_id            = 0

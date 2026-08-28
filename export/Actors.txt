@@ -1,0 +1,201 @@
+===== Actors.rxdata ===== (Array 9 项, index 0 通常为 nil 占位)
+
+[1]
+  RPG::Actor "Niko"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = niko
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 1
+    initial_level        = 1
+    name                 = Niko
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[2]
+  RPG::Actor "Alula"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = green_npc_alula
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 2
+    initial_level        = 1
+    name                 = Alula
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[3]
+  RPG::Actor "Rue"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = red_rue
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 3
+    initial_level        = 1
+    name                 = Rue
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[4]
+  RPG::Actor "Silver"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = blue_npc_silver
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 4
+    initial_level        = 1
+    name                 = Silver
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[5]
+  RPG::Actor "invisible"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = 
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 5
+    initial_level        = 1
+    name                 = invisible
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[6]
+  RPG::Actor "Plight"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = red_lamplighter
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 6
+    initial_level        = 1
+    name                 = Plight
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[7]
+  RPG::Actor "Cedric"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = green_npc_cedric
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 7
+    initial_level        = 1
+    name                 = Cedric
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0
+
+[8]
+  RPG::Actor "Proto"
+    armor1_fix           = false
+    armor1_id            = 0
+    armor2_fix           = false
+    armor2_id            = 0
+    armor3_fix           = false
+    armor3_id            = 0
+    armor4_fix           = false
+    armor4_id            = 0
+    battler_hue          = 0
+    battler_name         = 
+    character_hue        = 0
+    character_name       = blue_npc_prototype
+    class_id             = 1
+    exp_basis            = 30
+    exp_inflation        = 30
+    final_level          = 99
+    id                   = 8
+    initial_level        = 1
+    name                 = Proto
+    parameters           = Table(2D 6x100, 600 cells)
+    weapon_fix           = false
+    weapon_id            = 0

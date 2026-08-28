@@ -1,0 +1,13 @@
+Map 117: entry room  (40x25, tileset=7)
+
+  Event 1: west exit @ (9,13)
+  Event 2: west exit @ (9,14)
+  Event 3: stew @ (12,11)
+  Event 4: south exit @ (18,18)
+  Event 5: south exit @ (19,18)
+  Event 6: stew @ (25,11)
+  Event 7: west exit @ (30,13)
+  Event 8: west exit @ (30,14)
+  Event 9: watcher @ (19,11)
+    Page0: trigger=0  <face @watcher Good morning.> | <face @watcher Good afternoon.> | <face @watcher Good evening.> | <face @watcher ...It's very late.> | <face @watcher But... good day, I suppose.> | <face @watcher Your time here is precious.> | <face @watcher Please, do cherish it.> | <face @niko I will!> | <face @watcher Good morning.> | <face @watcher Good afternoon.> | <face @watcher Good evening.> | <face @watcher ...It's very late.> | <face @watcher It's not healthy for children such as yourself to stay up at this hour.> | <face @niko ...Really?> | <face @niko_eyeclosed ...I... didn't realize...> | <face @watcher Can't blame you.> | <face @watcher With the sun gone, the night never seems to end.> | <face @niko_speak Then... how can you tell?> | <face @niko Time, I mean.> | <face @watcher I have my ways.> | <face @watcher ...Well, the time of day doesn't really mean anything now.> | <face @watcher With the sun gone, the night never seems to end.> | <face @niko_speak Then... How can you tell?> | <face @niko Time, I mean.> | <face @watcher I have my ways.>
+  Event 10: indoor graphic @ (6,17)

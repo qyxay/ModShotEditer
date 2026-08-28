@@ -1,0 +1,21 @@
+Map 124: Room2 - peng  (40x30, tileset=7)
+
+  Event 1: EV001 @ (24,16)
+    Page0: trigger=0  <face ...............> | <face @niko .......................> | <face ...............................> | <face @niko_speak ...................................> | <face .............................................> | <face @niko_eyeclosed ...okay.>
+  Event 2: exit @ (15,19)
+  Event 3: EV003 @ (25,9)
+    Page0: trigger=0  <face @niko2 H-hello, penguin?> | <face @niko It's a big penguin plush!> | <face @niko_speak Hello, penguin!> | <face @niko_what ...>
+  Event 4: Map Events @ (9,3)
+    Page0: trigger=3  <face @niko It's a pink flower.>
+    Page1: trigger=3  <face @niko It's a wall of family photos.>
+  Event 5: EV005 @ (27,16)
+  Event 6: EV006 @ (17,9)
+  Event 7: EV007 @ (14,15)
+  Event 8: EV008 @ (15,15)
+  Event 9: EV009 @ (16,15)
+  Event 10: EV010 @ (17,15)
+  Event 11: EV011 @ (13,11)
+  Event 12: EV012 @ (14,11)
+  Event 13: EV013 @ (13,9)
+  Event 14: EV014 @ (14,9)
+  Event 15: EV015 @ (26,15)

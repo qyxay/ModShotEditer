@@ -1,0 +1,20 @@
+Map 125: Room3 - bot friend  (40x30, tileset=7)
+
+  Event 1: EV001 @ (22,15)
+    Page0: trigger=0  <face @niko A painting of 4 robots playing cards.>
+  Event 2: exit @ (24,19)
+  Event 3: EV003 @ (16,13)
+    Page0: trigger=0  <face [Hello. Would You Like To Play A Game?]> | <face @niko_speak Oh!> | <face @niko Sure!> | <face [What Game Would You Like To Play?]> | <face @niko Hmm....> | <face @niko_speak Do you know rock paper scissors?> | <face [Desired Difficulty Level?]> | <face @niko Huh?> | <face [Desired Duration Of Turns?]> | <face @niko_speak Uh...> | <face [Please Set Your Timer.]> | <face @niko_eyeclosed ...Nevermind...>
+    Page1: trigger=0  <face [What Game Would You Like To Play?]> | <face @niko How about... hide and seek?> | <face [Desired Difficulty Level?]> | <face @niko_speak Well... maybe not too easy?> | <face [Initiating. Ruthless Mode.]> | <face [TARGET: LOCKED.\| YOU HAVE EXACTLY 14 SECONDS.\nSTART.\| RUNNING.]> | <face @niko_wtf ...> | <face @niko_wtf2 ...I'm not sure if I want to play anymore.> | <face [OH.\| Session. Abort.]> | <face [Are You. Feeling Unwell?]> | <face @niko No, it's not that...>
+    Page2: trigger=0  <face [What Game Would You Like To Play?]> | <face @niko I'll... pass.>
+  Event 4: EV004 @ (17,9)
+    Page0: trigger=0  <face My parents are like, literally never home.> | <face But I don't mind! I'm used to it!> | <face Besides, I've got model C-WT 2nd gen unit 4E here to keep me company now!> | <face She still talks a little weird sometimes, but that's okay! She's learning!> | <face If I work real hard, she might even be tamed someday!> | <face @niko I keep hearing that word...> | <face What, tame?> | <face @niko Mhm!> | <face @niko Nobody's told me what it means yet...> | <face That's just a robot thing!\n\... I can't really explain it, either...> | <face @niko Ah...>
+    Page1: trigger=0  <face What? Don't you like to play "Run Away From The Killer Robot"?> | <face ...> | <face Well, at least *I* have fun with it.>
+  Event 5: EV005 @ (15,9)
+    Page0: trigger=0  <face @niko A pile of large books.> | <face @niko One of them is a robot instruction manual...>
+  Event 6: EV006 @ (22,9)
+  Event 7: EV007 @ (23,9)
+  Event 8: EV008 @ (25,15)
+    Page0: trigger=0  <face @niko A picture of many 1's and 0's.>
+  Event 9: stew @ (18,9)
+  Event 10: stew @ (19,9)

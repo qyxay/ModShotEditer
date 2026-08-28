@@ -1,0 +1,27 @@
+Map 106: right-3d printers  (56x40, tileset=14)
+
+  Event 1: exit @ (15,20)
+  Event 2: exit @ (15,21)
+  Event 3: exit @ (28,27)
+  Event 4: exit @ (27,27)
+  Event 5: EV005 @ (23,21)
+    Page0: trigger=0  <face $It may help you to go one color at a time!  -Management>
+  Event 6: EV006 @ (32,19)
+    Page0: trigger=0  <face $It can also help to write down previous attempts. -Management>
+  Event 7: indoor graphic @ (24,29)
+  Event 8: EV008 @ (36,25)
+    Page0: trigger=0  <face $If all else fails, wait for the puzzle to reset.> | <face $Maybe you'll get an easier one next time...>
+  Event 9: EV009 @ (36,19)
+  Event 10: coals @ (35,19)
+  Event 11: EV011 @ (21,18)
+  Event 12: EV012 @ (27,22)
+    Page0: trigger=0  <face [BEEP BOOP]> | <face [THIS IS THE PRINTER ROOM, WHERE MACHINE PARTS ARE MADE.]> | <face [ALSO, ROBOTS.]>
+  Event 13: coals @ (18,19)
+  Event 14: coals @ (19,19)
+  Event 15: coals @ (23,19)
+  Event 16: coals @ (24,19)
+  Event 17: coals @ (31,18)
+  Event 18: coals @ (30,18)
+  Event 19: coals @ (20,18)
+  Event 20: coals @ (33,18)
+  Event 21: coals @ (34,18)

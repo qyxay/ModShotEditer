@@ -1,0 +1,16 @@
+Map 181: Bathroom  (40x30, tileset=20)
+
+  Event 1: east door @ (24,16)
+  Event 2: plant @ (22,14)
+    Page0: trigger=0  <face @niko It's a little tree.>
+  Event 3: mirror @ (20,13)
+    Page0: trigger=0  <face @niko_speak It's a mirror!>
+  Event 4: ambient @ (23,11)
+  Event 5: EV005 @ (18,14)
+    Page0: trigger=0  <face @niko Just a toilet...>
+  Event 6: EV006 @ (17,16)
+    Page0: trigger=0  <face @niko It's a metal bathtub.>
+  Event 7: EV007 @ (18,16)
+    Page0: trigger=0  <face @niko It's a metal bathtub.>
+  Event 8: niko reflection @ (21,13)
+  Event 9: EV009 @ (20,15)

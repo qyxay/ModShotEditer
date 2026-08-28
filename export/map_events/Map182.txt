@@ -1,0 +1,23 @@
+Map 182: Livingroom  (52x30, tileset=20)
+
+  Event 1: north door @ (21,9)
+  Event 2: east door @ (35,12)
+  Event 3: west door L @ (16,11)
+  Event 4: Map Events @ (15,7)
+    Page0: trigger=3  <face @niko There's nothing in the fridge...>
+  Event 5: fridge left @ (31,17)
+  Event 6: fridge right @ (32,17)
+  Event 7: tv mid @ (24,10)
+  Event 8: nopass @ (25,10)
+  Event 9: west door R @ (17,11)
+  Event 10: EV010 @ (26,19)
+    Page0: trigger=0  <face @niko It's a sink.>
+  Event 11: fire action @ (29,10)
+    Page0: trigger=0  <face @niko The wood is neatly stacked in the fireplace.>
+  Event 12: EV012 @ (27,19)
+    Page0: trigger=0  <face @niko It's a sink.>
+  Event 13: EV013 @ (20,6)
+  Event 14: ambient @ (12,7)
+  Event 15: nopass @ (23,10)
+  Event 17: door event parallel @ (19,6)
+  Event 18: tv static @ (24,8)

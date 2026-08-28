@@ -1,0 +1,6 @@
+Map 96: Lobby-OLD VER  (50x50, tileset=7)
+
+  Event 1: EV001 @ (25,17)
+    Page0: trigger=0  <face THOU SHALT NOT PASS>
+  Event 2: EV002 @ (22,18)
+    Page0: trigger=0  <face @niko That sure is some books>

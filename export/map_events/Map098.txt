@@ -1,0 +1,23 @@
+Map 98: 1st room  (56x40, tileset=14)
+
+  Event 1: exit @ (27,28)
+  Event 2: exit @ (28,28)
+  Event 3: exit left @ (14,20)
+  Event 4: exit left @ (14,21)
+  Event 5: exit right @ (41,20)
+  Event 6: exit right @ (41,21)
+  Event 7: button @ (24,14)
+    Page0: trigger=0  <face [\v[31] LIGHTS CORRECT.]> | <face \c[2][ACCESS GRANTED!]\c[0]> | <face \c[1][ACCESS DENIED. \v[37] TRIES LEFT.]\c[0]> | <face \c[1][INTRUDER DETECTED. RESETTING LOCK MECHANISM.]\c[0]> | <face @niko_eyeclosed Sigh... Time to start over...> | <face [HALT!]> | <face [PLEASE AWAIT FURTHER INSTRUCTION ON THE SECURITY TEST.]> | <face [PLEASE SPEAK TO THE DOOR ROBOT.]>
+    Page1: trigger=0  <face @niko We opened the lock!>
+  Event 8: 1 @ (19,14)
+  Event 9: 2 @ (20,14)
+  Event 10: 3 @ (21,14)
+  Event 11: 4 @ (22,14)
+  Event 12: 5 @ (23,14)
+  Event 13: npc_mmrobot @ (26,15)
+    Page0: trigger=0  <face [THE SECURITY SYSTEM HAS BEEN TEMPORARILY DEACTIVATED.]> | <face [WOULD YOU LIKE TO RESET IT?]> | <face @niko_eyeclosed ...I don't think I want to go through THAT again...> | <face @niko_what um...> | <face @niko How do I...solve this...> | <face [THAT IS PART OF THE TEST.]> | <face @niko_eyeclosed Bummer.> | <face [IN ORDER TO GAIN FURTHER ACCESS TO THE LABS.]> | <face [YOU MUST PASS THE SECURITY SYSTEM TEST.]> | <face @niko The... huh?> | <face [YOU MUST CHANGE THE COLOR OF THE LIGHTS INTO A SPECIFIC CONFIGURATION.]> | <face [ALLOW ME.]>
+  Event 14: door GRAPHIC @ (28,14)
+    Page0: trigger=1  <face @niko_eyeclosed Locked.>
+  Event 15: door @ (27,14)
+    Page0: trigger=1  <face @niko_eyeclosed Locked.>
+  Event 17: indoor graphic @ (24,30)

@@ -1,0 +1,5 @@
+Map 110: Tower deck  (120x80, tileset=6)
+
+  Event 2: north exit @ (94,17)
+  Event 9: EV009 @ (18,38)
+    Page1: trigger=3  <face @niko We should get going now, \p.> | <face @niko_eyeclosed I'm a little tired from walking.> | <face @niko_speak Is it alright if I take a nap?> | <face > | <face @niko_eyeclosed Ah, well... \>\n\@niko I suppose there's more work to do.>

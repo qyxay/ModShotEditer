@@ -1,0 +1,9 @@
+Map 41: Computer Room  (50x50, tileset=5)
+
+  Event 1: EV001 @ (25,25)
+  Event 2: computer door left @ (24,30)
+  Event 3: computer door right @ (25,30)
+  Event 4: pc @ (24,25)
+    Page0: trigger=0  <face @ed [By the way, the effect is temporary.]> | <face @ed [It will be gone once you no longer need it.]> | <face @ed [Still haven't figured it out?]> | <face @ed [...you remember the document, correct?]> | <face @ed [This time it's even more obvious.]> | <face @ed [What's the most \c[2]easily accessible\c[0] place on your machine?]> | <face @ed [Hello again, \p.]> | <face @ed [It seems I need to help you again.]> | <face @ed [Niko will not be able to progress otherwise.]> | <face @ed [This time, the information you need has fallen to the most easily accessible place on your machine.]> | <face @ed [You'll know what to do with it, then.]> | <face @ed [I know you're not exactly that bright for a god, \p, but this shouldn't be difficult.]> | <face @ed [Just poke around a bit. It really isn't hard to miss.]>
+    Page1: trigger=0  <face @ed [...This...]> | <face @ed [How did you already know the answer?]> | <face @ed [...]>
+  Event 5: EV005 @ (19,18)

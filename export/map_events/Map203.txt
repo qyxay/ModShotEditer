@@ -1,0 +1,19 @@
+Map 203: Maize  (88x80, tileset=10)
+
+  Event 1: init @ (59,35)
+  Event 2: maize @ (25,36)
+    Page0: trigger=0  <face @maize_thisisfine Do not worry.\>\nI am fine.>
+    Page1: trigger=0  <face @maize_stress Hello...> | <face @niko2 I...\.\. um...\>have something to ask of you...> | <face @maize_thisisfine ...yes?> | <face @niko5 It looks like most of the bridges around the Glen are broken, and...> | <face @maize_stress ...that's right...\.\.the bridges...> | <face @maize_stress You...\.\. need to cross them on your pilgrimage....> | <face @maize_thisisfine ...would you\.\....like me to fix them?> | <face @niko2 Yeah! \>\@niko4 Is it possible?> | <face @maize_stress ...> | <face @maize_strain ...difficult.> | <face @maize_stress ...bridges...\.\. are in very specific locations, over water...> | <face @maize_strain ...need to find the right points... \. \.\nvines must be very strong, too...> | <face @maize_stress ...an undertaking.> | <face @niko_eyeclosed Ah...> | <face @maize_stress ...but, possible.> | <face @maize_thisisfine I...\.\. intend to use the last of my strength.> | <face @niko3 ...> | <face @maize_strain ...please stand back.> | <face @niko_shock ...> | <face @niko3 ...what... happened?> | <face @niko3 Are you okay...?> | <face @niko_distressed_talk ...are you...> | <face @niko_distressed .\..\..> | <face @niko_distressed2 .\..\..> | <face @niko_distressed2 ...>
+    Page2: trigger=0  <face @niko_distressed2 ...>
+  Event 3: map events @ (25,32)
+    Page0: trigger=3  <face @maize_stress ...S...\.\.savior...> | <face @maize_thisisfine ...... \.you're\.\....here to see me...?> | <face @niko_shock ...what... \.\@niko3 happened to you?> | <face @maize_stress ...\>\nhold on.> | <face @maize_stress ...I.... \.\.need to concentrate> | <face @niko2 ...?> | <face @maize_strain !!!!> | <face @maize_strain ...the islands... \.\.will collapse...\>if I don't do something...> | <face @maize_strain ...that's why... \.\.the vines...> | <face @niko2 ...\>you're... making the vines grow...> | <face @niko4 ...is that why there are vines everywhere?> | <face @niko3 Are you... \.\.trying to hold the land together?> | <face @maize_stress My powers... the best I could do. Yes.> | <face @niko3 That's...> | <face @niko2 Should I leave the sun here for you? \>\n\@niko4 I know you wanted to see it...> | <face @maize_stress ...> | <face @maize_thisisfine ...tempting... \>\nBut I musn't...> | <face @maize_stress ...the sun brings me comfort, but...> | <face @maize_stress Stress is good... for this, fear is good...> | <face @maize_strain ...makes me strong.\>...vines grow faster.> | <face @niko4 But...> | <face @maize_stress If I'm at ease... \.\.the vines might retreat.> | <face @niko4 ...> | <face @maize_stress They're all in danger, savior...> | <face @maize_strain The villagers...\.\. the children...> | <face @maize_strain ...my final hours...\>mustn't go to waste.> | <face @maize_thisisfine The people deserve to live... even if just for another day...> | <face @niko4 ...>
+  Event 4: maize trigger @ (22,41)
+  Event 5: maize trigger @ (23,41)
+  Event 6: maize trigger @ (24,41)
+  Event 7: maize trigger @ (25,41)
+  Event 8: maize trigger @ (26,41)
+  Event 9: maize trigger @ (27,41)
+  Event 10: maize trigger @ (28,41)
+  Event 12: exit left @ (68,36)
+  Event 13: exit right @ (69,36)
+  Event 16: EV016 @ (25,33)

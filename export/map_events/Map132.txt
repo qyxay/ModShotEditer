@@ -1,0 +1,43 @@
+Map 132: Room6 - plant  (40x30, tileset=7)
+
+  Event 1: npc_mason @ (21,9)
+    Page0: trigger=0  <face @mason Good luck with that seed, now!> | <face @mason Most of the plants in our world tend to grow in The Glen.> | <face @mason Even if it's facing the flooding issues, it's still in better condition than the other two areas.> | <face @mason The Barrens is... well, the barrens.> | <face @mason And Refuge city has barely enough ground to stand on, let alone grow stuff!> | <face @mason ...On a larger scale than this, I mean.> | <face @niko_speak Oh! \.\.\@niko You're a gardener, right?> | <face @mason Yup!> | <face @niko_speak Do you... happen to have any dirt?\>\n\@niko For growing plants, I mean!> | <face @mason Yup!\>\nDo you need some?> | <face @niko_speak Yes!\>\n\@niko I'm supposed to plant this seed left behind by a plant lady...> | <face @niko_eyeclosed ...but the pot in the garden doesn't have any soil...> | <face @mason I see....> | <face @mason I know who you're talking about, yeah.> | <face @mason Here, take this whole bag!> | <face @niko_speak Thanks!> | <face @mason Feel free to ask me about the plants!> | <face @mason Most of the plants in our world tend to grow in The Glen.> | <face @mason Even if it's facing the flooding issues, it's still in better condition than the other two areas.> | <face @mason The Barrens is... well, the barrens.> | <face @mason And Refuge city has barely enough ground to stand on, let alone grow stuff!> | <face @mason ...On a larger scale than this, I mean.> | <face @mason Hello there!> | <face @niko_speak You have a lot of plants!> | <face @mason I do!\nGrew all of these myself, y'see.> | <face @mason Feel free to ask me about them!>
+  Event 2: EV002 @ (26,11)
+  Event 3: exit @ (20,19)
+  Event 4: trowel @ (23,9)
+    Page0: trigger=0  <face @niko A small garden trowel. The handle part is shaped like... an owl?> | <face @niko_speak ...> | <face @niko_83c I get it!>
+  Event 5: watering can @ (25,11)
+    Page0: trigger=0  <face @niko A watering can. It's half full.>
+  Event 6: bucket @ (24,11)
+    Page0: trigger=0  <face @niko Filled with plant clippings.>
+  Event 7: flowerpot @ (14,11)
+    Page0: trigger=0  <face @niko Empty flowerpot...>
+  Event 8: glentree @ (19,9)
+  Event 9: Map Events @ (11,5)
+    Page0: trigger=3  <face @niko So... is it a tree?> | <face @mason Only in name!> | <face @mason That's a phosphor tree.> | <face @niko_speak Oh! Like the ones we saw in the glen!> | <face @niko I always wondered... where are the leaves?> | <face @niko2 They're not... dead, are they?> | <face @mason Oh, not at all!> | <face @mason Although these trees are composed of a woody tissue, they're closer to grass, anatomy-wise.> | <face @niko ...So the branches are actually leaves?> | <face @mason Sorta!> | <face @mason What's interesting about these plants is the amount of phosphor sap they can generate.> | <face @niko Phosphor... that's the glowy stuff, right?> | <face @mason Yup!> | <face @mason Phosphor can store light energy and slowly emit it over time.> | <face @mason Most of the phosphor from this world still contains energy from before the sun went out.> | <face @mason Without the sun to recharge them, though...> | <face @mason ...well, let's talk about something else.>
+    Page1: trigger=3  <face @niko The pots are labeled with different species names.> | <face @niko Oh! The sprouts are stretching towards the sun...> | <face @mason Be sure not to touch these!> | <face @mason These are the plants have only recently sprouted.> | <face @mason It's not easy for a plant to make it out there these days.> | <face @mason We got these growing lamps, but they're a poor substitute for the sun!>
+    Page2: trigger=3  <face @mason Ah, black clovers...> | <face @mason Probably the only plant hardy enough to survive naturally outside the Glen.> | <face @mason Personally? I think they're really boring to look at.> | <face @mason One of my customers really loves them though.> | <face @mason I think all of the black clovers I'm growing here are for him, actually.> | <face @mason ...Come to think of it, I haven't seen him in a while.> | <face @mason I wonder when is he coming to pick these up?> | <face @mason The clover guy... he's actually pretty cool!> | <face @mason He's an author, and apparently he's some sort of big deal? Or at least he's really passionate about his work.> | <face @mason I don't know him that well, although sometimes I stumble across articles about him in the news...> | <face @mason I'd love to chat with him, if I run into him again!> | <face @niko Black clovers.> | <face @niko They're kinda shiny.>
+    Page3: trigger=3  <face @niko It's wheat.> | <face @mason That golden color is quite something, no?> | <face @niko_speak It's wheat!> | <face @niko Why is it in a flowerpot?> | <face @mason Well, doesn't it look nice?> | <face @niko I guess!> | <face @niko I like to stand in the middle of the wheat field back in my village.> | <face @niko_speak It goes on for miles!> | <face @mason Ah... I wish I could have seen it!> | <face @mason In our world, wheat is usually only grown in small isolated plots.> | <face @mason ...Or in a flowerpot.>
+    Page4: trigger=3  <face @niko A small tree with leaves.> | <face @niko_eyeclosed ...Apparently they are rare.> | <face @niko This tree has leaves!> | <face @mason Ah yes, true foliage is hard to come by nowadays.> | <face @mason You hardly ever see trees like these in the wild anymore.> | <face @mason And the ones you do see are pretty much all raised artificially by people like me, mostly for nostalgia purposes.>
+  Event 10: wheat @ (13,10)
+  Event 11: sprout @ (18,17)
+  Event 12: sprout @ (17,16)
+  Event 13: sprout @ (22,17)
+  Event 14: sprout @ (23,16)
+  Event 15: glentree @ (18,9)
+  Event 16: glentree @ (24,13)
+  Event 17: glentree @ (15,12)
+  Event 18: cactus @ (27,13)
+    Page0: trigger=0  <face @niko Cactus.> | <face @mason Cactus.> | <face @niko_eyeclosed Cactus.>
+  Event 19: clover @ (14,9)
+  Event 20: clover @ (15,9)
+  Event 21: clover @ (16,9)
+  Event 22: clover @ (17,9)
+  Event 23: clover @ (24,9)
+  Event 24: wheat @ (23,13)
+  Event 25: tree @ (16,13)
+  Event 26: tree @ (17,13)
+  Event 27: tree @ (18,13)
+  Event 28: EV028 @ (25,10)
+    Page0: trigger=0  <face @niko It's a pink flower.>
+  Event 29: EV029 @ (27,11)

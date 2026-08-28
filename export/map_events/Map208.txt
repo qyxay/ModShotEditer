@@ -1,0 +1,13 @@
+Map 208: mines exit  (144x40, tileset=22)
+
+  Event 1: EV001 @ (109,14)
+  Event 2: EV002 @ (110,15)
+  Event 3: EV003 @ (111,16)
+  Event 4: EV004 @ (112,15)
+  Event 5: EV005 @ (112,16)
+  Event 6: NIKO STARTS HERE @ (98,15)
+    Page0: trigger=3  <face @niko_eyeclosed ...> | <face @niko_upset2 ...> | <face @niko_upset2 ...> | <face @niko_upset2 I... think I remember something...> | <face @niko_eyeclosed I remember... what I did at the end.> | <face @niko_eyeclosed I remember... putting in the sun...> | <face @niko3 And then everything got really bright...> | <face @niko_eyeclosed I... remember being in a dark room.> | <face @niko3 There was a light at the end of a long hallway...> | <face @niko_eyeclosed I thought I was going back home, but...> | <face @niko_eyeclosed I... \.\.don't remember a lot of the details.> | <face @niko_upset ...> | <face @niko_distressed2 ...But none of it matters now, does it?> | <face @niko_upset I just got brought back anyway....> | <face @niko_upset2 ...> | <face @niko_eyeclosed .....>
+  Event 7: EV007 @ (114,15)
+    Page0: trigger=0  <face @niko_eyeclosed We can't go back now, \p.>
+  Event 8: EV008 @ (119,27)
+  Event 9: EV009 @ (120,27)

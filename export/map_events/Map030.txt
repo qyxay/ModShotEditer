@@ -1,0 +1,23 @@
+Map 30: House 1 - stew  (40x30, tileset=5)
+
+  Event 1: door @ (15,12)
+  Event 2: coals @ (17,13)
+  Event 3: stew @ (18,13)
+  Event 4: cook npc @ (19,13)
+    Page0: trigger=0  <face Don't be afraid to ask if you guys want some stew!> | <face @alula_speak Thank you!> | <face Don't be afraid to ask if you want some stew!> | <face It's not ready yet, but...\nWould you kids like some stew?> | <face @niko_speak I'm not hungry...\nBut thank you!> | <face @alula Same!> | <face Well, don't be afraid to ask when you do get hungry!> | <face It's not ready yet, but...\nWould you like some stew?> | <face @niko_speak I'm not hungry...\nBut thank you!> | <face It's the least I can offer the savior!>
+  Event 5: fireflies @ (18,17)
+    Page0: trigger=0  <face @niko The fireflies light up this room.>
+  Event 6: fireflies @ (19,17)
+    Page0: trigger=0  <face @niko The fireflies light up this room.>
+  Event 7: fireflies @ (17,17)
+    Page0: trigger=0  <face @niko A couple of fireflies are buzzing about in this jar.>
+  Event 8: EV008 @ (17,19)
+  Event 9: EV009 @ (18,19)
+  Event 10: EV010 @ (19,19)
+  Event 11: indoors @ (13,9)
+  Event 13: EV013 @ (15,14)
+  Event 14: EV014 @ (14,14)
+  Event 15: EV015 @ (14,16)
+  Event 16: EV016 @ (15,16)
+  Event 17: EV017 @ (14,13)
+  Event 18: EV018 @ (22,17)

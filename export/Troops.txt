@@ -1,0 +1,28 @@
+===== Troops.rxdata ===== (Array 2 项, index 0 通常为 nil 占位)
+
+[1]
+  RPG::Troop ""
+    id                   = 1
+    members              = []
+    name                 = 
+    pages:
+    [1 items]
+      [0]
+      RPG::Troop::Page
+        condition:
+        RPG::Troop::Page::Condition
+          actor_hp             = 50
+          actor_id             = 1
+          actor_valid          = false
+          enemy_hp             = 50
+          enemy_index          = 0
+          enemy_valid          = false
+          switch_id            = 1
+          switch_valid         = false
+          turn_a               = 0
+          turn_b               = 0
+          turn_valid           = false
+        list:
+        [1 items]
+         0| (code 0)             |
+        span                 = 0

@@ -1,0 +1,14 @@
+Map 61: Shatter  (21x17, tileset=10)
+
+  Event 1: autorun @ (0,0)
+    Page0: trigger=3  <face @niko \p?\>\n.\..\..What happened?\>\nIt's very dark in here...> | <face @niko_speak ...Oh!\>\nI can see a light at the end of this passage!> | <face @niko I think I hear a voice too...> | <face @niko_surprised Mama?\>\nI can hear her calling me!>
+  Event 2: EV002 @ (2,0)
+  Event 3: EV003 @ (10,14)
+    Page0: trigger=1  <face @niko_speak All I need to do is pass through this wall...\>\nI'll finally be home again.> | <face @niko_eyeclosed ...> | <face @niko Ah, \p,\nI guess...> | <face @niko_eyeclosed2 I guess this is goodbye...> | <face @niko2 I'm....\.\. glad...\.\. I got to meet you, \p...> | <face @niko_sad Thank you for everything.> | <face @credits Thanks for Playing!>
+  Event 4: tile1 @ (10,7)
+  Event 5: tile2 @ (10,8)
+  Event 6: tile3 @ (10,9)
+  Event 7: tile4 @ (10,10)
+  Event 8: tile5 @ (10,11)
+  Event 9: tile6 @ (10,12)
+  Event 10: tile7 @ (10,13)

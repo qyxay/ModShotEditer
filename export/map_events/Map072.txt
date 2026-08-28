@@ -1,0 +1,202 @@
+Map 72: Lobby  (72x70, tileset=7)
+
+  Event 1: EV001 @ (54,22)
+    Page0: trigger=0  <face @niko Um...> | <face @niko_wtf What...are you doing...to that book?> | <face Don't worry, these are my own books. That I wrote.> | <face I just pulled them off the shelves to modify them. I have to cross out some sections...> | <face ...most sections.> | <face @niko_speak Eh? How come?> | <face Cuz otherwise they'll think I copied HIM.> | <face @niko Him?> | <face The Author!> | <face I mean, I really don't see the point of writing anything anymore!> | <face The Author is just gonna write about the same thing, and then everyone will love it!> | <face And nobody's gonna remember the books that came out before his!> | <face @niko Oh, uh...> | <face I mean, I ain't hatin'.> | <face I can see why people go nuts over his stuff. That guy's got major talent.> | <face But...it just...hurts, y'know?> | <face It's never fun when people call you a copycat for something you wrote about first.> | <face @niko I can see that...> | <face @niko_speak People call me a cat all the time!> | <face @niko_eyeclosed Even though I'm a person, and cats are pets.> | <face @niko ...and mousers.> | <face @niko_eyeclosed I sure hope people don't think I eat mice...> | <face Heh, then I guess we're in the same boat, kiddo.>
+    Page1: trigger=0  <face Well, I think I changed at least half a book's worth of content.> | <face And even then, it's still too similiar!> | <face Looks like I'll just have to accept my fate...> | <face @niko Well, I guess being a called a cat isn't all that bad...> | <face @niko_eyeclosed ...as long as people don't assume you eat mice.>
+  Event 2: stairs @ (35,13)
+  Event 3: stairs @ (36,13)
+  Event 4: stairs @ (37,13)
+  Event 5: coffee cups @ (18,12)
+    Page0: trigger=0  <face @niko Coffee cups.> | <face @niko_speak Coffee is for grown-ups!>
+  Event 6: coffee machine @ (17,12)
+    Page0: trigger=0  <face @niko A coffee machine.> | <face @niko It's almost empty...>
+  Event 7: EV007 @ (42,27)
+    Page0: trigger=0  <face @niko A photo of some plants.>
+  Event 8: EV008 @ (30,27)
+    Page0: trigger=0  <face @niko Some sort of plaque.>
+  Event 9: EV009 @ (42,44)
+    Page0: trigger=0  <face @niko Some sort of plaque.>
+  Event 10: EV010 @ (30,44)
+    Page0: trigger=0  <face @niko A photo of some people.>
+  Event 11: librarian @ (36,16)
+    Page0: trigger=0  <face @bookbot [IF YOU HAVE AN INQUIRY. PLEASE APPROACH FROM THE FRONT.]> | <face @niko I'm good, thanks!>
+  Event 12: exit @ (34,56)
+  Event 13: exit @ (35,56)
+  Event 14: exit @ (36,56)
+  Event 15: exit @ (37,56)
+  Event 16: exit @ (38,56)
+  Event 17: EV017 @ (41,12)
+    Page0: trigger=0  <face I'm on my 3rd cup.> | <face I can't feel my limbs...> | <face @niko um...> | <face BUT I HAVE TO STAY AWAKE.> | <face I NEED TO FIND OUT HOW THIS BOOK ENDS...> | <face @niko2 Ummm....> | <face CURSE THE AUTHOR AND HIS BEAUTIFUL CLIFFHANGERS...>
+  Event 18: EV018 @ (25,39)
+  Event 19: card block @ (39,14)
+  Event 20: card block @ (33,14)
+  Event 21: Map Events @ (36,4)
+    Page0: trigger=3  <face @bookbot !> | <face @bookbot [UNAUTHORIZED ENTRY.]> | <face @bookbot [LIBRARY CARD REQUIRED FOR FURTHER ACCESS.]> | <face @niko_eyeclosed I know, I know...> | <face @bookbot !> | <face @bookbot [UNAUTHORIZED ENTRY.]> | <face @bookbot [LIBRARY CARD REQUIRED FOR FURTHER ACCESS.]> | <face @niko Wait, what?> | <face @bookbot [LIBRARY CARD REQUIRED FOR FURTHER ACCESS.]> | <face @niko_speak I don't have a library card, though!> | <face @niko Where can I get one?> | <face @bookbot [THIS IS A QUESTION FOR THE HEAD LIBRARIAN, GEORGE.]> | <face @bookbot [ALLOW ME TO CALL HER.]> | <face @niko_huh . . .> | <face @niko_wtf2 . . . . .> | <face @bookbot [SHE IS NOT PICKING UP.]> | <face @niko_eyeclosed I figured...> | <face @niko Are you sure you can't just... let me through?> | <face @bookbot [LETTING YOU THROUGH WITHOUT A LIBRARY CARD IS AGAINST MY PROGRAMMING.]> | <face @niko_what Wh-> | <face @niko Even in an emergency?> | <face @bookbot [MY PROGRAMMING IS NOT FLEXIBLE.]> | <face @bookbot [I HAVE NOT BEEN TAMED.]> | <face @niko_eyeclosed Sigh...> | <face [DO YOU NEED SOMETHING? PLEASE APPROACH FROM THE FRONT.]>
+    Page1: trigger=3  <face @niko_speak Oh!> | <face @niko There's this book I found back in the barrens area.> | <face @niko_speak Since this is a place for books, would you happen to know what it says?> | <face @bookbot [I DO NOT RECOGNIZE THIS LANGUAGE]> | <face @bookbot [BUT THE SYMBOL ON THE COVER IS OF IMPORTANCE]> | <face @niko Oh?> | <face @bookbot [THE HEAD LIBRARIAN, GEORGE, CAN EXPLAIN IT.]> | <face @bookbot [WOULD YOU LIKE ME TO CALL HER?]> | <face @niko_eyeclosed Please don't.> | <face > | <face @bookbot [AUTHENTICATING BARCODE...]> | <face @bookbot [EXECUTING FACIAL RECOGNITION...]> | <face @bookbot [PHOTO MATCH... \. FAILED.]> | <face @bookbot [IT SEEMS YOU DO NOT RESEMBLE THE OWNER OF THE CARD.]> | <face @bookbot [YOU CANNOT USE THIS CARD.]> | <face @niko_eyeclosed Bummer...> | <face @bookbot [INVALID CARD!]> | <face @bookbot [PHOTO IS MISSING.]> | <face @niko_eyeclosed ...why did I do that.> | <face @bookbot [HAVE A NICE DAY, MISS KIP.]> | <face @niko Yup, that's... totally me.> | <face @bookbot [AUTHENTICATING BARCODE...]> | <face @bookbot [EXECUTING FACIAL RECOGNITION...]> | <face @bookbot [PHOTO MATCH... \. SUCCESSFUL]> | <face @bookbot [YOU'RE GOOD TO GO!]> | <face @bookbot [HAVE A NICE DAY, MISS KIP.]> | <face @niko_what ...> | <face @niko_eyeclosed ...maybe I should've changed the name.> | <face @niko So I'm guessing you don't give out library cards?> | <face @bookbot [I ONLY HANDLE BOOK TRANSACTIONS.]> | <face @bookbot [...FOR PEOPLE WHO ALREADY POSSESS CARDS.]> | <face @niko Ah.> | <face @bookbot [TO ACQUIRE A CARD, YOU WOULD NEED TO CONTACT THE HEAD LIBRARIAN, GEORGE.]> | <face @bookbot [ALLOW ME TO CALL HER-> | <face @niko_surprised Don't!!> | <face @bookbot [HAVE A NICE DAY, MISS KIP.]> | <face @niko Yup, that's... totally me.> | <face @bookbot [THE HEAD LIBRARIAN, GEORGE, IS IN THE ARCHIVAL ROOM UPSTAIRS.]> | <face @niko Excuse me!> | <face @bookbot [OH. YOU ARE THE MESSIAH.]> | <face @bookbot [WELCOME.]> | <face @niko_speak When I first entered the city, a big robot told me to look for a library on the surface!> | <face @niko This is the same library, right?> | <face @bookbot [AFFIRMATIVE.]> | <face @niko_speak Oh, goody!> | <face @niko Well...we're here...what do we do now?> | <face @niko_eyeclosed The big robot only said there'd be clues here...> | <face @bookbot [THAT IS A QUESTION FOR THE HEAD LIBRARIAN, GEORGE.]> | <face @bookbot [ALLOW ME TO CALL HER.]> | <face @bookbot [SHE IS NOT PICKING UP.]> | <face @niko_speak Is she...not here?> | <face @bookbot [SHE IS HERE. SHE IS IN THE ARCHIVAL ROOM UPSTAIRS.]> | <face @bookbot [WHEN SHE IS CONCENTRATING ON HER WORK, SHE WILL IGNORE ANY AND ALL PHONECALLS.]> | <face @bookbot [...FOR SEVERAL DAYS.]> | <face @niko_what Yikes!> | <face @niko Can you go get her in person, then?> | <face @bookbot [LEAVING THIS POST IS NOT IN MY PROGRAMMING.]> | <face @niko Then...can I go myself?> | <face @bookbot [OF COURSE.]> | <face @bookbot [THE ARCHIVAL ROOM IS ACCESSIBLE THROUGH THE STAIRWELL BEHIND ME.]> | <face @niko_speak Gotcha, thanks!>
+    Page2: trigger=3  <face @niko A computer. It's currently off.>
+    Page3: trigger=3  <face I guess that's why the library is always so packed.> | <face ...and this is a slow day, mind you!> | <face The Author's books cover a wide range of topics.> | <face It seems there are no subjects he does not write about.> | <face Quite the renaissance man, don't you think?> | <face @niko I guess so!> | <face But he's been focusing on documenting the world, as of late.> | <face @niko_speak Oh?> | <face They say this city is the last bastion of civilization.> | <face Soon, these books may be the only thing we have to remember the rest of the world by.> | <face @niko ...ah.>
+    Page4: trigger=3  <face @niko I haven't seen any superheroes in this world.> | <face @niko_speak Saw a lot of robots, though!> | <face Well, I guess robots are more plausible than superpowers...> | <face @niko True!> | <face The Author publishes books at a highly accelerated, almost inhuman pace.> | <face In fact, he has put out more books in one year than most authors do in a lifetime.> | <face According to the head librarian, there is still a large amount of material he has written, but not yet published.> | <face One cannot help but to wonder where he can get so much done in so little time.> | <face I did the calculations, and the numbers simply do not add up.> | <face @niko Maybe he... \.\.\@niko_speak can stop time?> | <face No such mechanism exists in this world.> | <face ...Is that actually possible in your home dimension?> | <face @niko_eyeclosed Nah, I just saw it in a movie once...> | <face @niko About... superheroes and stuff.>
+    Page5: trigger=3  <face There's a couple of his books in this room that aren't occupied yet.> | <face Hurry before someone takes them!> | <face So, what do you think about the Author?> | <face @niko I... don't know?> | <face Have you read his stuff yet?> | <face If not, you should!>
+    Page6: trigger=3  <face @niko Books are neatly placed on the shelf.> | <face @niko Books are placed neatly on the shelf.> | <face @niko Placed books are neatly on the shelf.> | <face @niko On the shelf are neatly placed books.> | <face @niko Neatly placed books are on the shelf.> | <face @niko On the shelf neatly are placed books.> | <face @niko Placed books are on the shelf neatly.> | <face @niko Books are on the shelf, neatly placed.>
+    Page7: trigger=3  <face @niko A pile of books on the ground.>
+  Event 22: EV022 @ (36,17)
+  Event 23: EV023 @ (35,17)
+  Event 24: EV024 @ (37,17)
+  Event 25: EV025 @ (38,17)
+  Event 26: EV026 @ (34,17)
+  Event 27: EV027 @ (28,38)
+  Event 28: EV028 @ (27,38)
+  Event 29: EV029 @ (45,38)
+  Event 30: EV030 @ (44,38)
+  Event 31: EV031 @ (54,13)
+  Event 32: EV032 @ (55,13)
+  Event 33: EV033 @ (30,0)
+    Page0: trigger=0  <face kip card>
+  Event 34: EV034 @ (31,0)
+    Page0: trigger=0  <face niko card>
+  Event 35: EV035 @ (32,0)
+    Page0: trigger=0  <face glittery>
+  Event 36: EV036 @ (44,0)
+    Page0: trigger=0  <face cardquest + desk>
+  Event 37: EV037 @ (45,0)
+  Event 38: EV038 @ (53,22)
+    Page0: trigger=0  <face @niko It's an ink bottle, complete with a quill.> | <face @niko_83c Brings back memories, doesn't it, \p?>
+  Event 39: EV039 @ (52,22)
+    Page0: trigger=0  <face @niko A small pile of books.>
+  Event 40: EV040 @ (55,22)
+    Page0: trigger=0  <face @niko A book!>
+  Event 41: EV041 @ (56,22)
+    Page0: trigger=0  <face @niko A tall pile of books.>
+  Event 42: EV042 @ (43,0)
+    Page0: trigger=0  <face HEY IM GIR I MADE AN EVENT DOOT DOOT MOTHER FUCKER>
+  Event 43: EV043 @ (53,44)
+  Event 44: indoor graphic @ (30,52)
+  Event 45: EV045 @ (44,21)
+  Event 46: EV046 @ (45,21)
+  Event 47: EV047 @ (27,21)
+  Event 48: EV048 @ (28,21)
+  Event 49: bork @ (28,22)
+    Page0: trigger=0  <face @niko_speak A big book with a black clover on the cover.> | <face @niko The title says "A Comprehensive Guide to Phosphors".>
+  Event 50: EV050 @ (22,21)
+    Page0: trigger=0  <face @niko_speak A big book with a black clover on the cover.> | <face @niko The title says "Emergence of New Ecological Niches In A Post-Sun World".>
+  Event 51: EV051 @ (23,23)
+  Event 52: EV052 @ (16,21)
+    Page0: trigger=0  <face I just like looking at pictures.> | <face @niko Same.> | <face @niko_speak You're going through these pages pretty fast!> | <face Actually, it's mostly pictures!> | <face @niko_speak Oh?> | <face Yeah! The author doesn't only write books, he also illustrates them!> | <face Sometimes he makes books out of only pictures.> | <face @niko Neat!>
+  Event 53: luca @ (19,22)
+  Event 54: EV054 @ (26,21)
+    Page0: trigger=0  <face Oh, and picture books, those too.> | <face @niko_speak I like pictures!> | <face The Author's latest books are really something, yeah?> | <face The head librarian just released a bunch last week!> | <face @niko_speak Oh?> | <face They're big compendiums, you'll see them if you look around.> | <face Kinda different from his earlier works, though.> | <face I'm used to reading his travel logs and novels, mostly.>
+  Event 55: Ysef @ (29,45)
+  Event 56: Whitney @ (23,40)
+    Page0: trigger=0  <face Hopefully one day he'll show up!> | <face I mean, I don't think many people have ever seen him in person.> | <face ...or know what he looks like!> | <face Everyone's heard OF him through secondhand accounts, though.> | <face ...oh! But he did reply to my letter that one time!> | <face I got it framed immediately.> | <face @niko Nice.> | <face Oh, hello! Do you need directions?> | <face Let's see...this area here is mostly historical accounts, the reference section is downstairs, and, uh...> | <face I'm not sure where the children's section is... sorry!> | <face @niko_speak That's ok! \.\.\@niko I'm not really looking for books.> | <face Oh! Are you here to... look for the Author, then?> | <face @niko ...no?> | <face Oh, that's good!> | <face Er, I mean... that means you won't be disappointed!> | <face I've been volunteering here for months, and I've never seen him, not even once!> | <face He works together with the head librarian on publishing, so you'd think he would at least show up once in a while...> | <face @niko_speak But... he doesn't?> | <face Yeah... he seems kiiinda reclusive.> | <face ...which is weird for a guy who supposedly travels the world.> | <face Maybe it's just around people...>
+  Event 57: EV057 @ (40,29)
+    Page0: trigger=0  <face ...y'know, I've tried looking for the flying machine with my binoculars for ages!> | <face Never saw such a thing, though...> | <face The Author is so cool!> | <face I heard he can travel all over the world with a flying machine!> | <face That's how he gathers material for his books.> | <face @niko_speak Wow!>
+  Event 58: EV058 @ (22,23)
+  Event 59: EV059 @ (52,45)
+    Page0: trigger=0  <face [RESHELVING IN PROGRESS...]>
+  Event 60: EV060 @ (54,46)
+    Page0: trigger=0  <face [HELLO, PERSON.]> | <face @niko Hi.> | <face [RESHELVING IN PROGRESS.]> | <face [PLEASE WATCH OUT FOR POTENTIAL FALLING BOOKS.]> | <face @niko_speak I will!>
+  Event 61: EV061 @ (53,45)
+    Page0: trigger=0  <face @niko_eyeclosed Yup... still scared of ladders.>
+  Event 62: EV062 @ (18,22)
+  Event 63: EV063 @ (24,47)
+  Event 64: EV064 @ (23,47)
+  Event 65: EV065 @ (29,44)
+    Page0: trigger=0  <face @niko_huh He just glared at me.> | <face @niko_eyeclosed I don't think we should bother him, \p...> | <face ...> | <face .....WHAT??!?> | <face @niko_huh Wh-\.\.\@niko I didn't say anything.> | <face Well stop staring at me then!> | <face @niko_speak I was just looking at your book...> | <face Yes. You are in a library. There's books. In the library.> | <face @niko Um...> | <face ...Go bug the chatty one upstairs.>
+  Event 66: EV066 @ (46,39)
+  Event 67: EV067 @ (47,39)
+  Event 68: EV068 @ (48,39)
+  Event 69: EV069 @ (49,39)
+  Event 70: EV070 @ (50,39)
+  Event 71: EV071 @ (51,39)
+  Event 72: EV072 @ (52,39)
+  Event 73: EV073 @ (53,39)
+  Event 74: EV074 @ (54,39)
+  Event 75: EV075 @ (55,39)
+  Event 76: EV076 @ (56,39)
+  Event 77: EV077 @ (57,39)
+  Event 78: EV078 @ (56,45)
+  Event 79: EV079 @ (55,45)
+  Event 80: EV080 @ (51,45)
+  Event 81: EV081 @ (50,45)
+  Event 82: EV082 @ (49,45)
+  Event 83: EV083 @ (48,45)
+  Event 84: EV084 @ (47,45)
+  Event 85: EV085 @ (46,45)
+  Event 86: EV086 @ (24,45)
+  Event 87: EV087 @ (25,45)
+  Event 88: EV088 @ (26,45)
+  Event 89: EV089 @ (26,39)
+  Event 90: EV090 @ (24,39)
+  Event 91: EV091 @ (22,45)
+  Event 92: EV092 @ (21,45)
+  Event 93: EV093 @ (20,45)
+  Event 94: EV094 @ (17,45)
+  Event 95: EV095 @ (16,45)
+  Event 96: EV096 @ (15,45)
+  Event 97: tree @ (15,21)
+  Event 98: tree @ (57,21)
+  Event 99: EV099 @ (52,30)
+  Event 100: EV100 @ (53,30)
+  Event 101: EV101 @ (54,30)
+  Event 102: EV102 @ (55,30)
+  Event 103: EV103 @ (56,30)
+  Event 104: EV104 @ (57,30)
+  Event 105: EV105 @ (51,22)
+  Event 106: EV106 @ (50,22)
+  Event 107: EV107 @ (49,22)
+  Event 108: EV108 @ (48,22)
+  Event 109: EV109 @ (47,22)
+  Event 110: EV110 @ (26,30)
+  Event 111: EV111 @ (25,30)
+  Event 112: EV112 @ (24,30)
+  Event 113: EV113 @ (23,30)
+  Event 114: EV114 @ (22,30)
+  Event 115: EV115 @ (21,30)
+  Event 116: EV116 @ (20,30)
+  Event 117: EV117 @ (19,30)
+  Event 118: EV118 @ (18,30)
+  Event 119: EV119 @ (17,30)
+  Event 120: EV120 @ (16,30)
+  Event 121: EV121 @ (15,30)
+  Event 122: EV122 @ (25,20)
+    Page0: trigger=0  <face @niko Looks like a list of book titles written here...>
+  Event 123: EV123 @ (18,20)
+    Page0: trigger=0  <face @niko A marker drawing of a clover.>
+  Event 124: EV124 @ (24,20)
+    Page0: trigger=0  <face @niko A marker eraser.>
+  Event 125: EV125 @ (21,20)
+    Page0: trigger=0  <face @niko A green marker.>
+  Event 126: EV126 @ (20,20)
+    Page0: trigger=0  <face @niko A blue marker.>
+  Event 127: EV127 @ (19,20)
+    Page0: trigger=0  <face @niko A red marker.>
+  Event 128: EV128 @ (23,20)
+    Page0: trigger=0  <face @niko This dry erase board is made of metal.>
+  Event 129: EV129 @ (21,47)
+  Event 130: EV130 @ (16,46)
+  Event 131: EV131 @ (44,48)
+  Event 132: EV132 @ (47,47)
+  Event 133: EV133 @ (52,47)
+  Event 134: EV134 @ (54,48)
+  Event 135: EV135 @ (54,24)
+  Event 136: EV136 @ (57,46)
+  Event 137: EV137 @ (18,45)
+  Event 138: EV138 @ (19,45)
+  Event 139: EV139 @ (42,12)
+  Event 140: EV140 @ (43,12)
+  Event 141: EV141 @ (44,12)
+  Event 142: EV142 @ (46,12)
+  Event 143: EV143 @ (47,12)
+  Event 144: EV144 @ (48,12)
+  Event 145: EV145 @ (50,12)
+  Event 146: EV146 @ (51,12)
+  Event 147: EV147 @ (52,12)
+  Event 148: EV148 @ (30,12)
+  Event 149: EV149 @ (29,12)
+  Event 150: EV150 @ (28,12)
+  Event 151: EV151 @ (26,12)
+  Event 152: EV152 @ (25,12)
+  Event 153: EV153 @ (24,12)
+  Event 154: EV154 @ (21,12)
+  Event 155: EV155 @ (22,12)
+  Event 156: EV156 @ (20,12)

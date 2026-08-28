@@ -1,0 +1,24 @@
+Map 129: Room4 - bird  (40x30, tileset=7)
+
+  Event 1: ram @ (17,14)
+  Event 2: EV002 @ (16,9)
+    Page0: trigger=0  <face I just moved here from the Glen. Things are so different in the city....> | <face You've been to the Glen, right?> | <face @niko Yeah!> | <face Everything's so green back there....> | <face I really miss it!> | <face My neighbor gave me some plants to cheer me up, but...> | <face .....I should probably get a muzzle for Betsy there.>
+  Event 3: EV003 @ (22,15)
+    Page0: trigger=0  <face @niko It's a landscape portrait of the Glen.>
+  Event 4: exit @ (24,19)
+  Event 5: EV005 @ (20,9)
+    Page0: trigger=0  <face @niko_eyeclosed ...The remains of a potted plant.>
+  Event 6: EV006 @ (20,15)
+    Page0: trigger=0  <face @niko_speak Something has been chewing on this plant...>
+  Event 7: decorative bell @ (26,16)
+  Event 8: decorative bell @ (21,16)
+  Event 9: EV009 @ (12,9)
+    Page0: trigger=0  <face @niko_eyeclosed Not much is left of this plant...>
+  Event 10: EV010 @ (12,11)
+    Page0: trigger=0  <face @niko_eyeclosed ...The entire plant was eaten...>
+  Event 11: EV011 @ (25,9)
+    Page0: trigger=0  <face @niko The title is "City Life: What to Expect">
+  Event 12: EV012 @ (22,9)
+  Event 13: EV013 @ (23,9)
+  Event 14: EV014 @ (25,15)
+    Page0: trigger=0  <face @niko A picture of a ram, wearing a little pink bow.>

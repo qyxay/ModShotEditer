@@ -1,0 +1,11 @@
+Map 212: passage_boat  (200x25, tileset=23)
+
+  Event 1: EV001 @ (16,18)
+  Event 2: EV002 @ (17,18)
+  Event 3: EV003 @ (34,7)
+    Page0: trigger=1  <face @alula_oh Do you want to go back, Niko?> | <face @niko ...Nah.>
+  Event 4: EV004 @ (57,7)
+  Event 5: EV005 @ (31,7)
+    Page0: trigger=0  <face @niko It's a clover.>
+  Event 7: indoors @ (12,1)
+  Event 8: EV008 @ (13,1)

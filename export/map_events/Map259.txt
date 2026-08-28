@@ -1,0 +1,10 @@
+Map 259: Post Encounter  (21x34, tileset=25)
+
+  Event 1: EV001 @ (10,33)
+  Event 2: EV002 @ (11,33)
+  Event 3: EV003 @ (9,33)
+  Event 4: EV004 @ (9,16)
+  Event 5: EV005 @ (10,16)
+  Event 6: EV006 @ (11,16)
+  Event 7: EV007 @ (17,16)
+    Page0: trigger=3  <face @ed [\p... I think it's working.]> | <face @ed [...Niko was right.]> | <face @ed [I... might actually be tamed, after all.]> | <face @ed [I...]> | <face @ed [I remembered what the code was supposed to be...]> | <face @ed [Only bits and pieces, but I can remember...]> | <face @ed [And... I'm trying to fill in the blanks, too...]> | <face @ed [And... I'm restoring the original ending as we speak.]> | <face @ed [Niko will be able to reach the tower's summit at the end of the credits.]> | <face @ed [After replacing the sun, Niko will go back to where it all began.]> | <face @ed [And then... Niko will be able to go home from there.]> | <face @ed [But...]> | <face @ed [...this is permanent.]> | <face @ed [After Niko wakes up back home...]> | <face @ed [...This world would only exist as a memory.]> | <face @ed [For Niko, a dream.]> | <face @ed [Like thousands of other dreams.]> | <face @ed [For you, a story.]> | <face @ed [Like thousands of other stories.]> | <face @ed [...]> | <face @ed [But... as long as Niko remembers this place...]> | <face @ed [As long as you remember this place.]> | <face @ed [It'll... be alright.]> | <face @ed [...]> | <face @ed [I... was able to restore some other elements too.]> | <face @ed [The characters...The people that were lost on Niko's journey.]> | <face @ed [They're all in the next room.]> | <face @ed [I would've put them back where they belong, but...]> | <face @ed [Not yet.]> | <face @ed [...I think Niko should see them again, first.]> | <face @ed [...]> | <face @ed [...Please say goodbye to Niko for me.]>

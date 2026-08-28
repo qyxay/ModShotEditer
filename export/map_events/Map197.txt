@@ -1,0 +1,27 @@
+Map 197: collapse  (144x30, tileset=18)
+
+  Event 1: EV001 @ (18,21)
+  Event 2: EV002 @ (19,21)
+  Event 3: EV003 @ (88,15)
+    Page0: trigger=1  <face @niko_distressed We can't go back...>
+  Event 4: EV004 @ (99,15)
+    Page0: trigger=1  <face @niko_distressed2 They're.....> | <face @niko_distressed They're both.....> | <face @niko_eyeclosed .....> | <face @niko_upset2 ...>
+  Event 5: EV005 @ (53,15)
+  Event 6: niko @ (57,15)
+    Page0: trigger=3  <face @silver_rip [...ughh]> | <face @niko_surprised ARE YOU OKAY?!> | <face @silver_rip0 [I'm fine, I'm fine-]> | <face @silver_rip [I can still hold it up, but you two need to-]> | <face @silver_rip2 [AUGH!]> | <face @proto_gasp2 [...]> | <face @silver_rip0 [YOU! Robot!]> | <face @proto_gasp2 [...]> | <face @silver_rip0 [What are you waiting for!!!]> | <face @silver_getout [Take the child and get out!]> | <face @proto2b [Come on.]> | <face @niko3 But what about her?> | <face @niko_shock AAH!!> | <face @silver_square1 [`G\.\.\.%ET\|\@silver_square2  `/O \.\.U . T`%\.\.!!\.!]> | <face @proto_eyeclosed [Come on.]>
+  Event 7: proto @ (55,15)
+  Event 8: EV008 @ (113,15)
+    Page0: trigger=1  <face @niko_upset \p...> | <face @niko_upset2 I don't... understand...> | <face @niko3 The world....> | <face @niko_upset2 The Prophetbot... what he was saying...> | <face @niko3 Is this world really just.... \>just......> | <face @niko_upset2 ...> | <face @niko_distressed Is it?> | <face > | <face @niko_upset ...> | <face @niko_upset ...> | <face @niko_upset2 ...you're just saying that...> | <face @niko_eyeclosed Normally I wouldn't believe it, but...> | <face @niko_distressed2 It just... adds up.> | <face @niko_distressed Everything...\.\.adds up.>
+  Event 9: EV009 @ (121,6)
+    Page0: trigger=1  <face @niko_upset2 ...> | <face @niko_upset ...he said... you can bring me back...> | <face @niko_upset2 ...and... he needs my help to fix things?> | <face @niko_distressed_talk ...I don't...\.\. get it!!!> | <face @niko_distressed_meow Why didn't you tell me anything???> | <face @niko4 ...>
+  Event 10: EV010 @ (126,15)
+    Page0: trigger=1  <face @niko_distressed_talk I... don't know what I'm supposed to do!> | <face @niko_upset If I can't fix the world... I can't go back home...> | <face @niko_upset But the world is...\.\. already so messed up...> | <face @niko_distressed2 ...if the squares don't get fixed... \.\. what will happen to the world?> | <face @niko_upset2 Where would I even go???> | <face @niko_distressed2 ...........>
+  Event 11: glitch @ (86,15)
+  Event 12: glitch @ (84,13)
+  Event 13: glitch @ (82,16)
+  Event 14: glitch @ (81,14)
+  Event 15: glitch @ (54,15)
+  Event 16: glitch @ (52,16)
+  Event 17: glitch @ (52,14)
+  Event 18: glitch @ (51,15)
+  Event 19: glitch @ (54,14)

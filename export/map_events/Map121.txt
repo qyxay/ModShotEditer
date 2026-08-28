@@ -1,0 +1,64 @@
+Map 121: Communal area  (70x50, tileset=7)
+
+  Event 1: fridge @ (15,27)
+  Event 2: EV002 @ (19,27)
+    Page0: trigger=0  <face @niko Just a trash can...>
+  Event 3: EV003 @ (56,17)
+    Page0: trigger=0  <face @niko Just a trash can...>
+  Event 4: EV004 @ (34,23)
+    Page0: trigger=0  <face @niko A pile of large books.> | <face @niko They look like phonebooks.>
+  Event 5: commune @ (28,13)
+  Event 6: commune @ (29,13)
+  Event 7: north exit @ (52,13)
+    Page0: trigger=1  <face @niko It looks like I can unlock this door...>
+  Event 8: north exit @ (53,13)
+    Page0: trigger=1  <face @niko It looks like I can unlatch this door...>
+  Event 9: EV009 @ (49,25)
+    Page0: trigger=0  <face Hey there.> | <face @niko Hello.> | <face You the messiah?> | <face @niko Mhm!> | <face ......> | <face I like your scarf.> | <face @niko_speak Thank you!> | <face @niko Mama made it for me!> | <face Tell her I like her needlework.> | <face @niko_speak I will!> | <face @niko ...when I see her again!>
+  Event 10: Map Events @ (41,17)
+    Page0: trigger=3  <face @niko This fridge has magnets on it!> | <face @niko Maybe they'll come handy?> | <face @niko I hope nobody will mind us taking them...>
+  Event 11: fridge @ (16,27)
+  Event 12: EV012 @ (24,15)
+    Page0: trigger=0  <face @Niko A coffee machine.> | <face @niko_speak It's very warm!>
+  Event 13: EV013 @ (25,15)
+    Page0: trigger=0  <face @niko Coffee cups.> | <face @niko_speak I'm too young to drink coffee!>
+  Event 14: block @ (30,20)
+  Event 15: block @ (30,21)
+  Event 16: block @ (33,21)
+  Event 17: block @ (33,20)
+  Event 18: block @ (46,20)
+  Event 19: block @ (46,21)
+  Event 20: block @ (49,20)
+  Event 21: block @ (49,21)
+  Event 22: EV022 @ (35,22)
+    Page0: trigger=0  <face @niko A photograph of the city skyline.>
+  Event 23: EV023 @ (40,22)
+    Page0: trigger=0  <face @niko A photograph of some buildings.>
+  Event 24: EV024 @ (45,22)
+    Page0: trigger=0  <face @niko A photograph of a factory.>
+  Event 25: EV025 @ (50,22)
+    Page0: trigger=0  <face @niko A photograph of some railings.>
+  Event 26: EV026 @ (44,23)
+    Page0: trigger=0  <face @niko A pile of large books.> | <face @niko Some of the pages are dog-eared.>
+  Event 27: EV027 @ (46,29)
+    Page0: trigger=0  <face @niko A pile of large books.>
+  Event 28: EV028 @ (31,13)
+    Page0: trigger=0  <face @niko It's a photograph of the cafe.\>\nLooks like it was a busy day...>
+  Event 29: EV029 @ (50,13)
+    Page0: trigger=0  <face @niko A photograph of the mines.\>\nThere are many robots at work in the photo, extracting large deposits of ore.>
+  Event 30: EV030 @ (55,13)
+    Page0: trigger=0  <face @niko A photograph of the Tower.\>\nThe sunlight makes it hard to make out much in this photo.>
+  Event 31: EV031 @ (26,13)
+    Page0: trigger=0  <face @niko A photograph of a house in the Glen.\>\nLooks like it was taken when people were still living in the ruins...>
+  Event 32: EV032 @ (18,23)
+  Event 33: EV033 @ (19,23)
+  Event 34: EV034 @ (21,23)
+  Event 35: EV035 @ (22,23)
+  Event 36: stew @ (13,23)
+  Event 37: stew @ (14,23)
+  Event 38: stew @ (15,23)
+  Event 39: stew @ (16,23)
+  Event 40: stew @ (17,27)
+  Event 41: stew @ (18,27)
+  Event 42: stew @ (13,27)
+  Event 43: stew @ (14,27)
