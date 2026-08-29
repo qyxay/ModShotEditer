@@ -1,0 +1,4 @@
+pic_skip_enabled = true
+config_path = mods/mod/Scripts/../skip_pictures.txt
+config_exists = true
+loaded_at = 2026-08-29 19:38:20 +0800

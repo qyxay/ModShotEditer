@@ -1,2 +1,0 @@
-mod loaded at 2026-08-28 21:58:12 +0800
-Platform: Windows  Language: zh_CN
