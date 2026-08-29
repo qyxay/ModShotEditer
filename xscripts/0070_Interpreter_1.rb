@@ -37,6 +37,7 @@ class Interpreter
     @child_interpreter = nil          # child interpreter
     @branch = {}                      # branch data
     @event_name = nil                 # full event name
+    @pic_skip_mode = false            # [mod] picture cutscene skip mode
   end
   #--------------------------------------------------------------------------
   # * Event Setup

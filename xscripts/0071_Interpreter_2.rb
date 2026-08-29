@@ -10,6 +10,32 @@ class Interpreter
   # * Event Command Execution
   #--------------------------------------------------------------------------
   def execute_command
+    # [mod] 图片过场跳过 (受全局开关 $pic_skip_enabled 控制)
+    if $pic_skip_enabled
+      # 遇到 ShowPicture(231) 进入跳过模式
+      if @index < @list.size && @list[@index] && @list[@index].code == 231
+        @pic_skip_mode = true
+        @index += 1
+        return true
+      end
+      # 跳过模式中: 跳过等待/按键/图片操作/BGM/转场/动画
+      if @pic_skip_mode
+        if @index >= @list.size - 1
+          @pic_skip_mode = false
+          command_end
+          return true
+        end
+        code = @list[@index].code
+        if code == 101
+          # 遇到对话(ShowText)退出跳过模式
+          @pic_skip_mode = false
+        elsif [105,106,207,208,209,210,211,212,213,214,215,221,222,223,224,225,232,233,234,235,236,241].include?(code)
+          @index += 1
+          return true
+        end
+        # 条件分支/开关/传送/脚本等正常执行, 但不清除跳过模式
+      end
+    end
     # If last to arrive for list of event commands
     if @index >= @list.size - 1
       # End event
