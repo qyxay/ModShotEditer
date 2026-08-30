@@ -1,4 +1,4 @@
-preload loaded at 2026-08-30 12:48:54 +0800
+preload loaded at 2026-08-30 13:12:13 +0800
 script_dir: mods/mod/Scripts
 loaded scripts (1):
   - picture_skip.rb
