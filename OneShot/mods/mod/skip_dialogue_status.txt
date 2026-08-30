@@ -1,0 +1,13 @@
+skip_all_dialogue_enabled = true
+config_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../config.json
+config = {
+  "skip_all_dialogue": true,
+  "skip_pictures": true,
+  "quit_all_time": true,
+  "always_travel": true,
+  "always_settings": true
+}
+patch_method = TracePoint(:end) + Module#prepend (Interpreter#execute_command)
+skipped_commands = 101(ShowText)+401(text lines), 102(ShowChoices auto-select first)
+not_skipped = 103/104/105/106 (preserve event timing, avoid audio glitches and deadlocks)
+loaded_at = 2026-08-30 14:54:20 +0800

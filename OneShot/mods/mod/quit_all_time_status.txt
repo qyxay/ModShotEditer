@@ -2,11 +2,14 @@ quit_all_time_enabled = true
 config_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../config.json
 config = {
   "quit_all_time": true,
-  "skip_pictures": true
+  "skip_pictures": true,
+  "skip_all_dialogue": true,
+  "always_travel": true,
+  "always_settings": true
 }
 patch_method = TracePoint(:end) + Module#prepend (Scene_Map#update)
 bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit key), Oneshot.allow_exit (window X button)
 removed_message = You cannot perform this action during cutscenes.
 overridden_methods = Oneshot.allow_exit (always true when enabled)
 preserved_restrictions = message_window, fast_travel, settings, menu_calling
-loaded_at = 2026-08-30 14:10:25 +0800
+loaded_at = 2026-08-30 14:54:20 +0800

@@ -24,12 +24,17 @@ end
 
 # --- 2. 自动加载同目录下所有 .rb 文件 ---
 loaded = []
+errors = []
 
 Dir.glob(File.join(script_dir, '*.rb')).sort.each do |path|
   # 排除自身
   next if File.absolute_path(path) == File.absolute_path(__FILE__)
-  load path
-  loaded << File.basename(path)
+  begin
+    load path
+    loaded << File.basename(path)
+  rescue => e
+    errors << "#{File.basename(path)}: #{e.class}: #{e.message}"
+  end
 end
 
 # --- 3. 写加载日志 ---
@@ -45,4 +50,9 @@ File.open(log_path, 'w') do |f|
   f.puts ""
   f.puts "loaded scripts (#{loaded.size}):"
   loaded.each { |name| f.puts "  - #{name}" }
+  if errors.any?
+    f.puts ""
+    f.puts "errors (#{errors.size}):"
+    errors.each { |e| f.puts "  - #{e}" }
+  end
 end

@@ -1,4 +1,7 @@
 {
   "skip_pictures": true,
-  "quit_all_time": true
+  "quit_all_time": true,
+  "skip_all_dialogue": true,
+  "always_travel": true,
+  "always_settings": true
 }

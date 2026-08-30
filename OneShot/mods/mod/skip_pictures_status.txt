@@ -2,7 +2,10 @@ pic_skip_enabled = true
 config_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../config.json
 config = {
   "skip_pictures": true,
-  "quit_all_time": true
+  "quit_all_time": true,
+  "skip_all_dialogue": true,
+  "always_travel": true,
+  "always_settings": true
 }
 patch_method = TracePoint(:end) + Module#prepend (no xScripts.rxdata modification)
-loaded_at = 2026-08-30 14:10:25 +0800
+loaded_at = 2026-08-30 14:54:20 +0800
