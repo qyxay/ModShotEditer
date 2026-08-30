@@ -17,21 +17,9 @@
 
 require 'json'
 
-# --- 读取配置 ---
-config_path = File.join(__dir__, '..', 'config.json')
+# --- 读取配置 (统一由 _config.rb 加载到 $mod_config) ---
 default_config = { "quit_all_time" => true }
-
-config = if File.exist?(config_path)
-  begin
-    parsed = JSON.parse(File.read(config_path))
-    parsed.is_a?(Hash) ? parsed : {}
-  rescue JSON::ParserError
-    {}
-  end
-else
-  {}
-end
-config = default_config.merge(config)
+config = default_config.merge($mod_config || {})
 
 $quit_all_time_enabled = config["quit_all_time"] ? true : false
 
@@ -110,7 +98,7 @@ end
 status_path = File.join(__dir__, '..', 'quit_all_time_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "quit_all_time_enabled = #{$quit_all_time_enabled}"
-  f.puts "config_path = #{config_path}"
+  f.puts "config_source = \$mod_config (unified loader _config.rb)"
   f.puts "config = #{JSON.pretty_generate(config)}"
   f.puts "patch_method = TracePoint(:end) + Module#prepend (Scene_Map#update)"
   f.puts "bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit key), Oneshot.allow_exit (window X button)"

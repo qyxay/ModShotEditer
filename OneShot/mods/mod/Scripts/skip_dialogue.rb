@@ -16,21 +16,9 @@
 
 require 'json'
 
-# --- 读取配置 ---
-config_path = File.join(__dir__, '..', 'config.json')
+# --- 读取配置 (统一由 _config.rb 加载到 $mod_config) ---
 default_config = { "skip_all_dialogue" => false }
-
-config = if File.exist?(config_path)
-  begin
-    parsed = JSON.parse(File.read(config_path))
-    parsed.is_a?(Hash) ? parsed : {}
-  rescue JSON::ParserError
-    {}
-  end
-else
-  {}
-end
-config = default_config.merge(config)
+config = default_config.merge($mod_config || {})
 
 $skip_all_dialogue_enabled = config["skip_all_dialogue"] ? true : false
 
@@ -87,7 +75,7 @@ end
 status_path = File.join(__dir__, '..', 'skip_dialogue_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "skip_all_dialogue_enabled = #{$skip_all_dialogue_enabled}"
-  f.puts "config_path = #{config_path}"
+  f.puts "config_source = \$mod_config (unified loader _config.rb)"
   f.puts "config = #{JSON.pretty_generate(config)}"
   f.puts "patch_method = TracePoint(:end) + Module#prepend (Interpreter#execute_command)"
   f.puts "skipped_commands = 101(ShowText)+401(text lines), 102(ShowChoices auto-select first)"

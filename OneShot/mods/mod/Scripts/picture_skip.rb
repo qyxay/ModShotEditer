@@ -12,21 +12,9 @@
 
 require 'json'
 
-# --- 读取配置 ---
-config_path = File.join(__dir__, '..', 'config.json')
+# --- 读取配置 (统一由 _config.rb 加载到 $mod_config) ---
 default_config = { "skip_pictures" => true }
-
-config = if File.exist?(config_path)
-  begin
-    parsed = JSON.parse(File.read(config_path))
-    parsed.is_a?(Hash) ? parsed : {}
-  rescue JSON::ParserError
-    {}
-  end
-else
-  {}
-end
-config = default_config.merge(config)
+config = default_config.merge($mod_config || {})
 
 $is_skip_picture = config["skip_pictures"] ? true : false
 
@@ -102,7 +90,7 @@ end
 status_path = File.join(__dir__, '..', 'skip_pictures_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "pic_skip_enabled = #{$is_skip_picture}"
-  f.puts "config_path = #{config_path}"
+  f.puts "config_source = \$mod_config (unified loader _config.rb)"
   f.puts "config = #{JSON.pretty_generate(config)}"
   f.puts "patch_method = TracePoint(:end) + Module#prepend (no xScripts.rxdata modification)"
   f.puts "loaded_at = #{Time.now}"

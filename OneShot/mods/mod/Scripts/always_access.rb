@@ -16,21 +16,9 @@
 
 require 'json'
 
-# --- 读取配置 ---
-config_path = File.join(__dir__, '..', 'config.json')
+# --- 读取配置 (统一由 _config.rb 加载到 $mod_config) ---
 default_config = { "always_travel" => true, "always_settings" => true }
-
-config = if File.exist?(config_path)
-  begin
-    parsed = JSON.parse(File.read(config_path))
-    parsed.is_a?(Hash) ? parsed : {}
-  rescue JSON::ParserError
-    {}
-  end
-else
-  {}
-end
-config = default_config.merge(config)
+config = default_config.merge($mod_config || {})
 
 $always_travel_enabled = config["always_travel"] ? true : false
 $always_settings_enabled = config["always_settings"] ? true : false
@@ -185,7 +173,7 @@ status_path = File.join(__dir__, '..', 'always_access_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "always_travel_enabled = #{$always_travel_enabled}"
   f.puts "always_settings_enabled = #{$always_settings_enabled}"
-  f.puts "config_path = #{config_path}"
+  f.puts "config_source = \$mod_config (unified loader _config.rb)"
   f.puts "config = #{JSON.pretty_generate(config)}"
   f.puts "patch_method = TracePoint(:end) + Module#prepend (Scene_Map#update, Game_FastTravel#enabled?/#unlocked_maps, Window_MainMenu#update, FastTravel#open)"
   f.puts "hotkeys = F5 (Fast Travel), F6 (Settings)"
