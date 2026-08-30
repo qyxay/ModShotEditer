@@ -1,4 +1,4 @@
 pic_skip_enabled = true
-config_path = mods/mod/Scripts/../skip_pictures.txt
+config_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../skip_pictures.txt
 config_exists = true
-loaded_at = 2026-08-29 19:55:57 +0800
+loaded_at = 2026-08-30 12:48:54 +0800
