@@ -1,5 +1,5 @@
 {
-  "gameFolder": "C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot",
+  "gameFolder": "../OneShot",
   "dataPathOrg": "OneShotMods",
   "dataPathApp": "OneShotMod",
   "patches": [ "mods/mod" ],

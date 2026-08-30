@@ -10,25 +10,25 @@
 #    "skip_pictures": false  → 关闭(恢复原始游戏)
 # ============================================================
 
-# 注意: mkxp-z 运行时没有 json 库, 用正则手动解析简单 JSON
+require 'json'
 
 # --- 读取配置 ---
 config_path = File.join(__dir__, '..', 'config.json')
-config = { "skip_pictures" => true }  # 默认值
+default_config = { "skip_pictures" => true }
 
-if File.exist?(config_path)
+config = if File.exist?(config_path)
   begin
-    content = File.read(config_path)
-    # 解析 "skip_pictures": true / false
-    if content =~ /"skip_pictures"\s*:\s*(true|false)/
-      config["skip_pictures"] = ($1 == "true")
-    end
-  rescue
-    # 读取失败时保持默认值
+    parsed = JSON.parse(File.read(config_path))
+    parsed.is_a?(Hash) ? parsed : {}
+  rescue JSON::ParserError
+    {}
   end
+else
+  {}
 end
+config = default_config.merge(config)
 
-$pic_skip_enabled = config["skip_pictures"] ? true : false
+$is_skip_picture = config["skip_pictures"] ? true : false
 
 # --- 补丁模块 ---
 module PictureSkipPatch
@@ -50,7 +50,7 @@ module PictureSkipPatch
   end
 
   def execute_command
-    if $pic_skip_enabled
+    if $is_skip_picture
       # 遇到 ShowPicture(231) 进入跳过模式
       if @index < @list.size && @list[@index] && @list[@index].code == 231
         @pic_skip_mode = true
@@ -101,9 +101,9 @@ end
 # --- 写状态文件 ---
 status_path = File.join(__dir__, '..', 'skip_pictures_status.txt')
 File.open(status_path, 'w') do |f|
-  f.puts "pic_skip_enabled = #{$pic_skip_enabled}"
+  f.puts "pic_skip_enabled = #{$is_skip_picture}"
   f.puts "config_path = #{config_path}"
-  f.puts 'config = {"skip_pictures": '"#{config["skip_pictures"]}"'}'
+  f.puts "config = #{JSON.pretty_generate(config)}"
   f.puts "patch_method = TracePoint(:end) + Module#prepend (no xScripts.rxdata modification)"
   f.puts "loaded_at = #{Time.now}"
 end
