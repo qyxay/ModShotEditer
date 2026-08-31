@@ -30,10 +30,10 @@ JUMP_MAP_PARENT_FILTER = /IGNORE|DEBUG|UNUSED|INTERNAL|\bTEST\b|^INIT\b|TELEPORT
 JUMP_MAP_PER_PAGE = 10
 
 # --- 跳转后"自由浏览模式" ---
-# 跳到某地图后进入自由浏览模式: 冻结所有地图的 autorun(自动执行)事件,
-# 否则剧情事件(如 Livingroom 的 "niko hello" 对话, 或落点上方 1 格 north
-# door 传送到的地图 2 的 intro/Map Events)会立即触发, 锁住玩家并禁用菜单。
-# 同时拦截 trigger==1 的 autorun 公共事件(该路径绕过 Game_Event 冻结)。
+# 跳到某地图后进入自由浏览模式, 玩家在该模式下完全自由:
+#   1) 冻结所有地图的 autorun(trigger 3) 事件 —— 防止剧情 AUTORUN 锁玩家
+#   2) 拦截 autorun 公共事件(trigger 1) —— 该路径绕过 Game_Event 冻结
+#   3) 拦截玩家触发 here/there/touch —— 防止按确认键/移动触发事件对话
 # 自由浏览模式持续到游戏重启; 重启后恢复正常剧情。
 JUMP_MAP_FREEZE_AUTORUN = true
 
@@ -66,12 +66,20 @@ end
 # Game_Event 冻结补丁, 同样会锁住玩家。这里在自由浏览模式下临时把 autorun
 # 公共事件的 trigger 改为非 1, 让原循环跳过; 保留 common_event_id 明确
 # 调用的公共事件(如 quit_all_time 的保存退出), 结束后立即恢复。
+#
+# 例外(白名单): 公共事件 #9 "Exit Transition" 是 OneShot 地图出口传送的
+# 执行者 —— 所有地图的 south/north/east/west exit 平行事件检测到玩家后,
+# 设置变量(目标地图/坐标)并置 SW11=true, 再由它执行 201 传送。如果把它也
+# 冻结, 自由浏览模式下玩家走到任何出口都无法传送离开(瞭望甲板即如此)。
+# 它只在 SW11=true(出口触发)时启动, 平时不占用解释器, 放行是安全的。
+JUMP_MAP_KEEP_COMMON_EVENTS = [9]  # 放行: Exit Transition(出口传送)
+
 module JumpMapCommonEventPatch
   def setup_starting_event
     if $jump_map_free_mode
       saved = []
       $data_common_events.each_with_index do |ce, i|
-        if ce && ce.trigger == 1
+        if ce && ce.trigger == 1 && !JUMP_MAP_KEEP_COMMON_EVENTS.include?(i)
           saved << [i, ce]
           ce.trigger = 0  # 临时改为非 autorun, 原循环即跳过
         end
@@ -87,7 +95,57 @@ module JumpMapCommonEventPatch
   end
 end
 
-# --- 等待 Game_Event / Interpreter 类定义完成后 prepend 冻结补丁 ---
+# --- 补丁 3: 自由浏览模式下拦截玩家触发 (here/there/touch) ---
+# 玩家按确认键触发同格"事件开始"(trigger 0) 或移动触发"接触"(trigger 1/2)
+# 的地图事件时, 若事件命令含对话会立刻锁住玩家(如 Start 落点同格的床事件
+# "Niko just woke up here.")。该路径也绕过 AUTORUN 冻结, 会重新造成
+# "跳转后卡住"。自由浏览模式下直接拦截, 玩家在目标地图上完全自由。
+#
+# 例外: 出口/门类事件(当前激活页含 201 传送 或 check_exit/transfer 脚本)
+# 必须放行 —— 它们是玩家离开当前地图的唯一途径(如 start 的 west/south door
+# 是 trigger=1 接触事件)。只放行含传送命令的事件, 对话类事件仍被拦截。
+module JumpMapPlayerTriggerPatch
+  def check_event_trigger_here(triggers)
+    if $jump_map_free_mode
+      return false unless exit_event_at?($game_player.x, $game_player.y)
+    end
+    super
+  end
+
+  def check_event_trigger_there(triggers)
+    if $jump_map_free_mode
+      d = $game_player.direction
+      x = $game_player.x + (d == 6 ? 1 : (d == 4 ? -1 : 0))
+      y = $game_player.y + (d == 2 ? 1 : (d == 8 ? -1 : 0))
+      return false unless exit_event_at?(x, y)
+    end
+    super
+  end
+
+  def check_event_trigger_touch(x, y)
+    if $jump_map_free_mode
+      return false unless exit_event_at?(x, y)
+    end
+    super
+  end
+
+  # 该格是否"出口事件": 当前激活页含 201 传送或 check_exit/transfer 脚本
+  def exit_event_at?(x, y)
+    return false unless $game_map && $game_map.events
+    $game_map.events.each_value do |e|
+      next unless e.x == x && e.y == y
+      list = e.list
+      next unless list
+      return true if list.any? { |c| c.code == 201 }
+      return true if list.any? do |c|
+        [355, 655].include?(c.code) && c.parameters[0].to_s =~ /check_exit|transfer|teleport|unlock_map/i
+      end
+    end
+    false
+  end
+end
+
+# --- 等待 Game_Event / Interpreter / Game_Player 类定义完成后 prepend ---
 _trace = TracePoint.trace(:end) do |tp|
   begin
     if tp.self.is_a?(Class) && tp.self.name == 'Game_Event' &&
@@ -106,6 +164,48 @@ _trace_ce = TracePoint.trace(:end) do |tp|
        tp.self.method_defined?(:setup_starting_event)
       tp.self.prepend(JumpMapCommonEventPatch)
       _trace_ce.disable
+    end
+  rescue
+    # 忽略异常, 继续监听
+  end
+end
+
+_trace_pl = TracePoint.trace(:end) do |tp|
+  begin
+    if tp.self.is_a?(Class) && tp.self.name == 'Game_Player' &&
+       tp.self.method_defined?(:check_event_trigger_here)
+      tp.self.prepend(JumpMapPlayerTriggerPatch)
+      _trace_pl.disable
+    end
+  rescue
+    # 忽略异常, 继续监听
+  end
+end
+
+# --- 补丁 4: 自由浏览模式下进入地图后按 config 自动应用功能开关 ---
+# 跳转(传送)是异步的: transfer 标志先设, 地图在下一帧才 Game_Map#setup。
+# 所以在 setup 完成后, 若处于自由浏览模式, 自动调用 dev_settings 的
+# auto_apply_current_map —— config 里 unlock_all_doors / complete_all_dialogues /
+# complete_all_story 为 true 时对当前地图生效。这样跳转瞭望甲板等地图后,
+# SW22 等传送条件开关自动为 true, 出口传送立即可用, 无需再手动切一次。
+module JumpMapAutoApplyPatch
+  def setup(map_id)
+    super
+    if $jump_map_free_mode && defined?(Window_DevSettings) &&
+       Window_DevSettings.respond_to?(:auto_apply_current_map)
+      Window_DevSettings.auto_apply_current_map
+    end
+  rescue StandardError
+    # 静默: 自动应用失败不影响地图加载
+  end
+end
+
+_trace_apply = TracePoint.trace(:end) do |tp|
+  begin
+    if tp.self.is_a?(Class) && tp.self.name == 'Game_Map' &&
+       tp.self.method_defined?(:setup)
+      tp.self.prepend(JumpMapAutoApplyPatch)
+      _trace_apply.disable
     end
   rescue
     # 忽略异常, 继续监听

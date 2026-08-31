@@ -8,6 +8,6 @@
   "unshow_title": true,
   "is_developer": true,
   "unlock_all_doors": true,
-  "complete_all_dialogues": false,
-  "complete_all_story": false
+  "complete_all_dialogues": true,
+  "complete_all_story": true
 }

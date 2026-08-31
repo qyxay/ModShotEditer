@@ -17,11 +17,9 @@
 #  三个"功能开关"(布尔型, 与普通开关一样实时切换并写回):
 #    只作用于"当前地图事件实际引用到的开关"(事件页条件 + 条件分支指令),
 #    不触碰其他地图的全局开关。
-#    开关分两类: "激活类"(非空页/条件分支用, true=解锁推进) 与
-#    "关闭类"(仅空页条件用, true=事件变哑, 如"出口已用过"标记)。
-#    "unlock_all_doors"       true→当前地图激活类开关全 ON, 关闭类置 OFF(门保持可用)
-#    "complete_all_dialogues" true→完成当前地图对话(只完成自开关页安全的)  false→置回未完成
-#    "complete_all_story"     true→完成当前地图剧情(自开关+激活类开关, 不关死门)  false→置回未发生
+#    "unlock_all_doors"       true→当前地图开关全置 ON  false→全置 OFF
+#    "complete_all_dialogues" true→完成当前地图对话  false→置回未完成
+#    "complete_all_story"     true→完成当前地图剧情+当前地图开关  false→置回未发生+OFF
 # ============================================================
 
 require 'json'
@@ -92,29 +90,6 @@ class Window_DevSettings
     @jump_map = nil
     # 外层 Window_Settings 引用(由补丁注入), 用于跳转后一并关闭
     @parent_settings = nil
-    # 全局实例引用: 供 Jump Map 跳转后"按 config 自动应用开关"用(免 ObjectSpace 扫描)
-    $dev_settings_instance = self
-  end
-
-  # --- 类方法: 跳转进入地图后, 按 config.json 的三个功能开关自动应用 ---
-  # Jump Map 跳转(自由浏览模式)每次 Game_Map#setup 后调用:
-  # config 中 unlock_all_doors / complete_all_dialogues / complete_all_story
-  # 为 true 时, 对"当前地图"执行对应动作 —— 这样跳转瞭望甲板等地图后,
-  # SW22 等传送条件开关自动为 true, 出口传送立即可用, 无需再手动切一次。
-  def self.auto_apply_current_map
-    ds = $dev_settings_instance
-    return unless ds && $game_map && $game_map.events
-    cfg = begin
-      ds.reload_config
-    rescue StandardError
-      $mod_config || {}
-    end
-    return unless cfg.is_a?(Hash)
-    ds.unlock_all_doors if cfg['unlock_all_doors'] == true
-    ds.complete_all_dialogues if cfg['complete_all_dialogues'] == true
-    ds.complete_all_story if cfg['complete_all_story'] == true
-  rescue StandardError
-    # 静默: 自动应用失败不影响地图加载
   end
 
   # 完整显示列表 = 布尔开关 + 固定功能条目
@@ -268,17 +243,12 @@ class Window_DevSettings
     @flash_timer = 120
   end
 
-  # --- 当前地图使用的全局开关: 区分"激活类"与"关闭类" ---
-  # 激活类(activate): 至少一次作为"非空页"的页条件, 或出现在条件分支(111)判断里。
-  #   置 true = 激活有实际功能的页 / 走 ON 分支 (解锁、推进剧情)。
-  # 关闭类(close_only): 只作为"空页"(命令全空)的页条件。置 true = 激活空页,
-  #   使该事件变哑 —— 如瞭望甲板出口 EV001/EV004 的 SW301(true = 出口已用过/关闭)。
-  #   解锁/完成时绝不能置 true, 否则门/传送等互动会被"完成"掉。
+  # --- 当前地图使用的全局开关 ---
+  # 只收集当前地图事件真正引用到的开关号, 避免误改其他地图的全局开关。
   # 来源: ① 事件页条件(switch1/switch2) ② 事件指令"条件分支"(code 111)中的开关判断
-  def current_map_switch_info
-    return { activate: [], close_only: [] } unless $game_map && $game_map.events
-    activate = {}
-    close_only = {}
+  def current_map_switches
+    return [] unless $game_map && $game_map.events
+    switches = {}
     $game_map.events.each_value do |ev|
       evt = ev.instance_variable_get(:@event)
       pages = evt ? evt.pages : nil
@@ -286,70 +256,49 @@ class Window_DevSettings
       if pages
         pages.each do |page|
           c = page.condition
-          next unless c
-          list = page.list
-          is_empty = list.nil? || list.empty? || list.all? { |cmd| cmd && cmd.code == 0 }
-          sws = []
-          sws << c.switch1_id if c.switch1_valid
-          sws << c.switch2_id if c.switch2_valid
-          sws.each do |sid|
-            next unless sid && sid > 0
-            if is_empty
-              close_only[sid] = true
-            else
-              activate[sid] = true
-            end
-          end
+          switches[c.switch1_id] = true if c && c.switch1_valid
+          switches[c.switch2_id] = true if c && c.switch2_valid
         end
       end
-      # ② 事件指令"条件分支"(111, parameters[0]==0)里的开关判断 → 激活类
+      # ② 事件指令"条件分支"(111, parameters[0]==0)里的开关判断
       lists = pages ? pages.map { |pg| pg.list } : (ev.list ? [ev.list] : [])
       lists.each do |list|
         next unless list
         list.each do |cmd|
           next unless cmd && cmd.code == 111
           p = cmd.parameters
-          activate[p[1]] = true if p && p[0] == 0 && p[1]
+          switches[p[1]] = true if p && p[0] == 0 && p[1]
         end
       end
     end
-    { activate: activate.keys, close_only: close_only.keys }
+    switches.keys
   end
 
-  # --- 统一设置当前地图开关并刷新事件 ---
-  # mode = :unlock(ON) → 激活类置 true, 关闭类置 false(清除"已关闭"标记, 门保持可用)
-  # mode = :lock(OFF)  → 激活类+关闭类全置 false(恢复初始未解锁/未完成)
-  def set_current_switches(mode = :unlock)
-    info = current_map_switch_info
-    if mode == :lock
-      ids = (info[:activate] + info[:close_only]).uniq
-      ids.each { |s| $game_switches[s] = false }
-    else
-      info[:activate].each { |s| $game_switches[s] = true }
-      info[:close_only].each { |s| $game_switches[s] = false }
-    end
+  # --- 把当前地图使用的开关统一设为指定值, 并刷新事件 ---
+  def set_current_switches(val)
+    ids = current_map_switches
+    return 0 if ids.empty?
+    ids.each { |s| $game_switches[s] = val }
     if $game_map && $game_map.events
       $game_map.events.each_value { |e| e.refresh }
     end
-    info[:activate].size
+    ids.size
   end
 
   # --- 解锁当前地图的门锁(ON) ---
-  # 只置"激活类"开关(页0/非空页的页条件开关), 并把"关闭类"(已用完标记)置 false,
-  # 保证门/传送保持可用, 不会被"完成"掉。
+  # 只把当前地图事件引用到的开关全部置 true(含门锁开关), 刷新事件立即切换页面。
   def unlock_all_doors
     if !$game_switches
       flash('Not in game')
       return
     end
-    count = set_current_switches(:unlock)
+    count = set_current_switches(true)
     flash("#{count} switches ON (this map)")
   end
 
-  # --- 完成所有对话(当前地图, 只完成"能安全完成"的) ---
-  # 把当前地图含对话(Show Text 101)事件的自开关 A-D 置 true, 使其跳到"已完成"页;
-  # 但跳过"自开关条件页是 AUTORUN / 含强制移动/传送"的事件(完成会触发卡住),
-  # 也跳过没有自开关条件页的事件。不实际运行事件, 无副作用。
+  # --- 完成所有对话(当前地图) ---
+  # 把当前地图所有含对话(Show Text 101)事件的自开关 A-D 置 true,
+  # 使其跳到"已完成"页; 不实际运行事件, 无副作用。配合 Jump Map 逐图使用。
   def complete_all_dialogues
     if !$game_map || !$game_map.events
       flash('Not in game')
@@ -357,24 +306,21 @@ class Window_DevSettings
     end
     count = 0
     $game_map.events.each_value do |ev|
-      next unless event_has_dialogue?(ev)
-      done = false
+      next unless ev && ev.list
+      has_text = ev.list.any? { |c| c && c.code == 101 }
+      next unless has_text
       %w[A B C D].each do |s|
-        page = find_self_switch_page(ev, s)
-        next unless safe_completion_page?(page)
         $game_self_switches[[$game_map.map_id, ev.id, s]] = true
-        done = true
       end
-      count += 1 if done
+      count += 1
     end
     $game_map.events.each_value { |e| e.refresh }
     flash("#{count} dialogues done (this map)")
   end
 
-  # --- 完成所有剧情(当前地图, 但不把门关死) ---
-  # 把当前地图所有事件的自开关 A-D 置 true(同样只完成"安全可完成"的), 让剧情
-  # 跳到"已发生"状态; 开关部分只置"激活类", 关闭类(已用完标记)置 false —— 完成
-  # 剧情的同时保留门/传送可用。
+  # --- 完成所有剧情(当前地图) ---
+  # 把当前地图所有事件(除玩家)的自开关 A-D 置 true, 让全部剧情/事件
+  # 跳到"已发生"状态; 同时解锁当前地图使用的开关(含门锁)。配合 Jump Map 逐图使用。
   def complete_all_story
     if !$game_map || !$game_map.events
       flash('Not in game')
@@ -383,34 +329,31 @@ class Window_DevSettings
     count = 0
     $game_map.events.each_value do |ev|
       next unless ev
-      done = false
       %w[A B C D].each do |s|
-        page = find_self_switch_page(ev, s)
-        next unless safe_completion_page?(page)
         $game_self_switches[[$game_map.map_id, ev.id, s]] = true
-        done = true
       end
-      count += 1 if done
+      count += 1
     end
     $game_map.events.each_value { |e| e.refresh }
-    # 一并解锁当前地图使用的"激活类"开关(含门锁), 关闭类(已用完)保持 false
-    set_current_switches(:unlock) if $game_switches
+    # 一并解锁当前地图使用的开关(含门锁)
+    set_current_switches(true) if $game_switches
     flash("#{count} events done (this map)")
   end
 
   # --- 锁定当前地图的门锁(OFF) ---
-  # 激活类+关闭类全置 false, 恢复未解锁初始状态。
+  # 只把当前地图事件引用到的开关全部置 false, 并刷新事件。
   def lock_all_doors
     if !$game_switches
       flash('Not in game')
       return
     end
-    count = set_current_switches(:lock)
+    count = set_current_switches(false)
     flash("#{count} switches OFF (this map)")
   end
 
   # --- 未完成所有对话(当前地图, OFF) ---
-  # 把含对话事件的安全自开关 A-D 置 false, 使其跳回"未完成"页。
+  # 把当前地图所有含对话(Show Text 101)事件的自开关 A-D 置 false,
+  # 使其跳回"未完成"页。配合 Jump Map 逐图使用。
   def incomplete_all_dialogues
     if !$game_map || !$game_map.events
       flash('Not in game')
@@ -418,22 +361,21 @@ class Window_DevSettings
     end
     count = 0
     $game_map.events.each_value do |ev|
-      next unless event_has_dialogue?(ev)
-      done = false
+      next unless ev && ev.list
+      has_text = ev.list.any? { |c| c && c.code == 101 }
+      next unless has_text
       %w[A B C D].each do |s|
-        page = find_self_switch_page(ev, s)
-        next unless safe_completion_page?(page)
         $game_self_switches[[$game_map.map_id, ev.id, s]] = false
-        done = true
       end
-      count += 1 if done
+      count += 1
     end
     $game_map.events.each_value { |e| e.refresh }
     flash("#{count} dialogues undone (this map)")
   end
 
   # --- 未完成所有剧情(当前地图, OFF) ---
-  # 安全自开关 A-D 置 false + 开关全置 false, 恢复"未发生"状态。
+  # 把当前地图所有事件的自开关 A-D 置 false, 让全部剧情/事件
+  # 跳回"未发生"状态; 同时把当前地图使用的开关置 OFF。
   def incomplete_all_story
     if !$game_map || !$game_map.events
       flash('Not in game')
@@ -442,49 +384,14 @@ class Window_DevSettings
     count = 0
     $game_map.events.each_value do |ev|
       next unless ev
-      done = false
       %w[A B C D].each do |s|
-        page = find_self_switch_page(ev, s)
-        next unless safe_completion_page?(page)
         $game_self_switches[[$game_map.map_id, ev.id, s]] = false
-        done = true
       end
-      count += 1 if done
+      count += 1
     end
     $game_map.events.each_value { |e| e.refresh }
-    set_current_switches(:lock) if $game_switches
+    set_current_switches(false) if $game_switches
     flash("#{count} events undone (this map)")
-  end
-
-  # --- 事件"自开关 S 条件页"(条件里 self_switch_ch == s 且 self_switch_valid) ---
-  def find_self_switch_page(ev, s)
-    evt = ev.instance_variable_get(:@event)
-    pages = evt ? evt.pages : (ev.respond_to?(:pages) ? ev.pages : nil)
-    return nil unless pages
-    pages.find { |pg| c = pg.condition; c && c.self_switch_valid && c.self_switch_ch == s }
-  end
-
-  # --- 事件是否含对话(Show Text 101) ---
-  # 注意: Game_Event#list 只是"当前激活页"的命令(未激活时为 nil), 不能用来判断
-  # 事件是否含对话。必须遍历事件的原始页 @event.pages 检查。
-  def event_has_dialogue?(ev)
-    evt = ev.instance_variable_get(:@event)
-    pages = evt ? evt.pages : (ev.respond_to?(:pages) ? ev.pages : nil)
-    return false unless pages
-    pages.any? { |pg| list = pg.list; list && list.any? { |c| c && c.code == 101 } }
-  end
-
-  # --- 该"自开关条件页"是否安全完成 ---
-  # 置自开关 true 后如果会触发 AUTORUN / 强制移动 / 传送(抢占玩家), 视为不安全,
-  # 跳过不完成 —— 满足"只完成当前地图能完成的对话和剧情"。
-  def safe_completion_page?(page)
-    return false unless page
-    return false if page.trigger == 3  # AUTORUN
-    list = page.list
-    return false unless list
-    # 强制移动(209 移动路线) / 传送(201) 会强占玩家控制 → 跳过
-    return false if list.any? { |cmd| cmd && (cmd.code == 209 || cmd.code == 201) }
-    true
   end
 
   # 切换当前布尔开关并写回

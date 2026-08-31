@@ -30,19 +30,21 @@ diag("Window_Settings defined?: #{defined?(Window_Settings).inspect}")
 diag("Window_DevSettings defined?: #{defined?(Window_DevSettings).inspect}")
 
 # --- 2. Scene_Map#update 补丁: 跳转后记录状态 ---
+# 帧计数器用全局 $diag_f, 每张地图跳转后由 Game_Map#setup 重置,
+# 保证每张地图都能记录前 300 帧状态(不再因上一张地图耗尽上限而漏记)。
 module ZzDiagScenePatch
   def update
     begin
       if $jump_map_free_mode && $game_map && $game_map.map_id == $jump_map_frozen_map_id
-        @diag_f ||= 0
-        @diag_f += 1
-        if @diag_f <= 300
+        $diag_f ||= 0
+        $diag_f += 1
+        if $diag_f <= 300
           mi = $game_system.map_interpreter
           starting_ids = ($game_map.events ? $game_map.events.values.select { |e| e.starting }.map(&:id).inspect : 'n/a')
           dev = @window_settings.instance_variable_get(:@dev_settings)
           sw = [1, 9, 11, 15, 40].map { |i| "#{i}:#{$game_switches[i]}" }.join(',')
           diag(
-            "f=#{@diag_f}",
+            "f=#{$diag_f}",
             "map=#{$game_map.map_id}(frozen)",
             "interp_running=#{mi.running?}",
             "list=#{mi.instance_variable_get(:@list).inspect}",
@@ -87,6 +89,8 @@ end
 module ZzDiagMapPatch
   def setup(map_id)
     diag("MAP_SETUP -> #{map_id}  (jump_free=#{$jump_map_free_mode} frozen=#{$jump_map_frozen_map_id})")
+    # 每张地图跳转后重置帧计数器, 保证新地图的前 300 帧都被记录
+    $diag_f = 0
     super
     if $jump_map_free_mode && map_id == $jump_map_frozen_map_id
       evs = @events.values
@@ -115,7 +119,7 @@ end
 # --- 4. Interpreter#setup 钩子: 记录谁在跳转后被 setup(定位卡死源) ---
 module ZzDiagInterpPatch
   def setup(list, event_id, common_event_name = nil)
-    if $jump_map_free_mode && $game_map && $game_map.map_id == $jump_map_frozen_map_id
+    if $jump_map_free_mode && $game_map && $game_map.map_id == $jump_map_frozen_map_id && ($diag_f || 0) <= 300
       diag("INTERP_SETUP event_id=#{event_id} name=#{common_event_name.inspect} list_size=#{list ? list.size : 'nil'}")
     end
     super

@@ -10,12 +10,12 @@ config = {
   "unshow_title": true,
   "is_developer": true,
   "unlock_all_doors": true,
-  "complete_all_dialogues": false,
-  "complete_all_story": false
+  "complete_all_dialogues": true,
+  "complete_all_story": true
 }
 patch_method = TracePoint(:end) + Module#prepend (Scene_Map#update)
 bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit key), Oneshot.allow_exit (window X button)
 removed_message = You cannot perform this action during cutscenes.
 overridden_methods = Oneshot.allow_exit (always true when enabled)
 preserved_restrictions = message_window, fast_travel, settings, menu_calling
-loaded_at = 2026-08-31 20:37:28 +0800
+loaded_at = 2026-08-31 22:21:03 +0800

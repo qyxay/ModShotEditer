@@ -10,10 +10,10 @@ config = {
   "always_settings": true,
   "is_developer": true,
   "unlock_all_doors": true,
-  "complete_all_dialogues": false,
-  "complete_all_story": false
+  "complete_all_dialogues": true,
+  "complete_all_story": true
 }
 patch_method = Object.prepend (TitleScreenSaveExistsPatch#save_exists)
 original_behavior = skip title if save.dat exists (Scene_Title.rb:41)
 patched_behavior = unshow_title:true → skip title always; unshow_title:false → show title always
-loaded_at = 2026-08-31 20:37:28 +0800
+loaded_at = 2026-08-31 22:21:03 +0800
