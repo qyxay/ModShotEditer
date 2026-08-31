@@ -1,7 +1,8 @@
 {
   "skip_pictures": true,
   "quit_all_time": true,
-  "skip_all_dialogue": true,
+  "skip_dialogue": true,
+  "skip_choice": true,
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true

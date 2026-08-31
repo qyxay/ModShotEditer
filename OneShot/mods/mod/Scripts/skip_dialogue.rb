@@ -9,18 +9,27 @@
 #  用 TracePoint(:end) 监听 Interpreter 类定义, 在
 #  execute_command 方法就绪后用 Module#prepend 打补丁。
 #
-#  配置: mods/mod/config.json
-#    "skip_all_dialogue": true   → 开启跳过所有对话
-#    "skip_all_dialogue": false  → 关闭(恢复原始对话)
+#  配置: mods/mod/config.json (两个独立开关)
+#    "skip_dialogue": true  → 开启跳过对话文字 (101 + 401)
+#    "skip_dialogue": false → 关闭(恢复原始对话)
+#    "skip_choice": true    → 开启自动选择第一个选项 (102)
+#    "skip_choice": false   → 关闭(恢复原始选项)
 # ============================================================
 
 require 'json'
 
 # --- 读取配置 (统一由 _config.rb 加载到 $mod_config) ---
-default_config = { "skip_all_dialogue" => false }
+# 两个独立开关:
+#   skip_dialogue → 跳过对话文字 (命令 101/401)
+#   skip_choice   → 跳过选项, 自动选第一个 (命令 102)
+default_config = {
+  "skip_dialogue" => false,
+  "skip_choice"   => false
+}
 config = default_config.merge($mod_config || {})
 
-$skip_all_dialogue_enabled = config["skip_all_dialogue"] ? true : false
+$skip_dialogue_enabled = config["skip_dialogue"] ? true : false
+$skip_choice_enabled   = config["skip_choice"]   ? true : false
 
 # --- 补丁模块 ---
 module SkipAllDialoguePatch
@@ -28,29 +37,29 @@ module SkipAllDialoguePatch
   # (跳过 105/106 会导致事件时序混乱、音效反复触发甚至死循环)
 
   def execute_command
-    if $skip_all_dialogue_enabled && @index < @list.size && @list[@index]
+    if @index < @list.size && @list[@index]
       code = @list[@index].code
 
       case code
-      when 101
-        # Show Text: 跳过当前命令和后续所有 401(文字数据行)
-        @index += 1
-        while @index < @list.size && @list[@index].code == 401
+      when 101, 401
+        # Show Text(101) + 文字数据行(401):
+        # 仅当 skip_dialogue 开启时跳过整段文字
+        if $skip_dialogue_enabled
           @index += 1
+          while @index < @list.size && @list[@index].code == 401
+            @index += 1
+          end
+          return true
         end
-        return true
-
-      when 401
-        # 文字数据行(理论上 101 已批量跳过, 这里兜底)
-        @index += 1
-        return true
 
       when 102
-        # Show Choices: 自动选择第一个选项
-        # @branch[0] 存储选择索引, 后续 402(When [**])会据此判断分支
-        @branch[0] = 0
-        @index += 1
-        return true
+        # Show Choices: 仅当 skip_choice 开启时自动选择第一个选项
+        if $skip_choice_enabled
+          # @branch[0] 存储选择索引, 后续 402(When [**])会据此判断分支
+          @branch[0] = 0
+          @index += 1
+          return true
+        end
       end
     end
 
@@ -74,11 +83,12 @@ end
 # --- 写状态文件 ---
 status_path = File.join(__dir__, '..', 'skip_dialogue_status.txt')
 File.open(status_path, 'w') do |f|
-  f.puts "skip_all_dialogue_enabled = #{$skip_all_dialogue_enabled}"
+  f.puts "skip_dialogue_enabled = #{$skip_dialogue_enabled} (101/401 text lines)"
+  f.puts "skip_choice_enabled   = #{$skip_choice_enabled}   (102 auto-select first option)"
   f.puts "config_source = \$mod_config (unified loader _config.rb)"
   f.puts "config = #{JSON.pretty_generate(config)}"
   f.puts "patch_method = TracePoint(:end) + Module#prepend (Interpreter#execute_command)"
-  f.puts "skipped_commands = 101(ShowText)+401(text lines), 102(ShowChoices auto-select first)"
+  f.puts "skipped_commands = [skip_dialogue] 101(ShowText)+401(text lines), [skip_choice] 102(ShowChoices auto-select first)"
   f.puts "not_skipped = 103/104/105/106 (preserve event timing, avoid audio glitches and deadlocks)"
   f.puts "loaded_at = #{Time.now}"
 end
