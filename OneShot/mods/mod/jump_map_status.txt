@@ -1,4 +1,4 @@
-jump_map loaded at = 2026-08-31 15:20:00 +0800
+jump_map loaded at = 2026-08-31 20:37:28 +0800
 jump_points_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../jump_points.json
 filter = /IGNORE|DEBUG|INTERNAL|UNUSED|\bTEST\b|^INIT\b|TELEPORT|DEMO|PROTOWALK|PSHOT|LANGUAGE\s?DEBUG|LANG\s?DEBUG/i
 name_pattern = /^[TCS]\d+$/i

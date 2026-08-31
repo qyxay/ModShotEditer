@@ -13,6 +13,13 @@
 #  配置: mods/mod/config.json
 #    "is_developer": true  → 设置页显示"开发者设置"栏
 #    "is_developer": false → 隐藏该栏
+#
+#  三个"功能开关"(布尔型, 与普通开关一样实时切换并写回):
+#    只作用于"当前地图事件实际引用到的开关"(事件页条件 + 条件分支指令),
+#    不触碰其他地图的全局开关。
+#    "unlock_all_doors"       true→当前地图开关全置 ON  false→全置 OFF
+#    "complete_all_dialogues" true→完成当前地图对话  false→置回未完成
+#    "complete_all_story"     true→完成当前地图剧情+当前地图开关  false→置回未发生+OFF
 # ============================================================
 
 require 'json'
@@ -35,6 +42,13 @@ GLOBAL_SYNC = {
   'skip_choice'   => '$skip_choice_enabled',
   'unshow_title'  => '$unshow_title_enabled',
   'is_developer'  => '$dev_settings_enabled'
+}
+
+# --- 功能开关: ON 执行"完成/解锁", OFF 执行"未完成/锁定" ---
+STATE_ACTIONS = {
+  'unlock_all_doors'       => { on: :unlock_all_doors,       off: :lock_all_doors },
+  'complete_all_dialogues' => { on: :complete_all_dialogues, off: :incomplete_all_dialogues },
+  'complete_all_story'     => { on: :complete_all_story,     off: :incomplete_all_story }
 }
 
 # --- 开发者设置子界面 ---
@@ -71,7 +85,8 @@ class Window_DevSettings
     @config = {}
     @keys = []
     # 功能动作条目(追加在布尔开关之后), 按确认键执行对应动作
-    @extra_items = ['Jump Map', 'Unlock All Doors', 'Complete All Dialogues', 'Complete All Story']
+    # 解锁门 / 完成对话 / 完成剧情 已改为布尔开关(见 STATE_ACTIONS), 仅剩跳地图
+    @extra_items = ['Jump Map']
     @jump_map = nil
     # 外层 Window_Settings 引用(由补丁注入), 用于跳转后一并关闭
     @parent_settings = nil
@@ -123,6 +138,10 @@ class Window_DevSettings
       JSON.parse(File.read(CONFIG_PATH))
     rescue StandardError
       $mod_config || {}
+    end
+    # 补全新功能开关默认值(false=未解锁/未完成), 防止 config.json 缺键时不显示
+    STATE_ACTIONS.each_key do |k|
+      @config[k] = false unless @config.key?(k)
     end
     @keys = @config.keys.select { |k| @config[k] == true || @config[k] == false }
   end
@@ -213,12 +232,6 @@ class Window_DevSettings
     case action
     when 'Jump Map'
       open_jump_map
-    when 'Unlock All Doors'
-      unlock_all_doors
-    when 'Complete All Dialogues'
-      complete_all_dialogues
-    when 'Complete All Story'
-      complete_all_story
     end
   end
 
@@ -230,32 +243,57 @@ class Window_DevSettings
     @flash_timer = 120
   end
 
-  # --- 解锁全部的门 ---
-  # OneShot 的门锁由事件条件分支的开关控制(扫描确定的高频门锁开关)。
-  # 全部设为 true, 并刷新当前地图事件让门页面立即切换。
-  DOOR_SWITCHES = [8, 50, 112, 178, 32, 16, 152, 284, 59, 36, 122, 245,
-                   66, 28, 71, 290, 187, 35, 34, 208, 216, 83, 42, 31,
-                   240, 304, 305, 7, 103]
+  # --- 当前地图使用的全局开关 ---
+  # 只收集当前地图事件真正引用到的开关号, 避免误改其他地图的全局开关。
+  # 来源: ① 事件页条件(switch1/switch2) ② 事件指令"条件分支"(code 111)中的开关判断
+  def current_map_switches
+    return [] unless $game_map && $game_map.events
+    switches = {}
+    $game_map.events.each_value do |ev|
+      evt = ev.instance_variable_get(:@event)
+      pages = evt ? evt.pages : nil
+      # ① 事件页条件里的开关
+      if pages
+        pages.each do |page|
+          c = page.condition
+          switches[c.switch1_id] = true if c && c.switch1_valid
+          switches[c.switch2_id] = true if c && c.switch2_valid
+        end
+      end
+      # ② 事件指令"条件分支"(111, parameters[0]==0)里的开关判断
+      lists = pages ? pages.map { |pg| pg.list } : (ev.list ? [ev.list] : [])
+      lists.each do |list|
+        next unless list
+        list.each do |cmd|
+          next unless cmd && cmd.code == 111
+          p = cmd.parameters
+          switches[p[1]] = true if p && p[0] == 0 && p[1]
+        end
+      end
+    end
+    switches.keys
+  end
+
+  # --- 把当前地图使用的开关统一设为指定值, 并刷新事件 ---
+  def set_current_switches(val)
+    ids = current_map_switches
+    return 0 if ids.empty?
+    ids.each { |s| $game_switches[s] = val }
+    if $game_map && $game_map.events
+      $game_map.events.each_value { |e| e.refresh }
+    end
+    ids.size
+  end
+
+  # --- 解锁当前地图的门锁(ON) ---
+  # 只把当前地图事件引用到的开关全部置 true(含门锁开关), 刷新事件立即切换页面。
   def unlock_all_doors
     if !$game_switches
       flash('Not in game')
       return
     end
-    count = set_door_switches
-    flash("#{count} door switches ON")
-  end
-
-  # 设置全部门锁开关(供 unlock_all_doors / complete_all_story 复用)
-  def set_door_switches
-    count = 0
-    DOOR_SWITCHES.each do |s|
-      $game_switches[s] = true
-      count += 1
-    end
-    if $game_map && $game_map.events
-      $game_map.events.each_value { |e| e.refresh }
-    end
-    count
+    count = set_current_switches(true)
+    flash("#{count} switches ON (this map)")
   end
 
   # --- 完成所有对话(当前地图) ---
@@ -282,7 +320,7 @@ class Window_DevSettings
 
   # --- 完成所有剧情(当前地图) ---
   # 把当前地图所有事件(除玩家)的自开关 A-D 置 true, 让全部剧情/事件
-  # 跳到"已发生"状态; 同时解锁全部门锁。配合 Jump Map 逐图使用。
+  # 跳到"已发生"状态; 同时解锁当前地图使用的开关(含门锁)。配合 Jump Map 逐图使用。
   def complete_all_story
     if !$game_map || !$game_map.events
       flash('Not in game')
@@ -297,9 +335,63 @@ class Window_DevSettings
       count += 1
     end
     $game_map.events.each_value { |e| e.refresh }
-    # 一并解锁全部门锁(全局生效)
-    set_door_switches if $game_switches
+    # 一并解锁当前地图使用的开关(含门锁)
+    set_current_switches(true) if $game_switches
     flash("#{count} events done (this map)")
+  end
+
+  # --- 锁定当前地图的门锁(OFF) ---
+  # 只把当前地图事件引用到的开关全部置 false, 并刷新事件。
+  def lock_all_doors
+    if !$game_switches
+      flash('Not in game')
+      return
+    end
+    count = set_current_switches(false)
+    flash("#{count} switches OFF (this map)")
+  end
+
+  # --- 未完成所有对话(当前地图, OFF) ---
+  # 把当前地图所有含对话(Show Text 101)事件的自开关 A-D 置 false,
+  # 使其跳回"未完成"页。配合 Jump Map 逐图使用。
+  def incomplete_all_dialogues
+    if !$game_map || !$game_map.events
+      flash('Not in game')
+      return
+    end
+    count = 0
+    $game_map.events.each_value do |ev|
+      next unless ev && ev.list
+      has_text = ev.list.any? { |c| c && c.code == 101 }
+      next unless has_text
+      %w[A B C D].each do |s|
+        $game_self_switches[[$game_map.map_id, ev.id, s]] = false
+      end
+      count += 1
+    end
+    $game_map.events.each_value { |e| e.refresh }
+    flash("#{count} dialogues undone (this map)")
+  end
+
+  # --- 未完成所有剧情(当前地图, OFF) ---
+  # 把当前地图所有事件的自开关 A-D 置 false, 让全部剧情/事件
+  # 跳回"未发生"状态; 同时把当前地图使用的开关置 OFF。
+  def incomplete_all_story
+    if !$game_map || !$game_map.events
+      flash('Not in game')
+      return
+    end
+    count = 0
+    $game_map.events.each_value do |ev|
+      next unless ev
+      %w[A B C D].each do |s|
+        $game_self_switches[[$game_map.map_id, ev.id, s]] = false
+      end
+      count += 1
+    end
+    $game_map.events.each_value { |e| e.refresh }
+    set_current_switches(false) if $game_switches
+    flash("#{count} events undone (this map)")
   end
 
   # 切换当前布尔开关并写回
@@ -310,7 +402,16 @@ class Window_DevSettings
     $mod_config[key] = @config[key] if $mod_config
     save_config
     $game_system.se_play($data_system.decision_se)
+    # 功能开关: 依新值执行对应"完成/撤销"动作
+    run_state_action(key, @config[key])
     redraw_all
+  end
+
+  # 执行功能开关对应的"完成/撤销"动作 (ON→解锁/完成, OFF→锁定/未完成)
+  def run_state_action(key, val)
+    act = STATE_ACTIONS[key]
+    return unless act
+    send(act[val ? :on : :off])
   end
 
   # 进入跳地图子界面
@@ -349,7 +450,7 @@ class Window_DevSettings
   def save_config
     $mod_config ||= @config
     ordered = {}
-    %w[skip_pictures quit_all_time skip_dialogue skip_choice always_travel always_settings unshow_title is_developer].each do |k|
+    %w[skip_pictures quit_all_time skip_dialogue skip_choice always_travel always_settings unshow_title is_developer unlock_all_doors complete_all_dialogues complete_all_story].each do |k|
       ordered[k] = @config[k] if @config.key?(k)
     end
     @config.each do |k, v|

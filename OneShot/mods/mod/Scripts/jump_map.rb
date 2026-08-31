@@ -30,23 +30,29 @@ JUMP_MAP_PARENT_FILTER = /IGNORE|DEBUG|UNUSED|INTERNAL|\bTEST\b|^INIT\b|TELEPORT
 JUMP_MAP_PER_PAGE = 10
 
 # --- 跳转后"自由浏览模式" ---
-# 跳到某地图后, 冻结该地图的 autorun(自动执行)事件, 否则剧情事件
-# (如 Livingroom 的 "niko hello" 对话)会立即触发, 锁住玩家并禁用菜单。
-# 只冻结 jump 目标地图; 玩家走到其它地图后恢复正常剧情。
+# 跳到某地图后进入自由浏览模式: 冻结所有地图的 autorun(自动执行)事件,
+# 否则剧情事件(如 Livingroom 的 "niko hello" 对话, 或落点上方 1 格 north
+# door 传送到的地图 2 的 intro/Map Events)会立即触发, 锁住玩家并禁用菜单。
+# 同时拦截 trigger==1 的 autorun 公共事件(该路径绕过 Game_Event 冻结)。
+# 自由浏览模式持续到游戏重启; 重启后恢复正常剧情。
 JUMP_MAP_FREEZE_AUTORUN = true
 
 # 当前是否处于自由浏览模式 + 被冻结的地图 ID
 $jump_map_free_mode = false
 $jump_map_frozen_map_id = -1
 
-# --- 冻结补丁: 阻止 jump 目标地图的 autorun 自动触发 ---
+# --- 冻结补丁: 阻止 autorun 自动触发 ---
 # Game_Event#check_event_trigger_auto 在每次 refresh/update 时都会被调用,
 # trigger==3(autorun) 会无条件 start, 进入 map_interpreter 运行。
-# 这里在自由模式下跳过 start, 让玩家在跳转目标地图上自由活动。
+# 自由浏览模式下跳过 start, 让玩家在跳转目标地图上自由活动。
+#
+# 修复: 不再限定"只冻结目标地图"。跳转后玩家可能通过门/传送走到其他地图
+# (如 Livingroom 落点正上方 1 格就是 north door, 触发后传到地图 2),
+# 这些地图同样有剧情 AUTORUN (地图 2 的 intro / Map Events 都含对话),
+# 会立即锁住玩家并禁用菜单。因此自由浏览模式下冻结所有地图的 AUTORUN。
 module JumpMapFreezePatch
   def check_event_trigger_auto
     if $jump_map_free_mode &&
-       $game_map.map_id == $jump_map_frozen_map_id &&
        @trigger == 3
       return  # 不触发 autorun
     end
@@ -54,13 +60,52 @@ module JumpMapFreezePatch
   end
 end
 
-# --- 等待 Game_Event 类定义完成后 prepend 冻结补丁 ---
+# --- 补丁 2: 自由浏览模式下拦截公共事件 autorun ---
+# Interpreter#setup_starting_event 每帧会在 map_interpreter 空闲时
+# 启动条件开关为 ON 的 trigger==1(autorun) 公共事件, 该路径完全绕过上面的
+# Game_Event 冻结补丁, 同样会锁住玩家。这里在自由浏览模式下临时把 autorun
+# 公共事件的 trigger 改为非 1, 让原循环跳过; 保留 common_event_id 明确
+# 调用的公共事件(如 quit_all_time 的保存退出), 结束后立即恢复。
+module JumpMapCommonEventPatch
+  def setup_starting_event
+    if $jump_map_free_mode
+      saved = []
+      $data_common_events.each_with_index do |ce, i|
+        if ce && ce.trigger == 1
+          saved << [i, ce]
+          ce.trigger = 0  # 临时改为非 autorun, 原循环即跳过
+        end
+      end
+      begin
+        super
+      ensure
+        saved.each { |_i, ce| ce.trigger = 1 }
+      end
+    else
+      super
+    end
+  end
+end
+
+# --- 等待 Game_Event / Interpreter 类定义完成后 prepend 冻结补丁 ---
 _trace = TracePoint.trace(:end) do |tp|
   begin
     if tp.self.is_a?(Class) && tp.self.name == 'Game_Event' &&
        tp.self.method_defined?(:check_event_trigger_auto)
       tp.self.prepend(JumpMapFreezePatch)
       _trace.disable
+    end
+  rescue
+    # 忽略异常, 继续监听
+  end
+end
+
+_trace_ce = TracePoint.trace(:end) do |tp|
+  begin
+    if tp.self.is_a?(Class) && tp.self.name == 'Interpreter' &&
+       tp.self.method_defined?(:setup_starting_event)
+      tp.self.prepend(JumpMapCommonEventPatch)
+      _trace_ce.disable
     end
   rescue
     # 忽略异常, 继续监听

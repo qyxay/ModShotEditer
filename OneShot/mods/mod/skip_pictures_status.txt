@@ -8,7 +8,10 @@ config = {
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true,
-  "is_developer": true
+  "is_developer": true,
+  "unlock_all_doors": true,
+  "complete_all_dialogues": false,
+  "complete_all_story": false
 }
 patch_method = TracePoint(:end) + Module#prepend (no xScripts.rxdata modification)
-loaded_at = 2026-08-31 15:20:00 +0800
+loaded_at = 2026-08-31 20:37:28 +0800

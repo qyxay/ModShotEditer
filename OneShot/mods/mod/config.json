@@ -1,10 +1,13 @@
 {
-  "unshow_title": true, //若unshow_title为true，则直接进入游戏，有skip_pictures的功能
   "skip_pictures": true,
   "quit_all_time": true,
   "skip_dialogue": true,
   "skip_choice": true,
   "always_travel": true,
   "always_settings": true,
-  "is_developer": true
+  "unshow_title": true,
+  "is_developer": true,
+  "unlock_all_doors": true,
+  "complete_all_dialogues": false,
+  "complete_all_story": false
 }
