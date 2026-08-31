@@ -3,14 +3,16 @@ config_source = $mod_config (unified loader _config.rb)
 config = {
   "quit_all_time": true,
   "skip_pictures": true,
-  "skip_all_dialogue": true,
+  "skip_dialogue": true,
+  "skip_choice": true,
   "always_travel": true,
   "always_settings": true,
-  "unshow_title": true
+  "unshow_title": true,
+  "is_developer": true
 }
 patch_method = TracePoint(:end) + Module#prepend (Scene_Map#update)
 bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit key), Oneshot.allow_exit (window X button)
 removed_message = You cannot perform this action during cutscenes.
 overridden_methods = Oneshot.allow_exit (always true when enabled)
 preserved_restrictions = message_window, fast_travel, settings, menu_calling
-loaded_at = 2026-08-30 15:13:44 +0800
+loaded_at = 2026-08-31 13:23:41 +0800

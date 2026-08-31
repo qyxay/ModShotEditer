@@ -1,4 +1,4 @@
-preload loaded at 2026-08-30 15:13:44 +0800
+preload loaded at 2026-08-31 13:23:41 +0800
 script_dir: mods/mod/Scripts
 runtime_lib: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0 (exists=true)
 runtime_arch: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64 (exists=true)
@@ -10,7 +10,7 @@ runtime_arch: C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1
 
 loaded scripts (6):
   - _config.rb
-  - always_access.rb
+  - dev_settings.rb
   - picture_skip.rb
   - quit_all_time.rb
   - skip_dialogue.rb

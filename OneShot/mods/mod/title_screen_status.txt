@@ -4,11 +4,13 @@ config = {
   "unshow_title": true,
   "skip_pictures": true,
   "quit_all_time": true,
-  "skip_all_dialogue": true,
+  "skip_dialogue": true,
+  "skip_choice": true,
   "always_travel": true,
-  "always_settings": true
+  "always_settings": true,
+  "is_developer": true
 }
 patch_method = Object.prepend (TitleScreenSaveExistsPatch#save_exists)
 original_behavior = skip title if save.dat exists (Scene_Title.rb:41)
 patched_behavior = unshow_title:true → skip title always; unshow_title:false → show title always
-loaded_at = 2026-08-30 15:13:44 +0800
+loaded_at = 2026-08-31 13:23:41 +0800
