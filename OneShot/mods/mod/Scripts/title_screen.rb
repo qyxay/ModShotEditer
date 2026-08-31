@@ -37,7 +37,7 @@ end
 Object.prepend(TitleScreenSaveExistsPatch)
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'title_screen_status.txt')
+status_path = File.join(__dir__, '..', 'logs', 'title_screen_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "unshow_title_enabled = #{$unshow_title_enabled}"
   f.puts "config_source = \$mod_config (unified loader _config.rb)"

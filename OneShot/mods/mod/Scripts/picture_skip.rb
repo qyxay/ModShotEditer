@@ -87,7 +87,7 @@ trace = TracePoint.trace(:end) do |tp|
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'skip_pictures_status.txt')
+status_path = File.join(__dir__, '..', 'logs', 'skip_pictures_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "pic_skip_enabled = #{$is_skip_picture}"
   f.puts "config_source = \$mod_config (unified loader _config.rb)"

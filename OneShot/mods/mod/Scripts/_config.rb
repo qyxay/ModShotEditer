@@ -23,7 +23,7 @@ else
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'config_loaded.txt')
+status_path = File.join(__dir__, '..', 'logs', 'config_loaded.txt')
 File.open(status_path, 'w') do |f|
   f.puts "config_path = #{config_path}"
   f.puts "config = #{JSON.pretty_generate($mod_config)}"

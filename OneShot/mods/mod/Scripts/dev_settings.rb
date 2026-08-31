@@ -14,14 +14,17 @@
 #    "is_developer": true  → 设置页显示"开发者设置"栏
 #    "is_developer": false → 隐藏该栏
 #
-#  三个"功能开关"(布尔型, 与普通开关一样实时切换并写回):
+#  三个"功能动作"(非布尔开关, 点击一次即对"当前地图"执行解锁/完成):
 #    只作用于"当前地图事件实际引用到的开关"(事件页条件 + 条件分支指令),
 #    不触碰其他地图的全局开关。
 #    开关分两类: "激活类"(非空页/条件分支用, true=解锁推进) 与
 #    "关闭类"(仅空页条件用, true=事件变哑, 如"出口已用过"标记)。
-#    "unlock_all_doors"       true→当前地图激活类开关全 ON, 关闭类置 OFF(门保持可用)
-#    "complete_all_dialogues" true→完成当前地图对话(只完成自开关页安全的)  false→置回未完成
-#    "complete_all_story"     true→完成当前地图剧情(自开关+激活类开关, 不关死门)  false→置回未发生
+#    Unlock All Doors (this map)        → 当前地图激活类开关全 ON, 关闭类置 OFF(门保持可用)
+#    Complete All Dialogues (this map)  → 完成当前地图对话(只完成自开关页安全的)
+#    Complete All Story (this map)      → 完成当前地图剧情(自开关+激活类开关, 不关死门)
+#    反向动作(lock / incomplete)已不再被界面触发, 仅保留方法体供排查/复用。
+#    这三个键仍保留在 config.json(值为 true/false), 供 Jump Map 跳转后的
+#    auto_apply_current_map 读取: true = 跳进地图时自动执行对应动作。
 # ============================================================
 
 require 'json'
@@ -46,12 +49,18 @@ GLOBAL_SYNC = {
   'is_developer'  => '$dev_settings_enabled'
 }
 
-# --- 功能开关: ON 执行"完成/解锁", OFF 执行"未完成/锁定" ---
-STATE_ACTIONS = {
-  'unlock_all_doors'       => { on: :unlock_all_doors,       off: :lock_all_doors },
-  'complete_all_dialogues' => { on: :complete_all_dialogues, off: :incomplete_all_dialogues },
-  'complete_all_story'     => { on: :complete_all_story,     off: :incomplete_all_story }
-}
+# --- 功能动作条目(非布尔开关): 标识 → 界面显示名, 顺序即菜单顺序 ---
+# 点击一次即执行对应动作(解锁/完成当前地图), 不切换/不写回开关值。
+# 反向动作(lock/incomplete)不再由界面触发。
+EXTRA_ACTIONS = [
+  [:unlock_all_doors,       'Unlock All Doors (this map)'],
+  [:complete_all_dialogues, 'Complete All Dialogues (this map)'],
+  [:complete_all_story,     'Complete All Story (this map)'],
+  [:jump_map,               'Jump Map']
+]
+
+# 上述三个功能动作在 config.json 中的键名(不显示为布尔开关, 值仅供 auto_apply 读取)
+ACTION_KEYS = %w[unlock_all_doors complete_all_dialogues complete_all_story]
 
 # --- 开发者设置子界面 ---
 class Window_DevSettings
@@ -86,12 +95,13 @@ class Window_DevSettings
     @visible = false
     @config = {}
     @keys = []
-    # 功能动作条目(追加在布尔开关之后), 按确认键执行对应动作
-    # 解锁门 / 完成对话 / 完成剧情 已改为布尔开关(见 STATE_ACTIONS), 仅剩跳地图
-    @extra_items = ['Jump Map']
+    # 功能动作条目(非布尔开关, 点击即执行), 追加在布尔开关之后
+    @extra_items = EXTRA_ACTIONS.map { |_, name| name }
     @jump_map = nil
     # 外层 Window_Settings 引用(由补丁注入), 用于跳转后一并关闭
     @parent_settings = nil
+    # 关闭回调(由快捷键打开时注入, 用于恢复被借用的设置窗口状态)
+    @on_closed = nil
     # 全局实例引用: 供 Jump Map 跳转后"按 config 自动应用开关"用(免 ObjectSpace 扫描)
     $dev_settings_instance = self
   end
@@ -123,6 +133,7 @@ class Window_DevSettings
   end
 
   attr_accessor :parent_settings
+  attr_accessor :on_closed
 
   def visible
     @visible
@@ -164,11 +175,11 @@ class Window_DevSettings
     rescue StandardError
       $mod_config || {}
     end
-    # 补全新功能开关默认值(false=未解锁/未完成), 防止 config.json 缺键时不显示
-    STATE_ACTIONS.each_key do |k|
-      @config[k] = false unless @config.key?(k)
+    # 布尔开关 = 所有 bool 键, 但排除三个功能动作键(它们不作为开关显示,
+    # 值仅供 Jump Map 跳转后 auto_apply_current_map 读取)
+    @keys = @config.keys.select do |k|
+      (@config[k] == true || @config[k] == false) && !ACTION_KEYS.include?(k)
     end
-    @keys = @config.keys.select { |k| @config[k] == true || @config[k] == false }
   end
 
   def redraw(spr, i)
@@ -242,6 +253,8 @@ class Window_DevSettings
     if Input.trigger?(Input::CANCEL)
       $game_system.se_play($data_system.cancel_se)
       self.visible = false
+      # 快捷键打开时注入的关闭回调(恢复被借用的设置窗口状态)
+      @on_closed.call if @on_closed
     end
 
     # 动作反馈提示的显示计时
@@ -252,11 +265,15 @@ class Window_DevSettings
     end
   end
 
-  # 执行功能动作
-  def run_action(action)
-    case action
-    when 'Jump Map'
+  # 执行功能动作(非布尔开关的固定条目, 点击一次即执行)
+  def run_action(display_name)
+    pair = EXTRA_ACTIONS.find { |_, name| name == display_name }
+    return unless pair
+    case pair[0]
+    when :jump_map
       open_jump_map
+    else
+      send(pair[0])
     end
   end
 
@@ -487,7 +504,7 @@ class Window_DevSettings
     true
   end
 
-  # 切换当前布尔开关并写回
+  # 切换当前布尔开关并写回 (仅普通布尔开关; 功能动作条目走 run_action)
   def toggle(i)
     key = @keys[i]
     @config[key] = !@config[key]
@@ -495,16 +512,7 @@ class Window_DevSettings
     $mod_config[key] = @config[key] if $mod_config
     save_config
     $game_system.se_play($data_system.decision_se)
-    # 功能开关: 依新值执行对应"完成/撤销"动作
-    run_state_action(key, @config[key])
     redraw_all
-  end
-
-  # 执行功能开关对应的"完成/撤销"动作 (ON→解锁/完成, OFF→锁定/未完成)
-  def run_state_action(key, val)
-    act = STATE_ACTIONS[key]
-    return unless act
-    send(act[val ? :on : :off])
   end
 
   # 进入跳地图子界面
@@ -591,6 +599,9 @@ module WindowSettingsDevPatch
       @dev_settings ||= Window_DevSettings.new
       # 注入外层引用: 跳地图成功后需要一并关闭设置窗口
       @dev_settings.parent_settings = self
+      # 经设置菜单打开: 清掉快捷键注入的关闭回调, 按 CANCEL 只关开发者设置
+      # 回到设置窗口, 不误关设置窗口本身
+      @dev_settings.on_closed = nil
       @dev_settings.open
     end
   end
@@ -616,7 +627,7 @@ trace = TracePoint.trace(:end) do |tp|
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'dev_settings_status.txt')
+status_path = File.join(__dir__, '..', 'logs', 'dev_settings_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "dev_settings_enabled = #{$dev_settings_enabled}"
   f.puts "config_source = \$mod_config (unified loader _config.rb)"

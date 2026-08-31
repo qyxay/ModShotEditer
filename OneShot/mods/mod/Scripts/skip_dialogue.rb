@@ -81,7 +81,7 @@ trace = TracePoint.trace(:end) do |tp|
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'skip_dialogue_status.txt')
+status_path = File.join(__dir__, '..', 'logs', 'skip_dialogue_status.txt')
 File.open(status_path, 'w') do |f|
   f.puts "skip_dialogue_enabled = #{$skip_dialogue_enabled} (101/401 text lines)"
   f.puts "skip_choice_enabled   = #{$skip_choice_enabled}   (102 auto-select first option)"

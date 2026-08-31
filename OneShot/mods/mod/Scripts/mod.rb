@@ -38,7 +38,7 @@ Dir.glob(File.join(script_dir, '*.rb')).sort.each do |path|
 end
 
 # --- 3. 写加载日志 ---
-log_path = File.join(script_dir, '..', 'preload_loaded.txt')
+log_path = File.join(script_dir, '..', 'logs', 'preload_loaded.txt')
 File.open(log_path, 'w') do |f|
   f.puts "preload loaded at #{Time.now}"
   f.puts "script_dir: #{script_dir}"

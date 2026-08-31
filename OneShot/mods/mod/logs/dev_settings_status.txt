@@ -1,19 +1,9 @@
 dev_settings_enabled = true
 config_source = $mod_config (unified loader _config.rb)
 config = {
-  "is_developer": true,
-  "skip_pictures": true,
-  "quit_all_time": true,
-  "skip_dialogue": true,
-  "skip_choice": true,
-  "always_travel": true,
-  "always_settings": true,
-  "unshow_title": true,
-  "unlock_all_doors": true,
-  "complete_all_dialogues": true,
-  "complete_all_story": true
+  "is_developer": true
 }
 patch_method = TracePoint(:end) + Module#prepend (Window_Settings#open/update/dispose)
 config_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../config.json
 sync_globals = {"skip_pictures"=>"$is_skip_picture", "quit_all_time"=>"$quit_all_time_enabled", "skip_dialogue"=>"$skip_dialogue_enabled", "skip_choice"=>"$skip_choice_enabled", "unshow_title"=>"$unshow_title_enabled", "is_developer"=>"$dev_settings_enabled"}
-loaded_at = 2026-08-31 22:21:03 +0800
+loaded_at = 2026-08-31 22:41:50 +0800
