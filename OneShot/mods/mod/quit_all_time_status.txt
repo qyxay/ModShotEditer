@@ -15,4 +15,4 @@ bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit
 removed_message = You cannot perform this action during cutscenes.
 overridden_methods = Oneshot.allow_exit (always true when enabled)
 preserved_restrictions = message_window, fast_travel, settings, menu_calling
-loaded_at = 2026-08-31 13:23:41 +0800
+loaded_at = 2026-08-31 15:20:00 +0800

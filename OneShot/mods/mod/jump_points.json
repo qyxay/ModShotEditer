@@ -1,0 +1,1580 @@
+{
+  "1": {
+    "name": "INIT",
+    "x": 10,
+    "y": 7,
+    "dir": 0
+  },
+  "2": {
+    "name": "Start",
+    "x": 15,
+    "y": 17,
+    "dir": 2
+  },
+  "3": {
+    "name": "Bathroom",
+    "x": 23,
+    "y": 16,
+    "dir": 4
+  },
+  "4": {
+    "name": "Livingroom",
+    "x": 21,
+    "y": 10,
+    "dir": 2
+  },
+  "5": {
+    "name": "Basement Stairs",
+    "x": 10,
+    "y": 8,
+    "dir": 6
+  },
+  "6": {
+    "name": "IGNORE",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "7": {
+    "name": "Blue",
+    "x": 34,
+    "y": 2,
+    "dir": 2
+  },
+  "8": {
+    "name": "Green",
+    "x": 0,
+    "y": 0,
+    "dir": 0
+  },
+  "9": {
+    "name": "Red sky",
+    "x": 18,
+    "y": 33,
+    "dir": 2
+  },
+  "10": {
+    "name": "Tower",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "11": {
+    "name": "DEBUG",
+    "x": 2,
+    "y": 19,
+    "dir": 0
+  },
+  "12": {
+    "name": "Start point",
+    "x": 23,
+    "y": 49,
+    "dir": 2
+  },
+  "13": {
+    "name": "terminal room",
+    "x": 16,
+    "y": 16,
+    "dir": 6
+  },
+  "14": {
+    "name": "Outpost",
+    "x": 22,
+    "y": 23,
+    "dir": 0
+  },
+  "15": {
+    "name": "Outpost interior",
+    "x": 20,
+    "y": 22,
+    "dir": 0
+  },
+  "16": {
+    "name": "Backroom",
+    "x": 18,
+    "y": 33,
+    "dir": 8
+  },
+  "17": {
+    "name": "Mineshaft entrance",
+    "x": 25,
+    "y": 15,
+    "dir": 2
+  },
+  "18": {
+    "name": "Cliffs",
+    "x": 49,
+    "y": 37,
+    "dir": 8
+  },
+  "19": {
+    "name": "Docks",
+    "x": 22,
+    "y": 30,
+    "dir": 2
+  },
+  "20": {
+    "name": "basement",
+    "x": 13,
+    "y": 14,
+    "dir": 6
+  },
+  "21": {
+    "name": "Bed room",
+    "x": 16,
+    "y": 17,
+    "dir": 0
+  },
+  "22": {
+    "name": "Elevator inside",
+    "x": 11,
+    "y": 12,
+    "dir": 0
+  },
+  "23": {
+    "name": "Lookout point",
+    "x": 53,
+    "y": 20,
+    "dir": 2
+  },
+  "24": {
+    "name": "Cabin",
+    "x": 22,
+    "y": 18,
+    "dir": 0
+  },
+  "25": {
+    "name": "store pan",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "26": {
+    "name": "basement after sun",
+    "x": 13,
+    "y": 14,
+    "dir": 6
+  },
+  "27": {
+    "name": "Dock",
+    "x": 20,
+    "y": 41,
+    "dir": 6
+  },
+  "28": {
+    "name": "Fishing hut",
+    "x": 19,
+    "y": 22,
+    "dir": 8
+  },
+  "29": {
+    "name": "Village",
+    "x": 82,
+    "y": 39,
+    "dir": 0
+  },
+  "30": {
+    "name": "House 1 - stew",
+    "x": 15,
+    "y": 13,
+    "dir": 2
+  },
+  "31": {
+    "name": "House 2 - tower",
+    "x": 18,
+    "y": 13,
+    "dir": 2
+  },
+  "32": {
+    "name": "House 3",
+    "x": 20,
+    "y": 13,
+    "dir": 2
+  },
+  "33": {
+    "name": "House 4 - squares",
+    "x": 18,
+    "y": 13,
+    "dir": 2
+  },
+  "34": {
+    "name": "House 5 - storage",
+    "x": 18,
+    "y": 13,
+    "dir": 2
+  },
+  "35": {
+    "name": "House 6 - death is coming",
+    "x": 15,
+    "y": 13,
+    "dir": 2
+  },
+  "36": {
+    "name": "House 7 - are you god",
+    "x": 18,
+    "y": 13,
+    "dir": 2
+  },
+  "37": {
+    "name": "Ruins Out",
+    "x": 19,
+    "y": 51,
+    "dir": 0
+  },
+  "38": {
+    "name": "Ruins In",
+    "x": 34,
+    "y": 21,
+    "dir": 0
+  },
+  "39": {
+    "name": "Maize",
+    "x": 25,
+    "y": 46,
+    "dir": 0
+  },
+  "40": {
+    "name": "Alula",
+    "x": 28,
+    "y": 24,
+    "dir": 2
+  },
+  "41": {
+    "name": "Computer Room",
+    "x": 24,
+    "y": 29,
+    "dir": 8
+  },
+  "42": {
+    "name": "Small Room",
+    "x": 19,
+    "y": 19,
+    "dir": 8
+  },
+  "43": {
+    "name": "Forest",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "44": {
+    "name": "Gate",
+    "x": 36,
+    "y": 99,
+    "dir": 0
+  },
+  "45": {
+    "name": "Inside 2",
+    "x": 19,
+    "y": 33,
+    "dir": 8
+  },
+  "46": {
+    "name": "Inside 3",
+    "x": 20,
+    "y": 46,
+    "dir": 0
+  },
+  "47": {
+    "name": "City gate",
+    "x": 94,
+    "y": 45,
+    "dir": 0
+  },
+  "48": {
+    "name": "Elevator deck",
+    "x": 60,
+    "y": 49,
+    "dir": 0
+  },
+  "49": {
+    "name": "Apartments",
+    "x": 38,
+    "y": 39,
+    "dir": 0
+  },
+  "50": {
+    "name": "stairwell",
+    "x": 23,
+    "y": 24,
+    "dir": 0
+  },
+  "51": {
+    "name": "GeorgeRoom",
+    "x": 24,
+    "y": 27,
+    "dir": 0
+  },
+  "52": {
+    "name": "Cafe",
+    "x": 49,
+    "y": 39,
+    "dir": 0
+  },
+  "53": {
+    "name": "Cafe inside",
+    "x": 30,
+    "y": 35,
+    "dir": 0
+  },
+  "54": {
+    "name": "Garden",
+    "x": 29,
+    "y": 15,
+    "dir": 2
+  },
+  "55": {
+    "name": "Crossroads",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "56": {
+    "name": "Teleport",
+    "x": 44,
+    "y": 36,
+    "dir": 0
+  },
+  "57": {
+    "name": "Junction",
+    "x": 28,
+    "y": 26,
+    "dir": 8
+  },
+  "58": {
+    "name": "Bedroom",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "59": {
+    "name": "tutorial",
+    "x": 4,
+    "y": 6,
+    "dir": 0
+  },
+  "60": {
+    "name": "Summit",
+    "x": 19,
+    "y": 14,
+    "dir": 2
+  },
+  "61": {
+    "name": "Shatter",
+    "x": 10,
+    "y": 7,
+    "dir": 2
+  },
+  "62": {
+    "name": "Elevator",
+    "x": 18,
+    "y": 13,
+    "dir": 2
+  },
+  "63": {
+    "name": "Water",
+    "x": 13,
+    "y": 17,
+    "dir": 0
+  },
+  "64": {
+    "name": "Livingroom",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "65": {
+    "name": "Birdhouse",
+    "x": 32,
+    "y": 41,
+    "dir": 0
+  },
+  "66": {
+    "name": "passage",
+    "x": 16,
+    "y": 17,
+    "dir": 8
+  },
+  "67": {
+    "name": "burial grounds",
+    "x": 43,
+    "y": 38,
+    "dir": 0
+  },
+  "68": {
+    "name": "IGNORE",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "69": {
+    "name": "factory interior",
+    "x": 20,
+    "y": 13,
+    "dir": 8
+  },
+  "70": {
+    "name": "Old factory",
+    "x": 57,
+    "y": 67,
+    "dir": 0
+  },
+  "71": {
+    "name": "Dormitories",
+    "x": 133,
+    "y": 40,
+    "dir": 0
+  },
+  "72": {
+    "name": "Lobby",
+    "x": 35,
+    "y": 22,
+    "dir": 0
+  },
+  "73": {
+    "name": "Swamp",
+    "x": 69,
+    "y": 68,
+    "dir": 8
+  },
+  "74": {
+    "name": "Top floor",
+    "x": 58,
+    "y": 12,
+    "dir": 4
+  },
+  "75": {
+    "name": "server room",
+    "x": 24,
+    "y": 15,
+    "dir": 2
+  },
+  "76": {
+    "name": "110 - mechanical drawing",
+    "x": 17,
+    "y": 22,
+    "dir": 8
+  },
+  "77": {
+    "name": "debug2",
+    "x": 7,
+    "y": 13,
+    "dir": 2
+  },
+  "78": {
+    "name": "117 - mom",
+    "x": 17,
+    "y": 22,
+    "dir": 8
+  },
+  "79": {
+    "name": "112 - infirmary",
+    "x": 17,
+    "y": 22,
+    "dir": 8
+  },
+  "80": {
+    "name": "118 - robot voice",
+    "x": 17,
+    "y": 22,
+    "dir": 8
+  },
+  "81": {
+    "name": "113 - ocean",
+    "x": 17,
+    "y": 22,
+    "dir": 8
+  },
+  "82": {
+    "name": "119 - cell",
+    "x": 17,
+    "y": 22,
+    "dir": 8
+  },
+  "83": {
+    "name": "Red ground",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "84": {
+    "name": "ground 1",
+    "x": 22,
+    "y": 20,
+    "dir": 0
+  },
+  "85": {
+    "name": "ground 2",
+    "x": 111,
+    "y": 19,
+    "dir": 0
+  },
+  "86": {
+    "name": "To Tower",
+    "x": 99,
+    "y": 64,
+    "dir": 0
+  },
+  "87": {
+    "name": "Library entrance",
+    "x": 30,
+    "y": 25,
+    "dir": 0
+  },
+  "88": {
+    "name": "IGNORE ToFactory",
+    "x": 32,
+    "y": 0,
+    "dir": 2
+  },
+  "89": {
+    "name": "IGNORE ToLibrary",
+    "x": 25,
+    "y": 0,
+    "dir": 2
+  },
+  "90": {
+    "name": "Factory Entrance",
+    "x": 33,
+    "y": 24,
+    "dir": 2
+  },
+  "91": {
+    "name": "backalley",
+    "x": 14,
+    "y": 67,
+    "dir": 0
+  },
+  "92": {
+    "name": "factory upstairs",
+    "x": 29,
+    "y": 10,
+    "dir": 0
+  },
+  "93": {
+    "name": "Factory interior2",
+    "x": 21,
+    "y": 10,
+    "dir": 0
+  },
+  "94": {
+    "name": "upstairs",
+    "x": 20,
+    "y": 13,
+    "dir": 8
+  },
+  "95": {
+    "name": "Hall1",
+    "x": 61,
+    "y": 12,
+    "dir": 4
+  },
+  "96": {
+    "name": "Lobby-OLD VER",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "97": {
+    "name": "X room",
+    "x": 24,
+    "y": 27,
+    "dir": 0
+  },
+  "98": {
+    "name": "1st room",
+    "x": 23,
+    "y": 17,
+    "dir": 0
+  },
+  "99": {
+    "name": "lamplighter house",
+    "x": 13,
+    "y": 12,
+    "dir": 0
+  },
+  "100": {
+    "name": "ignore",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "101": {
+    "name": "mineshaft",
+    "x": 22,
+    "y": 25,
+    "dir": 8
+  },
+  "102": {
+    "name": "server room",
+    "x": 51,
+    "y": 19,
+    "dir": 0
+  },
+  "103": {
+    "name": "Unused",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "104": {
+    "name": "courtyard",
+    "x": 35,
+    "y": 38,
+    "dir": 8
+  },
+  "105": {
+    "name": "left- pools",
+    "x": 26,
+    "y": 27,
+    "dir": 8
+  },
+  "106": {
+    "name": "right-3d printers",
+    "x": 27,
+    "y": 26,
+    "dir": 8
+  },
+  "107": {
+    "name": "Bed room",
+    "x": 15,
+    "y": 21,
+    "dir": 8
+  },
+  "108": {
+    "name": "Power room",
+    "x": 12,
+    "y": 26,
+    "dir": 6
+  },
+  "109": {
+    "name": "Room1 - bot",
+    "x": 24,
+    "y": 18,
+    "dir": 8
+  },
+  "110": {
+    "name": "Tower deck",
+    "x": 21,
+    "y": 26,
+    "dir": 2
+  },
+  "111": {
+    "name": "Hall2",
+    "x": 59,
+    "y": 12,
+    "dir": 4
+  },
+  "112": {
+    "name": "2nd room",
+    "x": 27,
+    "y": 16,
+    "dir": 0
+  },
+  "113": {
+    "name": "Kip",
+    "x": 17,
+    "y": 14,
+    "dir": 0
+  },
+  "114": {
+    "name": "left-terminals",
+    "x": 29,
+    "y": 26,
+    "dir": 8
+  },
+  "115": {
+    "name": "right-robots",
+    "x": 28,
+    "y": 26,
+    "dir": 8
+  },
+  "116": {
+    "name": "Office",
+    "x": 52,
+    "y": 46,
+    "dir": 4
+  },
+  "117": {
+    "name": "entry room",
+    "x": 19,
+    "y": 12,
+    "dir": 0
+  },
+  "118": {
+    "name": "big office",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "119": {
+    "name": "stairwell",
+    "x": 19,
+    "y": 70,
+    "dir": 0
+  },
+  "120": {
+    "name": "observation deck",
+    "x": 0,
+    "y": 16,
+    "dir": 2
+  },
+  "121": {
+    "name": "Communal area",
+    "x": 52,
+    "y": 14,
+    "dir": 2
+  },
+  "122": {
+    "name": "bathroom",
+    "x": 21,
+    "y": 8,
+    "dir": 2
+  },
+  "123": {
+    "name": "landing",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "124": {
+    "name": "Room2 - peng",
+    "x": 21,
+    "y": 11,
+    "dir": 0
+  },
+  "125": {
+    "name": "Room3 - bot friend",
+    "x": 24,
+    "y": 18,
+    "dir": 8
+  },
+  "126": {
+    "name": "Birdhall",
+    "x": 20,
+    "y": 9,
+    "dir": 0
+  },
+  "127": {
+    "name": "Research Station",
+    "x": 57,
+    "y": 34,
+    "dir": 0
+  },
+  "128": {
+    "name": "Courtyard",
+    "x": 41,
+    "y": 17,
+    "dir": 0
+  },
+  "129": {
+    "name": "Room4 - bird",
+    "x": 24,
+    "y": 18,
+    "dir": 8
+  },
+  "130": {
+    "name": "Room5 - roomba",
+    "x": 14,
+    "y": 18,
+    "dir": 8
+  },
+  "131": {
+    "name": "Encounter PENG",
+    "x": 25,
+    "y": 36,
+    "dir": 0
+  },
+  "132": {
+    "name": "Room6 - plant",
+    "x": 20,
+    "y": 18,
+    "dir": 8
+  },
+  "133": {
+    "name": "water room",
+    "x": 19,
+    "y": 22,
+    "dir": 0
+  },
+  "134": {
+    "name": "Photo center",
+    "x": 18,
+    "y": 15,
+    "dir": 0
+  },
+  "135": {
+    "name": "SECRET RAM CLUB",
+    "x": 15,
+    "y": 15,
+    "dir": 0
+  },
+  "136": {
+    "name": "Inside 1",
+    "x": 19,
+    "y": 33,
+    "dir": 8
+  },
+  "137": {
+    "name": "rue",
+    "x": 20,
+    "y": 26,
+    "dir": 0
+  },
+  "138": {
+    "name": "stairwell-demo",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "139": {
+    "name": "T1",
+    "x": 9,
+    "y": 6,
+    "dir": 0
+  },
+  "140": {
+    "name": "T2",
+    "x": 8,
+    "y": 6,
+    "dir": 6
+  },
+  "141": {
+    "name": "T3",
+    "x": 9,
+    "y": 6,
+    "dir": 2
+  },
+  "142": {
+    "name": "T4",
+    "x": 13,
+    "y": 7,
+    "dir": 2
+  },
+  "143": {
+    "name": "T5",
+    "x": 14,
+    "y": 6,
+    "dir": 2
+  },
+  "144": {
+    "name": "T6",
+    "x": 11,
+    "y": 6,
+    "dir": 4
+  },
+  "145": {
+    "name": "T7",
+    "x": 12,
+    "y": 5,
+    "dir": 4
+  },
+  "146": {
+    "name": "T8",
+    "x": 10,
+    "y": 5,
+    "dir": 2
+  },
+  "147": {
+    "name": "T9",
+    "x": 7,
+    "y": 4,
+    "dir": 4
+  },
+  "148": {
+    "name": "T10",
+    "x": 12,
+    "y": 6,
+    "dir": 2
+  },
+  "149": {
+    "name": "T11",
+    "x": 8,
+    "y": 6,
+    "dir": 2
+  },
+  "150": {
+    "name": "T12",
+    "x": 10,
+    "y": 5,
+    "dir": 4
+  },
+  "151": {
+    "name": "T13",
+    "x": 15,
+    "y": 5,
+    "dir": 2
+  },
+  "152": {
+    "name": "T14",
+    "x": 10,
+    "y": 4,
+    "dir": 4
+  },
+  "153": {
+    "name": "T15",
+    "x": 5,
+    "y": 5,
+    "dir": 2
+  },
+  "154": {
+    "name": "T16",
+    "x": 6,
+    "y": 6,
+    "dir": 2
+  },
+  "155": {
+    "name": "Step",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "156": {
+    "name": "Sunroom",
+    "x": 6,
+    "y": 1,
+    "dir": 2
+  },
+  "157": {
+    "name": "C1",
+    "x": 24,
+    "y": 13,
+    "dir": 2
+  },
+  "158": {
+    "name": "C2",
+    "x": 25,
+    "y": 12,
+    "dir": 2
+  },
+  "159": {
+    "name": "C3",
+    "x": 21,
+    "y": 10,
+    "dir": 2
+  },
+  "160": {
+    "name": "C5",
+    "x": 26,
+    "y": 12,
+    "dir": 2
+  },
+  "161": {
+    "name": "C4",
+    "x": 26,
+    "y": 12,
+    "dir": 2
+  },
+  "162": {
+    "name": "C6",
+    "x": 26,
+    "y": 12,
+    "dir": 2
+  },
+  "163": {
+    "name": "C7",
+    "x": 26,
+    "y": 12,
+    "dir": 2
+  },
+  "164": {
+    "name": "C1",
+    "x": 10,
+    "y": 10,
+    "dir": 0
+  },
+  "165": {
+    "name": "UNUSED",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "166": {
+    "name": "C2",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "167": {
+    "name": "S1",
+    "x": 2,
+    "y": 7,
+    "dir": 0
+  },
+  "168": {
+    "name": "C3",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "169": {
+    "name": "C4",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "170": {
+    "name": "C5",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "171": {
+    "name": "C6",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "172": {
+    "name": "C7",
+    "x": 9,
+    "y": 13,
+    "dir": 0
+  },
+  "173": {
+    "name": "S4",
+    "x": 2,
+    "y": 7,
+    "dir": 0
+  },
+  "174": {
+    "name": "S2",
+    "x": 2,
+    "y": 7,
+    "dir": 0
+  },
+  "175": {
+    "name": "S3",
+    "x": 2,
+    "y": 7,
+    "dir": 0
+  },
+  "176": {
+    "name": "guest room",
+    "x": 15,
+    "y": 15,
+    "dir": 0
+  },
+  "177": {
+    "name": "Entry ruins",
+    "x": 23,
+    "y": 33,
+    "dir": 0
+  },
+  "178": {
+    "name": "2",
+    "x": 13,
+    "y": 16,
+    "dir": 0
+  },
+  "179": {
+    "name": "Water2",
+    "x": 12,
+    "y": 11,
+    "dir": 0
+  },
+  "180": {
+    "name": "Start",
+    "x": 12,
+    "y": 18,
+    "dir": 6
+  },
+  "181": {
+    "name": "Bathroom",
+    "x": 23,
+    "y": 16,
+    "dir": 4
+  },
+  "182": {
+    "name": "Livingroom",
+    "x": 16,
+    "y": 13,
+    "dir": 0
+  },
+  "183": {
+    "name": "Basement Stairs",
+    "x": 10,
+    "y": 8,
+    "dir": 6
+  },
+  "184": {
+    "name": "Hallway",
+    "x": 34,
+    "y": 33,
+    "dir": 0
+  },
+  "185": {
+    "name": "basement after sun",
+    "x": 33,
+    "y": 14,
+    "dir": 4
+  },
+  "186": {
+    "name": "sleepville",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "187": {
+    "name": "fish house",
+    "x": 17,
+    "y": 17,
+    "dir": 0
+  },
+  "188": {
+    "name": "Start purple",
+    "x": 19,
+    "y": 18,
+    "dir": 0
+  },
+  "189": {
+    "name": "Start",
+    "x": 20,
+    "y": 19,
+    "dir": 0
+  },
+  "190": {
+    "name": "Hallway purp",
+    "x": 34,
+    "y": 33,
+    "dir": 0
+  },
+  "191": {
+    "name": "Research Station",
+    "x": 69,
+    "y": 52,
+    "dir": 0
+  },
+  "192": {
+    "name": "Power room",
+    "x": 16,
+    "y": 22,
+    "dir": 0
+  },
+  "193": {
+    "name": "Prophet house",
+    "x": 19,
+    "y": 22,
+    "dir": 0
+  },
+  "194": {
+    "name": "backroom",
+    "x": 16,
+    "y": 18,
+    "dir": 0
+  },
+  "195": {
+    "name": "extra hallway",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "196": {
+    "name": "backhall",
+    "x": 18,
+    "y": 20,
+    "dir": 0
+  },
+  "197": {
+    "name": "collapse",
+    "x": 53,
+    "y": 15,
+    "dir": 0
+  },
+  "198": {
+    "name": "POSTGAME green",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "199": {
+    "name": "Gate",
+    "x": 81,
+    "y": 98,
+    "dir": 0
+  },
+  "200": {
+    "name": "Dock",
+    "x": 49,
+    "y": 37,
+    "dir": 2
+  },
+  "201": {
+    "name": "rue",
+    "x": 20,
+    "y": 26,
+    "dir": 0
+  },
+  "202": {
+    "name": "Ruins In",
+    "x": 68,
+    "y": 96,
+    "dir": 8
+  },
+  "203": {
+    "name": "Maize",
+    "x": 25,
+    "y": 46,
+    "dir": 0
+  },
+  "204": {
+    "name": "Birdhall",
+    "x": 20,
+    "y": 9,
+    "dir": 0
+  },
+  "205": {
+    "name": "Courtyard",
+    "x": 25,
+    "y": 12,
+    "dir": 0
+  },
+  "206": {
+    "name": "passage",
+    "x": 16,
+    "y": 17,
+    "dir": 8
+  },
+  "207": {
+    "name": "POSTGAME RED SKY",
+    "x": 2,
+    "y": 3,
+    "dir": 2
+  },
+  "208": {
+    "name": "mines exit",
+    "x": 98,
+    "y": 15,
+    "dir": 0
+  },
+  "209": {
+    "name": "Fishing hut",
+    "x": 19,
+    "y": 22,
+    "dir": 8
+  },
+  "210": {
+    "name": "protowalk",
+    "x": 74,
+    "y": 15,
+    "dir": 0
+  },
+  "211": {
+    "name": "Junction",
+    "x": 12,
+    "y": 23,
+    "dir": 8
+  },
+  "212": {
+    "name": "passage_boat",
+    "x": 57,
+    "y": 7,
+    "dir": 0
+  },
+  "213": {
+    "name": "landing",
+    "x": 18,
+    "y": 39,
+    "dir": 4
+  },
+  "214": {
+    "name": "City gate",
+    "x": 105,
+    "y": 29,
+    "dir": 2
+  },
+  "215": {
+    "name": "Elevator deck",
+    "x": 48,
+    "y": 27,
+    "dir": 2
+  },
+  "216": {
+    "name": "Office",
+    "x": 52,
+    "y": 46,
+    "dir": 4
+  },
+  "217": {
+    "name": "entry room",
+    "x": 10,
+    "y": 13,
+    "dir": 6
+  },
+  "218": {
+    "name": "Power room",
+    "x": 12,
+    "y": 26,
+    "dir": 6
+  },
+  "219": {
+    "name": "Cafe",
+    "x": 59,
+    "y": 39,
+    "dir": 4
+  },
+  "220": {
+    "name": "Cafe inside",
+    "x": 10,
+    "y": 39,
+    "dir": 6
+  },
+  "221": {
+    "name": "stairwell",
+    "x": 21,
+    "y": 89,
+    "dir": 2
+  },
+  "222": {
+    "name": "locked room",
+    "x": 14,
+    "y": 20,
+    "dir": 0
+  },
+  "223": {
+    "name": "store pan",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "224": {
+    "name": "FINALE",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "225": {
+    "name": "observation deck",
+    "x": 0,
+    "y": 16,
+    "dir": 2
+  },
+  "226": {
+    "name": "Summit",
+    "x": 19,
+    "y": 14,
+    "dir": 2
+  },
+  "227": {
+    "name": "POSTGAME RED GROUND",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "228": {
+    "name": "To Tower",
+    "x": 88,
+    "y": 44,
+    "dir": 0
+  },
+  "229": {
+    "name": "X room",
+    "x": 23,
+    "y": 27,
+    "dir": 8
+  },
+  "230": {
+    "name": "ground 2",
+    "x": 15,
+    "y": 19,
+    "dir": 2
+  },
+  "231": {
+    "name": "ground 1",
+    "x": 91,
+    "y": 13,
+    "dir": 0
+  },
+  "232": {
+    "name": "backalley",
+    "x": 54,
+    "y": 20,
+    "dir": 0
+  },
+  "233": {
+    "name": "Library entrance",
+    "x": 33,
+    "y": 24,
+    "dir": 2
+  },
+  "234": {
+    "name": "fish house",
+    "x": 17,
+    "y": 17,
+    "dir": 0
+  },
+  "235": {
+    "name": "Photo center",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "236": {
+    "name": "stairwell",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "237": {
+    "name": "Lobby",
+    "x": 31,
+    "y": 20,
+    "dir": 6
+  },
+  "238": {
+    "name": "Power room",
+    "x": 16,
+    "y": 22,
+    "dir": 0
+  },
+  "239": {
+    "name": "burial grounds PLANE FIXED",
+    "x": 77,
+    "y": 60,
+    "dir": 8
+  },
+  "240": {
+    "name": "Forest w/ bridges",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "241": {
+    "name": "Tv room",
+    "x": 38,
+    "y": 22,
+    "dir": 0
+  },
+  "242": {
+    "name": "Encounter",
+    "x": 10,
+    "y": 0,
+    "dir": 0
+  },
+  "243": {
+    "name": "Credits",
+    "x": 14,
+    "y": 152,
+    "dir": 0
+  },
+  "244": {
+    "name": "Forest DOTN USE THIS",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "245": {
+    "name": "X room",
+    "x": 14,
+    "y": 16,
+    "dir": 0
+  },
+  "246": {
+    "name": "squrz",
+    "x": 23,
+    "y": 16,
+    "dir": 0
+  },
+  "247": {
+    "name": "SQUARES BE GONE",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "248": {
+    "name": "server room",
+    "x": 37,
+    "y": 20,
+    "dir": 0
+  },
+  "249": {
+    "name": "study",
+    "x": 28,
+    "y": 32,
+    "dir": 0
+  },
+  "250": {
+    "name": "Gate",
+    "x": 27,
+    "y": 97,
+    "dir": 0
+  },
+  "251": {
+    "name": "Birdhall",
+    "x": 45,
+    "y": 8,
+    "dir": 0
+  },
+  "252": {
+    "name": "Elevator deck",
+    "x": 52,
+    "y": 49,
+    "dir": 0
+  },
+  "253": {
+    "name": "Bed room",
+    "x": 15,
+    "y": 21,
+    "dir": 8
+  },
+  "254": {
+    "name": "sleepville",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "255": {
+    "name": "Last room",
+    "x": 10,
+    "y": 8,
+    "dir": 0
+  },
+  "256": {
+    "name": "Docks",
+    "x": 25,
+    "y": 47,
+    "dir": 0
+  },
+  "257": {
+    "name": "ground 2",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "258": {
+    "name": "Memory",
+    "x": 10,
+    "y": 20,
+    "dir": 0
+  },
+  "259": {
+    "name": "Post Encounter",
+    "x": 9,
+    "y": 0,
+    "dir": 0
+  },
+  "260": {
+    "name": "locked room",
+    "x": 0,
+    "y": 0,
+    "dir": 2
+  },
+  "261": {
+    "name": "pshot",
+    "x": -1,
+    "y": -1,
+    "dir": 2
+  },
+  "262": {
+    "name": "language debug",
+    "x": 3,
+    "y": 6,
+    "dir": 0
+  },
+  "263": {
+    "name": "pshot",
+    "x": 11,
+    "y": 10,
+    "dir": 0
+  }
+}

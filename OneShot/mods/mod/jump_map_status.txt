@@ -1,0 +1,9 @@
+jump_map loaded at = 2026-08-31 15:20:00 +0800
+jump_points_path = C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/../jump_points.json
+filter = /IGNORE|DEBUG|INTERNAL|UNUSED|\bTEST\b|^INIT\b|TELEPORT|DEMO|PROTOWALK|PSHOT|LANGUAGE\s?DEBUG|LANG\s?DEBUG/i
+name_pattern = /^[TCS]\d+$/i
+parent_filter = /IGNORE|DEBUG|UNUSED|INTERNAL|\bTEST\b|^INIT\b|TELEPORT/i
+per_page = 10
+paging = book-style, LEFT/RIGHT flip page, UP/DOWN move cursor
+fade = background stays black (no lower menu flash)
+method = FastTravel transfer chain (player_transferring + Graphics.freeze + transition_processing 'black')

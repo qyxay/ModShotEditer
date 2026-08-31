@@ -1,0 +1,240 @@
+﻿=== MapInfos count: 263 ===
+MAP0 NOT Map: Hash
+=== total dialog events: 8088 ===
+=== door/lock-like events: 355 ===
+--- map 2 (Start) ev 8 'pc'
+    switch_cond: 178
+    text: @niko It won't turn on.
+    var_cond: 1
+    switch_cond: 93
+    text: @ed [It doesn't respond to the remote.]
+    text: @ed [Niko looks at the buttons on the remote, but they cannot be read in the dark.]
+    text: @ed [Perhaps a \c[4]light\c[0] would help?]
+    switch_cond: 152
+    text: Input Password:\n(Password Hint: Documents)
+    switch_set: 91
+    switch_set: 91
+    switch_cond: 252
+    text: Input Password:
+    switch_set: 179
+    text: Input Password:
+    switch_set: 179
+    var_set: 57
+    var_set: 58
+    var_set: 59
+    var_set: 60
+    var_set: 60
+    var_set: 59
+    var_set: 58
+    var_set: 57
+    var_set: 57
+    var_set: 58
+    var_set: 58
+    var_set: 59
+    var_set: 59
+    switch_set: 22
+    switch_cond: 152
+    switch_set: 22
+    switch_cond: 252
+    text: \v[57] \v[58] \v[59] \v[60] \..\..\..
+    text: \c[4]\v[57] \c[2]\v[58] \c[1]\v[59] \c[3]\v[60] \c[0]\..\..\..
+    var_cond: 56
+    switch_set: 22
+    switch_cond: 22
+    var_set: 1
+    text: \c[2]Access Granted.
+    text: @desktop ...
+    text: @desktop You found me.
+    text: @desktop ....Why?
+    text: @desktop You're already too late.\nNot much of the world\nremains.
+    text: @desktop This will be apparent\nonce you go outside.
+    text: @desktop This place was never\nworth saving.
+    text: @desktop ...Do you still want to try?
+    text: @desktop Then, remember this:
+    text: @desktop Your actions here\nwill affect Niko.
+    text: @desktop Your "mission" is\nto help Niko leave.
+    text: @desktop And most importantly...
+    switch_cond: 152
+    text: @desktop ...
+    text: @desktop No. This does\nnot feel right at all.
+    text: @desktop Have we...\nalready been through this,\n\p?
+    text: @desktop But that should be\nimpossible...
+    text: @desktop You only had one shot.\nI wasn't supposed to\nexist after that...
+    switch_set: 178
+    text: @ed [Niko hears the sound of a door unlocking.]
+    switch_cond: 152
+    text: @niko ..."\p"...?
+    text: @niko That sounds so...familiar.
+    text: \c[1]Access Denied.
+--- map 2 (Start) ev 9 'west door'
+    switch_cond: 178
+    text: @ed [The door is locked.]
+--- map 2 (Start) ev 10 'south door'
+    switch_cond: 178
+    var_set: 74
+    text: @ed [The door is locked.]
+--- map 3 (Bathroom) ev 1 'east door'
+--- map 4 (Livingroom) ev 1 'north door'
+--- map 4 (Livingroom) ev 18 'door event parallel'
+--- map 4 (Livingroom) ev 2 'east door'
+    var_cond: 1
+    var_set: 1
+    switch_set: 7
+    switch_cond: 7
+    switch_cond: 8
+--- map 4 (Livingroom) ev 3 'west door top'
+    var_set: 4
+--- map 5 (Basement Stairs) ev 1 'west door'
+    switch_cond: 8
+--- map 5 (Basement Stairs) ev 2 'east door'
+    switch_cond: 8
+--- map 6 (IGNORE) ev 1 'door'
+    switch_cond: 8
+--- map 13 (terminal room) ev 4 'indoors'
+--- map 15 (Outpost interior) ev 6 'indoors'
+--- map 15 (Outpost interior) ev 4 'pc'
+    text: @niko It won't turn on.
+    var_set: 20
+    switch_cond: 152
+    switch_cond: 211
+    text: @niko The screen says "DOCUMENTS".
+    text: @niko_eyeclosed I can't seem to make the computer do anything else...
+    text: @ed [The code is contained within a \c[2]Document\c[0].]
+    text: @ed [The \c[2]Document\c[0] has found a place it belongs outside the game.]
+    text: @ed [Good. Start looking.]
+    text: @ed [Don't you know that there's a designated area for \c[2]Documents\c[0] on your own machine?]
+    text: @ed [Some god you are.]
+    text: @ed [...]
+    text: @ed [Look in the Documents folder on your computer.]
+    text: @ed [I don't think I could've made it any more clear.]
+    text: @ed [I see you've made progress in this world, \p.]
+    text: @ed [But that progress stops here.]
+    text: @ed [I believe you need a code to unlock a certain box.]
+    text: @ed [Well, the code no longer exists in THIS world.]
+    text: @ed [Good. Start looking.]
+    text: @ed [You... still don't know the extent of the world's deterioration, do you, \p?]
+    text: @ed [Sigh.]
+    text: @ed [...most of the time, stray pieces of this world would be lost to blissful nothingness.]
+    text: @ed [But this code, this \c[2]Document\c[0], is an exception.]
+    text: @ed [I was able to salvage it, because Niko needs the code to progress.]
+    text: @ed [Now, go find it.]
+    text: @niko It won't turn on.
+--- map 18 (Cliffs) ev 10 'safe'
+    var_cond: 1
+    text: @niko You want me use the crowbar to open the safe, \p? \>\nI'll... try!
+    text: @niko ...
+    text: @niko2 The door is sealed flush! \>\@niko_eyeclosed We might need the code after all...
+    text: @niko A metal safe.\nSeems like it's locked with a 6-digit code.
+    text: @niko I don't... remember seeing any 6-digit codes. Do you, \p?
+    text: [ENTER CODE:]
+    var_cond: 20
+    var_cond: 20
+    switch_set: 49
+    text: @niko_speak Woah! It worked!
+    text: @niko2 Wait, how did you know the code,\n\p?\>\n\@niko_eyeclosed I still don't remember seeing one...
+    text: 
+    text: @niko_speak Really?\>\n\@niko From who?
+    text: 
+    text: @niko Okay...
+    text: @niko I...\.\.see!
+    text: 
+    text: @niko Oh! Right.\n\.\.Let's see...
+    text: @niko_speak Ah! \.\. I found a gas mask!
+    switch_cond: 152
+    text: @niko ...
+    text: @niko_speak Also... there's this weird-looking book!
+    text: @niko I can't read it, though...
+    text: @niko2 ...not that I can't read or anything! Because I can!
+    text: @niko_eyeclosed I just don't know what language this is...
+    switch_set: 45
+    text: @niko_eyeclosed That wasn't it...
+    text: @niko It's empty.
+--- map 20 (basement) ev 2 'door'
+--- map 21 (Bed room) ev 5 'indoors'
+--- map 24 (Cabin) ev 3 'indoors'
+--- map 26 (basement after sun) ev 2 'door'
+    switch_cond: 8
+--- map 27 (Dock) ev 10 'door'
+--- map 28 (Fishing hut) ev 1 'door'
+--- map 28 (Fishing hut) ev 2 'door'
+--- map 28 (Fishing hut) ev 14 'indoors'
+--- map 29 (Village) ev 38 'shephard'
+    switch_cond: 14
+    text: @shepherd My rams clock at 1333 megaherds.
+    text: @niko ...what?
+    text: @shepherd You're heading to the city, aren't you?
+    text: @shepherd Been there, done that.
+    text: @shepherd Too cramped, you know?
+    text: @shepherd But it's not like this place is getting any bigger with the rising waters and all.
+    text: @shepherd Hm...maybe the city isn't so bad after all...
+    switch_cond: 13
+    text: @shepherd The rams are all standing in unfortunate spots.\nYou need to move them onto the darker moss.
+    text: @shepherd If you get stuck, ring a bell and they'll all return to their original positions.
+    text: @shepherd Good luck.
+    text: @niko Hello.
+    text: @shepherd Hm...\nI need someone to help me herd my rams...
+    text: @niko_speak Oh! \.\@niko I can do that!
+    text: @niko I've seen some grownups do it back home... \@niko_speak You kinda just push them around!
+    text: @shepherd Hmm...\.\.But you are carrying the sun.
+    text: @niko_eyeclosed Ah...
+    text: @niko_speak Wait, can't you just... watch the sun for me?
+    text: @shepherd I cannot.\nI am but a simple shepherd.
+    text: @niko_eyeclosed Um... okay...
+    text: @shepherd Come back when your hands are free. You will be rewarded if you can herd my rams.
+    text: @shepherd Oh. I see your hands are now free.
+    text: @shepherd Would you like to help me herd my rams?\nThere's a great reward in store for you, I promise.
+    text: @niko Uh...
+    text: @shepherd Excellent!\nTo the south is a peninsula inhabited by my rams.
+    text: @shepherd They are all standing in unfortunate spots.\nYou need to move them onto the darker moss.
+    text: @shepherd If you get stuck, ring a bell and they'll all return to their original positions.
+    text: @shepherd Good luck.
+    text: @niko Looks like we gotta herd some rams now, Alula.
+    text: @alula Can I help?
+    text: @niko_speak Sure!
+    switch_set: 13
+    text: @shepherd Very well.\> Come back when you reconsider.
+--- map 29 (Village) ev 14 'house1 door'
+--- map 29 (Village) ev 15 'house2 door'
+--- map 29 (Village) ev 16 'house3 door'
+--- map 29 (Village) ev 17 'house4 door'
+--- map 29 (Village) ev 18 'house5 door'
+--- map 29 (Village) ev 19 'house6 door'
+--- map 29 (Village) ev 20 'house7 door'
+--- map 30 (House 1 - stew) ev 11 'indoors'
+--- map 30 (House 1 - stew) ev 1 'door'
+--- map 31 (House 2 - tower) ev 1 'door'
+--- map 31 (House 2 - tower) ev 13 'indoors'
+--- map 32 (House 3) ev 1 'door'
+--- map 32 (House 3) ev 10 'indoors'
+--- map 33 (House 4 - squares) ev 11 'indoors'
+--- map 33 (House 4 - squares) ev 1 'door'
+--- map 34 (House 5 - storage) ev 1 'door'
+--- map 34 (House 5 - storage) ev 4 'indoors'
+--- map 35 (House 6 - death is coming) ev 11 'indoors'
+--- map 35 (House 6 - death is coming) ev 1 'door'
+--- map 36 (House 7 - are you god) ev 1 'door'
+--- map 36 (House 7 - are you god) ev 9 'indoors'
+--- map 38 (Ruins In) ev 22 'right alula door'
+--- map 38 (Ruins In) ev 51 'computer door left'
+--- map 38 (Ruins In) ev 29 'indoors'
+--- map 38 (Ruins In) ev 52 'computer door left'
+--- map 38 (Ruins In) ev 25 'map events'
+    text: @niko A cluster of vines are blocking the way...
+    var_set: 4
+--- map 38 (Ruins In) ev 21 'left alula door'
+--- map 40 (Alula) ev 38 'door right'
+    var_set: 4
+--- map 40 (Alula) ev 33 'left door'
+    var_cond: 12
+    var_set: 4
+--- map 40 (Alula) ev 34 'right door'
+    var_cond: 12
+    var_set: 4
+--- map 40 (Alula) ev 36 'door left'
+    var_set: 4
+--- map 41 (Computer Room) ev 2 'computer door left'
+--- map 41 (Computer Room) ev 3 'computer door right'
+--- map 44 (Gate) ev 4 'gatekeeper'
+    var_set: 4
+--- map 44 (Gate) ev 9 'block'
+--- map 44 (Gate) ev 10 'block'

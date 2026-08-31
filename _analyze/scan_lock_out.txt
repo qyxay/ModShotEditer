@@ -1,0 +1,62 @@
+﻿=== 门/锁事件页可见性开关 & 条件分支开关 (按引用次数排序) ===
+switch 50: 8 refs  [maps: 93(Factory interior2)]
+switch 8: 5 refs  [maps: 4(Livingroom), 5(Basement Stairs), 6(IGNORE), 26(basement after sun)]
+switch 112: 3 refs  [maps: 101(mineshaft)]
+switch 178: 3 refs  [maps: 2(Start), 188(Start purple)]
+switch 32: 3 refs  [maps: 48(Elevator deck), 215(Elevator deck), 252(Elevator deck)]
+switch 16: 2 refs  [maps: 40(Alula)]
+switch 152: 2 refs  [maps: 101(mineshaft), 206(passage)]
+switch 284: 2 refs  [maps: 222(locked room), 260(locked room)]
+switch 59: 2 refs  [maps: 98(1st room)]
+switch 36: 2 refs  [maps: 48(Elevator deck), 84(ground 1)]
+switch 122: 2 refs  [maps: 119(stairwell), 221(stairwell)]
+switch 245: 2 refs  [maps: 199(Gate), 250(Gate)]
+switch 66: 2 refs  [maps: 72(Lobby)]
+switch 28: 2 refs  [maps: 74(Top floor)]
+switch 71: 2 refs  [maps: 84(ground 1)]
+switch 290: 2 refs  [maps: 222(locked room), 260(locked room)]
+switch 187: 1 refs  [maps: 48(Elevator deck)]
+switch 35: 1 refs  [maps: 48(Elevator deck)]
+switch 34: 1 refs  [maps: 48(Elevator deck)]
+switch 208: 1 refs  [maps: 101(mineshaft)]
+switch 216: 1 refs  [maps: 101(mineshaft)]
+switch 83: 1 refs  [maps: 101(mineshaft)]
+switch 42: 1 refs  [maps: 48(Elevator deck)]
+switch 31: 1 refs  [maps: 48(Elevator deck)]
+switch 240: 1 refs  [maps: 206(passage)]
+switch 304: 1 refs  [maps: 222(locked room)]
+switch 305: 1 refs  [maps: 222(locked room)]
+switch 7: 1 refs  [maps: 4(Livingroom)]
+switch 103: 1 refs  [maps: 62(Elevator)]
+
+=== 全部页可见性开关 Top30 (可能包含剧情/区域开关) ===
+switch 12: 44 pages
+switch 112: 33 pages
+switch 122: 28 pages
+switch 246: 22 pages
+switch 252: 20 pages
+switch 14: 15 pages
+switch 31: 13 pages
+switch 27: 13 pages
+switch 291: 13 pages
+switch 152: 13 pages
+switch 292: 13 pages
+switch 35: 13 pages
+switch 245: 13 pages
+switch 296: 13 pages
+switch 32: 12 pages
+switch 295: 12 pages
+switch 41: 12 pages
+switch 211: 12 pages
+switch 302: 12 pages
+switch 317: 11 pages
+switch 53: 11 pages
+switch 50: 11 pages
+switch 155: 11 pages
+switch 307: 10 pages
+switch 244: 10 pages
+switch 313: 10 pages
+switch 308: 10 pages
+switch 309: 10 pages
+switch 247: 9 pages
+switch 306: 9 pages

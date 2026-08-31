@@ -14,4 +14,4 @@ config = {
 patch_method = TracePoint(:end) + Module#prepend (Interpreter#execute_command)
 skipped_commands = [skip_dialogue] 101(ShowText)+401(text lines), [skip_choice] 102(ShowChoices auto-select first)
 not_skipped = 103/104/105/106 (preserve event timing, avoid audio glitches and deadlocks)
-loaded_at = 2026-08-31 13:23:41 +0800
+loaded_at = 2026-08-31 15:20:00 +0800
