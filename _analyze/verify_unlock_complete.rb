@@ -31,6 +31,8 @@ def show(mid)
   puts "  close_only : #{info[:close_only].inspect}"
   puts "  dialogues  : #{info[:dialogues].inspect}"
   puts "  story      : #{info[:story].inspect}"
+  puts "  doors      : #{info[:doors].map { |d| "#{d[:id]}:#{d[:name]}" }.inspect}"
+  puts "  events     : #{info[:events].map { |e| "#{e[:id]}:#{e[:name]}#{e[:completable] ? '~' : ''}" }.inspect}"
   info
 end
 
@@ -45,6 +47,14 @@ failures << 'Map2 对话应含床/电脑类事件' unless m2[:dialogues].any? { 
 failures << 'Map2 story 应含书架类互动事件' unless m2[:story].any? { |n| n.to_s =~ /bookshelf|panorama/i }
 failures << 'Map4 对话应含 EV010/EV012' unless (m4[:dialogues] & ['EV010', 'EV012']).size == 2
 failures << 'Map120 应含出口关闭标记开关(close_only)' if m120[:close_only].empty? && m120[:activate].empty?
+# 新: 门/事件清单
+failures << 'Map2 门应含 west/south door' unless m2[:doors].any? { |d| d[:name].to_s =~ /west door/ } &&
+                                                 m2[:doors].any? { |d| d[:name].to_s =~ /south door/ }
+failures << 'Map4 门应含 north/east door' unless m4[:doors].any? { |d| d[:name].to_s =~ /north door/ } &&
+                                                 m4[:doors].any? { |d| d[:name].to_s =~ /east door/ }
+failures << 'Map4 事件应含 EV010/EV012' unless m4[:events].any? { |e| e[:name] == 'EV010' } &&
+                                             m4[:events].any? { |e| e[:name] == 'EV012' }
+failures << 'Map2 事件应含 pc/bed' unless m2[:events].any? { |e| e[:name].to_s =~ /pc|bed/i }
 
 puts ""
 if failures.empty?
