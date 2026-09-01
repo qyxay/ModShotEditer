@@ -22,12 +22,13 @@ $is_skip_picture = config["skip_pictures"] ? true : false
 module PictureSkipPatch
   # 需要跳过的命令码:
   #   105 等待, 106 按键输入
-  #   207-215 图片显示/移动/变色/透明/删除
+  #   207-215 图片显示/移动/变色/透明/删除(注意: 209 是"强制移动路线", 不是图片命令,
+  #           会破坏门/角色移动动画, 不能跳过, 已从列表移除)
   #   221-225 背景设置/过渡
   #   232-236 图片操作(色调/旋转/缩放等)
   #   241 播放 BGM
   SKIP_CODES = [105, 106,
-                207, 208, 209, 210, 211, 212, 213, 214, 215,
+                207, 208, 210, 211, 212, 213, 214, 215,
                 221, 222, 223, 224, 225,
                 232, 233, 234, 235, 236,
                 241].freeze
@@ -42,8 +43,7 @@ module PictureSkipPatch
       # 遇到 ShowPicture(231) 进入跳过模式
       if @index < @list.size && @list[@index] && @list[@index].code == 231
         @pic_skip_mode = true
-        @index += 1
-        return true
+        return true  # Interpreter#update 末尾统一 @index += 1 会跳过 231
       end
 
       # 跳过模式中
@@ -61,8 +61,10 @@ module PictureSkipPatch
           # 遇到对话(ShowText): 退出跳过模式, 正常执行
           @pic_skip_mode = false
         elsif SKIP_CODES.include?(code)
-          # 跳过等待/按键/图片操作/BGM/转场
-          @index += 1
+          # 跳过等待/按键/图片操作/BGM/转场。
+          # 注意: 不能手动 @index += 1 —— Interpreter#update 在 execute_command
+          # 返回后统一 @index += 1 (mkxp-z 070_Interpreter_1.rb), 手动 +1 会
+          # 叠加多跳, 跳过被跳命令后的下一条(如演出中的 111/122/201 等逻辑命令)。
           return true
         end
         # 其他命令(条件分支/开关/传送/脚本等)正常执行, 不清除跳过模式

@@ -45,19 +45,26 @@ module SkipAllDialoguePatch
         # Show Text(101) + 文字数据行(401):
         # 仅当 skip_dialogue 开启时跳过整段文字
         if $skip_dialogue_enabled
-          @index += 1
-          while @index < @list.size && @list[@index].code == 401
-            @index += 1
-          end
+          # 注意: Interpreter#update 在 execute_command 返回后统一 @index += 1
+          # (mkxp-z 070_Interpreter_1.rb), 所以这里不能手动 @index += 1,
+          # 否则会与 update 的 +1 叠加, 跳过对话后的下一条命令
+          # (如关自开关 123 / 给物品 126 等), 破坏事件状态。
+          # 只把 @index 移到最后一个 401, 靠 update 的 +1 自然越过整段文字。
+          #
+          # 另外: 101 被这里吞掉后, PictureSkipPatch 将看不到它来退出"跳过图片"
+          # 模式, 会一路 command_end 提前截断含演出的事件 —— 这里代为清除。
+          @pic_skip_mode = false if defined?(@pic_skip_mode)
+          @index += 1 while @index < @list.size && @list[@index].code == 401
           return true
         end
 
       when 102
         # Show Choices: 仅当 skip_choice 开启时自动选择第一个选项
         if $skip_choice_enabled
-          # @branch[0] 存储选择索引, 后续 402(When [**])会据此判断分支
+          # @branch[0] 存储选择索引, 后续 402(When [**])会据此判断分支。
+          # 同样不能手动 @index += 1(会与 update 的 +1 叠加多跳),
+          # 只设置选择索引, 靠 update 的 +1 进入第一个 402。
           @branch[0] = 0
-          @index += 1
           return true
         end
       end
