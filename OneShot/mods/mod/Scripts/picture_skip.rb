@@ -33,6 +33,15 @@ module PictureSkipPatch
                 232, 233, 234, 235, 236,
                 241].freeze
 
+  def _trace_log(msg)
+    begin
+      File.open(File.join(__dir__, '..', 'logs', 'skip_trace.log'), 'a') do |f|
+        f.puts "[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}"
+      end
+    rescue
+    end
+  end
+
   def clear
     super
     @pic_skip_mode = false
@@ -43,6 +52,7 @@ module PictureSkipPatch
       # 遇到 ShowPicture(231) 进入跳过模式
       if @index < @list.size && @list[@index] && @list[@index].code == 231
         @pic_skip_mode = true
+        _trace_log("PIC_SKIP_ON ev=#{@event_id} idx=#{@index} #{@list[@index].parameters[1].to_s rescue ''}")
         return true  # Interpreter#update 末尾统一 @index += 1 会跳过 231
       end
 
@@ -51,6 +61,7 @@ module PictureSkipPatch
         # 列表末尾: 结束事件
         if @index >= @list.size - 1
           @pic_skip_mode = false
+          _trace_log("PIC_CMD_END ev=#{@event_id} idx=#{@index}")
           command_end
           return true
         end
@@ -60,14 +71,18 @@ module PictureSkipPatch
         if code == 101
           # 遇到对话(ShowText): 退出跳过模式, 正常执行
           @pic_skip_mode = false
+          _trace_log("PIC_OFF_101 ev=#{@event_id} idx=#{@index}")
         elsif SKIP_CODES.include?(code)
           # 跳过等待/按键/图片操作/BGM/转场。
           # 注意: 不能手动 @index += 1 —— Interpreter#update 在 execute_command
           # 返回后统一 @index += 1 (mkxp-z 070_Interpreter_1.rb), 手动 +1 会
           # 叠加多跳, 跳过被跳命令后的下一条(如演出中的 111/122/201 等逻辑命令)。
+          _trace_log("PIC_SKIP c#{code} ev=#{@event_id} idx=#{@index}")
           return true
+        else
+          # 非跳过命令(条件分支/开关/传送/脚本等): 正常执行, 不清除跳过模式
+          _trace_log("PIC_EXEC c#{code} ev=#{@event_id} idx=#{@index}")
         end
-        # 其他命令(条件分支/开关/传送/脚本等)正常执行, 不清除跳过模式
       end
     end
 

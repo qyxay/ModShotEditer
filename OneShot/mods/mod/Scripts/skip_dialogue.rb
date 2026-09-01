@@ -36,6 +36,15 @@ module SkipAllDialoguePatch
   # 只跳过纯文字显示, 不跳过等待/按键/设置命令
   # (跳过 105/106 会导致事件时序混乱、音效反复触发甚至死循环)
 
+  def _trace_log(msg)
+    begin
+      File.open(File.join(__dir__, '..', 'logs', 'skip_trace.log'), 'a') do |f|
+        f.puts "[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}"
+      end
+    rescue
+    end
+  end
+
   def execute_command
     if @index < @list.size && @list[@index]
       code = @list[@index].code
@@ -55,7 +64,12 @@ module SkipAllDialoguePatch
           #
           # 另外: 101 被这里吞掉后, PictureSkipPatch 将看不到它来退出"跳过图片"
           # 模式, 会一路 command_end 提前截断含演出的事件 —— 这里代为清除。
-          @pic_skip_mode = false if defined?(@pic_skip_mode)
+          if defined?(@pic_skip_mode) && @pic_skip_mode
+            @pic_skip_mode = false
+            _trace_log("SKIP_DLG clear_pic ev=#{@event_id} idx=#{@index}")
+          end
+          text = (@list[@index].parameters[0].to_s rescue '').gsub("\n", ' ')
+          _trace_log("SKIP_DLG c#{code} ev=#{@event_id} idx=#{@index} \"#{text[0, 18]}\"")
           @index += 1 while @index < @list.size - 1 && @list[@index + 1].code == 401
           return true
         end
@@ -66,6 +80,7 @@ module SkipAllDialoguePatch
           # @branch[0] 存储选择索引, 后续 402(When [**])会据此判断分支。
           # 同样不能手动 @index += 1(会与 update 的 +1 叠加多跳),
           # 只设置选择索引, 靠 update 的 +1 进入第一个 402。
+          _trace_log("SKIP_CHOICE c102 ev=#{@event_id} idx=#{@index}")
           @branch[0] = 0
           return true
         end
