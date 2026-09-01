@@ -1,9 +1,0 @@
-[22:21:03.308] === zz_diagnose loaded ===
-[22:21:03.309] Game_Event defined?: nil
-[22:21:03.309] Window_Settings defined?: nil
-[22:21:03.310] Window_DevSettings defined?: "constant"
-[22:21:03.318] Game_Map#setup patched
-[22:21:03.335] Interpreter#setup patched
-[22:21:03.340] Scene_Map#update patched
-[22:21:03.519] MAP_SETUP -> 1  (jump_free=false frozen=-1)
-[22:21:03.714] MAP_SETUP -> 2  (jump_free=false frozen=-1)
