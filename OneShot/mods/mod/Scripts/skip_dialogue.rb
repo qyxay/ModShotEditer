@@ -49,12 +49,14 @@ module SkipAllDialoguePatch
           # (mkxp-z 070_Interpreter_1.rb), 所以这里不能手动 @index += 1,
           # 否则会与 update 的 +1 叠加, 跳过对话后的下一条命令
           # (如关自开关 123 / 给物品 126 等), 破坏事件状态。
-          # 只把 @index 移到最后一个 401, 靠 update 的 +1 自然越过整段文字。
+          # 这里只把 @index 移到"最后一个 401"(保持在该 401 上), 靠 update 的 +1
+          # 自然越过整段文字。注意不能跳到"第一个非 401"—— 那样 update 的 +1
+          # 会再越过一条。多行对话(101+401+401)必须走这条才能不丢后续命令。
           #
           # 另外: 101 被这里吞掉后, PictureSkipPatch 将看不到它来退出"跳过图片"
           # 模式, 会一路 command_end 提前截断含演出的事件 —— 这里代为清除。
           @pic_skip_mode = false if defined?(@pic_skip_mode)
-          @index += 1 while @index < @list.size && @list[@index].code == 401
+          @index += 1 while @index < @list.size - 1 && @list[@index + 1].code == 401
           return true
         end
 
