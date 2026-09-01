@@ -39,6 +39,8 @@ end
 
 # --- 3. 写加载日志 ---
 log_path = File.join(script_dir, '..', 'logs', 'preload_loaded.txt')
+_log_dir = File.dirname(log_path)
+Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
 File.open(log_path, 'w') do |f|
   f.puts "preload loaded at #{Time.now}"
   f.puts "script_dir: #{script_dir}"

@@ -603,6 +603,8 @@ end
 # --- 写状态文件 ---
 status_path = File.join(__dir__, '..', 'logs', 'jump_map_status.txt')
 begin
+  _log_dir = File.dirname(status_path)
+  Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
   File.open(status_path, 'w') do |f|
     f.puts "jump_map loaded at = #{Time.now}"
     f.puts "jump_points_path = #{JUMP_POINTS_PATH}"

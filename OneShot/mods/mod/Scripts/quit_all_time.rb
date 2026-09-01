@@ -96,6 +96,8 @@ end
 
 # --- 写状态文件 ---
 status_path = File.join(__dir__, '..', 'logs', 'quit_all_time_status.txt')
+_log_dir = File.dirname(status_path)
+Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
 File.open(status_path, 'w') do |f|
   f.puts "quit_all_time_enabled = #{$quit_all_time_enabled}"
   f.puts "config_source = \$mod_config (unified loader _config.rb)"

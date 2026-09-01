@@ -88,6 +88,8 @@ end
 
 # --- 写状态文件 ---
 status_path = File.join(__dir__, '..', 'logs', 'skip_pictures_status.txt')
+_log_dir = File.dirname(status_path)
+Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
 File.open(status_path, 'w') do |f|
   f.puts "pic_skip_enabled = #{$is_skip_picture}"
   f.puts "config_source = \$mod_config (unified loader _config.rb)"
