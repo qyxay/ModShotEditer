@@ -1,9 +1,9 @@
 # ============================================================
-#  验证 Window_UnlockComplete(可编辑版)界面逻辑(桩环境):
+#  验证 Window_UnlockComplete(可编辑版 v2)界面逻辑(桩环境):
 #  - 打开定位到当前所在地图页(页0=物品页)
-#  - 地图页渲染 Doors/Events 分组
-#  - toggle_door / toggle_event / toggle_item 状态切换生效
-#  - 物品页渲染与切换
+#  - 地图页 Doors/Events 分组, 无条件门显示 [–] 不可编辑
+#  - toggle_door(east door sw7) / toggle_event(niko hello 自开关) /
+#    toggle_item 状态切换生效
 # ============================================================
 $LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
 require_relative 'oneshot_data'
@@ -76,6 +76,7 @@ def tr(s); s; end
 
 # ---- 运行时状态桩 ----
 $game_switches = []
+$game_variables = []
 $game_self_switches = {}
 $game_party = Object.new
 $ITEMS = {}
@@ -94,7 +95,6 @@ class GameEventStub
 end
 
 # 当前所在地图 = 4, events 用真实地图4数据包装
-_map4 = load_data(format('Data/Map%03d.rxdata', 4))
 $game_map = Object.new
 def $game_map.map_id; 4; end
 def $game_map.events
@@ -118,36 +118,69 @@ puts "  页数: #{pages.size} (含物品页0)"
 puts "  打开定位: 地图4 → page=#{w.instance_variable_get(:@page)} (期望 #{page_map4})"
 failures << '打开应定位地图4页' unless w.instance_variable_get(:@page) == page_map4
 
-# 地图4页: 应有 Doors 分组 + Events 分组
+# 地图4页: Doors 分组 + Events 分组
 rows = w.instance_variable_get(:@rows)
 labels = rows.map { |r| r[:label] }
-puts "  地图4行: #{rows.size} (Doors=#{rows.count { |r| r[:type] == :head && r[:label] =~ /Doors/ }}, Events=#{rows.count { |r| r[:type] == :head && r[:label] =~ /Events/ }})"
 failures << '应有 Doors 分组' unless rows.any? { |r| r[:type] == :head && r[:label] =~ /Doors/ }
 failures << '应有 Events 分组' unless rows.any? { |r| r[:type] == :head && r[:label] =~ /Events/ }
-failures << '应含 north door 门' unless rows.any? { |r| r[:type] == :item && r[:label] =~ /north door/ }
 
-# toggle_event: 选可完成事件 niko hello(ev17, 有自开关页) → 确认 → 自开关置 true
-nik = rows.index { |r| r[:type] == :item && r[:label] == 'niko hello' }
-failures << '应含 niko hello 事件' unless nik
-if nik
-  w.send(:toggle_event, 17)
-  done = %w[A B C D].any? { |ch| $game_self_switches[[4, 17, ch]] }
-  puts "  toggle_event niko hello → 自开关: #{$game_self_switches.inspect} done=#{done}"
-  failures << 'toggle_event 应完成事件' unless done
-  # 再切回未完成
-  w.send(:toggle_event, 17)
-  done2 = %w[A B C D].any? { |ch| $game_self_switches[[4, 17, ch]] }
-  failures << 'toggle_event 应可切回未完成' if done2
+# --- 无条件门(north door ev1): 应显示 [–] 且不可编辑 ---
+nd = rows.find { |r| r[:type] == :item && r[:label] =~ /north door/ }
+failures << '应含 north door' unless nd
+if nd
+  puts "  north door(无条件): state=#{nd[:state]} act=#{nd[:act].inspect}"
+  failures << '无条件门应显示 [–]' unless nd[:state].to_s =~ /–|‑|-/
+  failures << '无条件门不可编辑(act=nil)' unless nd[:act].nil?
 end
 
-# toggle_door: north door(ev1) 初始(通行条件开关未置) → 切换后通行
-w.send(:toggle_door, 1)
-pass_state = w.send(:door_row_state, 4, 1)
-puts "  toggle_door north door → 状态: #{pass_state}"
-# 反转再切回
-w.send(:toggle_door, 1)
+# --- toggle_door: east door(ev2, 命令内 111 sw7, 直接翻转) ---
+ed = rows.find { |r| r[:type] == :item && r[:label] =~ /east door/ }
+failures << '应含 east door' unless ed
+if ed
+  puts "  east door 初始: state=#{ed[:state]} (sw7=#{$game_switches[7].inspect}, 期望 sw7 = OFF)"
+  failures << 'east door 初始应显示 sw7 = OFF' unless ed[:state].to_s =~ /sw7 = OFF/
+  w.send(:toggle_door, 2)
+  w.send(:refresh_page)
+  rows2 = w.instance_variable_get(:@rows)
+  ed2 = rows2.find { |r| r[:type] == :item && r[:label] =~ /east door/ }
+  puts "  toggle_door east door → sw7=#{$game_switches[7].inspect} state=#{ed2 && ed2[:state]}"
+  failures << 'east door 切换应置 sw7=true' unless $game_switches[7] == true
+  failures << 'east door 切换后应显示 sw7 = ON' unless ed2 && ed2[:state].to_s =~ /sw7 = ON/
+  w.send(:toggle_door, 2)
+  w.send(:refresh_page)
+  puts "  toggle_door east door 再切 → sw7=#{$game_switches[7].inspect}"
+  failures << 'east door 再切应恢复 sw7=false' unless $game_switches[7] == false
+end
 
-# 物品页: 连续 LEFT 翻到页0
+# --- toggle_event: niko hello(ev17, 自开关 ssA 直接翻转) ---
+rows = w.instance_variable_get(:@rows)
+nik = rows.find { |r| r[:type] == :item && r[:label] == 'niko hello' }
+failures << '应含 niko hello' unless nik
+if nik
+  puts "  niko hello 初始: state=#{nik[:state]}"
+  w.send(:toggle_event, 17)
+  w.send(:refresh_page)
+  ss = $game_self_switches[[4, 17, 'A']]
+  rows2 = w.instance_variable_get(:@rows)
+  nik2 = rows2.find { |r| r[:type] == :item && r[:label] == 'niko hello' }
+  puts "  toggle_event niko hello → ssA=#{ss.inspect} state=#{nik2 && nik2[:state]}"
+  failures << 'toggle_event 应置 ssA=true' unless ss == true
+  failures << 'niko hello 应显示 ssA = on' unless nik2 && nik2[:state].to_s =~ /ssA = on/
+  w.send(:toggle_event, 17)
+  w.send(:refresh_page)
+  puts "  toggle_event niko hello 再切 → ssA=#{$game_self_switches[[4, 17, 'A']].inspect}"
+  failures << 'toggle_event 再切应恢复 ssA=false' unless $game_self_switches[[4, 17, 'A']] == false
+end
+
+# --- 事件状态: 无条件对话事件显示 [–] ---
+rows = w.instance_variable_get(:@rows)
+plain = rows.find { |r| r[:type] == :item && r[:label] =~ /window light/ }
+if plain
+  puts "  window light(无条件): state=#{plain[:state]} act=#{plain[:act].inspect}"
+  failures << '无条件事件应 [–] 不可编辑' unless plain[:act].nil?
+end
+
+# --- 物品页: 连续 LEFT 翻到页0 ---
 w.send(:refresh_page)
 3.times do
   Input.press(Input::LEFT)

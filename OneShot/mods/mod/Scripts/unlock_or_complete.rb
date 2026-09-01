@@ -92,9 +92,10 @@ module UnlockCompleteScanner
       dialogues << ev.name if has_dlg
       story << ev.name if !has_dlg && has_cmd
       if has_201 || has_script
-        doors << { id: ev.id, name: ev.name }
+        doors << { id: ev.id, name: ev.name, control: event_control(ev) }
       elsif has_cmd || has_dlg
-        evlist << { id: ev.id, name: ev.name, has_dlg: has_dlg, completable: has_self_switch_page?(ev) }
+        evlist << { id: ev.id, name: ev.name, has_dlg: has_dlg, completable: has_self_switch_page?(ev),
+                    control: event_control(ev) }
       end
     end
     UNLOCK_COMPLETE_CACHE[map_id] = {
@@ -136,24 +137,85 @@ module UnlockCompleteScanner
     true
   end
 
-  # 门的可通行/锁定条件开关(静态)
-  # 返回 [{sw:, ss:}, {sw:, ss:}] = [通行页条件, 锁定页条件]  (sw=开关, ss=自开关)
-  def door_switches(ev)
-    pass = { sw: {}, ss: {} }
-    lock = { sw: {}, ss: {} }
+  # 事件的"控制状态": 暴露给使用者直接修改的底层开关/变量/自开关。
+  # 返回 { kind:, sids:, vars:, ch: }
+  #   kind:
+  #     :switch      — 由开关控制(sids), 确认键翻转 ON/OFF
+  #     :variable    — 由变量控制(vars), 确认键 +1
+  #     :self_switch — 由自开关控制(ch), 确认键翻转 on/off
+  #     :none        — 无条件 → 不可编辑(显示 [–])
+  # 优先级(开关优先于变量, 变量多为内部脚本参数): 
+  #   命令内 indent0 开关 > 页条件激活开关 > 命令内 indent0 变量 > 页条件变量 > 自开关
+  def event_control(ev)
     pages = event_pages(ev)
-    return [pass, lock] unless pages
+    return { kind: :none, sids: [], vars: [], ch: nil } unless pages
+    ctl = command_switch_control(ev)
+    return ctl if ctl
+    act_sw = []
     pages.each do |pg|
-      list = pg.list
-      has_tr = list && list.any? { |c| c && c.code == 201 }
-      target = has_tr ? pass : lock
+      next unless page_has_cmd?(pg)
       c = pg.condition
       next unless c
-      target[:sw][c.switch1_id] = true if c.switch1_valid && c.switch1_id && c.switch1_id > 0
-      target[:sw][c.switch2_id] = true if c.switch2_valid && c.switch2_id && c.switch2_id > 0
-      target[:ss][c.self_switch_ch] = true if c.self_switch_valid
+      act_sw << c.switch1_id if c.switch1_valid && c.switch1_id && c.switch1_id > 0
+      act_sw << c.switch2_id if c.switch2_valid && c.switch2_id && c.switch2_id > 0
     end
-    [pass, lock]
+    act_sw.uniq!
+    return { kind: :switch, sids: act_sw, vars: [], ch: nil } unless act_sw.empty?
+    ctl = command_variable_control(ev)
+    return ctl if ctl
+    act_var = []
+    pages.each do |pg|
+      next unless page_has_cmd?(pg)
+      c = pg.condition
+      next unless c
+      act_var << c.variable_id if c.variable_valid && c.variable_id && c.variable_id > 0
+    end
+    act_var.uniq!
+    return { kind: :variable, sids: [], vars: act_var, ch: nil } unless act_var.empty?
+    # 自开关条件页
+    ss = pages.find { |pg| c = pg.condition; c && c.self_switch_valid }
+    if ss
+      ch = ss.condition.self_switch_ch
+      return { kind: :self_switch, sids: [], vars: [], ch: ch }
+    end
+    { kind: :none, sids: [], vars: [], ch: nil }
+  end
+
+  def page_has_cmd?(pg)
+    l = pg.list
+    l && l.any? { |c| c && c.code != 0 }
+  end
+
+  # 命令内 indent 0 的 111 开关判断(优先, 更可能直接控制功能/门通行)
+  def command_switch_control(ev)
+    pages = event_pages(ev)
+    pages.each do |pg|
+      (pg.list || []).each do |cmd|
+        next unless cmd
+        next unless cmd.code == 111 && cmd.indent == 0
+        p = cmd.parameters
+        if p && p[0] == 0 && p[1] && p[1] > 0
+          return { kind: :switch, sids: [p[1]], vars: [], ch: nil }
+        end
+      end
+    end
+    nil
+  end
+
+  # 命令内 indent 0 的 111 变量判断(开关判断不存在时才用)
+  def command_variable_control(ev)
+    pages = event_pages(ev)
+    pages.each do |pg|
+      (pg.list || []).each do |cmd|
+        next unless cmd
+        next unless cmd.code == 111 && cmd.indent == 0
+        p = cmd.parameters
+        if p && p[0] == 1 && p[1] && p[1] > 0
+          return { kind: :variable, sids: [], vars: [p[1]], ch: nil }
+        end
+      end
+    end
+    nil
   end
 end
 
@@ -338,36 +400,19 @@ class Window_UnlockComplete
 
   # ---- 条目切换动作 ----
 
-  # 切换门的可通行/锁定
+  # 切换门的控制状态(直接改底层开关/变量/自开关, 不做语义转化)
   def toggle_door(ev_id)
     ev = find_event(ev_id)
     return unless ev
-    pass, lock = UnlockCompleteScanner.door_switches(ev)
-    if door_passable?(ev, pass)
-      # 锁定: 通行条件全 false, 锁定条件全 true
-      apply_door_switches(pass, false, ev_id)
-      apply_door_switches(lock, true, ev_id)
-    else
-      # 解锁: 通行条件全 true, 锁定条件全 false
-      apply_door_switches(pass, true, ev_id)
-      apply_door_switches(lock, false, ev_id)
-    end
+    apply_control(UnlockCompleteScanner.event_control(ev), ev_id)
     refresh_map_events
   end
 
-  # 切换事件(含对话)完成状态
+  # 切换事件的控制状态(直接改底层开关/变量/自开关, 不做语义转化)
   def toggle_event(ev_id)
     ev = find_event(ev_id)
     return unless ev
-    if event_done?(ev_id)
-      %w[A B C D].each { |ch| $game_self_switches[[$game_map.map_id, ev_id, ch]] = false }
-    else
-      %w[A B C D].each do |ch|
-        page = UnlockCompleteScanner.self_switch_page(ev, ch)
-        next unless UnlockCompleteScanner.safe_self_switch_page?(page)
-        $game_self_switches[[$game_map.map_id, ev_id, ch]] = true
-      end
-    end
+    apply_control(UnlockCompleteScanner.event_control(ev), ev_id)
     refresh_map_events
   end
 
@@ -391,20 +436,17 @@ class Window_UnlockComplete
     $game_map.events[ev_id]
   end
 
-  def apply_door_switches(spec, val, ev_id)
-    spec[:sw].each_key { |sid| $game_switches[sid] = val }
-    spec[:ss].each_key { |ch| $game_self_switches[[$game_map.map_id, ev_id, ch]] = val }
-  end
-
-  def door_passable?(ev, pass)
-    return true if pass[:sw].empty? && pass[:ss].empty?
-    pass[:sw].each_key { |sid| return false unless $game_switches[sid] }
-    pass[:ss].each_key { |ch| return false unless $game_self_switches[[$game_map.map_id, ev.id, ch]] }
-    true
-  end
-
-  def event_done?(ev_id)
-    %w[A B C D].any? { |ch| $game_self_switches[[$game_map.map_id, ev_id, ch]] }
+  # 直接修改控制状态: 开关翻转 ON/OFF, 自开关翻转, 变量 +1
+  def apply_control(ctl, ev_id)
+    case ctl[:kind]
+    when :switch
+      ctl[:sids].each { |sid| $game_switches[sid] = !$game_switches[sid] }
+    when :variable
+      ctl[:vars].each { |vid| $game_variables[vid] = ($game_variables[vid] || 0) + 1 }
+    when :self_switch
+      $game_self_switches[[$game_map.map_id, ev_id, ctl[:ch]]] =
+        !$game_self_switches[[$game_map.map_id, ev_id, ctl[:ch]]]
+    end
   end
 
   def refresh_map_events
@@ -474,43 +516,37 @@ class Window_UnlockComplete
     unless doors.empty?
       @rows << { type: :head, label: tr('— Doors —') }
       doors.each do |d|
+        ctl = d[:control] || { kind: :none, sids: [], vars: [], ch: nil }
+        editable = ctl[:kind] != :none
         @rows << { type: :item, label: d[:name].to_s.empty? ? "ev#{d[:id]}" : d[:name],
-                   state: door_row_state(map_id, d[:id]), act: :toggle_door, id: d[:id] }
+                   state: control_desc(ctl, map_id, d[:id]),
+                   act: (editable ? :toggle_door : nil), id: d[:id], ctl: ctl }
       end
     end
     unless evs.empty?
       @rows << { type: :head, label: tr('— Events —') }
       evs.each do |e|
+        ctl = e[:control] || { kind: :none, sids: [], vars: [], ch: nil }
+        editable = ctl[:kind] != :none
         label = e[:name].to_s.empty? ? "ev#{e[:id]}" : e[:name]
-        state = if e[:completable]
-                  event_done?(e[:id]) ? tr('[done]') : tr('[undone]')
-                else
-                  tr('[–]')
-                end
-        @rows << { type: :item, label: label, state: state,
-                   act: (e[:completable] ? :toggle_event : nil), id: e[:id] }
+        @rows << { type: :item, label: label, state: control_desc(ctl, map_id, e[:id]),
+                   act: (editable ? :toggle_event : nil), id: e[:id], ctl: ctl }
       end
     end
   end
 
-  # 门的当前状态(静态开关推断): 通行页条件当前满足 → 可通行
-  def door_row_state(map_id, ev_id)
-    ev = event_static(map_id, ev_id)
-    return tr('[?]') unless ev
-    pass, = UnlockCompleteScanner.door_switches(ev)
-    ok = pass[:sw].empty? && pass[:ss].empty?
-    pass[:sw].each_key { |sid| ok &&= !!$game_switches[sid] }
-    pass[:ss].each_key { |ch| ok &&= !!$game_self_switches[[map_id, ev_id, ch]] }
-    ok ? tr('[unlocked]') : tr('[locked]')
-  end
-
-  # 从静态数据取事件(供状态推断, 不依赖运行时激活)
-  def event_static(map_id, ev_id)
-    map = load_data(format('Data/Map%03d.rxdata', map_id))
-    evs = map.events || {}
-    evs[ev_id]
-  rescue StandardError
-    nil
+  # 控制状态的直接描述(不做语义转化): "sw178 = OFF" / "var61 = 3" / "ssA = off" / "[–]"
+  def control_desc(ctl, map_id, ev_id)
+    case ctl[:kind]
+    when :switch
+      ctl[:sids].map { |sid| "sw#{sid} = #{!!$game_switches[sid] ? 'ON' : 'OFF'}" }.join('  ')
+    when :variable
+      ctl[:vars].map { |vid| "var#{vid} = #{($game_variables[vid] || 0)}" }.join('  ')
+    when :self_switch
+      "ss#{ctl[:ch]} = #{!!$game_self_switches[[map_id, ev_id, ctl[:ch]]] ? 'on' : 'off'}"
+    else
+      '[–]'
+    end
   end
 
   # 渲染当前页可见行
@@ -529,8 +565,8 @@ class Window_UnlockComplete
       text = row[:type] == :head ? row[:label] : "#{row[:label]}"
       spr.bitmap.draw_text(0, 0, spr.bitmap.width, spr.bitmap.height, tr(text))
       if row[:type] == :item
-        # 状态列靠右
-        spr.bitmap.draw_text(360, 0, spr.bitmap.width, spr.bitmap.height, tr(row[:state].to_s))
+        # 状态列靠右(直接显示控制状态描述, 不再经过 tr 翻译)
+        spr.bitmap.draw_text(360, 0, spr.bitmap.width, spr.bitmap.height, row[:state].to_s)
       end
       @data_sprites << spr
       y += ITEM_SPACING
