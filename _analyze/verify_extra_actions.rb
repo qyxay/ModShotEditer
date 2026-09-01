@@ -1,12 +1,12 @@
 # ============================================================
-# verify_extra_actions.rb — 离线验证"三开关回归为动作条目"
+# verify_extra_actions.rb — 离线验证"三功能合并为动作条目 + 地图浏览器"
 #
 # 用最小桩环境加载 dev_settings.rb, 验证:
-#   1) EXTRA_ACTIONS / ACTION_KEYS 定义正确
+#   1) EXTRA_ACTIONS / ACTION_KEYS 定义正确(2 个动作: unlock_complete + jump_map)
 #   2) reload_config 后 @keys 不含三个功能键(仅普通布尔)
-#   3) display_items = 普通布尔 + 4 个动作条目
-#   4) run_action 三个动作名分别分发到对应方法(用 stub 方法确认)
-#   5) 三动作条目点击不会写回 config(不经 toggle / 不经 save_config)
+#   3) display_items = 普通布尔 + 2 个动作条目
+#   4) run_action 分发到 open_unlock_complete / open_jump_map(用 stub 方法确认)
+#   5) 动作条目点击不会写回 config(不经 toggle / 不经 save_config)
 #
 # 用法: runtime\bin\ruby.exe _analyze\verify_extra_actions.rb
 # ============================================================
@@ -65,8 +65,11 @@ def check(results, name, cond, detail = '')
 end
 
 # --- 1) 常量定义 ---
-check(results, 'EXTRA_ACTIONS 有 4 个动作', EXTRA_ACTIONS.size == 4,
+check(results, 'EXTRA_ACTIONS 有 2 个动作', EXTRA_ACTIONS.size == 2,
       EXTRA_ACTIONS.map { |id, n| "#{id}->#{n}" }.join(' | '))
+check(results, 'EXTRA_ACTIONS 含 unlock_complete 与 jump_map',
+      EXTRA_ACTIONS.map(&:first) == %i[unlock_complete jump_map],
+      EXTRA_ACTIONS.map(&:first).inspect)
 check(results, 'ACTION_KEYS 有 3 个功能键', ACTION_KEYS == %w[unlock_all_doors complete_all_dialogues complete_all_story],
       ACTION_KEYS.inspect)
 
@@ -81,21 +84,19 @@ check(results, '@keys 含普通布尔(skip_pictures 等)', bool_keys.include?('s
 
 # --- 3) display_items ---
 items = ds.display_items
-check(results, 'display_items = 布尔 + 4 动作', items.size == bool_keys.size + 4,
+check(results, 'display_items = 布尔 + 2 动作', items.size == bool_keys.size + 2,
       "total=#{items.size} bool=#{bool_keys.size}")
-check(results, '动作条目顺序正确', items[-4, 4] == EXTRA_ACTIONS.map(&:last),
-      items[-4, 4].inspect)
+check(results, '动作条目顺序正确', items[-2, 2] == EXTRA_ACTIONS.map(&:last),
+      items[-2, 2].inspect)
 
 # --- 4) run_action 分发 ---
 calls = []
-%i[unlock_all_doors complete_all_dialogues complete_all_story].each do |m|
-  ds.define_singleton_method(m) { |*| calls << m }
-end
+ds.define_singleton_method(:open_unlock_complete) { calls << :unlock_complete }
 ds.define_singleton_method(:open_jump_map) { calls << :jump_map }
 EXTRA_ACTIONS.each do |id, name|
   ds.send(:run_action, name)
 end
-check(results, 'run_action 分发到 4 个方法', calls == %i[unlock_all_doors complete_all_dialogues complete_all_story jump_map],
+check(results, 'run_action 分发到 2 个入口', calls == %i[unlock_complete jump_map],
       calls.inspect)
 check(results, 'run_action 未知名静默', (ds.send(:run_action, 'Bogus') || true) == true, '')
 

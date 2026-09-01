@@ -50,16 +50,16 @@ GLOBAL_SYNC = {
 }
 
 # --- 功能动作条目(非布尔开关): 标识 → 界面显示名, 顺序即菜单顺序 ---
-# 点击一次即执行对应动作(解锁/完成当前地图), 不切换/不写回开关值。
+# 点击一次即进入对应子界面。三个功能(unlock_all_doors / complete_all_dialogues /
+# complete_all_story)已合并为统一的 unlock_complete —— 进入地图浏览器, 每页
+# 显示一张地图涉及的开关/对话/故事, 按确认即对当前所在地图一并解锁+完成。
 # 反向动作(lock/incomplete)不再由界面触发。
 EXTRA_ACTIONS = [
-  [:unlock_all_doors,       'Unlock All Doors (this map)'],
-  [:complete_all_dialogues, 'Complete All Dialogues (this map)'],
-  [:complete_all_story,     'Complete All Story (this map)'],
-  [:jump_map,               'Jump Map']
+  [:unlock_complete, 'Unlock/Complete (map browser)'],
+  [:jump_map, 'Jump Map']
 ]
 
-# 上述三个功能动作在 config.json 中的键名(不显示为布尔开关, 值仅供 auto_apply 读取)
+# 三个功能动作在 config.json 中的键名(不显示为布尔开关, 值仅供 auto_apply 读取)
 ACTION_KEYS = %w[unlock_all_doors complete_all_dialogues complete_all_story]
 
 # --- 开发者设置子界面 ---
@@ -204,7 +204,11 @@ class Window_DevSettings
 
   def update
     return if !@visible || display_items.empty?
-    # 子界面(跳地图)优先: 完全接管输入, 返回后恢复开发者设置
+    # 子界面优先: 地图浏览器(unlock/complete) / 跳地图, 完全接管输入, 返回后恢复开发者设置
+    if @unlock_complete && @unlock_complete.visible
+      @unlock_complete.update
+      return
+    end
     if @jump_map && @jump_map.visible
       @jump_map.update
       return
@@ -265,15 +269,15 @@ class Window_DevSettings
     end
   end
 
-  # 执行功能动作(非布尔开关的固定条目, 点击一次即执行)
+  # 执行功能动作(非布尔开关的固定条目, 点击一次即进入子界面)
   def run_action(display_name)
     pair = EXTRA_ACTIONS.find { |_, name| name == display_name }
     return unless pair
     case pair[0]
+    when :unlock_complete
+      open_unlock_complete
     when :jump_map
       open_jump_map
-    else
-      send(pair[0])
     end
   end
 
@@ -357,10 +361,11 @@ class Window_DevSettings
   def unlock_all_doors
     if !$game_switches
       flash('Not in game')
-      return
+      return 0
     end
     count = set_current_switches(:unlock)
     flash("#{count} switches ON (this map)")
+    count
   end
 
   # --- 完成所有对话(当前地图, 只完成"能安全完成"的) ---
@@ -370,7 +375,7 @@ class Window_DevSettings
   def complete_all_dialogues
     if !$game_map || !$game_map.events
       flash('Not in game')
-      return
+      return 0
     end
     count = 0
     $game_map.events.each_value do |ev|
@@ -386,6 +391,7 @@ class Window_DevSettings
     end
     $game_map.events.each_value { |e| e.refresh }
     flash("#{count} dialogues done (this map)")
+    count
   end
 
   # --- 完成所有剧情(当前地图, 但不把门关死) ---
@@ -395,7 +401,7 @@ class Window_DevSettings
   def complete_all_story
     if !$game_map || !$game_map.events
       flash('Not in game')
-      return
+      return 0
     end
     count = 0
     $game_map.events.each_value do |ev|
@@ -413,6 +419,7 @@ class Window_DevSettings
     # 一并解锁当前地图使用的"激活类"开关(含门锁), 关闭类(已用完)保持 false
     set_current_switches(:unlock) if $game_switches
     flash("#{count} events done (this map)")
+    count
   end
 
   # --- 锁定当前地图的门锁(OFF) ---
@@ -530,7 +537,19 @@ class Window_DevSettings
     @jump_map.open
   end
 
+  # 进入地图浏览器子界面 (Unlock/Complete)
+  # 每页一张地图, 列出该地图涉及的开关/对话/故事; 打开时定位当前所在地图页。
+  # 按确认对当前所在地图执行 unlock+complete(合并)。同样不能隐藏自身。
+  def open_unlock_complete
+    @unlock_complete ||= Window_UnlockComplete.new
+    @unlock_complete.on_close = proc {
+      @unlock_complete.visible = false
+    }
+    @unlock_complete.open
+  end
+
   def dispose
+    @unlock_complete.dispose if @unlock_complete
     @jump_map.dispose if @jump_map
     @data_sprites.each { |spr| spr.dispose }
     @flash_sprite.dispose
