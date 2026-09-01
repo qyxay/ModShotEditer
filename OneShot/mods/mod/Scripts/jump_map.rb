@@ -99,53 +99,29 @@ module JumpMapCommonEventPatch
   end
 end
 
-# --- 补丁 3: 自由浏览模式下拦截玩家触发 (here/there/touch) ---
+# --- 补丁 3: 自由浏览模式下的玩家触发 (here/there/touch) ---
 # 玩家按确认键触发同格"事件开始"(trigger 0) 或移动触发"接触"(trigger 1/2)
-# 的地图事件时, 若事件命令含对话会立刻锁住玩家(如 Start 落点同格的床事件
-# "Niko just woke up here.")。该路径也绕过 AUTORUN 冻结, 会重新造成
-# "跳转后卡住"。自由浏览模式下直接拦截, 玩家在目标地图上完全自由。
+# 的地图事件(对话/互动)时, 一律放行 —— 这是"跳转后能正常跟 NPC/物品对话互动"
+# 的关键。玩家主动触发是安全行为: 事件执行完(对话/开关/变量)后玩家恢复控制,
+# 不会锁死; 真正会导致"跳转后卡住"的是剧情 AUTORUN(trigger 3, 由补丁 1
+# JumpMapFreezePatch 拦截)与公共事件 AUTORUN(trigger 1, 由补丁 2 拦截),
+# 以及早期落点撞事件格的问题(已由落点修正解决)。
 #
-# 例外: 出口/门类事件(当前激活页含 201 传送 或 check_exit/transfer 脚本)
-# 必须放行 —— 它们是玩家离开当前地图的唯一途径(如 start 的 west/south door
-# 是 trigger=1 接触事件)。只放行含传送命令的事件, 对话类事件仍被拦截。
+# 说明: 早期版本曾在此拦截所有非出口事件, 结果 Jump Map 跳转后任何对话/
+# 互动都触发不了。经分析 Start/Livingroom 等地图的对话事件(trigger 0/1)
+# 多为"对话 + 开关/变量"的普通互动, 放行安全。出口传送事件(trigger 1/2)
+# 同样走这里的 super 正常触发, 无需再单独白名单。
 module JumpMapPlayerTriggerPatch
   def check_event_trigger_here(triggers)
-    if $jump_map_free_mode
-      return false unless exit_event_at?($game_player.x, $game_player.y)
-    end
     super
   end
 
   def check_event_trigger_there(triggers)
-    if $jump_map_free_mode
-      d = $game_player.direction
-      x = $game_player.x + (d == 6 ? 1 : (d == 4 ? -1 : 0))
-      y = $game_player.y + (d == 2 ? 1 : (d == 8 ? -1 : 0))
-      return false unless exit_event_at?(x, y)
-    end
     super
   end
 
   def check_event_trigger_touch(x, y)
-    if $jump_map_free_mode
-      return false unless exit_event_at?(x, y)
-    end
     super
-  end
-
-  # 该格是否"出口事件": 当前激活页含 201 传送或 check_exit/transfer 脚本
-  def exit_event_at?(x, y)
-    return false unless $game_map && $game_map.events
-    $game_map.events.each_value do |e|
-      next unless e.x == x && e.y == y
-      list = e.list
-      next unless list
-      return true if list.any? { |c| c.code == 201 }
-      return true if list.any? do |c|
-        [355, 655].include?(c.code) && c.parameters[0].to_s =~ /check_exit|transfer|teleport|unlock_map/i
-      end
-    end
-    false
   end
 end
 

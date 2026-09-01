@@ -25,28 +25,21 @@ puts "  放行: #{JUMP_MAP_KEEP_COMMON_EVENTS.inspect} (#{ces[9].name.inspect})"
 puts "  => #{intercepted.empty? || !intercepted.include?(9) ? 'OK: CE9(Exit Transition) 已放行' : 'FAIL'}"
 
 puts ""
-puts "======== 2. 出口事件放行 (PlayerTriggerPatch exit_event_at?) ========"
-def exit_event_at?(map_events, x, y)
-  map_events.each do |_id, e|
-    next unless e.x == x && e.y == y
-    # 模拟 Game_Event#list: 取第一个条件满足的页(简化: 页0无条件则用页0, 否则取首页)
-    pg = e.pages.first
-    next unless pg
-    list = pg.list
-    return true if list.any? { |c| c.code == 201 }
-    return true if list.any? { |c| [355, 655].include?(c.code) && c.parameters[0].to_s =~ /check_exit|transfer|teleport|unlock_map/i }
-  end
-  false
-end
-
-# 地图2 (start): west door (11,18) 接触触发 → 应放行
+puts "======== 2. 玩家触发放行 (PlayerTriggerPatch 新设计) ========"
+puts "  新设计: 自由浏览模式下玩家主动触发(here/there/touch)全部放行 ——"
+puts "  对话/互动/出口事件都可正常触发; 仅 AUTORUN(trigger 3, FreezePatch)"
+puts "  与公共事件 AUTORUN(trigger 1, CommonPatch)被拦截, 避免剧情锁玩家。"
+# 验证地图上"对话事件"(trigger 0/1)确实是玩家可触发的(有触发方式):
+# 床(trigger=0) / 对话事件 / 出口(trigger=1) 都在放行范围内, 不存在"被拦死"的玩家事件
 m2 = os_load_map(2)
-puts "  地图2 west door (11,18): exit_event_at?=#{exit_event_at?(m2.instance_variable_get(:@events), 11, 18)} (期望 true)"
-puts "  地图2 床 (15,17): exit_event_at?=#{exit_event_at?(m2.instance_variable_get(:@events), 15, 17)} (期望 false, 对话事件仍拦)"
-# 地图120: south exit (26,26) 平行事件
-m120 = os_load_map(120)
-puts "  地图120 south exit (26,26): exit_event_at?=#{exit_event_at?(m120.instance_variable_get(:@events), 26, 26)} (期望 true)"
-puts "  地图120 普通格 (5,5): exit_event_at?=#{exit_event_at?(m120.instance_variable_get(:@events), 5, 5)} (期望 false)"
+evs2 = m2.instance_variable_get(:@events)
+player_events = evs2.values.select { |e| [0, 1, 2].include?(e.pages.first.trigger) }
+puts "  地图2 Start 玩家可触发事件数: #{player_events.size} (期望 > 0, 且含床/门/电脑等)"
+puts "  => #{player_events.size > 0 ? 'OK: 对话/互动事件存在且可触发' : 'FAIL'}"
+bed = evs2.values.find { |e| e.name.to_s.include?('bed') }
+door = evs2.values.find { |e| e.name.to_s.include?('door') }
+puts "  床事件 trigger: #{bed && bed.pages.first.trigger} (0=按确认触发, 放行)"
+puts "  门事件 trigger: #{door && door.pages.first.trigger} (1=接触触发, 放行)"
 
 puts ""
 puts "======== 3. CE9 传送目标计算 (south exit 变量 → 目标坐标) ========"
