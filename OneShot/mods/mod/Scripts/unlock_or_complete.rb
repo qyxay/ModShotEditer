@@ -436,7 +436,7 @@ class Window_UnlockComplete
       build_map_rows(p[:id])
       @title.bitmap.clear
       @title.bitmap.draw_text(0, 0, @title.bitmap.width, @title.bitmap.height,
-                             tr(map_name(p[:id])) + "  [Map #{p[:id]}#{cur? ? ' · current' : ''}]")
+                             tr(map_name(p[:id])).to_s + "  [Map #{p[:id]}#{cur? ? '  [current]' : ''}]")
     end
     # 选中默认第一条可编辑行; 滚动窗口从页顶开始(选中行超一屏时才下移)
     @sel = @rows.index { |r| editable?(r) } || 0
