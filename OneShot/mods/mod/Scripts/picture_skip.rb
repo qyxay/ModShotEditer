@@ -75,6 +75,23 @@ module PictureSkipPatch
           # 遇到对话(ShowText): 退出跳过模式, 正常执行
           @pic_skip_mode = false
           _trace_log("PIC_OFF_101 ev=#{@event_id} idx=#{@index}")
+        elsif code == 112
+          # 循环开始(Loop): 跳过整个循环体。
+          # 教学事件(如 CE15 instruction1/2/4)用 c112 Loop + c105 按键输入 +
+          # c111 判断变量来等玩家按键: 若只跳过图片(231)会黑屏还得按键,
+          # 若跳过 c105 又会死循环 —— 这里直接跳到循环结束(第一个 413),
+          # 整个教学自动跳过, 无需按键, 也不黑屏。
+          indent = @list[@index].indent
+          j = @index + 1
+          while j < @list.size
+            if @list[j].code == 413 && @list[j].indent <= indent
+              @index = j  # 停在 413, 靠 update 末尾 +1 跳到循环后
+              break
+            end
+            j += 1
+          end
+          _trace_log("PIC_LOOP_SKIP ev=#{@event_id} idx=#{@index}")
+          return true
         elsif SKIP_CODES.include?(code)
           # 跳过等待/按键/图片操作/BGM/转场。
           # 注意: 不能手动 @index += 1 —— Interpreter#update 在 execute_command
