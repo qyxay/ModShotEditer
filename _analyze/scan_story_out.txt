@@ -1,3 +1,0 @@
-﻿=== 含 postgame/ending/credits 文本的事件 ===
-
-=== 含 final/finished/complete 文本的事件 ===

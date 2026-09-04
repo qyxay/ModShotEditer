@@ -1,0 +1,10 @@
+﻿refactor: 删除 Unlock/Complete 功能(unlock_or_complete)
+
+按用户要求删除所有 unlock_or_complete 相关功能:
+- 删除 Scripts/unlock_or_complete.rb (地图浏览器, 直接暴露底层变量)
+- dev_settings.rb: 移除 unlock/complete 方法块/入口/ACTION_KEYS/
+  auto_apply_current_map/open_unlock_complete 及相关注释, 保留 Jump Map
+- jump_map.rb: 移除 JumpMapAutoApplyPatch(Game_Map#setup 后 auto_apply)
+- config.json: 移除 unlock_all_doors/complete_all_dialogues/complete_all_story
+- 删除 _analyze 相关验证/扫描脚本
+语法: dev_settings.rb/jump_map.rb ruby -c OK

@@ -162,37 +162,6 @@ _trace_pl = TracePoint.trace(:end) do |tp|
   end
 end
 
-# --- 补丁 4: 自由浏览模式下进入地图后按 config 自动应用功能开关 ---
-# 跳转(传送)是异步的: transfer 标志先设, 地图在下一帧才 Game_Map#setup。
-# 所以在 setup 完成后, 若处于自由浏览模式, 自动调用 dev_settings 的
-# auto_apply_current_map —— config 里 unlock_all_doors / complete_all_dialogues /
-# complete_all_story 为 true 时对当前地图生效。这样跳转瞭望甲板等地图后,
-# SW22 等传送条件开关自动为 true, 出口传送立即可用, 无需再手动切一次。
-module JumpMapAutoApplyPatch
-  def setup(map_id)
-    super
-    if $jump_map_free_mode && defined?(Window_DevSettings) &&
-       Window_DevSettings.respond_to?(:auto_apply_current_map)
-      Window_DevSettings.auto_apply_current_map
-    end
-  rescue StandardError
-    # 静默: 自动应用失败不影响地图加载
-  end
-end
-
-_trace_apply = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Game_Map' &&
-       tp.self.method_defined?(:setup)
-      tp.self.prepend(JumpMapAutoApplyPatch)
-      _trace_apply.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
-end
-
-
 # --- 地图跳转子界面 ---
 # 书页式: 每页 JUMP_MAP_PER_PAGE 条, 底部显示页码, 左右键翻页, 上下键页内选择。
 # 背景全程不透明黑色(淡入淡出只作用于文字), 避免跳转时露出下层设置菜单。
