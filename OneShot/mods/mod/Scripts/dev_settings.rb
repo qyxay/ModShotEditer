@@ -37,6 +37,7 @@ GLOBAL_SYNC = {
   'skip_dialogue' => '$skip_dialogue_enabled',
   'skip_choice'   => '$skip_choice_enabled',
   'skip_uneasy'   => '$skip_uneasy_enabled',
+  'skip_event'    => '$skip_event_enabled',
   'unshow_title'  => '$unshow_title_enabled',
   'is_developer'  => '$dev_settings_enabled'
 }
@@ -291,7 +292,7 @@ class Window_DevSettings
   def save_config
     $mod_config ||= @config
     ordered = {}
-    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy always_travel always_settings unshow_title is_developer].each do |k|
+    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy skip_event always_travel always_settings unshow_title is_developer].each do |k|
       ordered[k] = @config[k] if @config.key?(k)
     end
     @config.each do |k, v|
