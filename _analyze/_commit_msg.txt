@@ -1,0 +1,9 @@
+fix: skip_uneasy 实际未生效的根因 —— 匹配 101 参数而非仅 401
+
+- OneShot 的对话消息把 face+文本合并进 101 命令的 parameters[0]
+  (如 "@ed [Niko feels uneasy.]"), 后面没有独立 401 行 (紧接 121 设置物品)。
+  原 uneasy_line? 只检查后续 401, 永远匹配不到, 故 skip_uneasy 未生效。
+- 修复: uneasy_line? 先查 101 自身 parameters[0], 再查 401 (双路径)
+- 全 Data 扫描确认 "Niko feels uneasy." 仅 CE42 一处
+- config.json: skip_uneasy 设为 true (用户意图), 保留用户关闭
+  skip_dialogue/skip_choice 的改动

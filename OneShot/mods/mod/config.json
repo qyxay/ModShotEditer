@@ -1,9 +1,9 @@
 {
   "skip_pictures": false,
   "quit_all_time": true,
-  "skip_dialogue": true,
-  "skip_choice": true,
-  "skip_uneasy": false,
+  "skip_dialogue": false,
+  "skip_choice": false,
+  "skip_uneasy": true,
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true,

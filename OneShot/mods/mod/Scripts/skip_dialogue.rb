@@ -47,8 +47,12 @@ module SkipAllDialoguePatch
     end
   end
 
-  # "Niko feels uneasy." 消息检测: 当前 101 后续的 401 文本命中即视为该句
+  # "Niko feels uneasy." 消息检测: OneShot 的 101 把 face+文本合并进 parameters[0]
+  # (如 "@ed [Niko feels uneasy.]", 无独立 401 行), 故先查 101 自身参数, 再查 401
   def uneasy_line?(list, idx)
+    if list[idx].parameters[0].to_s =~ /Niko feels uneasy/i
+      return true
+    end
     i = idx + 1
     while i < list.size && list[i].code == 401
       return true if list[i].parameters[0].to_s =~ /Niko feels uneasy/i
