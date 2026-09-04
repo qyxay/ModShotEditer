@@ -103,54 +103,26 @@ module JumpMapPlayerTriggerPatch
   end
 end
 
-# --- 等待 Game_Event / Interpreter / Game_Player 类定义完成后 prepend ---
-_trace = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Game_Event' &&
-       tp.self.method_defined?(:check_event_trigger_auto)
-      tp.self.prepend(JumpMapFreezePatch)
-      _trace.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
+# --- 等待 Game_Event 类定义完成后 prepend 补丁 ---
+PatchHelper.install('Game_Event', methods: [:check_event_trigger_auto]) do |k|
+  k.prepend(JumpMapFreezePatch)
 end
 
-_trace_ce = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Interpreter' &&
-       tp.self.method_defined?(:setup_starting_event)
-      tp.self.prepend(JumpMapCommonEventPatch)
-      _trace_ce.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
+# --- 等待 Interpreter 类定义完成后 prepend 补丁 ---
+PatchHelper.install('Interpreter', methods: [:setup_starting_event]) do |k|
+  k.prepend(JumpMapCommonEventPatch)
 end
 
-_trace_pl = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Game_Player' &&
-       tp.self.method_defined?(:check_event_trigger_here)
-      tp.self.prepend(JumpMapPlayerTriggerPatch)
-      _trace_pl.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
+# --- 等待 Game_Player 类定义完成后 prepend 补丁 ---
+PatchHelper.install('Game_Player', methods: [:check_event_trigger_here]) do |k|
+  k.prepend(JumpMapPlayerTriggerPatch)
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'jump_map_free_status.txt')
-begin
-  _log_dir = File.dirname(status_path)
-  Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-  File.open(status_path, 'w') do |f|
-    f.puts "jump_map_free loaded at = #{Time.now}"
-    f.puts "freeze_autorun = #{JUMP_MAP_FREEZE_AUTORUN}"
-    f.puts "keep_common_events = #{JUMP_MAP_KEEP_COMMON_EVENTS.inspect} (Exit Transition 出口传送)"
-    f.puts "patches = Game_Event#check_event_trigger_auto / Interpreter#setup_starting_event / Game_Player#check_event_trigger_*"
-    f.puts "mode = $jump_map_free_mode persists until game restart"
-  end
-rescue StandardError
-end
+StatusLog.write('jump_map_free_status.txt', [
+  "jump_map_free loaded at = #{Time.now}",
+  "freeze_autorun = #{JUMP_MAP_FREEZE_AUTORUN}",
+  "keep_common_events = #{JUMP_MAP_KEEP_COMMON_EVENTS.inspect} (Exit Transition 出口传送)",
+  "patches = Game_Event#check_event_trigger_auto / Interpreter#setup_starting_event / Game_Player#check_event_trigger_*",
+  "mode = $jump_map_free_mode persists until game restart"
+])

@@ -92,29 +92,18 @@ module SkipAllDialoguePatch
 end
 
 # --- 等待 Interpreter 类定义完成后 prepend 补丁 ---
-trace = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Interpreter' &&
-       tp.self.method_defined?(:execute_command)
-      tp.self.prepend(SkipAllDialoguePatch)
-      trace.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
+PatchHelper.install('Interpreter', methods: [:execute_command]) do |k|
+  k.prepend(SkipAllDialoguePatch)
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'skip_dialogue_status.txt')
-_log_dir = File.dirname(status_path)
-Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-File.open(status_path, 'w') do |f|
-  f.puts "skip_dialogue_enabled = #{$skip_dialogue_enabled} (101/401 text lines)"
-  f.puts "skip_choice_enabled   = #{$skip_choice_enabled}   (102 auto-select first option)"
-  f.puts "config_source = \$mod_config (unified loader _config.rb)"
-  f.puts "config = #{JSON.pretty_generate(config)}"
-  f.puts "patch_method = TracePoint(:end) + Module#prepend (Interpreter#execute_command)"
-  f.puts "skipped_commands = [skip_dialogue] 101(ShowText)+401(text lines), [skip_choice] 102(ShowChoices auto-select first)"
-  f.puts "not_skipped = 103/104/105/106 (preserve event timing, avoid audio glitches and deadlocks)"
-  f.puts "loaded_at = #{Time.now}"
-end
+StatusLog.write('skip_dialogue_status.txt', [
+  "skip_dialogue_enabled = #{$skip_dialogue_enabled} (101/401 text lines)",
+  "skip_choice_enabled   = #{$skip_choice_enabled}   (102 auto-select first option)",
+  "config_source = \$mod_config (unified loader _config.rb)",
+  "config = #{JSON.pretty_generate(config)}",
+  "patch_method = PatchHelper.install (Interpreter#execute_command)",
+  "skipped_commands = [skip_dialogue] 101(ShowText)+401(text lines), [skip_choice] 102(ShowChoices auto-select first)",
+  "not_skipped = 103/104/105/106 (preserve event timing, avoid audio glitches and deadlocks)",
+  "loaded_at = #{Time.now}"
+])

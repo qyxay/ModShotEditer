@@ -301,16 +301,13 @@ class Window_DevSettings
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'dev_settings_status.txt')
-_log_dir = File.dirname(status_path)
-Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-File.open(status_path, 'w') do |f|
-  f.puts "dev_settings_enabled = #{$dev_settings_enabled}"
-  f.puts "config_source = \$mod_config (unified loader _config.rb)"
-  f.puts "config = #{JSON.pretty_generate(config)}"
-  f.puts "entry = dev_settings_patch.rb (Window_Settings row) / shortcut_keys.rb (Ctrl+D)"
-  f.puts "config_path = #{CONFIG_PATH}"
-  f.puts "sync_globals = #{GLOBAL_SYNC.inspect}"
-  f.puts "loaded_at = #{Time.now}"
-end
+StatusLog.write('dev_settings_status.txt', [
+  "dev_settings_enabled = #{$dev_settings_enabled}",
+  "config_source = \$mod_config (unified loader _config.rb)",
+  "config = #{JSON.pretty_generate(config)}",
+  "entry = dev_settings_patch.rb (Window_Settings row) / shortcut_keys.rb (Ctrl+D)",
+  "config_path = #{CONFIG_PATH}",
+  "sync_globals = #{GLOBAL_SYNC.inspect}",
+  "loaded_at = #{Time.now}"
+])
 

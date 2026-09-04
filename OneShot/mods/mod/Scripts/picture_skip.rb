@@ -111,26 +111,15 @@ module PictureSkipPatch
 end
 
 # --- 等待 Interpreter 类定义完成后 prepend 补丁 ---
-trace = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Interpreter' &&
-       tp.self.method_defined?(:execute_command)
-      tp.self.prepend(PictureSkipPatch)
-      trace.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
+PatchHelper.install('Interpreter', methods: [:execute_command]) do |k|
+  k.prepend(PictureSkipPatch)
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'skip_pictures_status.txt')
-_log_dir = File.dirname(status_path)
-Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-File.open(status_path, 'w') do |f|
-  f.puts "pic_skip_enabled = #{$is_skip_picture}"
-  f.puts "config_source = \$mod_config (unified loader _config.rb)"
-  f.puts "config = #{JSON.pretty_generate(config)}"
-  f.puts "patch_method = TracePoint(:end) + Module#prepend (no xScripts.rxdata modification)"
-  f.puts "loaded_at = #{Time.now}"
-end
+StatusLog.write('skip_pictures_status.txt', [
+  "pic_skip_enabled = #{$is_skip_picture}",
+  "config_source = \$mod_config (unified loader _config.rb)",
+  "config = #{JSON.pretty_generate(config)}",
+  "patch_method = PatchHelper.install (Interpreter#execute_command)",
+  "loaded_at = #{Time.now}"
+])

@@ -23,6 +23,8 @@ else
 end
 
 # --- 写状态文件 ---
+# 注意: _config.rb 是加载链最前端(_ 开头 ASCII 最小, 先于 _status_log.rb),
+# 不能依赖 StatusLog(尚未加载), 故此处保持自包含。
 status_path = File.join(__dir__, '..', 'logs', 'config_loaded.txt')
 _log_dir = File.dirname(status_path)
 Dir.mkdir(_log_dir) unless File.directory?(_log_dir)

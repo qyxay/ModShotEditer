@@ -121,29 +121,15 @@ module ShortcutKeysPatch
   end
 end
 
-# --- 等待 Scene_Map 类定义完成后 prepend 快捷键补丁 ---
-_trace_scene = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Scene_Map' &&
-       tp.self.method_defined?(:update)
-      tp.self.prepend(ShortcutKeysPatch)
-      _trace_scene.disable
-    end
-  rescue StandardError
-    # 忽略异常, 继续监听
-  end
+# --- 等待 Scene_Map 类定义完成后 prepend 补丁 ---
+PatchHelper.install('Scene_Map', methods: [:update]) do |k|
+  k.prepend(ShortcutKeysPatch)
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'shortcut_keys_status.txt')
-begin
-  _log_dir = File.dirname(status_path)
-  Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-  File.open(status_path, 'w') do |f|
-    f.puts "shortcut_keys loaded at = #{Time.now}"
-    f.puts "shortcut_ctrl_d = #{$dev_settings_enabled} (open dev settings)"
-    f.puts "shortcut_ctrl_j = true (open jump map)"
-    f.puts "input_api = pressex?#{Input.respond_to?(:pressex?)}, triggerex?#{Input.respond_to?(:triggerex?)}"
-  end
-rescue StandardError
-end
+StatusLog.write('shortcut_keys_status.txt', [
+  "shortcut_keys loaded at = #{Time.now}",
+  "shortcut_ctrl_d = #{$dev_settings_enabled} (open dev settings)",
+  "shortcut_ctrl_j = true (open jump map)",
+  "input_api = pressex?#{Input.respond_to?(:pressex?)}, triggerex?#{Input.respond_to?(:triggerex?)}"
+])

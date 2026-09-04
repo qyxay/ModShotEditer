@@ -68,25 +68,14 @@ module WindowSettingsDevPatch
 end
 
 # --- 等待 Window_Settings 类定义完成后 prepend 补丁 ---
-trace = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Window_Settings' &&
-       tp.self.method_defined?(:open) && tp.self.method_defined?(:update)
-      tp.self.prepend(WindowSettingsDevPatch)
-      trace.disable
-    end
-  rescue StandardError
-    # 忽略异常, 继续监听
-  end
+PatchHelper.install('Window_Settings', methods: [:open, :update]) do |k|
+  k.prepend(WindowSettingsDevPatch)
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'dev_settings_patch_status.txt')
-_log_dir = File.dirname(status_path)
-Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-File.open(status_path, 'w') do |f|
-  f.puts "dev_settings_patch loaded at = #{Time.now}"
-  f.puts "patch_method = TracePoint(:end) + Module#prepend (Window_Settings#open/update/dispose)"
-  f.puts "dependency = dev_settings.rb (Window_DevSettings, $dev_settings_enabled)"
-  f.puts "behavior = append 'Developer Settings' row, open sub-window on ACTION"
-end
+StatusLog.write('dev_settings_patch_status.txt', [
+  "dev_settings_patch loaded at = #{Time.now}",
+  "patch_method = PatchHelper.install (Window_Settings#open/update/dispose)",
+  "dependency = dev_settings.rb (Window_DevSettings, $dev_settings_enabled)",
+  "behavior = append 'Developer Settings' row, open sub-window on ACTION"
+])

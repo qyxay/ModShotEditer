@@ -37,15 +37,12 @@ end
 Object.prepend(TitleScreenSaveExistsPatch)
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'title_screen_status.txt')
-_log_dir = File.dirname(status_path)
-Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-File.open(status_path, 'w') do |f|
-  f.puts "unshow_title_enabled = #{$unshow_title_enabled}"
-  f.puts "config_source = \$mod_config (unified loader _config.rb)"
-  f.puts "config = #{JSON.pretty_generate(config)}"
-  f.puts "patch_method = Object.prepend (TitleScreenSaveExistsPatch#save_exists)"
-  f.puts "original_behavior = skip title if save.dat exists (Scene_Title.rb:41)"
-  f.puts "patched_behavior = unshow_title:true → skip title always; unshow_title:false → show title always"
-  f.puts "loaded_at = #{Time.now}"
-end
+StatusLog.write('title_screen_status.txt', [
+  "unshow_title_enabled = #{$unshow_title_enabled}",
+  "config_source = \$mod_config (unified loader _config.rb)",
+  "config = #{JSON.pretty_generate(config)}",
+  "patch_method = Object.prepend (TitleScreenSaveExistsPatch#save_exists)",
+  "original_behavior = skip title if save.dat exists (Scene_Title.rb:41)",
+  "patched_behavior = unshow_title:true -> skip title always; unshow_title:false -> show title always",
+  "loaded_at = #{Time.now}"
+])

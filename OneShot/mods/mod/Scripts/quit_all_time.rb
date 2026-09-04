@@ -82,30 +82,19 @@ module QuitAllTimePatch
 end
 
 # --- 等待 Scene_Map 类定义完成后 prepend 补丁 ---
-trace = TracePoint.trace(:end) do |tp|
-  begin
-    if tp.self.is_a?(Class) && tp.self.name == 'Scene_Map' &&
-       tp.self.method_defined?(:update)
-      tp.self.prepend(QuitAllTimePatch)
-      trace.disable
-    end
-  rescue
-    # 忽略异常, 继续监听
-  end
+PatchHelper.install('Scene_Map', methods: [:update]) do |k|
+  k.prepend(QuitAllTimePatch)
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'quit_all_time_status.txt')
-_log_dir = File.dirname(status_path)
-Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-File.open(status_path, 'w') do |f|
-  f.puts "quit_all_time_enabled = #{$quit_all_time_enabled}"
-  f.puts "config_source = \$mod_config (unified loader _config.rb)"
-  f.puts "config = #{JSON.pretty_generate(config)}"
-  f.puts "patch_method = TracePoint(:end) + Module#prepend (Scene_Map#update)"
-  f.puts "bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit key), Oneshot.allow_exit (window X button)"
-  f.puts "removed_message = You cannot perform this action during cutscenes."
-  f.puts "overridden_methods = Oneshot.allow_exit (always true when enabled)"
-  f.puts "preserved_restrictions = message_window, fast_travel, settings, menu_calling"
-  f.puts "loaded_at = #{Time.now}"
-end
+StatusLog.write('quit_all_time_status.txt', [
+  "quit_all_time_enabled = #{$quit_all_time_enabled}",
+  "config_source = \$mod_config (unified loader _config.rb)",
+  "config = #{JSON.pretty_generate(config)}",
+  "patch_method = PatchHelper.install (Scene_Map#update)",
+  "bypassed_restrictions = menu_disabled, map_interpreter.running? (menu key + quit key), Oneshot.allow_exit (window X button)",
+  "removed_message = You cannot perform this action during cutscenes.",
+  "overridden_methods = Oneshot.allow_exit (always true when enabled)",
+  "preserved_restrictions = message_window, fast_travel, settings, menu_calling",
+  "loaded_at = #{Time.now}"
+])

@@ -319,21 +319,15 @@ class Window_JumpMap
 end
 
 # --- 写状态文件 ---
-status_path = File.join(__dir__, '..', 'logs', 'jump_map_status.txt')
-begin
-  _log_dir = File.dirname(status_path)
-  Dir.mkdir(_log_dir) unless File.directory?(_log_dir)
-  File.open(status_path, 'w') do |f|
-    f.puts "jump_map loaded at = #{Time.now}"
-    f.puts "jump_points_path = #{JUMP_POINTS_PATH}"
-    f.puts "filter = #{JUMP_MAP_FILTER.inspect}"
-    f.puts "name_pattern = #{JUMP_MAP_NAME_PATTERN.inspect}"
-    f.puts "parent_filter = #{JUMP_MAP_PARENT_FILTER.inspect}"
-    f.puts "per_page = #{JUMP_MAP_PER_PAGE}"
-    f.puts "paging = book-style, LEFT/RIGHT flip page, UP/DOWN move cursor"
-    f.puts "fade = background stays black (no lower menu flash)"
-    f.puts "method = FastTravel transfer chain (player_transferring + Graphics.freeze + transition_processing 'black')"
-    f.puts "free_mode = jump_map_free.rb (JUMP_MAP_FREEZE_AUTORUN)"
-  end
-rescue StandardError
-end
+StatusLog.write('jump_map_status.txt', [
+  "jump_map loaded at = #{Time.now}",
+  "jump_points_path = #{JUMP_POINTS_PATH}",
+  "filter = #{JUMP_MAP_FILTER.inspect}",
+  "name_pattern = #{JUMP_MAP_NAME_PATTERN.inspect}",
+  "parent_filter = #{JUMP_MAP_PARENT_FILTER.inspect}",
+  "per_page = #{JUMP_MAP_PER_PAGE}",
+  "paging = book-style, LEFT/RIGHT flip page, UP/DOWN move cursor",
+  "fade = background stays black (no lower menu flash)",
+  "method = FastTravel transfer chain (player_transferring + Graphics.freeze + transition_processing 'black')",
+  "free_mode = jump_map_free.rb (JUMP_MAP_FREEZE_AUTORUN)"
+])
