@@ -3,6 +3,7 @@
   "quit_all_time": true,
   "skip_dialogue": true,
   "skip_choice": true,
+  "skip_uneasy": false,
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true,

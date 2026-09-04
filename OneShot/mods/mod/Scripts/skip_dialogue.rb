@@ -24,12 +24,14 @@ require 'json'
 #   skip_choice   → 跳过选项, 自动选第一个 (命令 102)
 default_config = {
   "skip_dialogue" => false,
-  "skip_choice"   => false
+  "skip_choice"   => false,
+  "skip_uneasy"   => false
 }
 config = default_config.merge($mod_config || {})
 
 $skip_dialogue_enabled = config["skip_dialogue"] ? true : false
 $skip_choice_enabled   = config["skip_choice"]   ? true : false
+$skip_uneasy_enabled   = config["skip_uneasy"]   ? true : false
 
 # --- 补丁模块 ---
 module SkipAllDialoguePatch
@@ -45,12 +47,33 @@ module SkipAllDialoguePatch
     end
   end
 
+  # "Niko feels uneasy." 消息检测: 当前 101 后续的 401 文本命中即视为该句
+  def uneasy_line?(list, idx)
+    i = idx + 1
+    while i < list.size && list[i].code == 401
+      return true if list[i].parameters[0].to_s =~ /Niko feels uneasy/i
+      i += 1
+    end
+    false
+  end
+
   def execute_command
     if @index < @list.size && @list[@index]
       code = @list[@index].code
 
       case code
       when 101, 401
+        # "Niko feels uneasy." 特别跳过(独立开关 skip_uneasy, 仅 ED 读档提示这一句):
+        # 命中则只跳过这一句消息, 不影响其他对话
+        if code == 101 && $skip_uneasy_enabled && uneasy_line?(@list, @index)
+          if defined?(@pic_skip_mode) && @pic_skip_mode
+            @pic_skip_mode = false
+            _trace_log("SKIP_UNEASY clear_pic ev=#{@event_id} idx=#{@index}")
+          end
+          _trace_log("SKIP_UNEASY c101 ev=#{@event_id} idx=#{@index}")
+          @index += 1 while @index < @list.size - 1 && @list[@index + 1].code == 401
+          return true
+        end
         # Show Text(101) + 文字数据行(401):
         # 仅当 skip_dialogue 开启时跳过整段文字
         if $skip_dialogue_enabled
@@ -105,5 +128,6 @@ StatusLog.write('skip_dialogue_status.txt', [
   "patch_method = PatchHelper.install (Interpreter#execute_command)",
   "skipped_commands = [skip_dialogue] 101(ShowText)+401(text lines), [skip_choice] 102(ShowChoices auto-select first)",
   "not_skipped = 103/104/105/106 (preserve event timing, avoid audio glitches and deadlocks)",
+  "skip_uneasy_enabled = #{$skip_uneasy_enabled} (only skips the \"Niko feels uneasy.\" load-screen line)",
   "loaded_at = #{Time.now}"
 ])
