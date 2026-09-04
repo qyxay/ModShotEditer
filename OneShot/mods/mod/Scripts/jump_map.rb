@@ -96,8 +96,15 @@ class Window_JumpMap
   def open
     load_maps
     return if @maps.empty?
-    @index = 0
-    @page = 0
+    # 定位当前所在地图: 若在可跳列表中则跳到对应页并选中, 否则回退到第 0 页首项
+    cur = locate_current_map
+    if cur
+      @index = cur
+      @page = cur / JUMP_MAP_PER_PAGE
+    else
+      @index = 0
+      @page = 0
+    end
     @bg.opacity = 255
     @title.opacity = 0
     @page_sprite.opacity = 255
@@ -272,6 +279,13 @@ class Window_JumpMap
       cur = info.parent_id.to_i
     end
     false
+  end
+
+  # 当前所在地图在可跳列表中的索引(不在列表中返回 nil)
+  def locate_current_map
+    return nil unless $game_map
+    id = $game_map.map_id
+    @maps.index { |mm| mm[:id] == id }
   end
 
   # 从 jump_points.json 加载可跳地图(过滤内部图与无落点项)
