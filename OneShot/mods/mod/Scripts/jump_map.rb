@@ -290,6 +290,10 @@ class Window_JumpMap
 
   # 从 jump_points.json 加载可跳地图(过滤内部图与无落点项)
   def load_maps
+    # 缓存: jump_points.json 运行期间不变, 首次加载后复用,
+    # 避免每次 Ctrl+J 都重复读文件 + 过滤 + 排序
+    @maps = @maps_cache
+    return if @maps
     @maps = []
     data = begin
       JSON.parse(File.read(JUMP_POINTS_PATH))
@@ -308,6 +312,7 @@ class Window_JumpMap
       @maps << { id: id.to_i, x: x, y: y, dir: m['dir'].to_i, name: name }
     end
     @maps.sort_by! { |mm| mm[:id] }
+    @maps_cache = @maps
   end
 
   # 重建当前页列表 sprite(翻页时调用) + 更新页码
