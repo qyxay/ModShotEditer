@@ -8,7 +8,8 @@
 #           不锁玩家、不黑屏:
 #             * 101/401 Show Text    → 跳过对话文本
 #             * 102   Show Choices   → 自动选第一个选项
-#             * 105   按键等待       → 直接跳过
+#             * 105   按钮输入       → 模拟"已按确认键"(设参数变量非0),
+#                                     防依赖按键的 loop 死循环(CG 停留)
 #             * 106/230 时间等待     → 直接跳过
 #           效果: 走到任何事件(NPC/剧情/出口)都瞬间通过, 自由探索。
 #
@@ -61,7 +62,17 @@ module SkipEventFastForwardPatch
       when 102
         @branch[0] = 0
         return true
-      when 105, 106, 230
+      when 105
+        # 按钮输入(OneShot 定制 command_105): 等待玩家按键并把按键值存入
+        # 参数变量。快进时模拟"已按确认键"——把参数变量设为非 0(5)。
+        # 若不模拟, 依赖按键的 loop/条件分支(如 #15 Instructions 开场 CG:
+        # loop → 105 → 条件分支"变量22≠0"→ break)会因变量恒为 0 而死循环,
+        # 导致开场 CG 停留/反复展示。
+        var_id = @list[@index].parameters[0].to_i
+        $game_variables[var_id] = 5 if var_id > 0 && $game_variables
+        @button_input_variable_id = 0 if defined?(@button_input_variable_id)
+        return true
+      when 106, 230
         return true
       end
     end
