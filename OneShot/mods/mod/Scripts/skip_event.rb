@@ -15,8 +15,9 @@
 #
 #    false → 事件正常触发(角色经历对话/剧情) + 防卡 watchdog:
 #            * map_interpreter 运行中, 连续 WATCHDOG_FRAMES 帧 @index
-#              无推进, 且无对话/选择窗口, 且当前命令非 move route(212)/
-#              wait(230)/animation(231)(这些命令会合法地停在原地),
+#              无推进, 且无对话/选择窗口, 且无任何"合法等待"状态
+#              (message/move route/button input/wait_count/子解释器),
+#              且当前命令非 move route(212)/wait(230)/animation(231),
 #              判定为"卡死"(如 SW11 残留反复触发出口传送、跳关后错位
 #              状态的剧情事件) → 清空解释器, 恢复玩家控制。
 #
@@ -101,6 +102,15 @@ module SkipEventWatchdogPatch
     return unless mi && mi.running?
     # 对话/选择窗口显示中 = 正常等待玩家, 不算卡
     return if $game_temp.message_window_showing
+    # 任何"合法等待"状态 → 事件正常进行, 不算卡(否则 106 时间等待 /
+    # 105 按键等待 / move route 进行中 / 子解释器运行中会因 @index 暂时
+    # 不变而被误判卡死, 清空事件导致"经历不了事件")
+    return if mi.instance_variable_get(:@message_waiting)
+    return if mi.instance_variable_get(:@move_route_waiting)
+    return if mi.instance_variable_get(:@button_input_variable_id).to_i > 0
+    return if mi.instance_variable_get(:@wait_count).to_i > 0
+    child = mi.instance_variable_get(:@child_interpreter)
+    return if child && child.running?
     list = mi.instance_variable_get(:@list)
     idx = mi.instance_variable_get(:@index)
     return unless list && idx && idx < list.size
