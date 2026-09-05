@@ -39,12 +39,7 @@ module SkipAllDialoguePatch
   # (跳过 105/106 会导致事件时序混乱、音效反复触发甚至死循环)
 
   def _trace_log(msg)
-    begin
-      File.open(File.join(__dir__, '..', 'logs', 'skip_trace.log'), 'a') do |f|
-        f.puts "[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}"
-      end
-    rescue
-    end
+    StatusLog.append('skip_trace.log', msg)
   end
 
   # "Niko feels uneasy." 消息检测: OneShot 的 101 把 face+文本合并进 parameters[0]

@@ -37,12 +37,7 @@ module PictureSkipPatch
                 241].freeze
 
   def _trace_log(msg)
-    begin
-      File.open(File.join(__dir__, '..', 'logs', 'skip_trace.log'), 'a') do |f|
-        f.puts "[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}"
-      end
-    rescue
-    end
+    StatusLog.append('skip_trace.log', msg)
   end
 
   def clear

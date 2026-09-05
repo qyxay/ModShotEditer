@@ -27,4 +27,16 @@ module StatusLog
     rescue StandardError
     end
   end
+  # 追加一行到 mods/mod/logs/<name> (带时间戳), 供诊断 trace 使用
+  def self.append(name, msg)
+    path = File.join(__dir__, '..', 'logs', name)
+    begin
+      dir = File.dirname(path)
+      Dir.mkdir(dir) unless File.directory?(dir)
+      File.open(path, 'a') do |f|
+        f.puts("[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}")
+      end
+    rescue StandardError
+    end
+  end
 end

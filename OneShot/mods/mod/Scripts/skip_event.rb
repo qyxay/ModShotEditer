@@ -51,12 +51,7 @@ skip_event_load_config
 
 # --- 诊断 trace (写入 skip_trace.log) ---
 def skip_event_trace(msg)
-  begin
-    File.open(File.join(__dir__, '..', 'logs', 'skip_trace.log'), 'a') do |f|
-      f.puts "[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}"
-    end
-  rescue StandardError
-  end
+  StatusLog.append('skip_trace.log', msg)
 end
 
 # --- 识别"播放开场 CG"的事件 (skip_event=true 时特殊阻止) ---
