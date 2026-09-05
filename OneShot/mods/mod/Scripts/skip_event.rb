@@ -59,6 +59,33 @@ def skip_event_trace(msg)
   end
 end
 
+# --- 识别"播放开场 CG"的事件 (skip_event=true 时特殊阻止) ---
+# 开场流程 = 新游戏/读档后的启动演出, 由这些事件驱动:
+#   map1 ev1 (init)      —— 开场主流程(读档/instruction CG/cg_wake CG/开场BGM/传送)
+#   map2 ev7, map188 ev7 (intro) —— "niko 在床上醒来"的 intro(床上CG + 推玩家 move route)
+#   CE15 (Instructions)  —— 操作说明 CG (由 map1 init c117 调用)
+#   CE42 (Load Save)     —— 读档后的苏醒/开场对话 (real_load 设置 common_event_id=42)
+# 特殊阻止 = 快进这些事件时, 额外:
+#   * 241 播放 BGM   → 拦截 + Audio.bgm_stop(开场音乐不播; 若读档恢复的
+#                      开场音乐已在播, 一并停止 —— 空名 241(停止BGM) 则放行执行)
+#   * 209 移动路线   → 拦截(intro 的"推玩家" move route 不执行, 避免角色
+#                      被推到不可达位置而卡住/抽搐)
+# 其余等待类/图片命令沿用已有快进。
+def skip_event_opening_event?
+  begin
+    if @event_id == 0
+      # 公共事件(CE15 Instructions / CE42 Load Save): mkxp-z 里 setup 时
+      # @event_id=0, 事件名记在 @event_name("/Instructions" 等)。
+      @event_name.to_s =~ /Instructions|Load Save/i
+    else
+      mid = $game_map.map_id.to_i
+      (mid == 1 && @event_id == 1) || ([2, 188].include?(mid) && @event_id == 7)
+    end
+  rescue StandardError
+    false
+  end
+end
+
 # --- 补丁 1: 事件快进 (skip_event=true) ---
 # 在 execute_command 层拦截"等待类"命令并跳过, 事件其余命令照常执行。
 # 注意: 101/102 的 @index 处理与 skip_dialogue 相同 —— 101 时把 @index
@@ -98,6 +125,32 @@ module SkipEventFastForwardPatch
           # CG 图片反复闪现。231 跳过=图片从未显示, 无残留; 235 消除不跳过。
           skip_event_trace("SE_FAST c#{code} ev=#{@event_id} idx=#{@index}")
           return true
+        when 241
+          # 播放 BGM —— 开场事件里特殊阻止: 有名曲目拦截(不播)并主动停止
+          # 已播放的(读档恢复的开场音乐会残留, 必须 Audio.bgm_stop);
+          # 空名曲目(241 停止 BGM 的命令)则放行执行, 让 BGM 真正停掉
+          # (picture_skip 会把空名 241 也当普通 BGM 拦截, 导致停止不执行)。
+          if skip_event_opening_event?
+            b = (@list[@index].parameters[0] rescue nil)
+            name = (b.instance_variable_get(:@name) rescue '').to_s
+            if name.empty?
+              skip_event_trace("SE_BGM_STOP_CMD opening ev=#{@event_id} idx=#{@index}")
+            else
+              skip_event_trace("SE_FAST c241 opening ev=#{@event_id} idx=#{@index} #{name}")
+              begin
+                Audio.bgm_stop if Audio.respond_to?(:bgm_stop)
+              rescue StandardError
+              end
+              return true
+            end
+          end
+        when 209
+          # 强制移动路线 —— 开场事件里拦截(如 intro 的"推玩家" move route:
+          # 快进下跳过 106 等待, move route 若推到不可达位置会永久锁玩家)。
+          if skip_event_opening_event?
+            skip_event_trace("SE_FAST c209 opening ev=#{@event_id} idx=#{@index}")
+            return true
+          end
         when 207, 221, 222, 223, 224, 225
           # 诊断: 动画/转场/色调/闪屏/震动 —— 暂不拦截, 只记录(确认"CG"是否这些)
           skip_event_trace("SE_VIS c#{code} ev=#{@event_id} idx=#{@index}")
@@ -189,20 +242,37 @@ end
 # 了后续流程、可能没有 235 消除它 → "图片盖在屏幕上, 去不掉"。
 # 这里每帧检查: skip_event=true 时, 任何名字含 cg_wake/cg_tower/
 # instruction/felix 的显示中图片直接 erase(清空 name 即不绘制)。
+# --- 共享: 清除残留 CG 图片 (补丁4 每帧兜底 / 补丁5 读档后, 共用同一正则) ---
+CG_PICTURE_RE = %r{cg_wake|cg_tower|instruction|felix|cg_niko_in_bed|^black$|^white$}i
+def skip_event_clear_cg_pictures(tag)
+  pics = $game_screen.pictures
+  return unless pics
+  pics.each_with_index do |pic, i|
+    next unless pic
+    name = (pic.name.to_s rescue '')
+    next if name.empty?
+    if name =~ CG_PICTURE_RE
+      skip_event_trace("#{tag} num=#{i} name=#{name}")
+      pic.erase
+    end
+  end
+end
+
 module SkipEventCgCleanerPatch
   def update
     begin
-      if $skip_event_enabled && $game_screen
-        pics = $game_screen.pictures
-        if pics
-          pics.each_with_index do |pic, i|
-            next unless pic
-            name = (pic.name.to_s rescue '')
-            next if name.empty?
-            if name =~ /cg_wake|cg_tower|instruction|felix|cg_niko_in_bed/i
-              skip_event_trace("SE_CLEAR_PIC num=#{i} name=#{name}")
-              pic.erase
-            end
+      skip_event_clear_cg_pictures('SE_CLEAR_PIC') if $skip_event_enabled && $game_screen
+      # 每帧 BGM 兜底: 开场曲(SomeplaceIKnow)在 skip_event 快进下不该出现。
+      # real_load :242 会 bgm_play(playing_bgm) 恢复存档时的开场音乐, 且
+      # Game_Temp#bgm_fadein 可能随后把它重播回来 —— 每帧检查并停止,
+      # 保证开场音乐绝不残留(正常游玩不播这首, 不影响其他 BGM)。
+      if $skip_event_enabled && $game_system && Audio.respond_to?(:bgm_stop)
+        pbgm = ($game_system.playing_bgm rescue nil)
+        if pbgm
+          bname = (pbgm.name.to_s rescue '')
+          if !bname.empty? && bname =~ /SomeplaceIKnow/i
+            skip_event_trace("SE_STOP_BGM_FRAME name=#{bname}")
+            Audio.bgm_stop
           end
         end
       end
@@ -221,18 +291,14 @@ module SkipEventRealLoadPatch
   def real_load
     result = super
     begin
-      if $skip_event_enabled && $game_screen
-        pics = $game_screen.pictures
-        if pics
-          pics.each_with_index do |pic, i|
-            next unless pic
-            name = (pic.name.to_s rescue '')
-            if !name.empty? && name =~ /cg_wake|cg_tower|instruction|felix|cg_niko_in_bed/i
-              skip_event_trace("SE_CLEAR_AFTER_LOAD num=#{i} name=#{name}")
-              pic.erase
-            end
-          end
-        end
+      skip_event_clear_cg_pictures('SE_CLEAR_AFTER_LOAD') if $skip_event_enabled && $game_screen
+      # 读档会恢复存档时的 BGM 状态: 若存档时开场音乐(SomeplaceIKnow 等)
+      # 正在播, 读档后它继续响, 且快进拦截了后续 241(包括空名"停止 BGM")
+      # 导致停不下来。这里读档后直接停止 BGM, 开场静音; 后续正常事件
+      # 的 241(非开场事件)仍可正常播放音乐。
+      if $skip_event_enabled && Audio.respond_to?(:bgm_stop)
+        Audio.bgm_stop
+        skip_event_trace("SE_STOP_BGM_AFTER_LOAD")
       end
     rescue StandardError
     end
