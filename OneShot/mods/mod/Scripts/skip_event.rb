@@ -30,24 +30,11 @@
 #    skip_dialogue.rb 的 SkipAllDialoguePatch(同一 execute_command 链, 本补丁在外层)
 # ============================================================
 
-require 'json'
-
-SKIP_EVENT_CONFIG_PATH = File.join(__dir__, '..', 'config.json')
-
 # 防卡 watchdog 阈值: 180 帧 ≈ 3 秒 (60fps)
 WATCHDOG_FRAMES = 180
 
-# --- 读取 config 中的 skip_event ---
-def skip_event_load_config
-  cfg = begin
-    JSON.parse(File.read(SKIP_EVENT_CONFIG_PATH))
-  rescue StandardError
-    $mod_config || {}
-  end
-  $skip_event_enabled = cfg['skip_event'] ? true : false
-end
-
-skip_event_load_config
+# --- 读取 config 中的 skip_event (统一走 _config.rb 加载的 $mod_config) ---
+$skip_event_enabled = ($mod_config && $mod_config['skip_event']) ? true : false
 
 # --- 诊断 trace (写入 skip_trace.log) ---
 def skip_event_trace(msg)
