@@ -29,7 +29,11 @@ class Table
     t.instance_variable_set(:@xsize, sizes[0])
     t.instance_variable_set(:@ysize, sizes[1] || 1)
     t.instance_variable_set(:@zsize, sizes[2] || 1)
-    t.instance_variable_set(:@data, s[4 + dim * 4..].unpack('l*'))
+    # RMXP Table 头 = 5 个 uint32 (dim, 各维 size, cell_count), 之后才是数据。
+    # 数据为 uint16 数组。
+    # 原实现偏移用 4+dim*4(把 cell_count 当成数据)且按 l*(int32) 解析,
+    # 导致 tile 值全部错位、数量减半 —— 通行性判定全部失真。
+    t.instance_variable_set(:@data, s[8 + dim * 4..].unpack('v*'))
     t
   end
   def _dump(*); "\x00" * 4; end
