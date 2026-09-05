@@ -29,19 +29,8 @@ $dev_settings_enabled = config["is_developer"] ? true : false
 # config.json 路径: Scripts/../config.json
 CONFIG_PATH = File.join(__dir__, '..', 'config.json')
 
-# config.json 键 → mod 全局开关变量 映射(白名单, 用于实时同步)
-GLOBAL_SYNC = {
-  'skip_pictures' => '$is_skip_picture',
-  'quit_all_time' => '$quit_all_time_enabled',
-  'skip_dialogue' => '$skip_dialogue_enabled',
-  'skip_choice'   => '$skip_choice_enabled',
-  'skip_uneasy'   => '$skip_uneasy_enabled',
-  'skip_event'    => '$skip_event_enabled',
-  'always_settings' => '$always_settings_enabled',
-  'always_travel'   => '$always_travel_enabled',
-  'unshow_title'  => '$unshow_title_enabled',
-  'is_developer'  => '$dev_settings_enabled'
-}
+# config.json 键 → mod 全局开关变量: 同步逻辑见 apply_global 的 case 分支
+# (白名单, 无注入风险; 新增开关时在 case 中补一个分支)
 
 # --- 功能动作条目(非布尔开关): 标识 → 界面显示名, 顺序即菜单顺序 ---
 EXTRA_ACTIONS = [
@@ -283,10 +272,20 @@ class Window_DevSettings
 
   private
 
-  # 同步对应 mod 的全局开关变量, 实现不重启即生效(白名单, 无注入风险)
+  # 同步对应 mod 的全局开关变量, 实现不重启即生效(白名单, 显式赋值)
   def apply_global(key, val)
-    var = GLOBAL_SYNC[key]
-    eval("#{var} = #{val}") if var
+    case key
+when 'skip_pictures'   then $is_skip_picture = val
+when 'quit_all_time'   then $quit_all_time_enabled = val
+when 'skip_dialogue'   then $skip_dialogue_enabled = val
+when 'skip_choice'     then $skip_choice_enabled = val
+when 'skip_uneasy'     then $skip_uneasy_enabled = val
+when 'skip_event'      then $skip_event_enabled = val
+when 'always_settings' then $always_settings_enabled = val
+when 'always_travel'   then $always_travel_enabled = val
+when 'unshow_title'    then $unshow_title_enabled = val
+when 'is_developer'    then $dev_settings_enabled = val
+    end
   end
 
   # 写回 config.json, 已知键保持固定顺序, 未知键追加在尾部
@@ -310,7 +309,7 @@ StatusLog.write('dev_settings_status.txt', [
   "config = #{JSON.pretty_generate(config)}",
   "entry = dev_settings_patch.rb (Window_Settings row) / shortcut_keys.rb (Ctrl+D)",
   "config_path = #{CONFIG_PATH}",
-  "sync_globals = #{GLOBAL_SYNC.inspect}",
+  "sync_globals = apply_global case (10 keys)",
   "loaded_at = #{Time.now}"
 ])
 
