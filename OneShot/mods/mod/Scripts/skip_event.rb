@@ -11,6 +11,7 @@
 #             * 105   按钮输入       → 模拟"已按确认键"(设参数变量非0),
 #                                     防依赖按键的 loop 死循环(CG 停留)
 #             * 106/230 时间等待     → 直接跳过
+#             * 231/232 显示图片/效果 → 直接跳过(CG 过场不显示, 防反复闪现)
 #           效果: 走到任何事件(NPC/剧情/出口)都瞬间通过, 自由探索。
 #
 #    false → 事件正常触发(角色经历对话/剧情) + 防卡 watchdog:
@@ -74,6 +75,11 @@ module SkipEventFastForwardPatch
         @button_input_variable_id = 0 if defined?(@button_input_variable_id)
         return true
       when 106, 230
+        return true
+      when 231, 232
+        # 显示图片(231)/画面效果(232) —— CG 过场类(如 #15 Instructions 开场
+        # 说明、动画 CG)在快进下也跳过, 避免 SW40 残留导致 CE15 反复启动时
+        # CG 图片反复闪现。231 跳过=图片从未显示, 无残留; 235 消除不跳过。
         return true
       end
     end
