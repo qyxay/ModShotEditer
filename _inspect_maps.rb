@@ -128,27 +128,6 @@ base = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/'
 ts_all = Marshal.load(File.binread(base + 'Tilesets.rxdata'))
 mi = Marshal.load(File.binread(base + 'MapInfos.rxdata'))
 
-# 扫描全部地图的 Transfer Player(201) 事件命令, 收集目标坐标 (map_id, x, y)
-# map_id=0 表示相对传送(当前地图), 归属到源地图
-targets = Hash.new { |h, k| h[k] = [] }
-Dir[base + 'Map*.rxdata'].each do |path|
-  next unless path =~ /Map(\d+)\.rxdata$/
-  mid = Regexp.last_match(1).to_i
-  m = Marshal.load(File.binread(path))
-  m.events.values.each do |ev|
-    ev.pages.each do |pg|
-      pg.list.each do |cmd|
-        if cmd.code == 201
-          p = cmd.parameters
-          # VX 201: [map_id, x, y, direction, fade]
-          dst = p[0] == 0 ? mid : p[0]
-          targets[dst] << [p[1], p[2]]
-        end
-      end
-    end
-  end
-end
-
 # ===== 最终预扫描: 为每张地图生成安全落点 =====
 # 策略: 1) 转移目标点(游戏作者钦定可走) 2) 无则扫描 passages & 0x0F/0x80 地面 3) 全无则标记
 require 'json'
