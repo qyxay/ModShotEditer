@@ -1,6 +1,6 @@
 # 验证 jump_map.rb 的 load_maps 过滤逻辑
 require 'json'
-data = JSON.parse(File.read('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/jump_points.json'))
+data = JSON.parse(File.read(File.join(__dir__, 'OneShot', 'mods', 'mod', 'jump_points.json')))
 FILTER = /IGNORE|DEBUG|INTERNAL|UNUSED|\bTEST\b|^INIT$/i
 maps = []
 filtered = []

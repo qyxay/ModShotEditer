@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时分析: 检查三张 Livingroom 地图落点四周的可通行性
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 # --- 真正的 Table 解析 (mkxp 格式: dim=4字节, sizes=4字节, 数据=int32) ---
 class Table
@@ -55,7 +56,7 @@ module RPG
   end
 end
 
-tilesets = Marshal.load(File.binread('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Tilesets.rxdata'))
+tilesets = Marshal.load(File.binread("#{ROOT}/OneShot/Data/Tilesets.rxdata"))
 passages_by_ts = {}
 priorities_by_ts = {}
 tilesets.compact.each do |ts|
@@ -85,7 +86,7 @@ def passable?(data, passages, priorities, x, y, d, w, h)
 end
 
 MAPS.each do |mid, (sx, sy)|
-  path = format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map%03d.rxdata', mid)
+  path = format("#{ROOT}/OneShot/Data/Map%03d.rxdata", mid)
   map = Marshal.load(File.binread(path))
   tsid = map.instance_variable_get(:@tileset_id)
   data = map.instance_variable_get(:@data)

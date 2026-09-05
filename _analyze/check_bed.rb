@@ -1,8 +1,9 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  精确检查: 地图2 (15,17) 及周围通行性 (含事件图形)
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
 
 module RPG
   class Map; end
@@ -39,7 +40,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = "#{ROOT}/OneShot/Data"
 
 def load_map(mid)
   Marshal.load(File.binread(format("#{DATA}/Map%03d.rxdata", mid)))

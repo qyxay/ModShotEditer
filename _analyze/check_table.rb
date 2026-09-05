@@ -1,8 +1,9 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  检查 Table 解析是否正确 (地图2 vs 地图4)
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
 
 module RPG
   class Map; end
@@ -39,7 +40,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = "#{ROOT}/OneShot/Data"
 
 [2, 4].each do |mid|
   map = Marshal.load(File.binread(format("#{DATA}/Map%03d.rxdata", mid)))

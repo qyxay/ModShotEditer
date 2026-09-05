@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  检查 Table 真实序列化格式 (打印 _load 收到的原始 bytes)
 # ============================================================
@@ -38,7 +39,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = "#{ROOT}/OneShot/Data"
 
 [2, 4].each do |mid|
   map = Marshal.load(File.binread(format("#{DATA}/Map%03d.rxdata", mid)))

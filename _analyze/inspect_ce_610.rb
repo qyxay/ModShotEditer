@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  公共事件 6/10 (south exit 传送链) + 其他传送相关公共事件
 # ============================================================
@@ -12,7 +13,7 @@ module RPG
     attr_accessor :switch1_valid, :switch1_id
   end
 end
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 ces = Marshal.load(File.binread("#{DATA2}/CommonEvents.rxdata"))
 
 [6, 10].each do |id|

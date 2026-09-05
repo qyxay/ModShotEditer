@@ -1,8 +1,9 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  扫描: 所有可跳地图的落点, 检查同格/相邻是否有会触发的故事件
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
 require 'json'
 
 module RPG
@@ -27,7 +28,7 @@ class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 TRIG = {0=>'here',1=>'touch',2=>'touch2',3=>'autorun',4=>'parallel'}
 
 def load_map_events(mid)
-  path = format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map%03d.rxdata', mid)
+  path = format("#{ROOT}/OneShot/Data/Map%03d.rxdata", mid)
   map = Marshal.load(File.binread(path))
   map.instance_variable_get(:@events)
 end
@@ -48,7 +49,7 @@ def effective_trigger(ev)
   nil  # 所有页都有条件, 默认状态下无有效页
 end
 
-d = JSON.parse(File.read('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/jump_points.json'))
+d = JSON.parse(File.read("#{ROOT}/OneShot/mods/mod/jump_points.json"))
 FILTER = /IGNORE|DEBUG|INTERNAL|UNUSED|\bTEST\b|^INIT\b|TELEPORT|DEMO|PROTOWALK|PSHOT/i
 NAME_PAT = /^[TCS]\d+$/i
 

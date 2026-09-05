@@ -3,7 +3,8 @@
 #  安全格: 同格无事件 + tile 至少1方向可通行 + 有效地图内
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+ROOT = File.expand_path('..', __dir__)
+$LOAD_PATH.unshift(File.join(ROOT, 'runtime', 'lib', 'ruby', '3.1.0'))
 require 'json'
 
 module RPG
@@ -45,8 +46,8 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
-JP = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/jump_points.json'
+DATA = File.join(ROOT, 'OneShot', 'Data')
+JP = File.join(ROOT, 'OneShot', 'mods', 'mod', 'jump_points.json')
 
 def load_map(mid)
   Marshal.load(File.binread(format("#{DATA}/Map%03d.rxdata", mid)))

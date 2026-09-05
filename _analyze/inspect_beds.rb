@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  分析: 地图2 落点同格事件 bed bottom right (#4) 命令
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 module RPG
   class Map; end
@@ -24,7 +25,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-path = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map002.rxdata'
+path = "#{ROOT}/OneShot/Data/Map002.rxdata"
 map = Marshal.load(File.binread(path))
 evs = map.instance_variable_get(:@events)
 

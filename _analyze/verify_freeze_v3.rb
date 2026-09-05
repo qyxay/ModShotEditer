@@ -3,8 +3,9 @@
 #  用真实 Game_Character/Game_Event 源码 + 模拟 Interpreter
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+ROOT = File.expand_path('..', __dir__)
+$LOAD_PATH.unshift(File.join(ROOT, 'runtime', 'lib', 'ruby', '3.1.0'))
+$LOAD_PATH.unshift(File.join(ROOT, 'runtime', 'lib', 'ruby', '3.1.0', 'x64-mingw64'))
 
 require 'json'
 
@@ -69,13 +70,13 @@ class Sprite; attr_accessor :bitmap,:x,:y,:opacity,:visible,:z,:viewport; def in
 class Bitmap; attr_accessor :font; class Font; attr_accessor :size; end; def initialize(*); @font=Font.new; end; def width; 0; end; def height; 0; end; def dispose; end; end
 
 # --- 先 load jump_map.rb ---
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/jump_map.rb'
+load File.join(ROOT, 'OneShot', 'mods', 'mod', 'Scripts', 'jump_map.rb')
 
 # --- load 真实 Game_Character/Game_Event ---
 3.times do |i|
-  load format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/%03d_Game_Character_%d.rb', 18 + i, i + 1)
+  load format(File.join(ROOT, '_scripts_dump', '%03d_Game_Character_%d.rb'), 18 + i, i + 1)
 end
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/021_Game_Event.rb'
+load File.join(ROOT, '_scripts_dump', '021_Game_Event.rb')
 
 # --- 模拟 Interpreter (最小, 含 setup/setup_starting_event) ---
 class Interpreter

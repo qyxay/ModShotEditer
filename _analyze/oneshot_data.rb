@@ -4,7 +4,8 @@
 #              cell_count(int32) data(uint16 * cell_count)
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+ROOT = File.expand_path('..', __dir__)
+$LOAD_PATH.unshift(File.join(ROOT, 'runtime', 'lib', 'ruby', '3.1.0'))
 require 'json'
 
 module RPG
@@ -52,7 +53,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = File.join(ROOT, 'OneShot', 'Data')
 
 def os_load_map(mid)
   Marshal.load(File.binread(format("#{DATA}/Map%03d.rxdata", mid)))

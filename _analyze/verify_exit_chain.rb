@@ -1,8 +1,9 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  综合验证: 瞭望甲板出口传送链 + 三个补丁放行逻辑
 # ============================================================
 require_relative 'oneshot_data'
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 
 module RPG
   class CommonEvent

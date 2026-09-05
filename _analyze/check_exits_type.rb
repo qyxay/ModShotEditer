@@ -1,5 +1,6 @@
+ROOT = File.expand_path('..', __dir__)
 require_relative 'oneshot_data'
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 
 targets = [2, 3, 5, 119, 120, 225]
 targets.each do |mid|

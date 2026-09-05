@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  OneShot/mkxp Table 正确解析 (uint16 data)
 #  头: dim(int32) + sizes(dim*int32) + cell_count(int32) + data(uint16[])
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
 
 module RPG
   class Map; end
@@ -44,7 +45,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = "#{ROOT}/OneShot/Data"
 
 # tileset passages: 也检查是否 uint16 (Tilesets.rxdata 里的 Table)
 ts_data = Marshal.load(File.binread("#{DATA}/Tilesets.rxdata"))

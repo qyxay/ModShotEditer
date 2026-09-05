@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  检查 Tilesets passages 真实格式
 # ============================================================
@@ -31,7 +32,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = "#{ROOT}/OneShot/Data"
 ts_data = Marshal.load(File.binread("#{DATA}/Tilesets.rxdata"))
 [1].each do |i|
   t = ts_data[i]

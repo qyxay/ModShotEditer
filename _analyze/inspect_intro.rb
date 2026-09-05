@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时分析: 地图2 intro / Map Events 完整命令
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 module RPG
   class Map; end
@@ -25,7 +26,7 @@ class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
 def load_map(mid)
-  path = format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map%03d.rxdata', mid)
+  path = format("#{ROOT}/OneShot/Data/Map%03d.rxdata", mid)
   Marshal.load(File.binread(path)).instance_variable_get(:@events)
 end
 

@@ -124,7 +124,7 @@ module RPG
   end
 end
 
-base = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/'
+base = File.join(__dir__, 'OneShot', 'Data') + '/'
 ts_all = Marshal.load(File.binread(base + 'Tilesets.rxdata'))
 mi = Marshal.load(File.binread(base + 'MapInfos.rxdata'))
 
@@ -206,7 +206,7 @@ end
 
 puts "maps with spot = #{result.size - no_spot.size}, no spot = #{no_spot.size}"
 puts "no-spot maps: #{no_spot.inspect}"
-out = File.join('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod', 'jump_points.json')
+out = File.join(__dir__, 'OneShot', 'mods', 'mod', 'jump_points.json')
 File.open(out, 'w') { |f| f.puts JSON.pretty_generate(result) }
 puts "saved -> #{out}"
 # 打印前 40 个有落点的地图

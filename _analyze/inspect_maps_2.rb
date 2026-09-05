@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时分析: 地图2 (north door 传送目标) 事件
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 module RPG
   class Map; end
@@ -27,7 +28,7 @@ class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 TRIGGER = {0=>'事件开始',1=>'接触主角',2=>'接触事件',3=>'AUTORUN',4=>'PARALLEL'}
 
 [2, 13, 5].each do |mid|
-  path = format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map%03d.rxdata', mid)
+  path = format("#{ROOT}/OneShot/Data/Map%03d.rxdata", mid)
   map = Marshal.load(File.binread(path))
   w = map.instance_variable_get(:@width)
   h = map.instance_variable_get(:@height)

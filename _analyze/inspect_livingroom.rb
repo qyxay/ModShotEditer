@@ -1,10 +1,11 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时分析脚本: 解析 Map004.rxdata (Livingroom)
 #  重点: 事件触发器(autorun/parallel/player touch)、落点附近事件
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 # --- 定义 mkxp/RGSS 数据类型空类, 使 Marshal.load 能反序列化 ---
 module RPG
@@ -72,7 +73,7 @@ end
 # 触发类型名称
 TRIGGER = { 0=>'事件开始', 1=>'与主角接触', 2=>'与事件接触', 3=>'AUTORUN', 4=>'PARALLEL' }
 
-map = Marshal.load(File.binread('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map004.rxdata'))
+map = Marshal.load(File.binread("#{ROOT}/OneShot/Data/Map004.rxdata"))
 
 puts "== 地图信息 =="
 puts "  map_id=4  width=#{map.instance_variable_get(:@width)}  height=#{map.instance_variable_get(:@height)}"

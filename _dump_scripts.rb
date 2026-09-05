@@ -1,7 +1,7 @@
 require 'zlib'
 
-DATA_PATH = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/xScripts.rxdata'
-OUT_DIR   = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump'
+DATA_PATH = File.join(__dir__, 'OneShot', 'Data', 'xScripts.rxdata')
+OUT_DIR   = File.join(__dir__, '_scripts_dump')
 
 Dir.mkdir(OUT_DIR) unless Dir.exist?(OUT_DIR)
 

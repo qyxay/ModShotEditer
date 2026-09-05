@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  分析: 公共事件 trigger==2 (PARALLEL) 及命令
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 module RPG
   class EventCommand; end
@@ -17,7 +18,7 @@ class Color; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Tone; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 class Rect; def self._load(s); allocate; end; def _dump(*); "\x00"*4; end; end
 
-$data_common_events = Marshal.load(File.binread('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/CommonEvents.rxdata'))
+$data_common_events = Marshal.load(File.binread("#{ROOT}/OneShot/Data/CommonEvents.rxdata"))
 
 $data_common_events.each_with_index do |ce, i|
   next unless ce

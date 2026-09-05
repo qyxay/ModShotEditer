@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  扫所有公共事件: 201 传送 / 变量6/9/8 判断 / 含 117 链
 # ============================================================
@@ -13,7 +14,7 @@ module RPG
   end
 end
 
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 ces = Marshal.load(File.binread("#{DATA2}/CommonEvents.rxdata"))
 
 ces.each_with_index do |ce, i|

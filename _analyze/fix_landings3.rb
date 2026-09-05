@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  严格修正 jump_points.json 落点 (v3)
 #  安全格: 可站立 + 同格无任何事件 (避免站床/家具/NPC 上)
@@ -5,7 +6,7 @@
 
 require_relative 'oneshot_data'
 
-JP = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/jump_points.json'
+JP = "#{ROOT}/OneShot/mods/mod/jump_points.json"
 
 passages = os_load_tilesets
 d = JSON.parse(File.read(JP))

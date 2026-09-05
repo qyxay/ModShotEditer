@@ -1,10 +1,11 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时验证: jump_map.rb 的冻结补丁(TracePoint prepend)是否生效
 #  场景: load jump_map.rb 时 Game_Event 尚未定义(与真实加载顺序一致)
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 require 'json'
 def tr(s); s; end
@@ -48,7 +49,7 @@ module Input
 end
 
 # --- 先 load jump_map.rb (此时 Game_Event 尚未定义, TracePoint 建立监听) ---
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/jump_map.rb'
+load "#{ROOT}/OneShot/mods/mod/Scripts/jump_map.rb"
 
 # --- 之后再定义 Game_Event (模拟 Data/Scripts.rxdata 定义时) ---
 class Game_Event

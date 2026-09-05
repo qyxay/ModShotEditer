@@ -1,4 +1,5 @@
-﻿# ============================================================
+ROOT = File.expand_path('..', __dir__)
+# ============================================================
 #  鎵剧敤鍙橀噺鍋氫紶閫佺洰鏍囩殑 201 浜嬩欢 + 鍒ゆ柇鍙橀噺6鐨勫钩琛屼簨浠?
 #  RMXP: 201 浼犻€?parameters=[map_id, x, y, dir, fade]
 #  map_id >= 10000 鏃惰〃绀哄彉閲?(map_id-10000)
@@ -12,7 +13,7 @@ module RPG
   end
 end
 
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 # 杞藉叆 MapInfos 鐢ㄤ簬鍚嶅瓧
 mapi = Marshal.load(File.binread("#{DATA2}/MapInfos.rxdata"))
 

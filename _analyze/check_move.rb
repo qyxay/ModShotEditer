@@ -1,10 +1,11 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  模拟: 玩家在 start(地图2) 落点 (15,17) 的四个方向移动可行性
 #  用真实 Game_Character / Game_Event 通行性逻辑
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 require 'json'
 
@@ -55,7 +56,7 @@ $game_variables = []
 $game_self_switches = {}
 
 # 地图数据
-DATA = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA = "#{ROOT}/OneShot/Data"
 def load_map(mid)
   Marshal.load(File.binread(format("#{DATA}/Map%03d.rxdata", mid)))
 end
@@ -104,9 +105,9 @@ $game_map_events = {}
 
 # --- 真实 Game_Character (前3段) + Game_Event ---
 3.times do |i|
-  load format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/%03d_Game_Character_%d.rb', 18 + i, i + 1)
+  load format("#{ROOT}/_scripts_dump/%03d_Game_Character_%d.rb", 18 + i, i + 1)
 end
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/021_Game_Event.rb'
+load "#{ROOT}/_scripts_dump/021_Game_Event.rb"
 
 # --- 创建事件实例 (模拟 Game_Map#setup) ---
 $map.instance_variable_get(:@events).each do |id, evdata|

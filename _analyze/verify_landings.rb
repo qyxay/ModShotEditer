@@ -1,5 +1,6 @@
+ROOT = File.expand_path('..', __dir__)
 require_relative 'oneshot_data'
-JP = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/jump_points.json'
+JP = "#{ROOT}/OneShot/mods/mod/jump_points.json"
 passages = os_load_tilesets
 d = JSON.parse(File.read(JP))
 def any_event?(map, x, y)

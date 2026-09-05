@@ -1,9 +1,10 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时分析: 对比三张 Livingroom 地图 (4/64/182)
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 module RPG
   class Map; end
@@ -33,7 +34,7 @@ MAPS = {
 }
 
 MAPS.each do |mid, (sx, sy, label)|
-  path = format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data/Map%03d.rxdata', mid)
+  path = format("#{ROOT}/OneShot/Data/Map%03d.rxdata", mid)
   map = Marshal.load(File.binread(path))
   w = map.instance_variable_get(:@width)
   h = map.instance_variable_get(:@height)

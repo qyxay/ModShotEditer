@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 class Tone
   def self._load(s); allocate; end
 end
@@ -28,7 +29,7 @@ module RPG
   end
 end
 
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 raw = File.binread("#{DATA2}/CommonEvents.rxdata")
 
 # Marshal 鏃舵墦鍗版瘡涓璞＄殑绫诲悕 (trace)

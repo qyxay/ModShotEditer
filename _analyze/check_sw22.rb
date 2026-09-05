@@ -1,6 +1,7 @@
+ROOT = File.expand_path('..', __dir__)
 require_relative 'oneshot_data'
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
 
 module Input
   def self.trigger?(*); false; end
@@ -34,7 +35,7 @@ class Window_Settings
   def update; end
   def dispose; end
 end
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/dev_settings.rb'
+load "#{ROOT}/OneShot/mods/mod/Scripts/dev_settings.rb"
 
 [120, 225].each do |mid|
   map = os_load_map(mid)

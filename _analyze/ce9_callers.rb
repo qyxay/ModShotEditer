@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 require_relative 'oneshot_data'
 
 module RPG
@@ -6,7 +7,7 @@ module RPG
   end
 end
 
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 ces = Marshal.load(File.binread("#{DATA2}/CommonEvents.rxdata"))
 
 puts "===== trigger=1 公共事件的名字 ====="

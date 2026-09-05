@@ -1,8 +1,9 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  验证: 真实 Game_Event 是否有 list 方法 / 101 检测方式
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
 require_relative 'oneshot_data'
 
 # --- 桩环境 (Game_Event 需要) ---
@@ -32,9 +33,9 @@ end
 
 # 加载真实 Game_Character (3段) + Game_Event
 3.times do |i|
-  load format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/%03d_Game_Character_%d.rb', 18 + i, i + 1)
+  load format("#{ROOT}/_scripts_dump/%03d_Game_Character_%d.rb", 18 + i, i + 1)
 end
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/021_Game_Event.rb'
+load "#{ROOT}/_scripts_dump/021_Game_Event.rb"
 
 map = os_load_map(225)
 evs = map.instance_variable_get(:@events)

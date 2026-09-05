@@ -1,3 +1,4 @@
+ROOT = File.expand_path('..', __dir__)
 require_relative 'oneshot_data'
 
 module RPG
@@ -20,7 +21,7 @@ end
 # 找使用变量6/8/9 的脚本/事件 (传送读取)
 puts ""
 puts "===== 找读取变量 6/8/9 的传送逻辑 ====="
-DATA2 = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/Data'
+DATA2 = "#{ROOT}/OneShot/Data"
 # 全地图扫 201 传送 + 变量使用
 total_201 = 0
 Dir.glob("#{DATA2}/Map*.rxdata").each do |f|

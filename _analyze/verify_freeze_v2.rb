@@ -1,11 +1,12 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时验证 v2: 用真实 xscripts 源码验证冻结补丁
 #  加载顺序与真实一致: 先 load jump_map.rb (TracePoint),
 #  再 load 真实的 Game_Character/Game_Event 源码。
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 require 'json'
 
@@ -63,10 +64,10 @@ class Bitmap; attr_accessor :font; class Font; attr_accessor :size; end; def ini
 class Color; def initialize(*); end; end
 class Tone; def initialize(*); end; end
 
-SCRIPT = 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump'
+SCRIPT = "#{ROOT}/_scripts_dump"
 
 # --- 先 load jump_map.rb (与真实 preload 顺序一致) ---
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/jump_map.rb'
+load "#{ROOT}/OneShot/mods/mod/Scripts/jump_map.rb"
 
 # --- 再 load 真实 Game_Character 和 Game_Event 源码 ---
 # (Game_Character 拆成 3 段: 018/019/020)

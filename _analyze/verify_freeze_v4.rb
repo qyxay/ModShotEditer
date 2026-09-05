@@ -1,10 +1,11 @@
+ROOT = File.expand_path('..', __dir__)
 # ============================================================
 #  临时验证 v4: Game_Player 触发拦截补丁
 #  用真实 Game_Character/Game_Event/Game_Player 源码
 # ============================================================
 
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0')
-$LOAD_PATH.unshift('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/runtime/lib/ruby/3.1.0/x64-mingw64')
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0")
+$LOAD_PATH.unshift("#{ROOT}/runtime/lib/ruby/3.1.0/x64-mingw64")
 
 require 'json'
 
@@ -60,17 +61,17 @@ class Sprite; attr_accessor :bitmap,:x,:y,:opacity,:visible,:z,:viewport; def in
 class Bitmap; attr_accessor :font; class Font; attr_accessor :size; end; def initialize(*); @font=Font.new; end; def width; 0; end; def height; 0; end; def dispose; end; end
 
 # --- load jump_map.rb (含新补丁) ---
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/OneShot/mods/mod/Scripts/jump_map.rb'
+load "#{ROOT}/OneShot/mods/mod/Scripts/jump_map.rb"
 
 # --- load 真实 Game_Character / Game_Event / Game_Player ---
 3.times do |i|
-  load format('C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/%03d_Game_Character_%d.rb', 18 + i, i + 1)
+  load format("#{ROOT}/_scripts_dump/%03d_Game_Character_%d.rb", 18 + i, i + 1)
 end
-load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/021_Game_Event.rb'
+load "#{ROOT}/_scripts_dump/021_Game_Event.rb"
 
 # Game_Player 需要 Game_Follower 依赖吗? 试加载
 begin
-  load 'C:/Users/Qyxay/Desktop/onehsot/ModShot-mkxp-z/_scripts_dump/022_Game_Player.rb'
+  load "#{ROOT}/_scripts_dump/022_Game_Player.rb"
   puts "loaded 022_Game_Player"
 rescue => e
   puts "022 FAILED: #{e.class}: #{e.message}"
