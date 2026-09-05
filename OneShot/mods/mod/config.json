@@ -4,7 +4,7 @@
   "skip_dialogue": false,
   "skip_choice": false,
   "skip_uneasy": true,
-  "skip_event": false,
+  "skip_event": true,
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true,

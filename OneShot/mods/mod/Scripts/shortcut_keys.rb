@@ -6,6 +6,14 @@
 #    Ctrl+J → 打开跳地图
 #  基于 mkxp-z 扩展 Input.pressex?/triggerex?(SDL scancode 符号)。
 #
+#  事件/对话运行中可用性 (由 config 开关控制):
+#    "always_settings": true → 任何事件/对话进行中都可 Ctrl+D
+#    "always_travel":   true → 任何事件/对话进行中都可 Ctrl+J
+#  界面打开后拦截 Scene_Map#update 的 super, 暂停游戏(事件/玩家/地图/
+#  消息窗口), 只更新 dev_settings/jump_map 界面; 关闭后事件从暂停处继续。
+#  转场/传送中(transition_processing / player_transferring)仍禁用, 避免
+#  干扰 Graphics.freeze/transition 流程。
+#
 #  纯 preload 实现, 不修改游戏原始文件。
 #  用 TracePoint(:end) 监听 Scene_Map 类定义, 在 update 就绪后
 #  用 Module#prepend 打补丁。
@@ -15,23 +23,33 @@
 #    jump_map.rb 提供 Window_JumpMap (open_jump_map)
 # ============================================================
 
+# --- 读取 always_* 开关 (事件运行中是否放行对应快捷键) ---
+$always_settings_enabled = ($mod_config && $mod_config["always_settings"]) ? true : false
+$always_travel_enabled   = ($mod_config && $mod_config["always_travel"])   ? true : false
+
 # ============================================================
 #  实现要点:
-#   * 监听点: Scene_Map#update 开头(prepend)。仅在地图场景、非对话/转场/
-#     事件运行中响应, 避免打断剧情。
+#   * 监听点: Scene_Map#update 开头(prepend)。
+#   * 界面打开时拦截: 若 dev_settings 可见(含 jump_map 子界面), 直接
+#     ds.update + return, 不调用 super —— 事件解释器/玩家/地图/消息窗口
+#     全部暂停, 避免事件在后台继续推进。关闭后 super 恢复执行, 事件续跑。
 #   * 按键 API: mkxp-z 扩展 Input.pressex?/Input.triggerex? 接受 SDL scancode
 #     符号(:LCTRL/:RCTRL/:D/:J)。若运行时无该扩展则回退 Input.press?(Input::CTRL),
 #     Ctrl+D/J 将不可用(见状态文件记录的 API 探测)。
 #   * 打开方式: 把 Window_DevSettings 实例挂到 @window_settings 的 dev_settings
-#     槽位, 由 WindowSettingsDevPatch#update 统一接管输入并 return; 同时把设置
-#     窗口置可见, 复用 Scene_Map 原逻辑(屏蔽菜单打开 + 玩家停止移动)。
-#     dev_settings 全屏不透明黑底盖住下层, 视觉上就是直接进入开发者设置。
+#     槽位, 同时把设置窗口置可见; dev_settings 全屏不透明黑底盖住下层。
 #   * 关闭: dev_settings 按 CANCEL → on_closed 回调恢复设置窗口(visible=false
 #     并清槽位), 玩家回到游戏, 不残留设置界面。
 # ============================================================
 module ShortcutKeysPatch
   def update
     begin
+      ds = $dev_settings_instance
+      if ds && ds.visible
+        # dev_settings 打开中(含 jump_map 子界面): 暂停游戏, 只更新界面输入
+        ds.update
+        return
+      end
       shortcut_handle
     rescue StandardError
       # 快捷键异常不影响主流程
@@ -42,34 +60,41 @@ module ShortcutKeysPatch
   private
 
   def shortcut_handle
-    # 开发者设置已打开(无论谁打开的): 输入由 WindowSettingsDevPatch 接管, 不重复响应
+    # 开发者设置已打开(无论谁打开的): 输入由本 update 拦截接管, 不重复响应
     ds = $dev_settings_instance
     return if ds && ds.visible
     return unless shortcut_available?
 
     ctrl = ctrl_pressed?
+    in_event = event_running?
     if ctrl && key_triggered?(:D) && $dev_settings_enabled
+      # 事件/对话运行中需 always_settings 放行
+      return if in_event && !$always_settings_enabled
       open_dev_settings_shortcut
     elsif ctrl && key_triggered?(:J)
+      # 事件/对话运行中需 always_travel 放行
+      return if in_event && !$always_travel_enabled
       open_jump_map_shortcut
     end
   end
 
-  # 快捷键可响应条件: 在地图上、非对话/转场/事件运行中
+  # 基础可响应条件: 在地图上、非转场/传送中
+  # (事件/对话运行中的放行由 always_settings/always_travel 在 shortcut_handle 中控制)
   def shortcut_available?
     return false unless $game_map && $game_player
-    return false if $game_temp.message_window_showing
     return false if $game_temp.transition_processing
     return false if $game_temp.player_transferring
-    if @message_window && @message_window.visible
-      return false
-    end
-    if @ed_message && @ed_message.visible
-      return false
-    end
-    mi = $game_system ? $game_system.map_interpreter : nil
-    return false if mi && mi.running?
     true
+  end
+
+  # 是否处于事件/对话运行中 (mi.running? 或任意消息窗口可见)
+  def event_running?
+    return true if $game_temp.message_window_showing
+    return true if @message_window && @message_window.visible
+    return true if @ed_message && @ed_message.visible
+    mi = $game_system ? $game_system.map_interpreter : nil
+    return true if mi && mi.running?
+    false
   end
 
   # Ctrl 按住检测: 优先 mkxp-z 扩展, 回退标准 API
@@ -131,5 +156,8 @@ StatusLog.write('shortcut_keys_status.txt', [
   "shortcut_keys loaded at = #{Time.now}",
   "shortcut_ctrl_d = #{$dev_settings_enabled} (open dev settings)",
   "shortcut_ctrl_j = true (open jump map)",
+  "always_settings = #{$always_settings_enabled} (allow Ctrl+D during events/dialogue)",
+  "always_travel = #{$always_travel_enabled} (allow Ctrl+J during events/dialogue)",
+  "event_pause = intercept super while dev_settings visible (pause interpreter/player/map)",
   "input_api = pressex?#{Input.respond_to?(:pressex?)}, triggerex?#{Input.respond_to?(:triggerex?)}"
 ])

@@ -30,7 +30,6 @@ $dev_settings_enabled = config["is_developer"] ? true : false
 CONFIG_PATH = File.join(__dir__, '..', 'config.json')
 
 # config.json 键 → mod 全局开关变量 映射(白名单, 用于实时同步)
-# always_travel / always_settings 暂无对应脚本消费, 仅写回文件
 GLOBAL_SYNC = {
   'skip_pictures' => '$is_skip_picture',
   'quit_all_time' => '$quit_all_time_enabled',
@@ -38,6 +37,8 @@ GLOBAL_SYNC = {
   'skip_choice'   => '$skip_choice_enabled',
   'skip_uneasy'   => '$skip_uneasy_enabled',
   'skip_event'    => '$skip_event_enabled',
+  'always_settings' => '$always_settings_enabled',
+  'always_travel'   => '$always_travel_enabled',
   'unshow_title'  => '$unshow_title_enabled',
   'is_developer'  => '$dev_settings_enabled'
 }
