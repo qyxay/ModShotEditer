@@ -49,6 +49,16 @@ end
 
 skip_event_load_config
 
+# --- 诊断 trace (写入 skip_trace.log) ---
+def skip_event_trace(msg)
+  begin
+    File.open(File.join(__dir__, '..', 'logs', 'skip_trace.log'), 'a') do |f|
+      f.puts "[#{Time.now.strftime('%H:%M:%S.%L')}] #{msg}"
+    end
+  rescue StandardError
+  end
+end
+
 # --- 补丁 1: 事件快进 (skip_event=true) ---
 # 在 execute_command 层拦截"等待类"命令并跳过, 事件其余命令照常执行。
 # 注意: 101/102 的 @index 处理与 skip_dialogue 相同 —— 101 时把 @index
@@ -56,31 +66,52 @@ skip_event_load_config
 # 105/106/230 直接 return(靠 update 的 +1 进入下一条)。
 module SkipEventFastForwardPatch
   def execute_command
-    if $skip_event_enabled && @index < @list.size && @list[@index]
-      case @list[@index].code
-      when 101, 401
-        @index += 1 while @index < @list.size - 1 && @list[@index + 1].code == 401
-        return true
-      when 102
-        @branch[0] = 0
-        return true
-      when 105
-        # 按钮输入(OneShot 定制 command_105): 等待玩家按键并把按键值存入
-        # 参数变量。快进时模拟"已按确认键"——把参数变量设为非 0(5)。
-        # 若不模拟, 依赖按键的 loop/条件分支(如 #15 Instructions 开场 CG:
-        # loop → 105 → 条件分支"变量22≠0"→ break)会因变量恒为 0 而死循环,
-        # 导致开场 CG 停留/反复展示。
-        var_id = @list[@index].parameters[0].to_i
-        $game_variables[var_id] = 5 if var_id > 0 && $game_variables
-        @button_input_variable_id = 0 if defined?(@button_input_variable_id)
-        return true
-      when 106, 230
-        return true
-      when 231, 232
-        # 显示图片(231)/画面效果(232) —— CG 过场类(如 #15 Instructions 开场
-        # 说明、动画 CG)在快进下也跳过, 避免 SW40 残留导致 CE15 反复启动时
-        # CG 图片反复闪现。231 跳过=图片从未显示, 无残留; 235 消除不跳过。
-        return true
+    if @index < @list.size && @list[@index]
+      code = @list[@index].code
+      if $skip_event_enabled
+        case code
+        when 101, 401
+          @index += 1 while @index < @list.size - 1 && @list[@index + 1].code == 401
+          skip_event_trace("SE_FAST c#{code} ev=#{@event_id} idx=#{@index}")
+          return true
+        when 102
+          @branch[0] = 0
+          skip_event_trace("SE_FAST c102 ev=#{@event_id} idx=#{@index}")
+          return true
+        when 105
+          # 按钮输入(OneShot 定制 command_105): 等待玩家按键并把按键值存入
+          # 参数变量。快进时模拟"已按确认键"——把参数变量设为非 0(5)。
+          # 若不模拟, 依赖按键的 loop/条件分支(如 #15 Instructions 开场 CG:
+          # loop → 105 → 条件分支"变量22≠0"→ break)会因变量恒为 0 而死循环,
+          # 导致开场 CG 停留/反复展示。
+          var_id = @list[@index].parameters[0].to_i
+          $game_variables[var_id] = 5 if var_id > 0 && $game_variables
+          @button_input_variable_id = 0 if defined?(@button_input_variable_id)
+          skip_event_trace("SE_FAST c105 ev=#{@event_id} idx=#{@index} var=#{var_id}")
+          return true
+        when 106, 230
+          skip_event_trace("SE_FAST c#{code} ev=#{@event_id} idx=#{@index}")
+          return true
+        when 231, 232
+          # 显示图片(231)/画面效果(232) —— CG 过场类(如 #15 Instructions 开场
+          # 说明、动画 CG)在快进下也跳过, 避免 SW40 残留导致 CE15 反复启动时
+          # CG 图片反复闪现。231 跳过=图片从未显示, 无残留; 235 消除不跳过。
+          skip_event_trace("SE_FAST c#{code} ev=#{@event_id} idx=#{@index}")
+          return true
+        when 207, 221, 222, 223, 224, 225
+          # 诊断: 动画/转场/色调/闪屏/震动 —— 暂不拦截, 只记录(确认"CG"是否这些)
+          skip_event_trace("SE_VIS c#{code} ev=#{@event_id} idx=#{@index}")
+        when 355
+          txt = @list[@index].parameters[0].to_s
+          if txt =~ /Graphics|picture|Scene|transition|smooth|splash/i
+            skip_event_trace("SE_355 ev=#{@event_id} idx=#{@index} #{txt[0, 60]}")
+          end
+        end
+      else
+        # 诊断: skip_event 关闭时记录关键命令的到达(确认运行时开关状态)
+        if [101, 105, 231].include?(code)
+          skip_event_trace("SE_OFF c#{code} ev=#{@event_id} idx=#{@index}")
+        end
       end
     end
     super
@@ -138,13 +169,96 @@ module SkipEventWatchdogPatch
   end
 end
 
+# --- 补丁 3: 记录"实际执行"的 231 显示图片命令 (诊断用) ---
+# skip_event 拦截 231 时 command_231 不执行、图片不显示; 若用户仍看到 CG,
+# 说明有 231 绕过了拦截 —— 这里记录所有真正执行的 231(含图片名), 直接定位。
+module SkipEventPictureLogger
+  def command_231
+    begin
+      name = (@list[@index].parameters[1].to_s rescue '')
+      skip_event_trace("PIC_ACTUAL c231 ev=#{@event_id} idx=#{@index} #{name}")
+    rescue StandardError
+    end
+    super
+  end
+end
+
+# --- 补丁 4: 残留 CG 图片兜底清除 (skip_event=true) ---
+# 读档(real_load)会恢复 $game_screen 图片状态: 若存档时开场 CG 图片
+# (如 cg_wake4=图片号2) 正在显示, 读档后它会残留覆盖屏幕, 且快进跳过
+# 了后续流程、可能没有 235 消除它 → "图片盖在屏幕上, 去不掉"。
+# 这里每帧检查: skip_event=true 时, 任何名字含 cg_wake/cg_tower/
+# instruction/felix 的显示中图片直接 erase(清空 name 即不绘制)。
+module SkipEventCgCleanerPatch
+  def update
+    begin
+      if $skip_event_enabled && $game_screen
+        pics = $game_screen.pictures
+        if pics
+          pics.each_with_index do |pic, i|
+            next unless pic
+            name = (pic.name.to_s rescue '')
+            next if name.empty?
+            if name =~ /cg_wake|cg_tower|instruction|felix|cg_niko_in_bed/i
+              skip_event_trace("SE_CLEAR_PIC num=#{i} name=#{name}")
+              pic.erase
+            end
+          end
+        end
+      end
+    rescue StandardError
+      # 兜底清除异常不影响主流程
+    end
+    super
+  end
+end
+
+# --- 补丁 5: 读档后立即清除残留 CG 图片 (skip_event=true) ---
+# 每帧兜底清除有一帧延迟(读档恢复图片 → 下一帧才清 → 用户看到"一瞬间")。
+# 这里 prepend 全局方法 real_load: 读档(load)完成、画面恢复前立即清除,
+# 使 CG 图片连一帧都不显示。
+module SkipEventRealLoadPatch
+  def real_load
+    result = super
+    begin
+      if $skip_event_enabled && $game_screen
+        pics = $game_screen.pictures
+        if pics
+          pics.each_with_index do |pic, i|
+            next unless pic
+            name = (pic.name.to_s rescue '')
+            if !name.empty? && name =~ /cg_wake|cg_tower|instruction|felix|cg_niko_in_bed/i
+              skip_event_trace("SE_CLEAR_AFTER_LOAD num=#{i} name=#{name}")
+              pic.erase
+            end
+          end
+        end
+      end
+    rescue StandardError
+    end
+    result
+  end
+end
+
+Object.prepend(SkipEventRealLoadPatch)
+
 # --- 等待类定义完成后 prepend 补丁 ---
 PatchHelper.install('Interpreter', methods: [:execute_command]) do |k|
   k.prepend(SkipEventFastForwardPatch)
+  skip_event_trace("SE_MOUNTED Interpreter#execute_command (skip_event_enabled=#{$skip_event_enabled})")
+end
+
+PatchHelper.install('Interpreter', methods: [:command_231]) do |k|
+  k.prepend(SkipEventPictureLogger)
+  skip_event_trace("SE_MOUNTED_PICLOG Interpreter#command_231")
 end
 
 PatchHelper.install('Scene_Map', methods: [:update]) do |k|
   k.prepend(SkipEventWatchdogPatch)
+end
+
+PatchHelper.install('Scene_Map', methods: [:update]) do |k|
+  k.prepend(SkipEventCgCleanerPatch)
 end
 
 # --- 写状态文件 ---
