@@ -214,8 +214,8 @@ function renderPositionPanel() {
   group.innerHTML = `
     <div class="row">
       <div class="label">
-        <div class="name">当前位置</div>
-        <div class="key" id="pos-current">等待游戏数据...</div>
+        <div class="name">玩家当前位置</div>
+        <div class="key" id="pos-player">等待游戏数据...</div>
         <div class="help" id="pos-time"></div>
       </div>
       <div class="control">
@@ -224,47 +224,115 @@ function renderPositionPanel() {
     </div>
     <div class="row">
       <div class="label">
-        <div class="name">传送到</div>
-        <div class="help">输入目标位置后点击传送</div>
+        <div class="name">传送玩家到</div>
+        <div class="help">跨地图传送, 输入目标位置后点击传送</div>
       </div>
       <div class="control">
         <input type="number" id="goto-map" placeholder="地图" style="width:60px">
         <input type="number" id="goto-x" placeholder="X" style="width:50px">
         <input type="number" id="goto-y" placeholder="Y" style="width:50px">
         <select id="goto-dir" style="width:56px">
-          <option value="2">下</option>
-          <option value="4">左</option>
-          <option value="6">右</option>
-          <option value="8">上</option>
+          <option value="2">下</option><option value="4">左</option>
+          <option value="6">右</option><option value="8">上</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="label"><div class="help">传送立即生效; 设为出生点修改 spawn_override (新游戏开场生效)</div></div>
+      <div class="control">
+        <button class="reset-btn" onclick="doGoto()" style="padding:4px 14px">传送</button>
+        <button class="reset-btn" onclick="setSpawnFromCurrent()" style="padding:4px 14px">设为出生点</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="label">
+        <div class="name">当前地图事件</div>
+        <div class="help" id="event-count">等待游戏数据...</div>
+      </div>
+      <div class="control">
+        <select id="event-select" style="width:200px" onchange="onEventSelect()">
+          <option value="">-- 选择事件 --</option>
         </select>
       </div>
     </div>
     <div class="row">
       <div class="label">
-        <div class="help">传送立即生效; 设为出生点会修改 spawn_override 设置(新游戏开场生效)</div>
+        <div class="name">移动事件到</div>
+        <div class="help">仅在当前地图内移动事件位置</div>
       </div>
       <div class="control">
-        <button class="reset-btn" onclick="doGoto()" style="padding:4px 14px">传送</button>
-        <button class="reset-btn" onclick="setSpawnFromCurrent()" style="padding:4px 14px">设为出生点</button>
+        <input type="number" id="event-x" placeholder="X" style="width:50px">
+        <input type="number" id="event-y" placeholder="Y" style="width:50px">
+        <select id="event-dir" style="width:56px">
+          <option value="2">下</option><option value="4">左</option>
+          <option value="6">右</option><option value="8">上</option>
+        </select>
+        <button class="reset-btn" onclick="doMoveEvent()" style="padding:4px 14px">移动</button>
       </div>
     </div>`;
   return group;
 }
 
-let currentPos = null;
+let currentData = null;
 async function refreshPosition() {
   try {
     const r = await fetch("/current_position");
     if (r.ok) {
-      currentPos = await r.json();
-      const dirName = {2:"下",4:"左",6:"右",8:"上"}[currentPos.dir] || currentPos.dir;
-      $("pos-current").textContent = `地图 ${currentPos.map_id}  (${currentPos.x}, ${currentPos.y})  方向: ${dirName}`;
-      $("pos-time").textContent = `更新于 ${currentPos.updated_at || ""}`;
+      currentData = await r.json();
+      const p = currentData.player || {};
+      $("pos-player").textContent = `地图 ${p.map_id}  (${p.x}, ${p.y})  方向: ${p.dir_name || p.dir}`;
+      $("pos-time").textContent = `更新于 ${currentData.updated_at || ""}`;
+
+      const events = currentData.events || [];
+      $("event-count").textContent = `共 ${events.length} 个事件`;
+      const sel = $("event-select");
+      const prev = sel.value;
+      sel.innerHTML = '<option value="">-- 选择事件 --</option>';
+      events.forEach(ev => {
+        const opt = document.createElement("option");
+        opt.value = ev.id;
+        opt.textContent = `#${ev.id} ${ev.name} (${ev.x},${ev.y}) ${ev.dir_name || ""}`;
+        sel.appendChild(opt);
+      });
+      sel.value = prev;
     } else {
-      $("pos-current").textContent = "游戏未运行或位置未同步";
+      $("pos-player").textContent = "游戏未运行或位置未同步";
     }
   } catch (e) {
-    $("pos-current").textContent = "连接失败";
+    $("pos-player").textContent = "连接失败";
+  }
+}
+
+function onEventSelect() {
+  const id = parseInt($("event-select").value);
+  if (!id || !currentData) return;
+  const ev = (currentData.events || []).find(e => e.id === id);
+  if (ev) {
+    $("event-x").value = ev.x;
+    $("event-y").value = ev.y;
+    $("event-dir").value = ev.dir;
+  }
+}
+
+async function doMoveEvent() {
+  const event_id = parseInt($("event-select").value);
+  const x = parseInt($("event-x").value);
+  const y = parseInt($("event-y").value);
+  const dir = parseInt($("event-dir").value);
+  if (!event_id || isNaN(x) || isNaN(y)) {
+    alert("请先选择事件并填写 X、Y 坐标");
+    return;
+  }
+  try {
+    await fetch("/goto", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({target: "event", event_id, x, y, dir})
+    });
+    setStatus("事件移动请求已发送", "saved");
+    setTimeout(refreshPosition, 500);
+  } catch (e) {
+    setStatus("移动失败", "error");
   }
 }
 
@@ -281,7 +349,7 @@ async function doGoto() {
     await fetch("/goto", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({map_id, x, y, dir})
+      body: JSON.stringify({target: "player", map_id, x, y, dir})
     });
     setStatus("传送请求已发送", "saved");
   } catch (e) {
@@ -290,17 +358,18 @@ async function doGoto() {
 }
 
 async function setSpawnFromCurrent() {
-  if (!currentPos) {
+  if (!currentData || !currentData.player) {
     alert("请先刷新获取当前位置");
     return;
   }
+  const p = currentData.player;
   values["spawn.enabled"] = true;
-  values["spawn.map_id"] = currentPos.map_id;
-  values["spawn.x"] = currentPos.x;
-  values["spawn.y"] = currentPos.y;
-  values["spawn.dir"] = currentPos.dir;
+  values["spawn.map_id"] = p.map_id;
+  values["spawn.x"] = p.x;
+  values["spawn.y"] = p.y;
+  values["spawn.dir"] = p.dir;
   scheduleSave();
-  alert(`已设为出生点: 地图${currentPos.map_id} (${currentPos.x},${currentPos.y})`);
+  alert(`已设为出生点: 地图${p.map_id} (${p.x},${p.y})`);
 }
 
 function renderRow(def) {

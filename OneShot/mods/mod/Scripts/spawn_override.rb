@@ -49,6 +49,10 @@ module SpawnOverridePatch
       @parameters[4] = $spawn_override_dir  # 方向
       StatusLog.append('spawn_override.log',
         "override map1 ev1 201: map258(10,20) → map#{$spawn_override_map_id}(#{$spawn_override_x},#{$spawn_override_y}) dir=#{$spawn_override_dir}")
+      super
+      # 方案A: 传送后跳过 autorun 事件的玩家移动路线, 避免覆盖出生位置
+      PositionSync.set_skip_targets([:player], 2) if defined?(PositionSync)
+      return
     end
     super
   end
