@@ -156,7 +156,6 @@ class Window_JumpMap
           # 开启自由浏览模式: 冻结目标地图的 autorun, 避免剧情事件锁住玩家
           if JUMP_MAP_FREEZE_AUTORUN
             $jump_map_free_mode = true
-            $jump_map_frozen_map_id = @transfer_player[:id]
             # 清掉 transfer 过程中可能残留运行的地图事件解释器
             if $game_system && $game_system.map_interpreter
               $game_system.map_interpreter.clear
