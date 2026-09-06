@@ -13,6 +13,9 @@
 #  热重载:   每帧检测文件 mtime，变化自动 reload + apply
 # ============================================================
 
+require 'json'
+require 'fileutils'
+
 # --- 设置项定义 ---
 class SettingDef
   attr_accessor :key, :label, :type, :default, :min, :max,
@@ -132,15 +135,17 @@ end
 
 # --- JSON 存储 + 热重载 ---
 module SettingStore
-  SETTINGS_DIR = "OneShot/mods/mod/settings"
-  RUNTIME_FILE = "#{SETTINGS_DIR}/runtime.json"
+  # 基于脚本所在目录的绝对路径 (Scripts/../settings/)
+  # 不依赖游戏工作目录, 避免相对路径导致 Dir.mkdir 崩溃
+  SETTINGS_DIR = File.join(__dir__, '..', 'settings')
+  RUNTIME_FILE = File.join(SETTINGS_DIR, 'runtime.json')
 
   @values = {}
   @last_mtime = nil
   @loaded = false
 
   def self.ensure_dir
-    Dir.mkdir(SETTINGS_DIR) unless Dir.exist?(SETTINGS_DIR)
+    FileUtils.mkdir_p(SETTINGS_DIR) unless Dir.exist?(SETTINGS_DIR)
   end
 
   # 从文件加载 (不触发 apply)
@@ -255,7 +260,7 @@ module SettingStore
     return if @schema_exported
     @schema_exported = true
     ensure_dir
-    schema_path = "#{SETTINGS_DIR}/schema.json"
+    schema_path = File.join(SETTINGS_DIR, 'schema.json')
     begin
       File.write(schema_path, JSON.pretty_generate(SettingRegistry.export_schema), encoding: "UTF-8")
       StatusLog.append("settings.log", "schema exported: #{SettingRegistry.size} settings")
