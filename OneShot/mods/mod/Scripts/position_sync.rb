@@ -124,7 +124,7 @@ module PositionSync
         ev = $game_map.events[event_id] if $game_map
         if ev
           ev.moveto(x, y)
-          ev.set_direction(dir)
+          ev.direction = dir  # Game_Event 没有 set_direction, 直接赋值
           set_skip_targets([event_id], 2)  # 跳过针对该事件的移动路线
           StatusLog.append("settings.log", "goto event##{event_id}: (#{x},#{y}) dir=#{dir}")
         else
@@ -165,6 +165,6 @@ module PositionSyncCommand209Patch
   end
 end
 
-PatchHelper.install("Game_Interpreter", methods: [:command_209]) do |k|
+PatchHelper.install("Interpreter", methods: [:command_209]) do |k|
   k.prepend(PositionSyncCommand209Patch)
 end
