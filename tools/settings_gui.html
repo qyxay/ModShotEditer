@@ -258,6 +258,7 @@ function renderSpawnPanel() {
       <div class="row">
         <button class="primary" onclick="saveSpawn()">保存</button>
         <button onclick="useCurrentPos()">使用当前玩家位置</button>
+        <button class="primary" onclick="gotoSpawn()">传送到此落点</button>
         <button class="danger" onclick="deleteSpawn()">删除此落点</button>
       </div>
     </div>
@@ -282,6 +283,14 @@ async function useCurrentPos() {
   document.getElementById("spawn-x").value = p.x;
   document.getElementById("spawn-y").value = p.y;
   document.getElementById("spawn-dir").value = p.dir;
+}
+
+async function gotoSpawn() {
+  const mapId = parseInt(selectedSpawnMap);
+  const x = parseInt(document.getElementById("spawn-x").value);
+  const y = parseInt(document.getElementById("spawn-y").value);
+  const dir = parseInt(document.getElementById("spawn-dir").value);
+  await postJSON(API + "/goto", {target: "player", map_id: mapId, x: x, y: y, dir: dir});
 }
 
 async function deleteSpawn() {
