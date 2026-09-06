@@ -121,6 +121,7 @@ def open_app_window():
             subprocess.Popen([
                 browser,
                 f"--app={url}",
+                "--new-window",
                 "--window-size=760,600",
             ], close_fds=True)
             print(f"已打开面板: {browser} --app")
