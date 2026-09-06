@@ -1,12 +1,19 @@
 {
   "skip_pictures": true,
   "quit_all_time": true,
-  "skip_dialogue": false,
-  "skip_choice": false,
+  "skip_dialogue": true,
+  "skip_choice": true,
   "skip_uneasy": true,
-  "skip_event": "off",
+  "skip_event": "block",
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true,
-  "is_developer": true
+  "is_developer": true,
+  "spawn_override": {
+    "enabled": false,
+    "map_id": 258,
+    "x": 10,
+    "y": 19,
+    "dir": 2
+  }
 }
