@@ -144,15 +144,19 @@ async function load() {
   setStatus("加载中...", "saving");
   try {
     const [sr, vr] = await Promise.all([fetch("/schema"), fetch("/settings")]);
-    if (!sr.ok) {
-      const e = await sr.json().catch(() => ({}));
-      showError(e.error || "schema.json 不存在");
-      return;
+    if (sr.ok) {
+      schema = await sr.json();
+      values = await vr.json().catch(() => ({}));
+      setStatus("已加载", "saved");
+    } else {
+      // schema 不存在时也显示位置面板 (位置功能不依赖 schema)
+      schema = {categories: [], settings: []};
+      values = {};
+      setStatus("schema未生成(位置可用)", "saving");
     }
-    schema = await sr.json();
-    values = await vr.json().catch(() => ({}));
     render();
-    setStatus("已加载", "saved");
+    refreshPosition();
+    setInterval(refreshPosition, 1500);  // 自动刷新当前位置
   } catch (e) {
     showError("连接失败: " + e.message);
   }
@@ -166,27 +170,137 @@ function showError(msg) {
 function render() {
   const tabs = $("tabs");
   tabs.innerHTML = "";
-  schema.categories.forEach((cat, i) => {
+
+  // 位置 tab (硬编码, 不在 schema 里)
+  const posBtn = document.createElement("button");
+  posBtn.textContent = "位置";
+  posBtn.classList.add("active");
+  activeCat = "位置";
+  posBtn.onclick = () => switchTab("位置");
+  tabs.appendChild(posBtn);
+
+  schema.categories.forEach(cat => {
     const btn = document.createElement("button");
     btn.textContent = cat;
-    if (i === 0) { btn.classList.add("active"); activeCat = cat; }
-    btn.onclick = () => {
-      activeCat = cat;
-      document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("active", b.textContent === cat));
-      document.querySelectorAll(".group").forEach(g => g.classList.toggle("active", g.dataset.cat === cat));
-    };
+    btn.onclick = () => switchTab(cat);
     tabs.appendChild(btn);
   });
 
   const content = $("content");
   content.innerHTML = "";
+
+  // 位置面板
+  content.appendChild(renderPositionPanel());
+
   schema.categories.forEach(cat => {
     const group = document.createElement("div");
-    group.className = "group" + (cat === activeCat ? " active" : "");
+    group.className = "group";
     group.dataset.cat = cat;
     schema.settings.filter(s => s.category === cat).forEach(d => group.appendChild(renderRow(d)));
     content.appendChild(group);
   });
+}
+
+function switchTab(cat) {
+  activeCat = cat;
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("active", b.textContent === cat));
+  document.querySelectorAll(".group").forEach(g => g.classList.toggle("active", g.dataset.cat === cat));
+}
+
+function renderPositionPanel() {
+  const group = document.createElement("div");
+  group.className = "group active";
+  group.dataset.cat = "位置";
+  group.innerHTML = `
+    <div class="row">
+      <div class="label">
+        <div class="name">当前位置</div>
+        <div class="key" id="pos-current">等待游戏数据...</div>
+        <div class="help" id="pos-time"></div>
+      </div>
+      <div class="control">
+        <button class="reset-btn" onclick="refreshPosition()" style="padding:4px 10px">刷新</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="label">
+        <div class="name">传送到</div>
+        <div class="help">输入目标位置后点击传送</div>
+      </div>
+      <div class="control">
+        <input type="number" id="goto-map" placeholder="地图" style="width:60px">
+        <input type="number" id="goto-x" placeholder="X" style="width:50px">
+        <input type="number" id="goto-y" placeholder="Y" style="width:50px">
+        <select id="goto-dir" style="width:56px">
+          <option value="2">下</option>
+          <option value="4">左</option>
+          <option value="6">右</option>
+          <option value="8">上</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="label">
+        <div class="help">传送立即生效; 设为出生点会修改 spawn_override 设置(新游戏开场生效)</div>
+      </div>
+      <div class="control">
+        <button class="reset-btn" onclick="doGoto()" style="padding:4px 14px">传送</button>
+        <button class="reset-btn" onclick="setSpawnFromCurrent()" style="padding:4px 14px">设为出生点</button>
+      </div>
+    </div>`;
+  return group;
+}
+
+let currentPos = null;
+async function refreshPosition() {
+  try {
+    const r = await fetch("/current_position");
+    if (r.ok) {
+      currentPos = await r.json();
+      const dirName = {2:"下",4:"左",6:"右",8:"上"}[currentPos.dir] || currentPos.dir;
+      $("pos-current").textContent = `地图 ${currentPos.map_id}  (${currentPos.x}, ${currentPos.y})  方向: ${dirName}`;
+      $("pos-time").textContent = `更新于 ${currentPos.updated_at || ""}`;
+    } else {
+      $("pos-current").textContent = "游戏未运行或位置未同步";
+    }
+  } catch (e) {
+    $("pos-current").textContent = "连接失败";
+  }
+}
+
+async function doGoto() {
+  const map_id = parseInt($("goto-map").value);
+  const x = parseInt($("goto-x").value);
+  const y = parseInt($("goto-y").value);
+  const dir = parseInt($("goto-dir").value);
+  if (!map_id || isNaN(x) || isNaN(y)) {
+    alert("请填写完整的地图ID、X、Y坐标");
+    return;
+  }
+  try {
+    await fetch("/goto", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({map_id, x, y, dir})
+    });
+    setStatus("传送请求已发送", "saved");
+  } catch (e) {
+    setStatus("传送失败", "error");
+  }
+}
+
+async function setSpawnFromCurrent() {
+  if (!currentPos) {
+    alert("请先刷新获取当前位置");
+    return;
+  }
+  values["spawn.enabled"] = true;
+  values["spawn.map_id"] = currentPos.map_id;
+  values["spawn.x"] = currentPos.x;
+  values["spawn.y"] = currentPos.y;
+  values["spawn.dir"] = currentPos.dir;
+  scheduleSave();
+  alert(`已设为出生点: 地图${currentPos.map_id} (${currentPos.x},${currentPos.y})`);
 }
 
 function renderRow(def) {

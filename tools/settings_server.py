@@ -21,6 +21,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SETTINGS_DIR = ROOT / "OneShot" / "mods" / "mod" / "settings"
 SCHEMA_FILE = SETTINGS_DIR / "schema.json"
 RUNTIME_FILE = SETTINGS_DIR / "runtime.json"
+CURRENT_FILE = SETTINGS_DIR / "current_position.json"
+GOTO_FILE = SETTINGS_DIR / "goto_request.json"
 HTML_FILE = Path(__file__).resolve().parent / "settings_gui.html"
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
@@ -63,6 +65,11 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_file(RUNTIME_FILE, "application/json; charset=utf-8")
             else:
                 self._send_json({}, 200)
+        elif self.path == "/current_position":
+            if CURRENT_FILE.exists():
+                self._send_file(CURRENT_FILE, "application/json; charset=utf-8")
+            else:
+                self._send_json({"error": "游戏未运行或位置未同步"}, 404)
         else:
             self.send_error(404)
 
@@ -79,6 +86,18 @@ class Handler(BaseHTTPRequestHandler):
             RUNTIME_FILE.write_text(
                 json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
             self._send_json({"ok": True, "count": len(data)})
+        elif self.path == "/goto":
+            length = int(self.headers.get("Content-Length", 0))
+            raw = self.rfile.read(length)
+            try:
+                data = json.loads(raw.decode("utf-8"))
+            except Exception as e:
+                self._send_json({"error": str(e)}, 400)
+                return
+            SETTINGS_DIR.mkdir(parents=True, exist_ok=True)
+            GOTO_FILE.write_text(
+                json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            self._send_json({"ok": True, "goto": data})
         else:
             self.send_error(404)
 
