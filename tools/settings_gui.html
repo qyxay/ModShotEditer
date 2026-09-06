@@ -76,6 +76,8 @@ async function fetchJSON(url) {
   try {
     const r = await fetch(url);
     if (!r.ok) return null;
+    const ct = r.headers.get("Content-Type") || "";
+    if (!ct.includes("json")) return null;
     return await r.json();
   } catch(e) { return null; }
 }
@@ -236,7 +238,7 @@ function renderSpawnPanel() {
   const s = currentData.mapSpawns[selectedSpawnMap] || {enabled:true, x:0, y:0, dir:2};
   return `
     <div class="panel-title">地图落点 - 地图 ${selectedSpawnMap}</div>
-    <div style="color:#666;margin-bottom:12px;">传送到达此地图时, 玩家将被放置到以下位置 (不受 autorun 事件移动影响)</div>
+    <div style="color:#666;margin-bottom:12px;">通过面板 goto (jump_map) 传送到达此地图时, 玩家将被放置到以下位置 (不受 autorun 事件移动影响). 门/事件传送不受影响.</div>
     <div class="section">
       <div class="checkbox-row">
         <input type="checkbox" id="spawn-enabled" ${s.enabled?"checked":""}>

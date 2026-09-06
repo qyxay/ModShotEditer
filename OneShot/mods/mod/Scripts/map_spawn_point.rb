@@ -45,41 +45,8 @@ module MapSpawnPoint
   def self.all
     @config
   end
-
-  # 检测传送到达新地图, 应用落点配置
-  def self.check_and_apply
-    return unless $game_map && $game_player
-    current_map = $game_map.map_id
-    if @last_map_id != current_map
-      spawn = get(current_map)
-      if spawn && spawn["enabled"]
-        x = spawn["x"].to_i
-        y = spawn["y"].to_i
-        dir = spawn["dir"].to_i
-        dir = 2 unless [2, 4, 6, 8].include?(dir)
-        $game_player.moveto(x, y)
-        $game_player.direction = dir
-        # 方案A: 阻止目标地图 autorun 事件的强制移动
-        PositionSync.set_skip_targets([:player], 2) if defined?(PositionSync)
-        StatusLog.append("settings.log", "map_spawn apply: map#{current_map} (#{x},#{y}) dir=#{dir}")
-      end
-      @last_map_id = current_map
-    end
-  end
-end
-
-# --- Patch Scene_Map#update ---
-module MapSpawnPointPatch
-  def update
-    MapSpawnPoint.check_and_apply
-    super
-  end
-end
-
-PatchHelper.install("Scene_Map", methods: [:update]) do |k|
-  k.prepend(MapSpawnPointPatch)
 end
 
 MapSpawnPoint.ensure_dir
 MapSpawnPoint.load
-StatusLog.append("settings.log", "map_spawn_point loaded: #{MapSpawnPoint.all.size} maps configured")
+StatusLog.append("settings.log", "map_spawn_point loaded: #{MapSpawnPoint.all.size} maps configured (goto-only mode)")

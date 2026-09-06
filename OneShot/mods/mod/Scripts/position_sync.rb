@@ -205,6 +205,17 @@ module PositionSync
         map_id = req["map_id"].to_i
         x = req["x"].to_i
         y = req["y"].to_i
+        # 只对面板 goto (jump_map) 传送起效: 检查目标地图是否配置了地图落点
+        if defined?(MapSpawnPoint)
+          spawn = MapSpawnPoint.get(map_id)
+          if spawn && spawn["enabled"]
+            x = spawn["x"].to_i
+            y = spawn["y"].to_i
+            dir = spawn["dir"].to_i
+            dir = 2 unless [2, 4, 6, 8].include?(dir)
+            StatusLog.append("settings.log", "goto player: map#{map_id} using map_spawn (#{x},#{y}) dir=#{dir}")
+          end
+        end
         if $game_player && map_id > 0
           $game_player.reserve_transfer(map_id, x, y, dir)
           set_skip_targets([:player], 2)  # 跳过传送后 autorun 事件的玩家移动
