@@ -12,6 +12,7 @@ REST API:
 用法: python tools/settings_server.py [端口]
 """
 import json
+import os
 import sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
@@ -89,10 +90,58 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
 
+def find_browser():
+    """检测 Edge/Chrome 可执行文件路径 (优先 Edge)"""
+    candidates = [
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            return p
+    # 尝试 PATH 里找
+    for name in ("msedge", "chrome"):
+        from shutil import which
+        found = which(name)
+        if found:
+            return found
+    return None
+
+
+def open_app_window():
+    """服务器就绪后自动用 --app 模式打开浏览器 (无浏览器框)"""
+    import subprocess, time
+    time.sleep(0.6)  # 等服务器完全就绪
+    url = f"http://127.0.0.1:{PORT}/"
+    browser = find_browser()
+    try:
+        if browser:
+            subprocess.Popen([
+                browser,
+                f"--app={url}",
+                "--window-size=760,600",
+            ], close_fds=True)
+            print(f"已打开面板: {browser} --app")
+        else:
+            import webbrowser
+            webbrowser.open(url)
+            print("已用默认浏览器打开面板")
+    except Exception as e:
+        print(f"自动打开失败, 请手动访问: {url}  ({e})")
+
+
 def main():
     SETTINGS_DIR.mkdir(parents=True, exist_ok=True)
     server = HTTPServer(("127.0.0.1", PORT), Handler)
     print(f"ModShot 设置服务器: http://127.0.0.1:{PORT}/  (Ctrl+C 停止)")
+
+    # 自动打开面板 (除非 --no-open)
+    if "--no-open" not in sys.argv:
+        import threading
+        threading.Thread(target=open_app_window, daemon=True).start()
+
     try:
         server.serve_forever()
     except KeyboardInterrupt:
