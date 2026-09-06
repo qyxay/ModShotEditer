@@ -137,7 +137,7 @@ module PositionSync
             "trigger" => page.trigger,
             "trigger_name" => trigger_name[page.trigger] || page.trigger.to_s,
             "through" => page.through,
-            "priority_type" => page.priority_type,
+            "priority_type" => page.respond_to?(:priority_type) ? page.priority_type : nil,
             "direction_fix" => page.direction_fix,
             "condition" => {
               "switch1_valid" => cond.switch1_valid,
