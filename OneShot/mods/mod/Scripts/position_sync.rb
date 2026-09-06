@@ -13,9 +13,11 @@ require 'fileutils'
 module PositionSync
   SETTINGS_DIR = File.join(__dir__, '..', 'settings')
   CURRENT_FILE = File.join(SETTINGS_DIR, 'current_position.json')
+  EVENTS_FILE = File.join(SETTINGS_DIR, 'current_events.json')
   GOTO_FILE = File.join(SETTINGS_DIR, 'goto_request.json')
 
   @last_write = 0.0
+  @last_events_write = 0.0
 
   def self.ensure_dir
     FileUtils.mkdir_p(SETTINGS_DIR) unless Dir.exist?(SETTINGS_DIR)
@@ -93,6 +95,97 @@ module PositionSync
     end
   end
 
+  # 安全序列化参数 (处理 RPG::AudioFile 等非基本类型)
+  def self.safe_param(p)
+    case p
+    when Integer, Float, String, TrueClass, FalseClass, NilClass then p
+    when Array then p.map { |x| safe_param(x) }
+    when Hash then p.each_with_object({}) { |(k, v), h| h[k] = safe_param(v) }
+    else p.to_s
+    end
+  end
+
+  # 导出当前地图所有事件的完整数据 (事件页/命令/self switch), 节流每秒1次
+  def self.write_events
+    return unless $game_map
+    now = Time.now.to_f
+    return if now - @last_events_write < 1.0
+    @last_events_write = now
+
+    ensure_dir
+    trigger_name = {0 => "action_button", 1 => "player_touch", 2 => "event_touch", 3 => "autorun", 4 => "parallel"}
+
+    events = []
+    $game_map.events.each do |id, ev|
+      next unless ev
+      event_data = ev.instance_variable_get(:@event)
+      pages = []
+      if event_data && event_data.respond_to?(:pages) && event_data.pages
+        event_data.pages.each_with_index do |page, pi|
+          commands = []
+          page.list.each do |cmd|
+            next unless cmd
+            commands << {
+              "code" => cmd.code,
+              "indent" => cmd.indent,
+              "parameters" => safe_param(cmd.parameters)
+            }
+          end
+          cond = page.condition
+          pages << {
+            "index" => pi,
+            "trigger" => page.trigger,
+            "trigger_name" => trigger_name[page.trigger] || page.trigger.to_s,
+            "through" => page.through,
+            "priority_type" => page.priority_type,
+            "direction_fix" => page.direction_fix,
+            "condition" => {
+              "switch1_valid" => cond.switch1_valid,
+              "switch1_id" => cond.switch1_id,
+              "switch2_valid" => cond.switch2_valid,
+              "switch2_id" => cond.switch2_id,
+              "variable_valid" => cond.variable_valid,
+              "variable_id" => cond.variable_id,
+              "variable_value" => cond.variable_value,
+              "self_switch_valid" => cond.self_switch_valid,
+              "self_switch_ch" => cond.self_switch_ch
+            },
+            "commands" => commands
+          }
+        end
+      end
+
+      # self switches
+      self_switches = {}
+      ["A", "B", "C", "D"].each do |ch|
+        key = [$game_map.map_id, id, ch]
+        self_switches[ch] = $game_self_switches[key] ? true : false
+      end
+
+      events << {
+        "id" => id,
+        "name" => event_data && event_data.respond_to?(:name) ? event_data.name : "EV#{id}",
+        "x" => ev.x,
+        "y" => ev.y,
+        "dir" => ev.direction,
+        "through" => ev.through,
+        "pages" => pages,
+        "self_switches" => self_switches
+      }
+    end
+
+    data = {
+      "map_id" => $game_map.map_id,
+      "events" => events,
+      "updated_at" => Time.now.to_s
+    }
+    begin
+      File.write(EVENTS_FILE, JSON.pretty_generate(data), encoding: "UTF-8")
+    rescue StandardError => e
+      StatusLog.append("settings.log", "events write FAIL: #{e.message}")
+    end
+  end
+
   # 检测传送请求 (每帧调用)
   # 请求格式:
   #   玩家: {"target":"player", "map_id":2, "x":18, "y":19, "dir":2}
@@ -143,6 +236,7 @@ module PositionSyncPatch
   def update
     PositionSync.tick_skip       # 递减 skip 帧计数
     PositionSync.write_current   # 写入位置 (节流)
+    PositionSync.write_events    # 写入事件完整数据 (节流)
     PositionSync.check_goto      # 检测传送请求
     super
   end
