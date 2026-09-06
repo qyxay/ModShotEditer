@@ -21,7 +21,7 @@ module MapSpawnPoint
   CONFIG_FILE = File.join(SETTINGS_DIR, 'map_spawn_points.json')
 
   @config = {}
-  @last_map_id = nil
+  @last_reload = 0.0
 
   def self.ensure_dir
     FileUtils.mkdir_p(SETTINGS_DIR) unless Dir.exist?(SETTINGS_DIR)
@@ -38,11 +38,22 @@ module MapSpawnPoint
     end
   end
 
+  # 热重载: 每 1 秒重新读取配置文件, 面板修改后立即生效
+  def self.reload_if_needed
+    now = Time.now.to_f
+    if now - @last_reload > 1.0
+      load
+      @last_reload = now
+    end
+  end
+
   def self.get(map_id)
+    reload_if_needed
     @config[map_id.to_s]
   end
 
   def self.all
+    reload_if_needed
     @config
   end
 end
