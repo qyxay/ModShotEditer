@@ -246,7 +246,10 @@ module SkipEventRealLoadPatch
   def real_load
     result = super
     begin
-      if skip_event_active? && $game_system && $game_system.map_interpreter
+      # 铁律(无条件): 读档后立即清空主解释器, 终止 map1 ev1 开场流程
+      # (idx75 传送 map2)覆盖读档位置 —— 修复重启后进度丢失。
+      # 此铁律不依赖 skip_event 模式, off 模式下也必须生效。
+      if $game_system && $game_system.map_interpreter
         $game_system.map_interpreter.clear
         $game_system.map_interpreter.instance_variable_set(:@list, nil)
         skip_event_trace('SE_CLEAR_AFTER_REAL_LOAD')
