@@ -11,12 +11,19 @@
 #
 #  依赖:
 #    dev_settings.rb 提供 Window_DevSettings(EXTRA_ACTIONS 入口 / open_jump_map)
-#    jump_map_free.rb 提供自由浏览模式 ($jump_map_free_mode / JUMP_MAP_FREEZE_AUTORUN)
+#    skip_event.rb 提供自由浏览模式的事件阻止规则 ($jump_map_free_mode)
 #    shortcut_keys.rb 提供 Ctrl+J 快捷键入口
 #    config.json: "is_developer": true
 # ============================================================
 
 require 'json'
+
+# --- 自由浏览模式开关 ---
+# 跳转成功后进入自由浏览模式($jump_map_free_mode = true):
+# 该模式下 skip_event.rb 的事件级阻止规则生效(原 jump_map_free.rb
+# 的冻结补丁已统一并入 skip_event.rb) —— 演出事件整体不启动,
+# 玩家自由行动; 模式持续到游戏重启。
+JUMP_MAP_FREEZE_AUTORUN = true
 
 # jump_points.json 路径: Scripts/../jump_points.json
 JUMP_POINTS_PATH = File.join(__dir__, '..', 'jump_points.json')

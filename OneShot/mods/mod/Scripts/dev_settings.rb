@@ -37,6 +37,12 @@ EXTRA_ACTIONS = [
   [:jump_map, 'Jump Map']
 ]
 
+# --- 三态枚举键(非布尔): 键 → 可选值列表, 确认/左右键循环切换 ---
+# skip_event 由原来的布尔开关升级为 off|block|fast 三态模式
+ENUM_KEYS = {
+  'skip_event' => %w[off block fast]
+}
+
 # --- 开发者设置子界面 ---
 class Window_DevSettings
   MARGIN = 30
@@ -70,6 +76,7 @@ class Window_DevSettings
     @visible = false
     @config = {}
     @keys = []
+    @enum_keys = []
     # 功能动作条目(非布尔开关, 点击即执行), 追加在布尔开关之后
     @extra_items = EXTRA_ACTIONS.map { |_, name| name }
     @jump_map = nil
@@ -81,9 +88,9 @@ class Window_DevSettings
     $dev_settings_instance = self
   end
 
-  # 完整显示列表 = 布尔开关 + 固定功能条目
+  # 完整显示列表 = 布尔开关 + 三态枚举键 + 固定功能条目
   def display_items
-    @keys + @extra_items
+    @keys + @enum_keys + @extra_items
   end
 
   attr_accessor :parent_settings
@@ -133,6 +140,8 @@ class Window_DevSettings
     @keys = @config.keys.select do |k|
       @config[k] == true || @config[k] == false
     end
+    # 三态枚举键 = ENUM_KEYS 中存在于 config 的键
+    @enum_keys = ENUM_KEYS.keys.select { |k| @config.key?(k) }
   end
 
   def redraw(spr, i)
@@ -145,6 +154,10 @@ class Window_DevSettings
       val = @config[item]
       spr.bitmap.draw_text(VALUE_MARGIN, 0, spr.bitmap.width, spr.bitmap.height,
                            val ? tr('ON') : tr('OFF'))
+    elsif i < @keys.size + @enum_keys.size
+      # 三态枚举键: 显示当前值
+      val = @config[item].to_s
+      spr.bitmap.draw_text(VALUE_MARGIN, 0, spr.bitmap.width, spr.bitmap.height, tr(val))
     else
       # 功能条目: 显示进入箭头
       spr.bitmap.draw_text(VALUE_MARGIN, 0, spr.bitmap.width, spr.bitmap.height, '>')
@@ -188,18 +201,18 @@ class Window_DevSettings
       $game_system.se_play($data_system.cursor_se)
     end
 
-    # 确认键: 布尔开关直接切换; 功能条目执行对应动作
+    # 确认键: 布尔开关/三态枚举直接切换; 功能条目执行对应动作
     if Input.trigger?(Input::ACTION)
-      if @index >= @keys.size
+      if @index >= @keys.size + @enum_keys.size
         $game_system.se_play($data_system.decision_se)
-        run_action(@extra_items[@index - @keys.size])
+        run_action(@extra_items[@index - @keys.size - @enum_keys.size])
       else
         toggle(@index)
       end
     end
-    # 左右键: 仅对布尔开关生效, 功能条目忽略
+    # 左右键: 仅对开关类(布尔+三态)生效, 功能条目忽略
     if Input.trigger?(Input::LEFT) || Input.trigger?(Input::RIGHT)
-      toggle(@index) if @index < @keys.size
+      toggle(@index) if @index < @keys.size + @enum_keys.size
     end
 
     if Input.trigger?(Input::CANCEL)
@@ -235,10 +248,18 @@ class Window_DevSettings
     @flash_timer = 120
   end
 
-  # 切换当前布尔开关并写回 (仅普通布尔开关; 功能动作条目走 run_action)
+  # 切换当前开关并写回 (布尔开关取反; 三态枚举循环切换; 功能条目走 run_action)
   def toggle(i)
-    key = @keys[i]
-    @config[key] = !@config[key]
+    if i < @keys.size
+      key = @keys[i]
+      @config[key] = !@config[key]
+    else
+      key = @enum_keys[i - @keys.size]
+      vals = ENUM_KEYS[key]
+      cur = @config[key].to_s
+      idx = vals.index(cur)
+      @config[key] = vals[(idx || -1) + 1] || vals[0]
+    end
     apply_global(key, @config[key])
     $mod_config[key] = @config[key] if $mod_config
     save_config
@@ -280,7 +301,7 @@ when 'quit_all_time'   then $quit_all_time_enabled = val
 when 'skip_dialogue'   then $skip_dialogue_enabled = val
 when 'skip_choice'     then $skip_choice_enabled = val
 when 'skip_uneasy'     then $skip_uneasy_enabled = val
-when 'skip_event'      then $skip_event_enabled = val
+when 'skip_event'      then $skip_event_mode = val
 when 'always_settings' then $always_settings_enabled = val
 when 'always_travel'   then $always_travel_enabled = val
 when 'unshow_title'    then $unshow_title_enabled = val
