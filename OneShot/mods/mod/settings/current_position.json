@@ -1,0 +1,188 @@
+{
+  "player": {
+    "map_id": 4,
+    "x": 21,
+    "y": 10,
+    "dir": 2,
+    "dir_name": "下"
+  },
+  "events": [
+    {
+      "id": 5,
+      "name": "fridge left",
+      "x": 31,
+      "y": 17,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 16,
+      "name": "EV016",
+      "x": 29,
+      "y": 12,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 22,
+      "name": "chair",
+      "x": 32,
+      "y": 20,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 11,
+      "name": "fire action",
+      "x": 29,
+      "y": 10,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 6,
+      "name": "fridge right",
+      "x": 32,
+      "y": 17,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 17,
+      "name": "niko hello",
+      "x": 22,
+      "y": 6,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 23,
+      "name": "chair",
+      "x": 29,
+      "y": 20,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 12,
+      "name": "EV012",
+      "x": 27,
+      "y": 19,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 1,
+      "name": "north door",
+      "x": 21,
+      "y": 9,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 7,
+      "name": "tv left",
+      "x": 24,
+      "y": 10,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 18,
+      "name": "door event parallel",
+      "x": 19,
+      "y": 6,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 13,
+      "name": "key",
+      "x": 27,
+      "y": 12,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 2,
+      "name": "east door",
+      "x": 35,
+      "y": 12,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 8,
+      "name": "nopass",
+      "x": 25,
+      "y": 10,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 19,
+      "name": "EV019",
+      "x": 20,
+      "y": 6,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 14,
+      "name": "ambient",
+      "x": 12,
+      "y": 7,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 3,
+      "name": "west door top",
+      "x": 16,
+      "y": 11,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 20,
+      "name": "table",
+      "x": 30,
+      "y": 20,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 4,
+      "name": "Map Events",
+      "x": 15,
+      "y": 7,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 15,
+      "name": "nopass",
+      "x": 23,
+      "y": 10,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 21,
+      "name": "table",
+      "x": 31,
+      "y": 20,
+      "dir": 2,
+      "dir_name": "下"
+    },
+    {
+      "id": 10,
+      "name": "EV010",
+      "x": 26,
+      "y": 19,
+      "dir": 2,
+      "dir_name": "下"
+    }
+  ],
+  "updated_at": "2026-09-06 20:40:04 +0800"
+}

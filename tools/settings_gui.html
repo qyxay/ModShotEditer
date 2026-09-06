@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -53,9 +53,9 @@ button.danger { color: #cc0000; border-color: #cc0000; }
     <span class="sub" id="nav-player-pos">--</span>
   </div>
 
-  <div class="group-title">地图落点</div>
+  <div class="group-title">传送点</div>
   <div id="nav-map-spawns"></div>
-  <div class="nav-btn" onclick="addCurrentMapSpawn()">+ 添加当前地图落点</div>
+  <div class="nav-btn" onclick="addCurrentMapSpawn()">+ 添加当前传送点</div>
 
   <div class="group-title">事件 (当前地图)</div>
   <div id="nav-events"></div>
@@ -97,11 +97,11 @@ async function refreshData() {
   const [pos, evts, spawns] = await Promise.all([
     fetchJSON(API + "/current_position"),
     fetchJSON(API + "/current_events"),
-    fetchJSON(API + "/map_spawn_points")
+    fetchJSON(API + "/jump_points")
   ]);
   currentData.position = pos;
   currentData.events = evts;
-  currentData.mapSpawns = spawns || {};
+  currentData.jumpPoints = spawns || {};
   renderSidebar();
   if (currentPanel) renderPanel();
 }
@@ -113,12 +113,12 @@ function renderSidebar() {
     document.getElementById("nav-player-pos").textContent = `m${p.map_id} (${p.x},${p.y})`;
   }
 
-  // 地图落点
+  // 传送点
   const spawnDiv = document.getElementById("nav-map-spawns");
   spawnDiv.innerHTML = "";
   const currentMap = currentData.position ? currentData.position.player.map_id : null;
-  Object.keys(currentData.mapSpawns).sort((a,b) => a-b).forEach(mapId => {
-    const s = currentData.mapSpawns[mapId];
+  Object.keys(currentData.jumpPoints).sort((a,b) => a-b).forEach(mapId => {
+    const s = currentData.jumpPoints[mapId];
     const isCurrent = parseInt(mapId) === currentMap;
     const item = document.createElement("div");
     item.className = "nav-item" + (selectedSpawnMap == mapId ? " active" : "");
@@ -232,12 +232,12 @@ async function setAsSpawn() {
   }
 }
 
-// ===== 地图落点面板 =====
+// ===== 传送点面板 =====
 function renderSpawnPanel() {
-  if (!selectedSpawnMap) return '<div class="empty">选择一个地图落点</div>';
-  const s = currentData.mapSpawns[selectedSpawnMap] || {enabled:true, x:0, y:0, dir:2};
+  if (!selectedSpawnMap) return '<div class="empty">选择一个传送点</div>';
+  const s = currentData.jumpPoints[selectedSpawnMap] || {enabled:true, x:0, y:0, dir:2};
   return `
-    <div class="panel-title">地图落点 - 地图 ${selectedSpawnMap}</div>
+    <div class="panel-title">传送点 - 地图 ${selectedSpawnMap}</div>
     <div style="color:#666;margin-bottom:12px;">通过面板 goto (jump_map) 传送到达此地图时, 玩家将被放置到以下位置 (不受 autorun 事件移动影响). 门/事件传送不受影响.</div>
     <div class="section">
       <div class="checkbox-row">
@@ -266,14 +266,14 @@ function renderSpawnPanel() {
 }
 
 async function saveSpawn() {
-  const spawns = {...currentData.mapSpawns};
+  const spawns = {...currentData.jumpPoints};
   spawns[selectedSpawnMap] = {
     enabled: document.getElementById("spawn-enabled").checked,
     x: parseInt(document.getElementById("spawn-x").value),
     y: parseInt(document.getElementById("spawn-y").value),
     dir: parseInt(document.getElementById("spawn-dir").value)
   };
-  await postJSON(API + "/map_spawn_points", spawns);
+  await postJSON(API + "/jump_points", spawns);
   await refreshData();
 }
 
@@ -295,9 +295,9 @@ async function gotoSpawn() {
 
 async function deleteSpawn() {
   if (!confirm(`确定删除地图 ${selectedSpawnMap} 的落点配置?`)) return;
-  const spawns = {...currentData.mapSpawns};
+  const spawns = {...currentData.jumpPoints};
   delete spawns[selectedSpawnMap];
-  await postJSON(API + "/map_spawn_points", spawns);
+  await postJSON(API + "/jump_points", spawns);
   selectedSpawnMap = null;
   currentPanel = "player";
   await refreshData();
@@ -307,10 +307,10 @@ async function addCurrentMapSpawn() {
   if (!currentData.position) { alert("游戏未运行"); return; }
   const p = currentData.position.player;
   const mapId = p.map_id.toString();
-  const spawns = {...currentData.mapSpawns};
+  const spawns = {...currentData.jumpPoints};
   if (!spawns[mapId]) {
     spawns[mapId] = {enabled: true, x: p.x, y: p.y, dir: p.dir};
-    await postJSON(API + "/map_spawn_points", spawns);
+    await postJSON(API + "/jump_points", spawns);
   }
   selectSpawn(mapId);
   await refreshData();

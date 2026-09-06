@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ModShot 运行时设置 — 本地 HTTP 服务器 (零依赖)
@@ -23,7 +23,7 @@ SCHEMA_FILE = SETTINGS_DIR / "schema.json"
 RUNTIME_FILE = SETTINGS_DIR / "runtime.json"
 CURRENT_FILE = SETTINGS_DIR / "current_position.json"
 EVENTS_FILE = SETTINGS_DIR / "current_events.json"
-MAP_SPAWN_FILE = SETTINGS_DIR / "map_spawn_points.json"
+JUMP_FILE = SETTINGS_DIR / "jump_points.json"
 EVENT_MODIFY_FILE = SETTINGS_DIR / "event_modify.json"
 GOTO_FILE = SETTINGS_DIR / "goto_request.json"
 HTML_FILE = Path(__file__).resolve().parent / "settings_gui.html"
@@ -78,9 +78,9 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_file(EVENTS_FILE, "application/json; charset=utf-8")
             else:
                 self._send_json({"error": "游戏未运行或事件数据未同步"}, 404)
-        elif self.path == "/map_spawn_points":
-            if MAP_SPAWN_FILE.exists():
-                self._send_file(MAP_SPAWN_FILE, "application/json; charset=utf-8")
+        elif self.path == "/jump_points":
+            if JUMP_FILE.exists():
+                self._send_file(JUMP_FILE, "application/json; charset=utf-8")
             else:
                 self._send_json({}, 200)
         else:
@@ -111,7 +111,7 @@ class Handler(BaseHTTPRequestHandler):
             GOTO_FILE.write_text(
                 json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
             self._send_json({"ok": True, "goto": data})
-        elif self.path == "/map_spawn_points":
+        elif self.path == "/jump_points":
             length = int(self.headers.get("Content-Length", 0))
             raw = self.rfile.read(length)
             try:
@@ -120,7 +120,7 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_json({"error": str(e)}, 400)
                 return
             SETTINGS_DIR.mkdir(parents=True, exist_ok=True)
-            MAP_SPAWN_FILE.write_text(
+            JUMP_FILE.write_text(
                 json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
             self._send_json({"ok": True, "count": len(data)})
         elif self.path == "/event_modify":

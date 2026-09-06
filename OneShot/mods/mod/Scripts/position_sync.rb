@@ -14,6 +14,7 @@ module PositionSync
   SETTINGS_DIR = File.join(__dir__, '..', 'settings')
   CURRENT_FILE = File.join(SETTINGS_DIR, 'current_position.json')
   EVENTS_FILE = File.join(SETTINGS_DIR, 'current_events.json')
+  JUMP_FILE = File.join(SETTINGS_DIR, 'jump_points.json')
   GOTO_FILE = File.join(SETTINGS_DIR, 'goto_request.json')
 
   @last_write = 0.0
@@ -205,15 +206,20 @@ module PositionSync
         map_id = req["map_id"].to_i
         x = req["x"].to_i
         y = req["y"].to_i
-        # 只对面板 goto (jump_map) 传送起效: 检查目标地图是否配置了地图落点
-        if defined?(MapSpawnPoint)
-          spawn = MapSpawnPoint.get(map_id)
-          if spawn && spawn["enabled"]
-            x = spawn["x"].to_i
-            y = spawn["y"].to_i
-            dir = spawn["dir"].to_i
-            dir = 2 unless [2, 4, 6, 8].include?(dir)
-            StatusLog.append("settings.log", "goto player: map#{map_id} using map_spawn (#{x},#{y}) dir=#{dir}")
+        # 直接读取 jump_points.json, 目标地图有配置则用落点覆盖
+        if File.exist?(JUMP_FILE)
+          begin
+            jumps = JSON.parse(File.read(JUMP_FILE, encoding: 'UTF-8'))
+            spawn = jumps[map_id.to_s]
+            if spawn && spawn["enabled"]
+              x = spawn["x"].to_i
+              y = spawn["y"].to_i
+              dir = spawn["dir"].to_i
+              dir = 2 unless [2, 4, 6, 8].include?(dir)
+              StatusLog.append("settings.log", "goto player: map#{map_id} using jump_point (#{x},#{y}) dir=#{dir}")
+            end
+          rescue StandardError => e
+            StatusLog.append("settings.log", "goto jump_points read FAIL: #{e.message}")
           end
         end
         if $game_player && map_id > 0

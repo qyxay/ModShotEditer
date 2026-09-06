@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "exported_at": "2026-09-06 20:39:06 +0800",
+  "categories": [
+    "spawn"
+  ],
+  "settings": [
+    {
+      "key": "spawn.enabled",
+      "label": "启用自设出生点",
+      "type": "bool",
+      "default": false,
+      "category": "spawn",
+      "order": 10,
+      "help": "开启后覆盖新游戏开场传送位置"
+    },
+    {
+      "key": "spawn.map_id",
+      "label": "目标地图 ID",
+      "type": "int",
+      "default": 258,
+      "category": "spawn",
+      "order": 20,
+      "help": "传送目标地图 (1-300)",
+      "min": 1,
+      "max": 300
+    },
+    {
+      "key": "spawn.x",
+      "label": "X 坐标",
+      "type": "int",
+      "default": 10,
+      "category": "spawn",
+      "order": 30,
+      "help": "",
+      "min": 0,
+      "max": 60
+    },
+    {
+      "key": "spawn.y",
+      "label": "Y 坐标",
+      "type": "int",
+      "default": 19,
+      "category": "spawn",
+      "order": 40,
+      "help": "",
+      "min": 0,
+      "max": 80
+    },
+    {
+      "key": "spawn.dir",
+      "label": "朝向",
+      "type": "enum",
+      "default": 2,
+      "category": "spawn",
+      "order": 50,
+      "help": "",
+      "options": [
+        [
+          2,
+          "下"
+        ],
+        [
+          4,
+          "左"
+        ],
+        [
+          6,
+          "右"
+        ],
+        [
+          8,
+          "上"
+        ]
+      ]
+    }
+  ]
+}
