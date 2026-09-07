@@ -36,7 +36,9 @@ class DebugMapOverlay
     @viewport = Viewport.new(0, 0, 640, 480)
     @viewport.z = 250
     @sprite = Sprite.new(@viewport)
-    @sprite.bitmap = Bitmap.new(640, 480)
+    # 宽高各多一列(32px): redraw 会画 21 列格子(含跨格补偿列),
+    # 640 宽的 bitmap 会裁掉最右列 fill_rect(640,..), 镜头左移时右侧露白
+    @sprite.bitmap = Bitmap.new(640 + TILE, 480 + TILE)
     @sprite.bitmap.font.size = 14
     @visible = false
     @sprite.visible = false
