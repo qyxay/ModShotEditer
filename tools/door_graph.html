@@ -113,6 +113,14 @@ function kindTag(pair){
   if(pair.t && pair.t.dynamic) return '动态';
   return '';
 }
+// 动态目标解析: 用 live.vars 的当前变量值算出实际目标
+function resolveDyn(t){
+  if(!live || !live.vars || !t.var_ids || !t.var_ids.length) return null;
+  var ids = t.var_ids;
+  var m = live.vars[ids[0]];
+  if(m==null || m===0) return null;
+  return { map: m, x: ids.length>1 ? live.vars[ids[1]] : null, y: ids.length>2 ? live.vars[ids[2]] : null };
+}
 function render(){
   var cur = live ? live.map_id : null;
   var c = center || cur || 2;
@@ -157,7 +165,9 @@ function render(){
       var x1=cx, y1=cy, x2=dynX, y2=dynY;
       parts.push('<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+col+'" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arr)"/>');
       var mx=(x1+x2)/2, my=(y1+y2)/2;
-      parts.push('<text x="'+mx+'" y="'+(my-6)+'" text-anchor="middle" font-size="10" fill="'+col+'" style="cursor:pointer" onclick="showDoor('+dd.d.map+','+dd.d.ev+')">'+esc(dd.d.name)+' (动态)</text>');
+      var rd = resolveDyn(dd.t);
+      var curTxt = rd ? ' → 当前map'+rd.map+(rd.x!=null?'('+rd.x+','+(rd.y!=null?rd.y:'?')+')':'') : '';
+      parts.push('<text x="'+mx+'" y="'+(my-6)+'" text-anchor="middle" font-size="10" fill="'+col+'" style="cursor:pointer" onclick="showDoor('+dd.d.map+','+dd.d.ev+')">'+esc(dd.d.name)+curTxt+'</text>');
       return;
     }
     var nonDyn = shown.filter(function(x){ return !tgt[x].dyn; });
@@ -190,9 +200,15 @@ function render(){
 
   // 动态汇聚节点
   if(dynCount>0){
+    var dynRes = null;
+    var allKeys = Object.keys(tgt).filter(function(k){ return tgt[k].dyn; });
+    if(allKeys.length){
+      var rd0 = resolveDyn(tgt[allKeys[0]].doors[0].t);
+      if(rd0) dynRes = rd0;
+    }
     parts.push('<rect x="'+(dynX-60)+'" y="'+(dynY-22)+'" width="120" height="44" rx="9" fill="#faf5ff" stroke="'+COLOR_DYN+'" stroke-width="1"/>');
     parts.push('<text x="'+dynX+'" y="'+(dynY-2)+'" text-anchor="middle" font-size="11" font-weight="600" fill="#6d28d9">动态目标</text>');
-    parts.push('<text x="'+dynX+'" y="'+(dynY+13)+'" text-anchor="middle" font-size="9.5" fill="#888">'+dynCount+' 个</text>');
+    parts.push('<text x="'+dynX+'" y="'+(dynY+13)+'" text-anchor="middle" font-size="9.5" fill="#888">'+(dynRes ? '当前→map'+dynRes.map+'('+(dynRes.x!=null?dynRes.x:'?')+','+(dynRes.y!=null?dynRes.y:'?')+')' : dynCount+' 个 · 未同步')+'</text>');
   }
 
   // 中心节点 (核心)
@@ -244,7 +260,10 @@ function showDoor(mapId, evId){
   if(d.page_conds && d.page_conds.length) h.push('<div class="kv"><span class="k">页条件</span><span class="cond">'+esc(d.page_conds.map(function(c){return condStr([c]);}).join(' · '))+'</span></div>');
   h.push('<div style="margin:8px 0 4px;color:#666">传送目标 ('+(d.targets?d.targets.length:0)+')</div>');
   (d.targets||[]).forEach(function(t){
-    if(t.dynamic){ h.push('<div class="target">→ [动态] 变量 #'+t.var_ids.join(',')+' 方向'+(t.d||'?')+'</div>'); }
+    if(t.dynamic){
+      var rd = resolveDyn(t);
+      h.push('<div class="target">→ [动态] 变量 #'+t.var_ids.join(',')+' 方向'+(t.d||'?')+(rd ? ' <b style="color:#7c3aed">当前→map'+rd.map+'('+(rd.x!=null?rd.x:'?')+','+(rd.y!=null?rd.y:'?')+')</b>' : ' <span class="cond">(变量未同步)</span>')+'</div>');
+    }
     else if(t.kind==='exit'){
       var area = t.area ? ' 出口: '+(t.area.axis ? (t.area.axis+'='+t.area.fixed+' 范围['+t.area.min+'..'+t.area.max+']') : '范围['+t.area.min+'..'+t.area.max+']') : '';
       h.push('<div class="target" style="color:#4d7c55">→ [出口] map'+t.map+' (x='+(t.x==null?'?':t.x)+',y='+(t.y==null?'?':t.y)+') 方向'+(t.d||'?')+area+'</div>');

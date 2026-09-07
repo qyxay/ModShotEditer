@@ -4,6 +4,7 @@
 #  配合 tools/door_graph_server.py + tools/door_graph.html 使用:
 #    * 每帧 hook Scene_Map#update, 节流 30 帧(~0.5s)写 live_state.json:
 #        当前地图 id/名称、玩家坐标方向、地图全部事件(id/name/x/y/dir)
+#    * 输出动态传送引用变量的当前值(vars): 前端把"动态目标"解析为实际地图
 #    * 每帧检测 event_modify.json(外部网页的修改请求), 应用后删除:
 #        移动事件位置/方向到指定坐标, 并同步写 $data_maps(重载仍生效)
 #
@@ -18,12 +19,14 @@ module DoorGraphSync
   SETTINGS_DIR = File.absolute_path(File.join(__dir__, '..', 'settings'))
   LIVE_PATH = File.join(SETTINGS_DIR, 'live_state.json')
   MODIFY_PATH = File.join(SETTINGS_DIR, 'event_modify.json')
+  GRAPH_PATH = File.join(SETTINGS_DIR, 'graph.json')
 
   # 写文件节流帧数 (60fps 下 30 帧 = 0.5s)
   THROTTLE_FRAMES = 30
 
   @last_write_frame = 0
   @mapinfos = nil
+  @dyn_vars = nil   # 动态传送引用的变量 id 数组
 
   # Scene_Map#update 每帧调用
   def self.tick
@@ -38,6 +41,24 @@ module DoorGraphSync
     write_state
   rescue StandardError
     # 同步异常不影响游戏主流程
+  end
+
+  # --- 动态传送引用的变量 (从 graph.json 提取, 惰性) ---
+  def self.dyn_vars
+    @dyn_vars ||= begin
+      ids = []
+      if File.exist?(GRAPH_PATH)
+        g = JSON.parse(File.read(GRAPH_PATH))
+        (g['doors'] || []).each do |d|
+          (d['targets'] || []).each do |t|
+            ids.concat(t['var_ids']) if t['dynamic'] && t['var_ids']
+          end
+        end
+      end
+      ids.uniq.sort
+    rescue StandardError
+      [6, 7, 8]
+    end
   end
 
   # --- 写实时状态 ---
@@ -58,6 +79,11 @@ module DoorGraphSync
       }
     end
 
+    vars = {}
+    dyn_vars.each do |vid|
+      vars[vid.to_s] = $game_variables[vid]
+    end
+
     state = {
       'ts' => Time.now.to_f,
       'map_id' => map.map_id,
@@ -67,6 +93,7 @@ module DoorGraphSync
         'y' => $game_player.y,
         'dir' => ($game_player.direction rescue 0)
       },
+      'vars' => vars,
       'events' => evs
     }
     File.write(LIVE_PATH, JSON.generate(state))
@@ -144,5 +171,6 @@ StatusLog.write('door_graph_sync_status.txt', [
   "throttle = #{THROTTLE_FRAMES} frames (~0.5s @60fps)",
   "hook = Scene_Map#update prepend (PatchHelper.install)",
   "modify = external JSON request, applied once then file deleted",
-  "persist = also writes $data_maps (survives map reload)"
+  "persist = also writes $data_maps (survives map reload)",
+  "dyn_vars = #{dyn_vars.inspect} (dynamic transfer vars synced to live_state)"
 ])
