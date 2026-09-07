@@ -13,7 +13,11 @@ config_path = File.join(__dir__, '..', 'config.json')
 
 $mod_config = if File.exist?(config_path)
   begin
-    parsed = JSON.parse(File.read(config_path))
+    # 容错: 某些工具(如 PowerShell Set-Content)会写入 UTF-8 BOM,
+    # Ruby 的 JSON.parse 对 BOM 直接抛 ParserError, 导致整份配置失效。
+    raw = File.read(config_path).force_encoding('UTF-8')
+    raw = raw[1..] if raw.start_with?("\uFEFF")
+    parsed = JSON.parse(raw)
     parsed.is_a?(Hash) ? parsed : {}
   rescue JSON::ParserError
     {}
