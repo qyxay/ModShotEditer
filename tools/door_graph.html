@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>门连接编辑器</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:#fff; color:#111; font-size:13px; }
+  header { display:flex; align-items:center; gap:16px; padding:10px 14px; border-bottom:1px solid #e5e5e5; background:#fafaf9; }
+  header h1 { font-size:15px; font-weight:600; }
+  #wsdot { width:9px; height:9px; border-radius:50%; background:#aaa; display:inline-block; }
+  #wsdot.on { background:#22c55e; }
+  #curmap { color:#333; }
+  main { display:flex; height:calc(100vh - 41px); }
+  #graph-wrap { flex:1; overflow:auto; background:#fdfdfc; }
+  #graph { display:block; width:100%; }
+  aside { width:340px; border-left:1px solid #e5e5e5; background:#fafaf9; overflow-y:auto; }
+  .tabs { display:flex; border-bottom:1px solid #e5e5e5; }
+  .tabs button { flex:1; padding:8px 4px; background:none; border:none; border-bottom:2px solid transparent; cursor:pointer; font-size:13px; color:#444; }
+  .tabs button.on { border-bottom-color:#2563eb; color:#111; font-weight:600; }
+  .list { padding:6px 0; }
+  .row { padding:6px 12px; cursor:pointer; display:flex; gap:8px; align-items:baseline; }
+  .row:hover { background:#f0f0ee; }
+  .row .eid { color:#2563eb; font-weight:600; min-width:28px; }
+  .row .nm { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .row .xy { color:#888; font-size:11px; }
+  #detail { border-top:1px solid #e5e5e5; padding:12px; }
+  #detail h3 { font-size:13px; margin-bottom:8px; }
+  #detail .kv { display:flex; gap:6px; margin:3px 0; }
+  #detail .k { color:#666; min-width:56px; }
+  #detail .target { background:#f0f0ee; border-radius:4px; padding:5px 8px; margin:4px 0; font-size:12px; }
+  #detail input { width:52px; padding:3px 5px; border:1px solid #ccc; border-radius:4px; font-size:12px; }
+  #detail button { padding:4px 14px; border:1px solid #2563eb; background:#fff; color:#2563eb; border-radius:4px; cursor:pointer; font-size:12px; }
+  #detail button:hover { background:#2563eb; color:#fff; }
+  #detail .cond { color:#8b5cf6; font-size:11px; }
+  #statusline { padding:6px 12px; color:#888; font-size:11px; border-top:1px solid #e5e5e5; }
+  .legend { font-size:11px; color:#888; padding:6px 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>门连接编辑器</h1>
+  <span><span id="wsdot"></span> <span id="wsstatus">未连接</span></span>
+  <span id="curmap">—</span>
+  <span id="centerinfo"></span>
+</header>
+<main>
+  <div id="graph-wrap">
+    <svg id="graph" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="legend">蓝框=当前所在地图 · 深色=视图中心 · 实线箭头=门传送 · 绿虚线=check_exit出口 · 紫虚线=动态目标 · 点击地图节点切换中心 · 点击连线查看详情</div>
+  </div>
+  <aside>
+    <div class="tabs">
+      <button id="tab-doors" class="on" onclick="setTab('doors')">门事件</button>
+      <button id="tab-events" onclick="setTab('events')">全部事件</button>
+    </div>
+    <div id="list"></div>
+    <div id="detail"></div>
+    <div id="statusline"></div>
+  </aside>
+</main>
+<script>
+"use strict";
+var graph = { maps: [], doors: [] };
+var live = null;
+var center = null;      // 视图中心地图 id
+var selected = null;    // 选中的门事件 {map, ev}
+var tab = 'doors';
+
+// ---------- 工具 ----------
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function mapName(id){ var m = mapById(id); return m ? m.name : ('Map'+id); }
+function mapById(id){ for(var i=0;i<graph.maps.length;i++) if(graph.maps[i].id===id) return graph.maps[i]; return null; }
+function doorsOn(mapId){ return graph.doors.filter(function(d){ return d.map===mapId && d.targets && d.targets.length>0; }); }
+function condStr(via){
+  if(!via || !via.length) return '';
+  return via.map(function(c){
+    if(c.k==='sw') return '开关'+c.id+(c.v?'=ON':'=OFF');
+    if(c.k==='var') return '变量'+c.id+'='+c.v;
+    if(c.k==='self') return '自开关'+c.id;
+    if(c.k==='not') return '非('+condStr([c.inner])+')';
+    return '?';
+  }).join(' & ');
+}
+
+// ---------- 图渲染 ----------
+function render(){
+  var cur = live ? live.map_id : null;
+  var c = center || cur || 2;
+  var svg = document.getElementById('graph');
+  var W=800, H=520, cx=W/2, cy=H/2;
+  var parts = [];
+  parts.push('<defs><marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#9aa0a6"/></marker></defs>');
+
+  var doors = doorsOn(c);
+  // 聚合目标: targetMap -> {doors:[], count, dynamic}
+  var tgt = {};
+  doors.forEach(function(d){
+    d.targets.forEach(function(t){
+      if(t.dynamic){ tgt['_dyn_'+d.ev] = tgt['_dyn_'+d.ev] || {dyn:true, doors:[]}; tgt['_dyn_'+d.ev].doors.push(d); return; }
+      var key = t.map;
+      tgt[key] = tgt[key] || {map:t.map, doors:[]};
+      tgt[key].doors.push({d:d, t:t});
+    });
+  });
+  var keys = Object.keys(tgt);
+  var n = keys.length;
+  var r = 185;
+
+  // 动态目标汇聚点(右下)
+  var dynY = H-70;
+  var dynX = W-150;
+  var dynCount = 0;
+  keys.forEach(function(k, i){
+    var tg = tgt[k];
+    if(tg.dyn){
+      dynCount++;
+      var dd = tg.doors[0];
+      var x1 = cx, y1 = cy, x2 = dynX, y2 = dynY;
+      parts.push('<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#c4b5fd" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr)"/>');
+      var mx=(x1+x2)/2, my=(y1+y2)/2;
+      parts.push('<text x="'+mx+'" y="'+(my-6)+'" text-anchor="middle" font-size="10" fill="#8b5cf6" style="cursor:pointer" onclick="showDoor('+dd.map+','+dd.ev+')">'+esc(dd.name)+' (动态)</text>');
+      return;
+    }
+    var ang = -Math.PI/2 + (i/(n-dynCount))*Math.PI*2;
+    var nx = cx + Math.cos(ang)*r, ny = cy + Math.sin(ang)*r;
+    // 边
+    tg.doors.forEach(function(pair){
+      var x1 = cx, y1 = cy, x2 = nx, y2 = ny;
+      var dx = x2-x1, dy = y2-y1, len = Math.sqrt(dx*dx+dy*dy)||1;
+      var ex = x2 - dx/len*70, ey = y2 - dy/len*70;  // 终点缩进
+      var sx = x1 + dx/len*70, sy = y1 + dy/len*70;  // 起点缩进
+      var isExit = (pair.t && pair.t.kind==='exit') || pair.d.kind==='exit';
+      var stroke = isExit ? '#7fb98a' : '#9aa0a6';
+      var dash = isExit ? ' stroke-dasharray="7,3"' : '';
+      parts.push('<line x1="'+sx+'" y1="'+sy+'" x2="'+ex+'" y2="'+ey+'" stroke="'+stroke+'" stroke-width="1.4"'+dash+' marker-end="url(#arr)" style="cursor:pointer" onclick="showDoor('+pair.d.map+','+pair.d.ev+')"/>');
+    });
+    var mx=(cx+nx)/2, my=(cy+ny)/2 - 8;
+    var names = tg.doors.map(function(p){ return (p.t && p.t.kind==='exit') || p.d.kind==='exit' ? '出口·'+p.d.name : p.d.name; }).filter(function(v,i,a){return a.indexOf(v)===i;});
+    parts.push('<text x="'+mx+'" y="'+my+'" text-anchor="middle" font-size="10" fill="'+(tg.doors.some(function(p){return (p.t&&p.t.kind==='exit')||p.d.kind==='exit';})?'#4d7c55':'#374151')+'" style="cursor:pointer" onclick="showDoor('+tg.doors[0].d.map+','+tg.doors[0].d.ev+')">'+esc(names.join(' / '))+'</text>');
+    // 目标节点
+    var isCur = (cur===tg.map);
+    var isCenter = (c===tg.map);
+    parts.push('<rect x="'+(nx-60)+'" y="'+(ny-22)+'" width="120" height="44" rx="8" fill="'+(isCur?'#eff6ff':'#f5f5f4')+'" stroke="'+(isCur?'#2563eb':'#d4d4d4')+'" stroke-width="'+(isCur?'2':'1')+'" style="cursor:pointer" onclick="setCenter('+tg.map+')"/>');
+    parts.push('<text x="'+nx+'" y="'+(ny-2)+'" text-anchor="middle" font-size="11" font-weight="'+(isCur?700:600)+'" fill="#111" style="pointer-events:none">'+esc(mapName(tg.map))+'</text>');
+    parts.push('<text x="'+nx+'" y="'+(ny+13)+'" text-anchor="middle" font-size="9.5" fill="#888" style="pointer-events:none">map'+tg.map+' · '+(tg.doors.length)+'门</text>');
+  });
+
+  // 动态汇聚节点
+  if(dynCount>0){
+    parts.push('<rect x="'+(dynX-60)+'" y="'+(dynY-22)+'" width="120" height="44" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1"/>');
+    parts.push('<text x="'+dynX+'" y="'+(dynY-2)+'" text-anchor="middle" font-size="11" font-weight="600" fill="#6d28d9">动态目标</text>');
+    parts.push('<text x="'+dynX+'" y="'+(dynY+13)+'" text-anchor="middle" font-size="9.5" fill="#888">'+dynCount+' 个门</text>');
+  }
+
+  // 中心节点
+  parts.push('<rect x="'+(cx-70)+'" y="'+(cy-24)+'" width="140" height="48" rx="8" fill="#111827" stroke="'+(cur===c?'#2563eb':'#111827')+'" stroke-width="'+(cur===c?'3':'1')+'" onclick="setCenter('+c+')" style="cursor:pointer"/>');
+  parts.push('<text x="'+cx+'" y="'+(cy-3)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" style="pointer-events:none">'+esc(mapName(c))+'</text>');
+  parts.push('<text x="'+cx+'" y="'+(cy+13)+'" text-anchor="middle" font-size="9.5" fill="#9ca3af" style="pointer-events:none">map'+c+' · '+doors.length+'个传送门</text>');
+
+  svg.innerHTML = parts.join('');
+}
+
+// ---------- 侧栏 ----------
+function setTab(t){ tab=t; document.getElementById('tab-doors').className = (t==='doors'?'on':''); document.getElementById('tab-events').className = (t==='events'?'on':''); renderList(); }
+function renderList(){
+  var el = document.getElementById('list');
+  var c = center || (live?live.map_id:null);
+  var h = [];
+  if(tab==='doors'){
+    if(!c){ el.innerHTML='<div class="row">未获得地图</div>'; return; }
+    var doors = graph.doors.filter(function(d){ return d.map===c; });
+    if(!doors.length){ el.innerHTML='<div class="row">此地图无门事件</div>'; return; }
+    doors.forEach(function(d){
+      var km = d.kind==='exit' ? '<span style="color:#4d7c55;font-size:10px">[出口]</span>' : (d.kind==='common' ? '<span style="color:#8b5cf6;font-size:10px">[CE]</span>' : '');
+      h.push('<div class="row" onclick="showDoor('+d.map+','+d.ev+')"><span class="eid">#'+d.ev+'</span><span class="nm">'+km+' '+esc(d.name)+'</span><span class="xy">('+d.x+','+d.y+')</span></div>');
+    });
+  } else {
+    if(!live || !live.events){ el.innerHTML='<div class="row">未获得实时数据</div>'; return; }
+    live.events.forEach(function(e){
+      h.push('<div class="row" onclick="showEvent('+e.id+')"><span class="eid">#'+e.id+'</span><span class="nm">'+esc(e.name)+'</span><span class="xy">('+e.x+','+e.y+')</span></div>');
+    });
+  }
+  el.innerHTML = h.join('');
+}
+
+// ---------- 详情 ----------
+function showDoor(mapId, evId){
+  var c = center || (live?live.map_id:null);
+  var d = null;
+  graph.doors.forEach(function(x){ if(x.map===c && x.ev===evId) d=x; });
+  if(!d){ d = graph.doors.filter(function(x){return x.map===mapId&&x.ev===evId;})[0]; }
+  if(!d) return;
+  selected = {map:d.map, ev:d.ev};
+  var kindTxt = {door:'普通门事件', exit:'check_exit 出口', common:'公共事件传送'}[d.kind] || d.kind;
+  var h = ['<h3>事件 #'+d.ev+' <span style="color:#888;font-weight:400">'+esc(d.name)+'</span> <span style="font-size:11px;color:'+(d.kind==='exit'?'#4d7c55':'#888')+'">['+kindTxt+']</span></h3>'];
+  h.push('<div class="kv"><span class="k">地图</span> map'+d.map+' ('+esc(mapName(d.map))+')</div>');
+  h.push('<div class="kv"><span class="k">位置</span> ('+d.x+', '+d.y+')</div>');
+  if(d.trigger!=null) h.push('<div class="kv"><span class="k">触发</span> trigger='+d.trigger+(d.trigger===1?' 玩家接触':d.trigger===0?' 按键':d.trigger===2?' 事件接触':d.trigger===3?' 自动':d.trigger===4?' 并行':'')+'</div>');
+  if(d.page_conds && d.page_conds.length) h.push('<div class="kv"><span class="k">页条件</span><span class="cond">'+esc(d.page_conds.map(function(c){return condStr([c]);}).join(' · '))+'</span></div>');
+  h.push('<div style="margin:8px 0 4px;color:#666">传送目标 ('+(d.targets?d.targets.length:0)+')</div>');
+  (d.targets||[]).forEach(function(t){
+    if(t.dynamic){ h.push('<div class="target">→ [动态] 变量 #'+t.var_ids.join(',')+' 方向'+(t.d||'?')+'</div>'); }
+    else if(t.kind==='exit'){
+      var area = t.area ? ' 出口: '+(t.area.axis ? (t.area.axis+'='+t.area.fixed+' 范围['+t.area.min+'..'+t.area.max+']') : '范围['+t.area.min+'..'+t.area.max+']') : '';
+      h.push('<div class="target" style="color:#4d7c55">→ [出口] map'+t.map+' (x='+(t.x==null?'?':t.x)+',y='+(t.y==null?'?':t.y)+') 方向'+(t.d||'?')+area+'</div>');
+    }
+    else {
+      var via = t.via&&t.via.length? ' <span class="cond">['+esc(condStr(t.via))+']</span>':'';
+      h.push('<div class="target">→ map'+t.map+' ('+t.x+','+t.y+') 方向'+t.d+via+'</div>');
+    }
+  });
+  if(d.texts && d.texts.length) h.push('<div style="margin-top:6px"><div style="color:#666">文本</div>'+d.texts.map(function(t){return '<div class="target" style="font-size:11px">'+esc(t)+'</div>';}).join('')+'</div>');
+  h.push(detailForm(d.map, d.ev, d.x, d.y));
+  document.getElementById('detail').innerHTML = h.join('');
+}
+function showEvent(evId){
+  if(!live) return;
+  var e = null;
+  live.events.forEach(function(x){ if(x.id===evId) e=x; });
+  if(!e) return;
+  selected = {map:live.map_id, ev:e.id};
+  var h = ['<h3>事件 #'+e.id+' <span style="color:#888;font-weight:400">'+esc(e.name)+'</span></h3>'];
+  h.push('<div class="kv"><span class="k">位置</span> ('+e.x+', '+e.y+') 方向'+e.dir+'</div>');
+  h.push(detailForm(live.map_id, e.id, e.x, e.y));
+  document.getElementById('detail').innerHTML = h.join('');
+}
+function detailForm(mapId, evId, x, y){
+  return '<div style="margin-top:10px;border-top:1px solid #e5e5e5;padding-top:8px">'+
+    '<div style="color:#666;margin-bottom:6px">修改位置</div>'+
+    '<div class="kv"><span class="k">X</span><input id="mv-x" type="number" value="'+x+'"></div>'+
+    '<div class="kv"><span class="k">Y</span><input id="mv-y" type="number" value="'+y+'"></div>'+
+    '<div class="kv"><span class="k">方向</span><input id="mv-d" type="number" value="2" min="2" max="8" step="2"></div>'+
+    '<div class="kv"><button onclick="applyMove('+mapId+','+evId+')">应用</button><span id="mv-msg" style="color:#22c55e;font-size:11px"></span></div></div>';
+}
+function applyMove(mapId, evId){
+  var x = parseInt(document.getElementById('mv-x').value,10);
+  var y = parseInt(document.getElementById('mv-y').value,10);
+  var d = parseInt(document.getElementById('mv-d').value,10);
+  var body = { map:mapId, ev:evId, x:x, y:y, dir:d };
+  fetch('/move', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)})
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      var msg = document.getElementById('mv-msg');
+      if(msg){ msg.textContent = j.ok ? '已发送' : '失败'; }
+    }).catch(function(){ var msg=document.getElementById('mv-msg'); if(msg) msg.textContent='网络错误'; });
+}
+
+// ---------- 状态与数据 ----------
+function setCenter(id){ center = id; document.getElementById('centerinfo').textContent = '视图: '+esc(mapName(id)); render(); renderList(); }
+function applyLive(data){
+  live = data;
+  document.getElementById('curmap').textContent = '当前: map'+data.map_id+' '+esc(data.map_name)+' · 玩家('+data.player.x+','+data.player.y+')';
+  if(!center) center = data.map_id;
+  render(); renderList();
+}
+function connectWS(){
+  var ws = new WebSocket('ws://' + location.host + '/ws');
+  ws.onopen = function(){ document.getElementById('wsdot').className='on'; document.getElementById('wsstatus').textContent='已连接'; };
+  ws.onclose = function(){ document.getElementById('wsdot').className=''; document.getElementById('wsstatus').textContent='已断开,重连中'; setTimeout(connectWS, 1200); };
+  ws.onerror = function(){ try{ws.close();}catch(e){} };
+  ws.onmessage = function(e){
+    try{
+      var msg = JSON.parse(e.data);
+      if(msg.type==='live' && msg.data) applyLive(msg.data);
+    }catch(err){}
+  };
+}
+function boot(){
+  fetch('/graph.json').then(function(r){return r.json();}).then(function(g){
+    graph = g;
+    // 初始中心用最近有门的玩家起始地图(默认 map2)
+    if(!center) center = 2;
+    render(); renderList();
+    // 状态栏统计
+    document.getElementById('statusline').textContent = '地图 '+g.maps.length+' · 门/连接事件 '+g.doors.length+' · 动态目标 '+g.stats.dynamic_targets;
+  }).catch(function(){ document.getElementById('statusline').textContent='graph.json 加载失败'; });
+  fetch('/live').then(function(r){ if(r.ok) return r.json(); throw 0; }).then(applyLive).catch(function(){});
+  connectWS();
+}
+boot();
+</script>
+</body>
+</html>

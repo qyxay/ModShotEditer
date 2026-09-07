@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07 21:02:50",
+  "generated_at": "2026-09-07 21:46:39",
   "maps": [
     {
       "id": 1,
@@ -1066,6 +1066,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1221,6 +1222,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko It won't turn on.",
         "@ed [It doesn't respond to the remote.]",
@@ -1241,6 +1243,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@ed [The door is locked.]"
       ],
@@ -1271,6 +1274,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@ed [The door is locked.]"
       ],
@@ -1301,6 +1305,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1327,6 +1332,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1353,6 +1359,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1396,6 +1403,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1418,6 +1426,7 @@
           "v": 3
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1448,6 +1457,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1466,6 +1476,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1496,6 +1507,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1535,6 +1547,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1565,6 +1578,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1591,6 +1605,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1617,6 +1632,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1643,6 +1659,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1669,6 +1686,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1695,6 +1713,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1721,6 +1740,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1747,6 +1767,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1773,6 +1794,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1799,6 +1821,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1825,6 +1848,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1851,6 +1875,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1877,6 +1902,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1903,6 +1929,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1929,6 +1956,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1955,6 +1983,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -1981,6 +2010,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2007,6 +2037,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2033,6 +2064,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2059,6 +2091,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2085,6 +2118,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2111,6 +2145,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2137,6 +2172,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2163,6 +2199,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2189,6 +2226,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2215,6 +2253,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2241,6 +2280,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2267,6 +2307,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2293,6 +2334,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2319,6 +2361,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2345,6 +2388,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2371,6 +2415,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2397,6 +2442,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2423,6 +2469,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2449,6 +2496,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2475,6 +2523,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2501,6 +2550,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2527,6 +2577,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2553,6 +2604,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2579,6 +2631,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2605,6 +2658,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2631,6 +2685,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2657,6 +2712,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2683,6 +2739,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2709,6 +2766,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2735,6 +2793,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2761,6 +2820,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2787,6 +2847,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2813,6 +2874,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2839,6 +2901,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2865,6 +2928,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2891,6 +2955,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@plight oneshot minus garfield"
       ],
@@ -2953,6 +3018,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -2979,6 +3045,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3005,6 +3072,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3031,6 +3099,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3057,6 +3126,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3083,6 +3153,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3109,6 +3180,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3135,6 +3207,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3161,6 +3234,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3187,6 +3261,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3213,6 +3288,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3239,6 +3315,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3265,6 +3342,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3291,6 +3369,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3317,6 +3396,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "PHOTOGENIC LOCATIONS",
         "MORE LOCATIONS"
@@ -3389,6 +3469,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3415,6 +3496,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3441,6 +3523,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3467,6 +3550,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3493,6 +3577,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3519,6 +3604,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3545,6 +3631,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3571,6 +3658,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "Go to the finale?"
       ],
@@ -3597,6 +3685,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "Hello Penguin"
       ],
@@ -3623,6 +3712,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3649,6 +3739,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3675,6 +3766,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3696,16 +3788,34 @@
       "name": "east exit",
       "x": 58,
       "y": 67,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 14,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 67,
+            "max": 88,
+            "fixed": 58
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3714,16 +3824,34 @@
       "name": "north exit",
       "x": 10,
       "y": 11,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 19,
+          "x": null,
+          "y": 70,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 11,
+            "max": 31,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3737,6 +3865,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3755,6 +3884,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3777,6 +3907,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3816,6 +3947,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3834,6 +3966,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3852,6 +3985,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3870,6 +4004,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3888,6 +4023,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3906,6 +4042,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3924,6 +4061,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3942,6 +4080,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3960,6 +4099,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3978,6 +4118,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -3996,6 +4137,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4014,6 +4156,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4032,6 +4175,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4050,6 +4194,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4068,6 +4213,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4086,6 +4232,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4104,6 +4251,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4122,6 +4270,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4140,6 +4289,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4158,6 +4308,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4176,6 +4327,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4194,6 +4346,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4212,6 +4365,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4225,16 +4379,34 @@
       "name": "west exit",
       "x": 11,
       "y": 14,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 12,
+          "x": 59,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 14,
+            "max": 35,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4243,16 +4415,34 @@
       "name": "east exit",
       "x": 78,
       "y": 22,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 18,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 23,
+            "max": 40,
+            "fixed": 78
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4266,6 +4456,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4292,6 +4483,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4318,6 +4510,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4344,6 +4537,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4370,6 +4564,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko The screen says \"DOCUMENTS\".",
         "@niko_eyeclosed I can't seem to make the computer do anything else...",
@@ -4390,6 +4585,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4408,6 +4604,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4429,16 +4626,34 @@
       "name": "west exit",
       "x": 11,
       "y": 12,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 23,
+          "x": 59,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 13,
+            "max": 19,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4456,6 +4671,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4486,6 +4702,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4516,6 +4733,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
         "@silver [Wait!]",
         "@silver [I saw you heading towards this direction.]",
@@ -4554,16 +4772,34 @@
       "name": "west exit",
       "x": 11,
       "y": 88,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 14,
+          "x": 79,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 89,
+            "max": 106,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4572,16 +4808,34 @@
       "name": "north exit",
       "x": 41,
       "y": 14,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 70,
+          "x": null,
+          "y": 126,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 42,
+            "max": 55,
+            "fixed": 14
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4590,16 +4844,34 @@
       "name": "east exit",
       "x": 88,
       "y": 32,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 23,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 33,
+            "max": 40,
+            "fixed": 88
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4613,6 +4885,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko You want me use the crowbar to open the safe, \\p? \\>\\nI'll... try!",
         "@niko ...",
@@ -4628,16 +4901,34 @@
       "name": "south exit",
       "x": 10,
       "y": 69,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 12,
+          "x": null,
+          "y": 10,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 11,
+            "max": 31,
+            "fixed": 69
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4646,16 +4937,34 @@
       "name": "north exit",
       "x": 24,
       "y": 11,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 73,
+          "x": null,
+          "y": 78,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 25,
+            "max": 35,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4669,6 +4978,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4695,6 +5005,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@rowbot [.\\..\\..\\..]",
         "@rowbot [OH!]",
@@ -4737,6 +5048,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4763,6 +5075,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4789,6 +5102,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4815,6 +5129,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4841,6 +5156,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4859,6 +5175,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4877,6 +5194,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4895,6 +5213,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4913,6 +5232,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4931,6 +5251,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4949,6 +5270,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4967,6 +5289,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -4985,6 +5308,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5003,6 +5327,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5021,6 +5346,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5039,6 +5365,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5057,6 +5384,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5075,6 +5403,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5093,6 +5422,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5111,6 +5441,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5129,6 +5460,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5147,6 +5479,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5165,6 +5498,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5183,6 +5517,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5201,6 +5536,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5219,6 +5555,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5237,6 +5574,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5255,6 +5593,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@plight .\\..\\..\\..\\..\\..\\..",
         "@niko  .\\..\\..\\..\\..\\..\\..",
@@ -5305,6 +5644,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5331,6 +5671,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5352,16 +5693,34 @@
       "name": "west exit",
       "x": 11,
       "y": 23,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 18,
+          "x": 89,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 24,
+            "max": 31,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -5370,16 +5729,34 @@
       "name": "east exit",
       "x": 58,
       "y": 24,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 17,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 25,
+            "max": 31,
+            "fixed": 58
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -5393,6 +5770,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5419,6 +5797,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5445,6 +5824,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5467,6 +5847,7 @@
           "v": 2
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko Before I go...\\. Is there anything I can do in return?",
         "@silver [Actually...]",
@@ -5504,6 +5885,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5534,6 +5916,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5560,6 +5943,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5578,6 +5962,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5596,6 +5981,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5614,6 +6000,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5632,6 +6019,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5658,6 +6046,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5684,6 +6073,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5710,6 +6100,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5736,6 +6127,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5762,6 +6154,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5788,6 +6181,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5806,6 +6200,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5819,16 +6214,34 @@
       "name": "east exit",
       "x": 92,
       "y": 37,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 37,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 38,
+            "max": 54,
+            "fixed": 92
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -5842,6 +6255,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5868,6 +6282,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5894,6 +6309,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5920,6 +6336,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5946,6 +6363,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5972,6 +6390,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -5998,6 +6417,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6024,6 +6444,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6067,6 +6488,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6110,6 +6532,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6153,6 +6576,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6200,6 +6624,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
         "@shepherd You've provided a great service for all of ramkind.\\nIn return...\\.\\nTake this fine ram wool.",
         "@niko Oh, uh... thanks."
@@ -6254,6 +6679,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@shepherd My rams clock at 1333 megaherds.",
         "@niko ...what?",
@@ -6274,6 +6700,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6292,6 +6719,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6318,6 +6746,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6336,6 +6765,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6362,6 +6792,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6380,6 +6811,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6406,6 +6838,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6424,6 +6857,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6450,6 +6884,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6468,6 +6903,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6494,6 +6930,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6512,6 +6949,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6538,6 +6976,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6556,6 +6995,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6582,6 +7022,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6595,16 +7036,34 @@
       "name": "west exit",
       "x": 11,
       "y": 19,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 29,
+          "x": 93,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 20,
+            "max": 36,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -6622,6 +7081,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6652,6 +7112,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6678,6 +7139,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@alula_oh Oh!",
         "@alula_oh This is the shrine where the old prophet used to live...",
@@ -6719,6 +7181,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6749,6 +7212,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6775,6 +7239,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6801,6 +7266,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6827,6 +7293,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6853,6 +7320,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6879,6 +7347,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6905,6 +7374,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6931,6 +7401,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko A cluster of vines are blocking the way..."
       ],
@@ -6949,6 +7420,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6967,6 +7439,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -6993,6 +7466,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7019,6 +7493,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7045,6 +7520,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko What should I do, \\p?",
         "@niko Here!",
@@ -7082,6 +7558,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7108,6 +7585,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7134,6 +7612,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7160,6 +7639,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7190,6 +7670,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7220,6 +7701,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7246,6 +7728,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7272,6 +7755,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7298,6 +7782,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7324,6 +7809,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7350,6 +7836,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7368,6 +7855,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7386,6 +7874,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7408,6 +7897,7 @@
           "v": 10
         }
       ],
+      "kind": "door",
       "texts": [
         "@alula_pout I was trapped inside this room and it was really scary...",
         "@alula ...but then, the messiah saved me!",
@@ -7436,6 +7926,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7454,6 +7945,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7472,6 +7964,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7490,6 +7983,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7520,6 +8014,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7550,6 +8045,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7568,6 +8064,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7594,6 +8091,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7620,6 +8118,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7638,6 +8137,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7656,6 +8156,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7682,6 +8183,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7708,6 +8210,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7734,6 +8237,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7764,6 +8268,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7790,6 +8295,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7808,6 +8314,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7834,6 +8341,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7860,6 +8368,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7886,6 +8395,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7912,6 +8422,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7930,6 +8441,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7956,6 +8468,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -7986,6 +8499,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8012,6 +8526,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8030,6 +8545,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8048,6 +8564,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8061,16 +8578,34 @@
       "name": "south exit",
       "x": 47,
       "y": 55,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 48,
+          "x": null,
+          "y": 16,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 48,
+            "max": 49,
+            "fixed": 55
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8084,6 +8619,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8097,16 +8633,34 @@
       "name": "south exit",
       "x": 19,
       "y": 31,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 54,
+          "x": null,
+          "y": 47,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 20,
+            "max": 22,
+            "fixed": 31
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8115,16 +8669,34 @@
       "name": "west exit",
       "x": 32,
       "y": 30,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 49,
+          "x": 42,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 31,
+            "max": 32,
+            "fixed": 32
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8133,16 +8705,34 @@
       "name": "south exit",
       "x": 91,
       "y": 57,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 52,
+          "x": null,
+          "y": 25,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 92,
+            "max": 93,
+            "fixed": 57
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8151,16 +8741,34 @@
       "name": "east exit",
       "x": 90,
       "y": 30,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 116,
+          "x": 33,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 31,
+            "max": 32,
+            "fixed": 90
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8178,6 +8786,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko_yawn *yawn* ...",
         "@niko I'm having trouble staying awake, \\p.\\>\\nWe should find a place for me to take a nap...",
@@ -8225,16 +8834,34 @@
       "name": "north exit",
       "x": 58,
       "y": 17,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 47,
+          "x": null,
+          "y": 56,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 59,
+            "max": 60,
+            "fixed": 17
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8248,6 +8875,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8266,6 +8894,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8284,6 +8913,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8302,6 +8932,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8320,6 +8951,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8333,16 +8965,34 @@
       "name": "south exit",
       "x": 18,
       "y": 68,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 110,
+          "x": null,
+          "y": 18,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 19,
+            "max": 20,
+            "fixed": 68
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8351,16 +9001,34 @@
       "name": "south exit",
       "x": 41,
       "y": 59,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 186,
+          "x": null,
+          "y": 17,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 42,
+            "max": 43,
+            "fixed": 59
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8369,16 +9037,34 @@
       "name": "east exit",
       "x": 41,
       "y": 38,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 48,
+          "x": 31,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 39,
+            "max": 40,
+            "fixed": 41
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8392,6 +9078,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8418,6 +9105,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8436,6 +9124,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8462,6 +9151,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8488,6 +9178,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8514,6 +9205,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8540,6 +9232,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8558,6 +9251,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8584,6 +9278,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8610,6 +9305,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8636,6 +9332,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8649,16 +9346,34 @@
       "name": "north exit",
       "x": 30,
       "y": 26,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 48,
+          "x": null,
+          "y": 58,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 31,
+            "max": 32,
+            "fixed": 26
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8672,6 +9387,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8698,6 +9414,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8716,6 +9433,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@ling_smile Hang in there.\\>\\nYou can do it.",
         "@niko_eyeclosed Thanks...",
@@ -8761,6 +9479,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8787,6 +9506,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8813,6 +9533,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8826,16 +9547,34 @@
       "name": "south exit",
       "x": 37,
       "y": 48,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 47,
+          "x": null,
+          "y": 32,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 38,
+            "max": 40,
+            "fixed": 48
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -8849,6 +9588,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8875,6 +9615,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8901,6 +9642,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8927,6 +9669,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8953,6 +9696,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -8975,6 +9719,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko These vines look tough, but I think I can manage to cut them!",
         "@niko_speak That did it!",
@@ -9007,6 +9752,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9025,6 +9771,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9043,6 +9790,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9061,6 +9809,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9079,6 +9828,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9097,6 +9847,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9119,6 +9870,7 @@
           "v": 3
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko_speak So this is where the sun belongs...",
         "@niko2 If I put the sun in here, we'll be able to save the world, right?",
@@ -9174,6 +9926,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9196,6 +9949,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9226,6 +9980,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@ed [...]",
         "@ed [...you're still here...]",
@@ -9313,6 +10068,7 @@
           "v": 3
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9339,6 +10095,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9365,6 +10122,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9391,6 +10149,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9409,6 +10168,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9435,6 +10195,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9461,6 +10222,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9479,6 +10241,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9505,6 +10268,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko We made it!",
         "@calamus C'mon, Alula.\\>\\nLet's go pay our respects...",
@@ -9555,6 +10319,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
         "@cedric_smile Looks like the flying machine has a chance after all!",
         "@cedric I just have to assemble the pieces now, but it might take a while...",
@@ -9592,6 +10357,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9618,6 +10384,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9644,6 +10411,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9670,6 +10438,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9696,6 +10465,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9722,6 +10492,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9735,16 +10506,34 @@
       "name": "west exit",
       "x": 11,
       "y": 41,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 71,
+          "x": 159,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 42,
+            "max": 64,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -9758,6 +10547,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9779,16 +10569,34 @@
       "name": "south exit",
       "x": 38,
       "y": 125,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 18,
+          "x": null,
+          "y": 13,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 39,
+            "max": 52,
+            "fixed": 125
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -9797,16 +10605,34 @@
       "name": "west exit",
       "x": 11,
       "y": 27,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 73,
+          "x": 109,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 28,
+            "max": 40,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -9815,16 +10641,34 @@
       "name": "east exit",
       "x": 158,
       "y": 27,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 70,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 28,
+            "max": 50,
+            "fixed": 158
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -9838,6 +10682,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9864,6 +10709,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9890,6 +10736,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9916,6 +10763,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9942,6 +10790,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9968,6 +10817,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -9994,6 +10844,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10020,6 +10871,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10046,6 +10898,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10072,6 +10925,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10098,6 +10952,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10124,6 +10979,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10150,6 +11006,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10176,6 +11033,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10202,6 +11060,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10228,6 +11087,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10246,6 +11106,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10264,6 +11125,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10290,6 +11152,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10303,16 +11166,34 @@
       "name": "south exit",
       "x": 61,
       "y": 77,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 19,
+          "x": null,
+          "y": 10,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 62,
+            "max": 72,
+            "fixed": 77
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -10321,16 +11202,34 @@
       "name": "east exit",
       "x": 108,
       "y": 11,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 71,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 12,
+            "max": 24,
+            "fixed": 108
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -10344,6 +11243,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10370,6 +11270,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10396,6 +11297,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10422,6 +11324,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10448,6 +11351,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko The door is locked from the inside."
       ],
@@ -10466,6 +11370,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10496,6 +11401,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10526,6 +11432,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10544,6 +11451,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10570,6 +11478,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10596,6 +11505,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10614,6 +11524,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10632,6 +11543,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10650,6 +11562,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10668,6 +11581,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10686,6 +11600,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10704,6 +11619,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10722,6 +11638,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10740,6 +11657,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10758,6 +11676,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10776,6 +11695,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10794,6 +11714,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10812,6 +11733,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10830,6 +11752,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10848,6 +11771,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10866,6 +11790,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10884,6 +11809,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10902,6 +11828,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10920,6 +11847,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10938,6 +11866,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10956,6 +11885,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10974,6 +11904,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -10992,6 +11923,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11010,6 +11942,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11036,6 +11969,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11062,6 +11996,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11088,6 +12023,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11106,6 +12042,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11132,6 +12069,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11158,6 +12096,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11184,6 +12123,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11210,6 +12150,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11228,6 +12169,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11254,6 +12196,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11280,6 +12223,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11306,6 +12250,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11324,6 +12269,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11342,6 +12288,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11368,6 +12315,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11394,6 +12342,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11420,6 +12369,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11438,6 +12388,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11464,6 +12415,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11490,6 +12442,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11516,6 +12469,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11534,6 +12488,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11560,6 +12515,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11586,6 +12542,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11612,6 +12569,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11630,6 +12588,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11648,6 +12607,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11666,6 +12626,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11684,6 +12645,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11702,6 +12664,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11720,6 +12683,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11738,6 +12702,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11756,6 +12721,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11791,6 +12757,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11826,6 +12793,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11856,16 +12824,34 @@
       "name": "east exit",
       "x": 124,
       "y": 29,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 87,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 30,
+            "max": 33,
+            "fixed": 124
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -11874,16 +12860,34 @@
       "name": "north exit",
       "x": 87,
       "y": 11,
-      "trigger": null,
-      "page": null,
+      "trigger": 0,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 91,
+          "x": null,
+          "y": 78,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 89,
+            "max": 91,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -11901,6 +12905,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko It's locked from the inside."
       ],
@@ -11931,6 +12936,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko It's locked from the inside."
       ],
@@ -11957,6 +12963,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -11983,6 +12990,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12013,6 +13021,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12039,6 +13048,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12057,6 +13067,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12075,6 +13086,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12101,6 +13113,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12122,16 +13135,34 @@
       "name": "west exit",
       "x": 11,
       "y": 32,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 90,
+          "x": 69,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 33,
+            "max": 37,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -12145,6 +13176,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12171,6 +13203,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12197,6 +13230,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12223,6 +13257,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12249,6 +13284,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12275,6 +13311,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12301,6 +13338,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12319,6 +13357,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12337,6 +13376,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12363,6 +13403,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12389,6 +13430,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12419,6 +13461,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12449,6 +13492,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12475,6 +13519,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12501,6 +13546,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko It looks like I can unlock this door..."
       ],
@@ -12519,6 +13565,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12532,16 +13579,34 @@
       "name": "west exit",
       "x": 11,
       "y": 40,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 84,
+          "x": 125,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 41,
+            "max": 44,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -12555,6 +13620,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12581,6 +13647,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12607,6 +13674,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12633,6 +13701,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12659,6 +13728,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12685,6 +13755,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12711,6 +13782,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12737,6 +13809,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12758,16 +13831,34 @@
       "name": "east exit",
       "x": 68,
       "y": 44,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 85,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 45,
+            "max": 49,
+            "fixed": 68
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -12781,6 +13872,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12807,6 +13899,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12833,6 +13926,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12859,6 +13953,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12885,6 +13980,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12911,6 +14007,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12937,6 +14034,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12963,6 +14061,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -12989,6 +14088,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "I see you have the club uniform.",
         "You may come in.",
@@ -13021,6 +14121,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13042,16 +14143,34 @@
       "name": "south exit",
       "x": 4,
       "y": 81,
-      "trigger": null,
-      "page": null,
+      "trigger": 1,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 84,
+          "x": null,
+          "y": 10,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 12,
+            "max": 14,
+            "fixed": 77
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -13065,6 +14184,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13091,6 +14211,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13117,6 +14238,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13143,6 +14265,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13169,6 +14292,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13195,6 +14319,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13221,6 +14346,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13247,6 +14373,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "I see you have the club uniform.",
         "You may come in.",
@@ -13279,6 +14406,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13305,6 +14433,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13331,6 +14460,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13357,6 +14487,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13383,6 +14514,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13409,6 +14541,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13427,6 +14560,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13445,6 +14579,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13463,6 +14598,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13481,6 +14617,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13499,6 +14636,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13517,6 +14655,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13539,6 +14678,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13569,6 +14709,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13595,6 +14736,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko This seems to be a page ripped out of a book.",
         "$-cannot overstate the importance of cleaning solvents in this environment.",
@@ -13615,6 +14757,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13641,6 +14784,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13667,6 +14811,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko This seems to be a page ripped out of a book.",
         "$2) Without breaking the seal, inject the liquid phosphor into the container.",
@@ -13687,6 +14832,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13705,6 +14851,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13723,6 +14870,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13749,6 +14897,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13775,6 +14924,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13801,6 +14951,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13827,6 +14978,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13853,6 +15005,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13879,6 +15032,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13905,6 +15059,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13931,6 +15086,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13957,6 +15113,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13975,6 +15132,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -13993,6 +15151,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14026,6 +15185,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14059,6 +15219,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14092,6 +15253,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14125,6 +15287,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14158,6 +15321,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14191,6 +15355,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14224,6 +15389,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14242,6 +15408,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14268,6 +15435,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14294,6 +15462,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14320,6 +15489,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14346,6 +15516,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14372,6 +15543,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14398,6 +15570,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "[\\v[31] LIGHTS CORRECT.]",
         "\\c[2][ACCESS GRANTED!]\\c[0]",
@@ -14422,6 +15595,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko_eyeclosed Locked."
       ],
@@ -14452,6 +15626,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko_eyeclosed Locked."
       ],
@@ -14478,6 +15653,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14496,6 +15672,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14522,6 +15699,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14548,6 +15726,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14566,6 +15745,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14584,6 +15764,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14625,6 +15806,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14670,6 +15852,7 @@
           "v": 2
         }
       ],
+      "kind": "door",
       "texts": [
         "@silver [Ready to leave?]",
         "@niko Mhm.",
@@ -14711,6 +15894,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14729,6 +15913,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14747,6 +15932,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14765,6 +15951,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14783,6 +15970,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14801,6 +15989,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14819,6 +16008,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14837,6 +16027,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14863,6 +16054,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14889,6 +16081,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14915,6 +16108,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14941,6 +16135,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14967,6 +16162,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -14993,6 +16189,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15019,6 +16216,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15045,6 +16243,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15071,6 +16270,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15097,6 +16297,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15123,6 +16324,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15149,6 +16351,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15175,6 +16378,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15193,6 +16397,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15219,6 +16424,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15245,6 +16451,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15271,6 +16478,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15297,6 +16505,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15315,6 +16524,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15341,6 +16551,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15367,6 +16578,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15385,6 +16597,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "[Are You. An Intruder?]",
         "[Because If You Are... I, Model 8-XM Home Security Bot (TM) Serial Number 39232B839W4, Will Have To Report You.]",
@@ -15405,6 +16618,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15426,16 +16640,34 @@
       "name": "north exit",
       "x": 94,
       "y": 17,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 48,
+          "x": null,
+          "y": 67,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 95,
+            "max": 96,
+            "fixed": 17
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -15449,6 +16681,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15475,6 +16708,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15501,6 +16735,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15527,6 +16762,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15553,6 +16789,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15579,6 +16816,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15605,6 +16843,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15623,6 +16862,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15649,6 +16889,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15667,6 +16908,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15693,6 +16935,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15719,6 +16962,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15745,6 +16989,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15771,6 +17016,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15797,6 +17043,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15823,6 +17070,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15849,6 +17097,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15875,6 +17124,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15893,6 +17143,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15919,6 +17170,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15945,6 +17197,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko ...Hello?",
         "@kip_huh Oh, shoot!",
@@ -15965,6 +17218,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -15983,6 +17237,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16009,6 +17264,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16035,6 +17291,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16061,6 +17318,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16087,6 +17345,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16105,6 +17364,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16131,6 +17391,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16157,6 +17418,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16183,6 +17445,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16209,6 +17472,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16222,16 +17486,34 @@
       "name": "west exit",
       "x": 34,
       "y": 45,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 48,
+          "x": 90,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 46,
+            "max": 47,
+            "fixed": 34
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -16245,6 +17527,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16271,6 +17554,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16289,6 +17573,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16315,6 +17600,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16341,6 +17627,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16367,6 +17654,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16393,6 +17681,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16419,6 +17708,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16445,6 +17735,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16463,6 +17754,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16489,6 +17781,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16510,16 +17803,34 @@
       "name": "north exit",
       "x": 41,
       "y": 35,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 120,
+          "x": null,
+          "y": 27,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 42,
+            "max": 43,
+            "fixed": 35
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -16533,6 +17844,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16551,6 +17863,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko A heavy piece of metal set into the wall.",
         "@niko_eyeclosed I think it might be a door or some kind of vault.",
@@ -16571,6 +17884,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16589,6 +17903,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16607,6 +17922,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16620,16 +17936,34 @@
       "name": "south exit",
       "x": 26,
       "y": 26,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 119,
+          "x": null,
+          "y": 34,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 27,
+            "max": 28,
+            "fixed": 26
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -16643,6 +17977,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16661,6 +17996,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16687,6 +18023,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16713,6 +18050,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko It looks like I can unlock this door..."
       ],
@@ -16743,6 +18081,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko It looks like I can unlatch this door..."
       ],
@@ -16773,6 +18112,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16791,6 +18131,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16809,6 +18150,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16827,6 +18169,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16845,6 +18188,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16863,6 +18207,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16881,6 +18226,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16899,6 +18245,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16917,6 +18264,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16943,6 +18291,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16969,6 +18318,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -16995,6 +18345,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17021,6 +18372,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "[What Game Would You Like To Play?]",
         "@niko How about... hide and seek?",
@@ -17041,6 +18393,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko The pathway is blocked....",
         "@niko_speak ...by blocks!",
@@ -17061,6 +18414,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17087,6 +18441,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17113,6 +18468,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17139,6 +18495,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17165,6 +18522,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17195,6 +18553,7 @@
           "v": 11
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko Oh, shoot!",
         "@niko_eyeclosed Looks like we can't get past that block...",
@@ -17227,6 +18586,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
         "@calamus Oh, Niko, did you come by for a visit?\\>\\n\\@calamus_smile Our house is up here, please follow me."
       ],
@@ -17253,6 +18613,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17271,6 +18632,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17297,6 +18659,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17323,6 +18686,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17341,6 +18705,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17359,6 +18724,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17377,6 +18743,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17395,6 +18762,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17413,6 +18781,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17431,6 +18800,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17449,6 +18819,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17467,6 +18838,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17493,6 +18865,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17519,6 +18892,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17545,6 +18919,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17571,6 +18946,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17597,6 +18973,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17632,6 +19009,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17667,6 +19045,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17702,6 +19081,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko2 ...",
         "@en2 [...]",
@@ -17722,6 +19102,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17748,6 +19129,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17774,6 +19156,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17800,6 +19183,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17818,6 +19202,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17844,6 +19229,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17870,6 +19256,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17896,6 +19283,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17914,6 +19302,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17940,6 +19329,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17966,6 +19356,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -17984,6 +19375,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18010,6 +19402,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18036,6 +19429,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18062,6 +19456,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18088,6 +19483,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18114,6 +19510,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18140,6 +19537,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18158,6 +19556,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18184,6 +19583,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18205,16 +19605,34 @@
       "name": "north exit",
       "x": 41,
       "y": 35,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 120,
+          "x": null,
+          "y": 27,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 42,
+            "max": 43,
+            "fixed": 35
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -18228,6 +19646,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18246,6 +19665,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18272,6 +19692,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18298,6 +19719,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18324,6 +19746,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18350,6 +19773,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18376,6 +19800,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18402,6 +19827,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18428,6 +19854,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18454,6 +19881,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18480,6 +19908,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18506,6 +19935,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18532,6 +19962,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18558,6 +19989,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18584,6 +20016,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18610,6 +20043,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18636,6 +20070,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18662,6 +20097,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18688,6 +20124,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18714,6 +20151,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18740,6 +20178,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18766,6 +20205,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18792,6 +20232,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18818,6 +20259,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18844,6 +20286,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18870,6 +20313,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18896,6 +20340,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18922,6 +20367,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18948,6 +20394,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -18974,6 +20421,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19000,6 +20448,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19026,6 +20475,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19052,6 +20502,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19078,6 +20529,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19104,6 +20556,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19130,6 +20583,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19156,6 +20610,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19182,6 +20637,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19208,6 +20664,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19234,6 +20691,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19260,6 +20718,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19286,6 +20745,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19312,6 +20772,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19338,6 +20799,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19364,6 +20826,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19390,6 +20853,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19416,6 +20880,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19442,6 +20907,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19468,6 +20934,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19494,6 +20961,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19520,6 +20988,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19546,6 +21015,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19572,6 +21042,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19598,6 +21069,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19624,6 +21096,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19650,6 +21123,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19680,6 +21154,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko Guess I should pick it up, right \\p?"
       ],
@@ -19713,6 +21188,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19742,6 +21218,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19771,6 +21248,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19800,6 +21278,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19829,6 +21308,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19858,6 +21338,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19887,6 +21368,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19916,6 +21398,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19945,6 +21428,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -19974,6 +21458,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20003,6 +21488,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20032,6 +21518,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20061,6 +21548,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20090,6 +21578,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20119,6 +21608,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20148,6 +21638,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20181,6 +21672,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20207,6 +21699,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20236,6 +21729,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20265,6 +21759,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20294,6 +21789,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20323,6 +21819,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20352,6 +21849,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20381,6 +21879,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20410,6 +21909,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20439,6 +21939,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20468,6 +21969,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20497,6 +21999,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20526,6 +22029,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20555,6 +22059,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20584,6 +22089,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20613,6 +22119,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20642,6 +22149,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20671,6 +22179,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20700,6 +22209,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20729,6 +22239,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20758,6 +22269,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20787,6 +22299,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20816,6 +22329,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20845,6 +22359,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20874,6 +22389,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20903,6 +22419,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20932,6 +22449,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20961,6 +22479,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -20990,6 +22509,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21019,6 +22539,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21048,6 +22569,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21077,6 +22599,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21106,6 +22629,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21135,6 +22659,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21164,6 +22689,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21193,6 +22719,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21222,6 +22749,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21251,6 +22779,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21277,6 +22806,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21303,6 +22833,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21332,6 +22863,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21365,6 +22897,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21398,6 +22931,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21428,6 +22962,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21454,6 +22989,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21480,6 +23016,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21498,6 +23035,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21524,6 +23062,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21559,6 +23098,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21577,6 +23117,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21603,6 +23144,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21629,6 +23171,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21647,6 +23190,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21680,6 +23224,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21706,6 +23251,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21732,6 +23278,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21758,6 +23305,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21784,6 +23332,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21810,6 +23359,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21832,6 +23382,7 @@
           "v": 3
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21861,6 +23412,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21879,6 +23431,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21897,6 +23450,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21923,6 +23477,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21949,6 +23504,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -21975,6 +23531,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22005,6 +23562,7 @@
           "v": 2
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22055,6 +23613,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22073,6 +23632,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22091,6 +23651,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22109,6 +23670,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22127,6 +23689,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22145,6 +23708,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22163,6 +23727,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22181,6 +23746,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22199,6 +23765,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22217,6 +23784,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22235,6 +23803,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22253,6 +23822,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22271,6 +23841,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22306,6 +23877,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22341,6 +23913,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22376,6 +23949,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22411,6 +23985,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22446,6 +24021,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22481,6 +24057,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22516,6 +24093,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22551,6 +24129,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22586,6 +24165,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22621,6 +24201,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22647,6 +24228,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22665,6 +24247,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22683,6 +24266,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22709,6 +24293,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22735,6 +24320,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22753,6 +24339,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko It won't turn on.",
         "Input Password:",
@@ -22773,6 +24360,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22799,6 +24387,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@ed [The door is locked.]"
       ],
@@ -22829,6 +24418,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22855,6 +24445,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22881,6 +24472,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22899,6 +24491,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22917,6 +24510,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22935,6 +24529,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22953,6 +24548,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22971,6 +24567,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -22989,6 +24586,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23007,6 +24605,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23025,6 +24624,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23043,6 +24643,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23061,6 +24662,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23079,6 +24681,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23097,6 +24700,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23123,6 +24727,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23149,6 +24754,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23167,6 +24773,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23185,6 +24792,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23203,6 +24811,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23221,6 +24830,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23247,6 +24857,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23265,6 +24876,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23291,6 +24903,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23317,6 +24930,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko Does this work?",
         "@proto1b [Let's see...]",
@@ -23337,6 +24951,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23363,6 +24978,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23389,6 +25005,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23424,6 +25041,7 @@
           "v": false
         }
       ],
+      "kind": "door",
       "texts": [
         "@silver [What's wrong?\\>\\nDo you want to head back?]",
         "@niko I have a weird feeling about this...",
@@ -23461,6 +25079,7 @@
           "v": false
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko_distressed Oh...",
         "@silver [Hm...? \\.\\.What's wrong?]",
@@ -23489,6 +25108,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23515,6 +25135,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23541,6 +25162,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@ed [I tried.]",
         "@ed [I really did!]",
@@ -23569,6 +25191,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23595,6 +25218,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23621,6 +25245,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@silver_rip [...ughh]",
         "@niko_surprised ARE YOU OKAY?!",
@@ -23649,6 +25274,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko_distressed_talk I... don't know what I'm supposed to do!",
         "@niko_upset If I can't fix the world... I can't go back home...",
@@ -23677,6 +25303,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23695,6 +25322,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23713,6 +25341,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23739,6 +25368,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23765,6 +25395,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23783,6 +25414,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23801,6 +25433,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23827,6 +25460,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23853,6 +25487,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23879,6 +25514,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23905,6 +25541,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23931,6 +25568,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23957,6 +25595,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -23983,6 +25622,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24001,6 +25641,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24027,6 +25668,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24045,6 +25687,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24063,6 +25706,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24081,6 +25725,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24099,6 +25744,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24125,6 +25771,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24151,6 +25798,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24177,6 +25825,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24203,6 +25852,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24221,6 +25871,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24239,6 +25890,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24257,6 +25909,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24275,6 +25928,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24301,6 +25955,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24327,6 +25982,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24345,6 +26001,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@rue !",
         "@rue You're here!!!",
@@ -24365,6 +26022,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24391,6 +26049,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24417,6 +26076,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24443,6 +26103,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24469,6 +26130,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24495,6 +26157,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24521,6 +26184,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24539,6 +26203,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24565,6 +26230,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24591,6 +26257,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24617,6 +26284,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko The pathway is blocked....",
         "@niko_speak ...by blocks!",
@@ -24637,6 +26305,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko3 The squares are blocking the doorway..."
       ],
@@ -24655,6 +26324,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko3 The squares are blocking the doorway..."
       ],
@@ -24673,6 +26343,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24699,6 +26370,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24725,6 +26397,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24751,6 +26424,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24769,6 +26443,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24795,6 +26470,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24821,6 +26497,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24847,6 +26524,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24883,6 +26561,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24919,6 +26598,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -24941,6 +26621,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
         "@alula_gasp Here we go!"
       ],
@@ -24976,6 +26657,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25002,6 +26684,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25028,6 +26711,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25054,6 +26738,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25080,6 +26765,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25098,6 +26784,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25124,6 +26811,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25150,6 +26838,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko That robot told me to try and remember, so I will.",
         "@niko_eyeclosed Sleepy time."
@@ -25177,6 +26866,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko_shock AAAAAAA!!!!!",
         "@proto_gasp2 [...No!!.]",
@@ -25205,6 +26895,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25231,6 +26922,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25257,6 +26949,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25283,6 +26976,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25309,6 +27003,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25327,6 +27022,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25353,6 +27049,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25383,6 +27080,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25409,6 +27107,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25452,6 +27151,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25470,6 +27170,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@cedric_sigh ...phew.",
         "@cedric_smile Made it!",
@@ -25485,16 +27186,34 @@
       "name": "west exit",
       "x": 39,
       "y": 36,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 214,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 37,
+            "max": 38,
+            "fixed": 39
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25503,16 +27222,34 @@
       "name": "south exit",
       "x": 47,
       "y": 55,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 215,
+          "x": null,
+          "y": 16,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 48,
+            "max": 49,
+            "fixed": 55
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25521,16 +27258,34 @@
       "name": "west exit",
       "x": 10,
       "y": 44,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 213,
+          "x": 39,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 45,
+            "max": 46,
+            "fixed": 10
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25539,16 +27294,34 @@
       "name": "west exit",
       "x": 32,
       "y": 30,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 49,
+          "x": 42,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 31,
+            "max": 32,
+            "fixed": 32
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25562,6 +27335,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko_speak We found some elevators!",
         "@plight_shock What??",
@@ -25577,16 +27351,34 @@
       "name": "south exit",
       "x": 91,
       "y": 57,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 219,
+          "x": null,
+          "y": 25,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 92,
+            "max": 93,
+            "fixed": 57
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25595,16 +27387,34 @@
       "name": "east exit",
       "x": 90,
       "y": 30,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 216,
+          "x": 33,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 31,
+            "max": 32,
+            "fixed": 90
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25618,6 +27428,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25631,16 +27442,34 @@
       "name": "north exit",
       "x": 58,
       "y": 17,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 214,
+          "x": null,
+          "y": 56,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 59,
+            "max": 60,
+            "fixed": 17
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25654,6 +27483,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25672,6 +27502,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25690,6 +27521,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25708,6 +27540,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25726,6 +27559,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25739,16 +27573,34 @@
       "name": "south exit",
       "x": 18,
       "y": 68,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 110,
+          "x": null,
+          "y": 18,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 19,
+            "max": 20,
+            "fixed": 68
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25757,16 +27609,34 @@
       "name": "south exit",
       "x": 41,
       "y": 59,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 254,
+          "x": null,
+          "y": 17,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 42,
+            "max": 43,
+            "fixed": 59
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25775,16 +27645,34 @@
       "name": "west exit",
       "x": 34,
       "y": 45,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 215,
+          "x": 90,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 46,
+            "max": 47,
+            "fixed": 34
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -25798,6 +27686,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25824,6 +27713,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25842,6 +27732,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25868,6 +27759,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25894,6 +27786,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25920,6 +27813,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25946,6 +27840,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25972,6 +27867,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -25998,6 +27894,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@watcher Good morning.",
         "@watcher Good afternoon.",
@@ -26018,6 +27915,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26036,6 +27934,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26062,6 +27961,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26075,16 +27975,34 @@
       "name": "north exit",
       "x": 30,
       "y": 26,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 215,
+          "x": null,
+          "y": 58,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 31,
+            "max": 32,
+            "fixed": 26
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -26098,6 +28016,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26124,6 +28043,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26142,6 +28062,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26168,6 +28089,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26194,6 +28116,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26212,6 +28135,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26238,6 +28162,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26259,16 +28184,34 @@
       "name": "north exit",
       "x": 41,
       "y": 35,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 225,
+          "x": null,
+          "y": 27,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 42,
+            "max": 43,
+            "fixed": 35
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -26282,6 +28225,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26304,6 +28248,7 @@
           "v": 3
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko A heavy piece of metal set into the wall.",
         "@niko_eyeclosed I think it might be a door or some kind of vault.",
@@ -26335,6 +28280,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26353,6 +28299,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26371,6 +28318,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26389,6 +28337,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26407,6 +28356,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26420,16 +28370,34 @@
       "name": "south exit",
       "x": 22,
       "y": 36,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 221,
+          "x": null,
+          "y": 57,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 26,
+            "max": 27,
+            "fixed": 36
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -26447,6 +28415,7 @@
           "v": 1
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko_eyeclosed The squares are here too now...",
         "@niko This elevator won't open.",
@@ -26504,6 +28473,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26517,16 +28487,34 @@
       "name": "south exit",
       "x": 26,
       "y": 26,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 221,
+          "x": null,
+          "y": 34,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 27,
+            "max": 28,
+            "fixed": 26
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -26540,6 +28528,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26558,6 +28547,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26576,6 +28566,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26594,6 +28585,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26620,6 +28612,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26646,6 +28639,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26672,6 +28666,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26702,6 +28697,7 @@
           "v": 3
         }
       ],
+      "kind": "door",
       "texts": [
         "@niko2 ...let's see if this elevator works."
       ],
@@ -26728,6 +28724,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26746,6 +28743,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26772,6 +28770,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26798,6 +28797,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26824,6 +28824,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26850,6 +28851,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26876,6 +28878,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26902,6 +28905,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26928,6 +28932,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26946,6 +28951,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26972,6 +28978,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -26998,6 +29005,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27024,6 +29032,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27050,6 +29059,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27076,6 +29086,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27102,6 +29113,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27120,6 +29132,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27138,6 +29151,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@kip_pout He....",
         "@kip_sad I...\\.\\. couldn't stop him...",
@@ -27166,6 +29180,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27184,6 +29199,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27202,6 +29218,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27220,6 +29237,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27238,6 +29256,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27256,6 +29275,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27274,6 +29294,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27292,6 +29313,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27318,6 +29340,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27344,6 +29367,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27365,16 +29389,34 @@
       "name": "east exit",
       "x": 124,
       "y": 29,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 233,
+          "x": 10,
+          "y": null,
+          "d": 6,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 30,
+            "max": 33,
+            "fixed": 124
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -27383,16 +29425,34 @@
       "name": "north exit",
       "x": 87,
       "y": 11,
-      "trigger": null,
-      "page": null,
+      "trigger": 0,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 91,
+          "x": null,
+          "y": 78,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 89,
+            "max": 91,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -27406,6 +29466,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27424,6 +29485,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27450,6 +29512,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27476,6 +29539,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27494,6 +29558,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27512,6 +29577,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27530,6 +29596,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27551,16 +29618,34 @@
       "name": "south exit",
       "x": 4,
       "y": 81,
-      "trigger": null,
-      "page": null,
+      "trigger": 1,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 84,
+          "x": null,
+          "y": 10,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 12,
+            "max": 14,
+            "fixed": 77
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -27574,6 +29659,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27600,6 +29686,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27626,6 +29713,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27652,6 +29740,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27678,6 +29767,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27704,6 +29794,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27730,6 +29821,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27756,6 +29848,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27777,16 +29870,34 @@
       "name": "west exit",
       "x": 11,
       "y": 40,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 231,
+          "x": 125,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 41,
+            "max": 44,
+            "fixed": 11
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -27800,6 +29911,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27826,6 +29938,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27852,6 +29965,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27878,6 +29992,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27904,6 +30019,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27930,6 +30046,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27948,6 +30065,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -27974,6 +30092,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28000,6 +30119,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28026,6 +30146,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28044,6 +30165,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28070,6 +30192,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28096,6 +30219,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28122,6 +30246,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28148,6 +30273,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28166,6 +30292,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28192,6 +30319,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28218,6 +30346,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28244,6 +30373,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28270,6 +30400,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28296,6 +30427,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28322,6 +30454,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28340,6 +30473,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28366,6 +30500,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28384,6 +30519,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28410,6 +30546,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko We made it!",
         "@calamus C'mon, Alula.\\>\\nLet's go see mom.",
@@ -28456,6 +30593,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@cedric ...it's fixed.",
         "@cedric We can leave in the next five minutes, if you are ready.",
@@ -28484,6 +30622,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28502,6 +30641,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28520,6 +30660,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28538,6 +30679,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28556,6 +30698,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28574,6 +30717,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28600,6 +30744,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28626,6 +30771,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28652,6 +30798,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28678,6 +30825,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28704,6 +30852,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28730,6 +30879,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28756,6 +30906,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28782,6 +30933,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28808,6 +30960,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28834,6 +30987,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28860,6 +31014,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28895,6 +31050,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28930,6 +31086,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -28965,6 +31122,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko2 ...",
         "@en2 [...]",
@@ -28989,6 +31147,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29019,6 +31178,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29049,6 +31209,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29075,6 +31236,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29093,6 +31255,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29119,6 +31282,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29145,6 +31309,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29171,6 +31336,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29197,6 +31363,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29223,6 +31390,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29249,6 +31417,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29275,6 +31444,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29301,6 +31471,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29327,6 +31498,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29353,6 +31525,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29379,6 +31552,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29405,6 +31579,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29423,6 +31598,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29441,6 +31617,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29467,6 +31644,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29493,6 +31671,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29511,6 +31690,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29529,6 +31709,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29555,6 +31736,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29581,6 +31763,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29607,6 +31790,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29633,6 +31817,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29659,6 +31844,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29689,6 +31875,7 @@
           "v": true
         }
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29715,6 +31902,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29733,6 +31921,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29759,6 +31948,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29780,16 +31970,34 @@
       "name": "west exit",
       "x": 32,
       "y": 30,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 49,
+          "x": 42,
+          "y": null,
+          "d": 4,
+          "kind": "exit",
+          "area": {
+            "axis": "x",
+            "min": 31,
+            "max": 32,
+            "fixed": 32
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -29803,6 +32011,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29829,6 +32038,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29842,16 +32052,34 @@
       "name": "north exit",
       "x": 58,
       "y": 17,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 214,
+          "x": null,
+          "y": 56,
+          "d": 8,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 59,
+            "max": 60,
+            "fixed": 17
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -29865,6 +32093,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29883,6 +32112,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29901,6 +32131,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29919,6 +32150,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29937,6 +32169,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29950,16 +32183,34 @@
       "name": "south exit",
       "x": 18,
       "y": 68,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 110,
+          "x": null,
+          "y": 18,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 19,
+            "max": 20,
+            "fixed": 68
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -29973,6 +32224,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -29999,6 +32251,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30017,6 +32270,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30035,6 +32289,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko2 ...",
         "@niko6 This is the room I first woke up in...",
@@ -30055,6 +32310,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30081,6 +32337,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30107,6 +32364,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30133,6 +32391,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30159,6 +32418,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@kip I couldn't stop him...",
         "@kip Sigh",
@@ -30187,6 +32447,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30213,6 +32474,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30239,6 +32501,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30265,6 +32528,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30283,6 +32547,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30296,16 +32561,34 @@
       "name": "south exit",
       "x": 22,
       "y": 36,
-      "trigger": null,
-      "page": null,
+      "trigger": 4,
+      "page": 0,
       "page_conds": [
 
       ],
+      "kind": "exit",
       "texts": [
 
       ],
       "targets": [
-
+        {
+          "map": 119,
+          "x": null,
+          "y": 57,
+          "d": 2,
+          "kind": "exit",
+          "area": {
+            "axis": "y",
+            "min": 26,
+            "max": 27,
+            "fixed": 36
+          },
+          "via": [
+            {
+              "k": "exit"
+            }
+          ]
+        }
       ]
     },
     {
@@ -30319,6 +32602,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
         "@niko Um...",
         "@niko2 It's a big penguin....\\.\\.plush?",
@@ -30396,6 +32680,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30435,6 +32720,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30474,6 +32760,7 @@
       "page_conds": [
 
       ],
+      "kind": "door",
       "texts": [
 
       ],
@@ -30494,6 +32781,7 @@
     "maps": 263,
     "total_events": 11294,
     "door_events": 1199,
+    "exit_events": 64,
     "maps_with_doors": 229,
     "dynamic_targets": 63
   }
