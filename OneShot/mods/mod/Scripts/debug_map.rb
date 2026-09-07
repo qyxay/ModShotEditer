@@ -15,11 +15,20 @@
 #  纯 preload 实现, 不修改游戏原始文件。
 #  用 TracePoint(:end) 监听 Scene_Map 类定义, 在 update 就绪后用
 #  Module#prepend 打补丁。
+#
+#  性能优化 (A+B):
+#    A. 格子级重绘判定 —— 只有镜头跨过整格才重绘,
+#       像素级滚动由 @sprite 偏移处理(原实现像素级 key 每帧重绘)。
+#    B. 可通行性静态缓存 —— 换图时一次性计算全图 tileset 静态通行表,
+#       redraw 只查表; 事件层用事件锚点索引 O(1) 判断。
+#       逻辑完全复刻 Game_Map#passable?(xscripts/0016), 精度零损失。
 # ============================================================
 
 # --- 调试图层 ---
 class DebugMapOverlay
   TILE = 32
+  # 方向 -> 缓存位索引 (bit0=d2, bit1=d4, bit2=d6, bit3=d8)
+  DIR_BITS = { 2 => 0, 4 => 1, 6 => 2, 8 => 3 }
 
   attr_reader :visible
 
@@ -32,6 +41,12 @@ class DebugMapOverlay
     @visible = false
     @sprite.visible = false
     @last_redraw_key = nil
+    # --- A+B 优化: 可通行性静态缓存 ---
+    # 换图时重建一次, redraw 只查表, 不再每格调 Game_Map#passable?
+    # (原实现每格 4 方向 × 遍历全部事件, 是 Ctrl+G 卡顿的根因)
+    @pass_cache = nil    # [x][y] -> 4bit mask (bit0=d2, bit1=d4, bit2=d6, bit3=d8)
+    @cache_map_id = nil  # 缓存对应的地图 id, 换图时失效
+    @events_at = {}      # 当前帧事件锚点索引: [x,y] -> [event,...]
   end
 
   def visible?
@@ -49,11 +64,13 @@ class DebugMapOverlay
   end
 
   # 每帧: 镜头滚动时重绘(格子偏移变化), 否则保持
+  # 方案 A: 用格子坐标做 key(display_x/128 = 格子坐标, 128 = 4*TILE),
+  #         只有跨过整格才重绘; 像素级滚动由 @sprite.x = -(dx % TILE) 补偿。
   def update
     return unless @visible
     map = $game_map
     return unless map
-    key = [map.display_x, map.display_y]
+    key = [map.display_x / 128, map.display_y / 128]
     if key != @last_redraw_key
       @last_redraw_key = key
       redraw
@@ -69,6 +86,9 @@ class DebugMapOverlay
     bmp.clear
     return unless map
 
+    # 方案 B: 换图时重建静态通行缓存
+    rebuild_cache(map)
+
     dx = map.display_x / 4   # 镜头左上角像素
     dy = map.display_y / 4
     x0 = dx / TILE           # 可视左上角格子
@@ -80,12 +100,12 @@ class DebugMapOverlay
     x1 = x0 + (640 + TILE - 1) / TILE
     y1 = y0 + (480 + TILE - 1) / TILE
 
-    # 事件锚点索引: [x, y] -> [id, ...] (只显示未 erased 的事件)
-    events_at = {}
+    # 事件锚点索引: [x, y] -> [event, ...] (只索引未 erased 的事件)
+    @events_at = {}
     map.events.each_value do |ev|
       next if ev.instance_variable_get(:@erased)
       k = [ev.x, ev.y]
-      (events_at[k] ||= []) << ev.id
+      (@events_at[k] ||= []) << ev
     end
 
     (x0..x1).each do |x|
@@ -95,7 +115,7 @@ class DebugMapOverlay
         py = (y - y0) * TILE
 
         # --- 碰撞(可通行性): 统计四向不可通行数 ---
-        blocked = [2, 4, 6, 8].count { |d| !map.passable?(x, y, d) }
+        blocked = [2, 4, 6, 8].count { |d| !passable_cheap?(map, x, y, d) }
         if blocked == 4
           bmp.fill_rect(px, py, TILE, TILE, Color.new(255, 0, 0, 90))
         elsif blocked > 0
@@ -103,13 +123,87 @@ class DebugMapOverlay
         end
 
         # --- 事件: 蓝色块 + ID ---
-        ids = events_at[[x, y]]
+        ids = @events_at[[x, y]]
         if ids && !ids.empty?
           bmp.fill_rect(px + 1, py + 1, TILE - 2, TILE - 2, Color.new(0, 120, 255, 120))
-          bmp.draw_text(px + 2, py + 2, TILE - 4, TILE - 4, ids.join('|'), 1)
+          bmp.draw_text(px + 2, py + 2, TILE - 4, TILE - 4, ids.map(&:id).join('|'), 1)
         end
       end
     end
+  end
+
+  # 方案 B: 全图静态通行缓存(不含事件层), 地图切换时重建一次。
+  # 复刻 Game_Map#passable? 中 tileset 层判定逻辑(xscripts/0016_Game_Map.rb:359-388)。
+  def rebuild_cache(map)
+    mid = map.map_id
+    return if @cache_map_id == mid && @pass_cache
+    @cache_map_id = mid
+    w = map.width
+    h = map.height
+    passages = map.passages
+    priorities = map.priorities
+    data = map.data
+    cache = Array.new(w) { Array.new(h, 0) }
+    (0...w).each do |x|
+      (0...h).each do |y|
+        mask = 0
+        [2, 4, 6, 8].each do |d|
+          bit = 1 << (d / 2 - 1)
+          mask |= (1 << DIR_BITS[d]) unless static_passable?(data, passages, priorities, x, y, bit)
+        end
+        cache[x][y] = mask
+      end
+    end
+    @pass_cache = cache
+  end
+
+  # tileset 静态层判定(复刻 passable? 的 tile 循环; blank 三空层逻辑)
+  def static_passable?(data, passages, priorities, x, y, bit)
+    blank = 0
+    [2, 1, 0].each do |i|
+      tile_id = data[x, y, i]
+      next if tile_id == nil
+      if tile_id < 48 && i > 0
+        blank += 1
+        next if blank < 3
+      end
+      return false if passages[tile_id] & bit != 0
+      return false if passages[tile_id] & 0x0f == 0x0f
+      return true if priorities[tile_id] == 0
+    end
+    true
+  end
+
+  # 快速可通行判断: 静态查缓存表 + 事件层查锚点索引(复刻 passable? 全逻辑)
+  def passable_cheap?(map, x, y, d)
+    return false unless map.valid?(x, y)
+    x %= map.width
+    y %= map.height
+    bit = 1 << (d / 2 - 1)
+
+    # 事件层: 只查该格事件(O(1) 索引), 顺序与原 passable? 一致
+    # (事件可能覆盖静态结果: priorities[tile_id]==0 时格可通行)
+    evs = @events_at[[x, y]]
+    if evs
+      passages = map.passages
+      priorities = map.priorities
+      evs.each do |ev|
+        next unless ev.tile_id >= 0 && !ev.through
+        if ev.tile_id == 0 && ev.character_name.empty?
+          return false
+        elsif passages[ev.tile_id] & bit != 0
+          return false
+        elsif passages[ev.tile_id] & 0x0f == 0x0f
+          return false
+        elsif priorities[ev.tile_id] == 0
+          return true
+        end
+      end
+    end
+
+    # 静态层: 查缓存表
+    return false if @pass_cache[x][y] & (1 << DIR_BITS[d]) != 0
+    true
   end
 end
 
@@ -163,5 +257,7 @@ StatusLog.write('debug_map_status.txt', [
   "collision = red(all 4 dirs blocked) / orange(partial) / transparent(passable)",
   "events = blue block + event id (same-cell merged with |)",
   "layer_z = 250 (above lights 200, below pics 500)",
-  "redraw = on camera move only"
+  "redraw = grid-level key (camera crosses a tile) + static pass cache (A+B optimized)",
+  "cache = rebuild on map switch, full-map tileset passability, event layer via anchor index",
+  "logic = replicates Game_Map#passable? (xscripts/0016) exactly, zero precision loss"
 ])
