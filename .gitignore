@@ -4,3 +4,5 @@ OneShot/mods/mod/logs/
 # 运行时生成的设置/状态文件(不纳入版本控制)
 OneShot/mods/mod/settings/*.json
 !OneShot/mods/mod/settings/.gitkeep
+# 静态预扫描的门连接图数据(构建产物, 纳入版本控制)
+!OneShot/mods/mod/settings/graph.json
