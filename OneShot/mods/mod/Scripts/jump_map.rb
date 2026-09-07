@@ -122,11 +122,32 @@ class Window_JumpMap
     @fade_in = true
     @title.bitmap.clear
     @title.bitmap.draw_text(0, 0, @title.bitmap.width, @title.bitmap.height, tr('Jump Map'))
+    jlog("open maps=#{@maps.size} page=#{@page + 1}/#{page_count}")
     refresh_list
   end
 
   # 帧更新: 淡入 -> 选择 -> 淡出 -> 设置传送 flags
+  # 运行时日志(仅记录关键事件, 定位"传送后不收回"类问题)
+  def jlog(msg)
+    begin
+      dir = File.join(__dir__, '..', 'logs')
+      Dir.mkdir(dir) unless File.directory?(dir)
+      File.open(File.join(dir, 'jump_map_runtime.txt'), 'a') { |f| f.puts("[#{Time.now.strftime('%H:%M:%S')}] #{msg}") }
+    rescue StandardError
+    end
+  end
+
   def update
+    begin
+      update_inner
+    rescue StandardError => e
+      # 关键: 捕获异常并记录, 绝不让界面因异常而冻结(shortcut_keys 的 rescue 会吞掉并落 super)
+      jlog("update error: #{e.class}: #{e.message}")
+      jlog(e.backtrace.first(6).join(" | ")) if e.backtrace
+    end
+  end
+
+  def update_inner
     if @fade_in
       @title.opacity += 20
       @title.opacity = 255 if @title.opacity > 255
@@ -177,6 +198,7 @@ class Window_JumpMap
           Graphics.freeze
           $game_temp.transition_processing = true
           $game_temp.transition_name = "black"
+          jlog("fade_out done, transfer=#{!!@transfer_player}, on_transfer=#{!@on_transfer.nil?}")
           @on_transfer.call if @on_transfer
           @transfer_player = nil
         end
@@ -242,6 +264,7 @@ class Window_JumpMap
     # 确认: 保存目标并淡出, 淡出结束后设置传送 flags
     if Input.trigger?(Input::ACTION)
       $game_system.se_play($data_system.decision_se)
+      jlog("ACTION index=#{@index} map=#{@maps[@index][:name]}(#{@maps[@index][:id]}) -> fade_out")
       @transfer_player = @maps[@index]
       @fade_out = true
       return
@@ -249,6 +272,7 @@ class Window_JumpMap
 
     # 取消: 返回开发者设置(开发者设置一直保持可见, 只是被本界面盖住)
     if Input.trigger?(Input::CANCEL)
+        jlog("CANCEL close_all=#{@close_all_on_cancel}")
       if @close_all_on_cancel
         # Ctrl+J 直接打开: 取消一次全关(跳地图 + 开发者设置 + 外层设置窗口), 直接回游戏
         @on_transfer.call if @on_transfer
