@@ -70,6 +70,12 @@ class DebugMapOverlay
     return unless @visible
     map = $game_map
     return unless map
+    # 像素级跟随: 每帧更新 sprite 偏移(镜头滚动补偿), 保证调试图层与地板/角色对齐
+    dx = map.display_x / 4
+    dy = map.display_y / 4
+    @sprite.x = -(dx % TILE)
+    @sprite.y = -(dy % TILE)
+    # 格子级重绘: 只有跨过整格才重绘内容(性能优化保留)
     key = [map.display_x / 128, map.display_y / 128]
     if key != @last_redraw_key
       @last_redraw_key = key
