@@ -1,4 +1,4 @@
-# OneShot Mod 工作台 (ModShot)
+﻿# OneShot Mod 工作台 (ModShot)
 
 基于自编译 [mkxp-z](https://github.com/mkxp-z/mkxp-z) 引擎（命名 **ModShot**）的 OneShot mod 开发/调试工作区。包含完整的游戏副本、mod 本体、脚本解包/打包工具和数据导出，全部脚本注入均通过 `preloadScript` 实现，**不修改原版 `xScripts.rxdata`**（游戏脚本本体除外）。
 
@@ -39,18 +39,18 @@ ModShot-mkxp-z/
 │   ├── Data/                 # 游戏数据 (.rxdata, 含 xScripts.rxdata 游戏脚本)
 │   ├── Graphics/  Audio/  Fonts/  Languages/  Wallpaper/
 │   └── mods/mod/             # ★ mod 本体 (通过 patches + preload 加载)
-│       ├── Scripts/          # 15 个 mod 脚本 (mod.rb 自动加载全部)
+│       ├── Scripts/          # mod 脚本 (mod.rb 自动加载全部)
 │       ├── config.json       # mod 功能开关 (游戏内可实时切换)
 │       ├── Data/             # pack_xscripts.rb 的输出位置 (xScripts.rxdata)
 │       ├── logs/             # 运行时状态日志 (每次启动重写, 已 gitignore)
+│       ├── settings/         # 运行时设置/状态目录 (.gitkeep 占位, *.json 已 gitignore)
 │       └── backup/           # jump_points 等编辑前自动备份
-├── xscripts/                 # 游戏脚本明文 (111 个 .rb + INDEX.txt), 编辑源
-├── _scripts_dump/            # 脚本 dump 快照 (与 xscripts/ 内容一致, 只读参考)
+├── xscripts/                 # 游戏脚本明文 (112 个 .rb + INDEX.txt), 编辑源
 ├── export/                   # 游戏数据导出 (只读分析用)
 │   ├── *.txt                 # 18 份数据表 (Actors/Items/CommonEvents/MapInfos…)
 │   ├── map_events/           # 263 张地图的事件明细
 │   └── tileset_maps/         # 263 张地图的渲染截图 (PNG)
-├── _analyze/                 # 分析/验证工具集 (60+ 个 Ruby 脚本)
+├── _analyze/                 # 分析/验证工具集 (80+ 个 Ruby 脚本)
 │   ├── oneshot_data.rb       # 数据读取库 (共享)
 │   ├── rmxpm.py              # RMXP 数据解析
 │   ├── check_*/inspect_*/verify_*/scan_*/fix_*.rb   # 各类探查脚本
@@ -60,6 +60,9 @@ ModShot-mkxp-z/
 ├── modshot.json              # 引擎配置全注释模板 (mkxp-z 官方配置说明, 备份用)
 ├── pack_xscripts.rb          # 打包: xscripts\ → OneShot/mods/mod/Data/xScripts.rxdata
 ├── unpack_xscripts.rb        # 解包: xScripts.rxdata → xscripts\
+├── _dump_scripts.rb          # 脚本 dump 工具
+├── _inspect_maps.rb          # 地图检查工具
+├── _verify_jump.rb           # 跳点验证工具
 ├── modshot.exe - 快捷方式.lnk
 ├── OneShot游戏运行逻辑分析报告.html   # 游戏逻辑分析报告 (Trae Work 生成)
 ├── .gitignore                # 忽略 OneShot/mods/mod/logs/
@@ -72,12 +75,12 @@ ModShot-mkxp-z/
 
 | 开关 | 当前值 | 作用 |
 |---|---|---|
-| `skip_pictures` | false | 跳过图片过场 |
+| `skip_pictures` | true | 跳过图片过场 |
 | `quit_all_time` | true | 忽略 `menu_disabled`，任何场景下都能退出/打开菜单 |
-| `skip_dialogue` | false | 跳过所有对话（整段 Show Text 101） |
-| `skip_choice` | false | 自动选择第一个选项（Show Choices 102） |
+| `skip_dialogue` | true | 跳过所有对话（整段 Show Text 101） |
+| `skip_choice` | true | 自动选择第一个选项（Show Choices 102） |
 | `skip_uneasy` | true | 单独跳过读档时的 "Niko feels uneasy." 提示 |
-| `skip_event` | false | 事件快进 / 正常经历但防卡（watchdog 防死锁） |
+| `skip_event` | "block" | 事件阻止模式：block=阻止限制角色行动的事件 |
 | `always_travel` | true | 事件/对话运行中仍可按 Ctrl+J 打开跳地图（打开后暂停事件，关闭后继续） |
 | `always_settings` | true | 事件/对话运行中仍可按 Ctrl+D 打开开发者设置（打开后暂停事件，关闭后继续） |
 | `unshow_title` | true | 不展示标题界面，直接进游戏 |
@@ -94,14 +97,13 @@ ModShot-mkxp-z/
 | `_patch_helper.rb` | PatchHelper：统一"等待类定义 + `Module#prepend` 打补丁"样板 |
 | `_status_log.rb` | StatusLog：统一向 logs/ 写状态文件 |
 | `skip_dialogue.rb` | 跳过对话（101 整段）、自动选第一项（102）、跳过 uneasy 提示 |
-| `skip_event.rb` | 事件快进 / 正常经历但防卡 |
+| `skip_event.rb` | 事件阻止/快进：block 模式阻止限制角色行动的事件，含自由浏览模式 |
 | `picture_skip.rb` | 跳过图片过场（含 c112 Loop 直接跳过整个循环体） |
 | `quit_all_time.rb` | 忽略菜单/退出限制，随时可退出 |
 | `shortcut_keys.rb` | 全局快捷键：Ctrl+D 开发者设置、Ctrl+J 跳地图 |
-| `dev_settings.rb` | 开发者设置子界面：游戏内实时切换全部开关 |
+| `dev_settings.rb` | 开发者设置子界面：游戏内实时切换全部开关 + Jump Map 入口 |
 | `dev_settings_patch.rb` | 给 Window_Settings 追加"开发者设置"栏 |
-| `jump_map.rb` | Jump Map 跳地图界面（书页式列表，模仿原版 FastTravel 传送链黑屏转场） |
-| `jump_map_free.rb` | 自由浏览模式：冻结 autorun 事件 + 拦截 autorun 公共事件，防剧情锁玩家 |
+| `jump_map.rb` | Jump Map 跳地图界面（书页式列表，模仿原版 FastTravel 传送链黑屏转场），落点数据 mods/mod/jump_points.json |
 | `debug_map.rb` | Ctrl+G 调试显示：格子可通行性（碰撞）+ 事件位置 |
 | `title_screen.rb` | 控制标题界面（`save_exists` 挂钩实现 unshow_title） |
 
@@ -133,7 +135,7 @@ ruby unpack_xscripts.rb    # 反向解包 (默认读 OneShot/Data/xScripts.rxdat
 
 ### 运行分析脚本
 
-`_analyze/` 内含 60+ 个探查脚本（`check_passability.rb`、`scan_doors.rb`、`verify_exit_chain.rb` 等），依赖 `runtime/` 的 Ruby。例如：
+`_analyze/` 内含 80+ 个探查脚本（`check_passability.rb`、`scan_doors.rb`、`verify_exit_chain.rb` 等），依赖 `runtime/` 的 Ruby。例如：
 
 ```
 runtime\bin\ruby.exe _analyze\verify_points.rb
@@ -148,7 +150,7 @@ runtime\bin\ruby.exe _analyze\verify_points.rb
 
 - 除 `xscripts/` → `xScripts.rxdata` 的脚本覆盖外，**mod 的所有功能均通过 preload 注入实现**，不修改原版 `xScripts.rxdata`；还原只需关闭对应开关或删除 `mods/mod`。
 - `OneShot/mods/mod/Data/` 为空时表示当前未打包脚本覆盖，mod 仅以 preload 方式生效。
+- `xscripts/` 为游戏脚本唯一编辑源（4 位数字前缀 + INDEX.txt）。
 - 顶层 `modshot.json` 是 mkxp-z 引擎配置的全注释模板（含 `displayFPS`/`fullscreen`/`patches` 等全部选项说明）；实际生效的是 `build/modshot.json`。
-- `_scripts_dump/` 与 `xscripts/` 内容一致（文件哈希相同），`_scripts_dump` 为只读快照；以 `xscripts/` 为编辑源。
-- `.vs/` 为 Visual Studio 缓存目录，`logs/` 为运行时日志，均不入库。
+- `.vs/` 为 Visual Studio 缓存目录，`logs/` 为运行时日志，`settings/*.json` 为运行时状态文件，均不入库。
 - 隐藏目录：`.git/` 为项目版本库（51 个提交）；`.trae-html-share-packages/` 为分析报告 HTML 的 zip 备份。
