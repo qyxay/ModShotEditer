@@ -40,15 +40,25 @@ $always_travel_enabled   = ($mod_config && $mod_config["always_travel"])   ? tru
 #     槽位, 同时把设置窗口置可见; dev_settings 全屏不透明黑底盖住下层。
 #   * 关闭: dev_settings 按 CANCEL → on_closed 回调恢复设置窗口(visible=false
 #     并清槽位), 玩家回到游戏, 不残留设置界面。
+#   * 兜底驱动: jump_map 界面可见但 dev_settings 不可见(异常残留状态)时,
+#     直接驱动 jump_map, 避免界面冻结无响应(按 ESC/确认都无效)。
 # ============================================================
 module ShortcutKeysPatch
   def update
     begin
       ds = $dev_settings_instance
       if ds && ds.visible
-        # dev_settings 打开中(含 jump_map 子界面): 暂停游戏, 只更新界面输入
         ds.update
         return
+      end
+      # 兜底: jump_map 可见但 dev_settings 不可见(异常残留状态)时直接驱动,
+      # 保证界面始终响应输入(ESC/确认都能收回)
+      if ds
+        jm = ds.instance_variable_get(:@jump_map)
+        if jm && jm.visible
+          jm.update
+          return
+        end
       end
       shortcut_handle
     rescue StandardError
@@ -162,5 +172,6 @@ StatusLog.write('shortcut_keys_status.txt', [
   "always_settings = #{$always_settings_enabled} (allow Ctrl+D during events/dialogue)",
   "always_travel = #{$always_travel_enabled} (allow Ctrl+J during events/dialogue)",
   "event_pause = intercept super while dev_settings visible (pause interpreter/player/map)",
+  "fallback_drive = jump_map visible but dev_settings hidden -> still driven (no frozen UI)",
   "input_api = pressex?#{Input.respond_to?(:pressex?)}, triggerex?#{Input.respond_to?(:triggerex?)}"
 ])

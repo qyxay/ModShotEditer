@@ -276,6 +276,7 @@ class Window_DevSettings
     @jump_map.on_transfer = proc {
       # 跳转成功: 关闭跳地图、开发者设置、外层设置窗口
       @jump_map.visible = false
+      @jump_map = nil   # 彻底重置, 防止复用残留状态(旧 sprites/旧回调)
       self.visible = false
       @parent_settings.visible = false if @parent_settings
     }
