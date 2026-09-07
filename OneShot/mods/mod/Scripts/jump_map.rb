@@ -51,6 +51,8 @@ class Window_JumpMap
 
   # 跳转成功后的回调(由外层设置, 用于关闭设置窗口)
   attr_accessor :on_transfer
+  # 直接打开(Ctrl+J 入口)时: 取消键一次全关回游戏, 不再回 dev_settings 菜单
+  attr_accessor :close_all_on_cancel
 
   def initialize
     @viewport = Viewport.new(0, 0, 640, 480)
@@ -78,6 +80,7 @@ class Window_JumpMap
     @page = 0      # 当前页码(0-based)
     @visible = false
     @fade_in = false
+        @fade_out_ticks = 0
     @fade_out = false
     @transfer_player = nil
     @maps = []
@@ -143,11 +146,13 @@ class Window_JumpMap
     end
 
     if @fade_out
+      @fade_out_ticks = (@fade_out_ticks || 0) + 1   # 兜底: 帧计数强制完成, 防 update 驱动异常导致淡出卡死
       # 背景保持全黑, 只淡出文字, 保证 Graphics.freeze 冻结的是纯黑画面
       @title.opacity -= 20
       @data_sprites.each { |spr| spr.opacity -= 10 }
       @page_sprite.opacity -= 10
-      if @title.opacity <= 0
+      if @title.opacity <= 0 || @fade_out_ticks >= 120
+        @fade_out_ticks = 0
         @fade_out = false
         self.visible = false
         @data_sprites.each { |spr| spr.dispose }
@@ -244,6 +249,10 @@ class Window_JumpMap
 
     # 取消: 返回开发者设置(开发者设置一直保持可见, 只是被本界面盖住)
     if Input.trigger?(Input::CANCEL)
+      if @close_all_on_cancel
+        # Ctrl+J 直接打开: 取消一次全关(跳地图 + 开发者设置 + 外层设置窗口), 直接回游戏
+        @on_transfer.call if @on_transfer
+      end
       $game_system.se_play($data_system.cancel_se)
       self.visible = false
     end

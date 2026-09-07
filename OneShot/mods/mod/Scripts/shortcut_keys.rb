@@ -143,6 +143,9 @@ module ShortcutKeysPatch
   def open_jump_map_shortcut
     open_dev_settings_shortcut
     $dev_settings_instance.open_jump_map
+    # Ctrl+J 直接打开: 取消键一次全关回游戏(不先回 dev_settings 菜单)
+    jm = $dev_settings_instance.instance_variable_get(:@jump_map)
+    jm.close_all_on_cancel = true if jm
   end
 end
 

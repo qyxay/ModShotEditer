@@ -390,6 +390,10 @@ end
 
 # ============================================================
 #  Scene_Map 补丁: Ctrl+E 切换 + 编辑模式拦截 super
+#
+#  注意: active 判断在 begin/rescue 之外 —— 编辑模式一旦激活,
+#  无论 frame 内部发生什么异常都无条件 return(拦截 super),
+#  保证游戏冻结(玩家/事件/镜头不动); 异常只记录日志不 fallthrough。
 # ============================================================
 module EventEditorPatch
   def update
@@ -398,13 +402,24 @@ module EventEditorPatch
         EventEditor.toggle
         $game_system.se_play($data_system.decision_se) if $game_system && $data_system
       end
-      if EventEditor.active?
+    rescue StandardError
+    end
+    if EventEditor.active?
+      begin
         EventEditor.frame
-        return   # 编辑模式: 暂停玩家/事件/镜头, 只更新编辑器
+      rescue StandardError
+        # 记录异常(便于定位 frame 内部问题), 但绝不落到 super
+        begin
+          StatusLog.append('event_editor_status.txt',
+                           ["frame error #{Time.now}: #{$!.class}: #{$!.message}"])
+        rescue StandardError
+        end
       end
+      return
+    end
+    begin
       EventEditor.idle
     rescue StandardError
-      # 编辑器异常不影响主流程
     end
     super
   end
