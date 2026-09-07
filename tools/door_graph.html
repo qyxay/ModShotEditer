@@ -47,6 +47,7 @@
 <header>
   <h1>门连接星图</h1>
   <span><span id="wsdot"></span> <span id="wsstatus">未连接</span></span>
+  <span id="gamestate" style="color:#9ca3af">游戏: 未运行</span>
   <span id="curmap">—</span>
   <div id="ctl">
     <button onclick="backToLive()">回到当前地图</button>
@@ -314,10 +315,24 @@ function setCenter(id){ center = id; render(); renderList(); }
 function backToLive(){
   if(live){ center = live.map_id; render(); renderList(); }
 }
-function applyLive(data){
+var lastLiveTs = 0;   // 最近一次收到游戏推送的时间戳
+function updateGameState(){
+  var on = lastLiveTs > 0 && (Date.now() - lastLiveTs) < 2500;
+  var gs = document.getElementById('gamestate');
+  var cm = document.getElementById('curmap');
+  if(!gs || !cm) return;
+  gs.textContent = on ? '游戏: 在线' : '游戏: 未运行';
+  gs.style.color = on ? '#22c55e' : '#9ca3af';
+  if(cm.getAttribute('data-stale') !== String(!on)){
+    cm.setAttribute('data-stale', String(!on));
+    if(live) cm.textContent = '当前: map'+live.map_id+' '+esc(live.map_name)+' · 玩家('+live.player.x+','+live.player.y+')' + (on ? '' : ' [上次数据]');
+  }
+}
+function applyLive(data, online){
   live = data;
-  document.getElementById('curmap').textContent = '当前: map'+data.map_id+' '+esc(data.map_name)+' · 玩家('+data.player.x+','+data.player.y+')';
+  if(online !== false) lastLiveTs = Date.now();
   if(!center) center = data.map_id;
+  updateGameState();
   render(); renderList();
 }
 function connectWS(){
@@ -328,7 +343,7 @@ function connectWS(){
   ws.onmessage = function(e){
     try{
       var msg = JSON.parse(e.data);
-      if(msg.type==='live' && msg.data) applyLive(msg.data);
+      if(msg.type==='live' && msg.data) applyLive(msg.data, true);
     }catch(err){}
   };
 }
@@ -341,8 +356,9 @@ function boot(){
     // 状态栏统计
     document.getElementById('statusline').textContent = '地图 '+g.maps.length+' · 门/连接事件 '+g.doors.length+' · 动态目标 '+g.stats.dynamic_targets;
   }).catch(function(){ document.getElementById('statusline').textContent='graph.json 加载失败'; });
-  fetch('/live').then(function(r){ if(r.ok) return r.json(); throw 0; }).then(applyLive).catch(function(){});
+  fetch('/live').then(function(r){ if(r.ok) return r.json(); throw 0; }).then(function(d){ applyLive(d, false); }).catch(function(){});
   connectWS();
+  setInterval(updateGameState, 1000);
 }
 boot();
 </script>
