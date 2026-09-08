@@ -275,7 +275,6 @@ function showDoor(mapId, evId){
     }
   });
   if(d.texts && d.texts.length) h.push('<div style="margin-top:6px"><div style="color:#666">文本</div>'+d.texts.map(function(t){return '<div class="target" style="font-size:11px">'+esc(t)+'</div>';}).join('')+'</div>');
-  h.push(detailForm(d.map, d.ev, d.x, d.y));
   document.getElementById('detail').innerHTML = h.join('');
 }
 function showEvent(evId){
@@ -286,28 +285,7 @@ function showEvent(evId){
   selected = {map:live.map_id, ev:e.id};
   var h = ['<h3>事件 #'+e.id+' <span style="color:#888;font-weight:400">'+esc(e.name)+'</span></h3>'];
   h.push('<div class="kv"><span class="k">位置</span> ('+e.x+', '+e.y+') 方向'+e.dir+'</div>');
-  h.push(detailForm(live.map_id, e.id, e.x, e.y));
   document.getElementById('detail').innerHTML = h.join('');
-}
-function detailForm(mapId, evId, x, y){
-  return '<div style="margin-top:10px;border-top:1px solid #e5e5e5;padding-top:8px">'+
-    '<div style="color:#666;margin-bottom:6px">修改位置</div>'+
-    '<div class="kv"><span class="k">X</span><input id="mv-x" type="number" value="'+x+'"></div>'+
-    '<div class="kv"><span class="k">Y</span><input id="mv-y" type="number" value="'+y+'"></div>'+
-    '<div class="kv"><span class="k">方向</span><input id="mv-d" type="number" value="2" min="2" max="8" step="2"></div>'+
-    '<div class="kv"><button onclick="applyMove('+mapId+','+evId+')">应用</button><span id="mv-msg" style="color:#22c55e;font-size:11px"></span></div></div>';
-}
-function applyMove(mapId, evId){
-  var x = parseInt(document.getElementById('mv-x').value,10);
-  var y = parseInt(document.getElementById('mv-y').value,10);
-  var d = parseInt(document.getElementById('mv-d').value,10);
-  var body = { map:mapId, ev:evId, x:x, y:y, dir:d };
-  fetch('/move', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)})
-    .then(function(r){ return r.json(); })
-    .then(function(j){
-      var msg = document.getElementById('mv-msg');
-      if(msg){ msg.textContent = j.ok ? '已发送' : '失败'; }
-    }).catch(function(){ var msg=document.getElementById('mv-msg'); if(msg) msg.textContent='网络错误'; });
 }
 
 // ---------- 状态与数据 ----------

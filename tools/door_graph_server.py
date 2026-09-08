@@ -8,7 +8,8 @@
 #    * GET /live        -> live_state.json (游戏端实时状态, 兜底轮询用)
 #    * GET /ws          -> WebSocket 推送: 游戏端 live_state.json 变化时
 #                          实时推送给所有连接的网页
-#    * POST /move       -> 写 event_modify.json (游戏端下一帧应用)
+#
+#  (事件位置修改 /move 已移除: 事件编辑功能全部取消)
 #
 #  实时链路: 游戏端节流写 live_state.json -> 本服务器 200ms 轮询 mtime
 #            -> WebSocket 推送给网页 -> 页面重绘/高亮。
@@ -31,7 +32,6 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(ROOT)  # tools/ -> 项目根
 SETTINGS = os.path.join(PROJ, 'OneShot', 'mods', 'mod', 'settings')
 LIVE_PATH = os.path.join(SETTINGS, 'live_state.json')
-MODIFY_PATH = os.path.join(SETTINGS, 'event_modify.json')
 GRAPH_PATH = os.path.join(SETTINGS, 'graph.json')
 HTML_PATH = os.path.join(ROOT, 'door_graph.html')
 PORT = 8765
@@ -74,24 +74,6 @@ class DoorGraphHandler(http.server.BaseHTTPRequestHandler):
             self._serve_file(LIVE_PATH, 'application/json; charset=utf-8')
         elif path == '/ws':
             self._handle_ws()
-        else:
-            self.send_error(404)
-
-    def do_POST(self):
-        if self.path.split('?')[0] == '/move':
-            try:
-                length = int(self.headers.get('Content-Length', 0))
-                req = json.loads(self.rfile.read(length).decode('utf-8'))
-                # 校验: 至少包含事件 id; x/y/dir 可缺省(只改方向等)
-                if isinstance(req, dict) and isinstance(req.get('ev'), (int, str)):
-                    os.makedirs(SETTINGS, exist_ok=True)
-                    with open(MODIFY_PATH, 'w', encoding='utf-8') as f:
-                        json.dump(req, f, ensure_ascii=False)
-                    self._json_response(200, {'ok': True})
-                    return
-            except (ValueError, OSError):
-                pass
-            self._json_response(400, {'ok': False, 'error': 'bad request'})
         else:
             self.send_error(404)
 
