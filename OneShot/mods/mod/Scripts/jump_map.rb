@@ -231,16 +231,12 @@ class Window_JumpMap
 
     # 上下键: 仅在本页内移动光标
     if Input.trigger?(Input::UP)
-      if @index > page_start
-        @index -= 1
-        $game_system.se_play($data_system.cursor_se)
-      end
+      @index = (@index > page_start) ? @index - 1 : page_last   # 页内循环: 页顶继续向上回页底
+      $game_system.se_play($data_system.cursor_se)
     end
     if Input.trigger?(Input::DOWN)
-      if @index < page_last
-        @index += 1
-        $game_system.se_play($data_system.cursor_se)
-      end
+      @index = (@index < page_last) ? @index + 1 : page_start   # 页内循环: 页底继续向下回页顶
+      $game_system.se_play($data_system.cursor_se)
     end
 
     # 左右键: 整页翻页

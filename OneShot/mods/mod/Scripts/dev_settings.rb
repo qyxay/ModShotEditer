@@ -122,7 +122,7 @@ class Window_DevSettings
     display_items.each_with_index do |key, i|
       spr = Sprite.new(@viewport)
       spr.bitmap = Bitmap.new(400, ITEM_SPACING)
-      spr.x = MARGIN
+      spr.x = MARGIN * 2   # 原位统一为 MARGIN*2(60), 与 jump_map 一致: 取消选中后滑回目标=其他项静止位
       spr.y = TITLE_MARGIN + TITLE_TOP_MARGIN + ITEM_SPACING * i
       spr.opacity = 0
       redraw(spr, i)
