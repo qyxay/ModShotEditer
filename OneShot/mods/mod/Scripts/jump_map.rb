@@ -363,7 +363,7 @@ class Window_JumpMap
     visible_items.each_with_index do |mm, i|
       spr = Sprite.new(@viewport)
       spr.bitmap = Bitmap.new(420, ITEM_SPACING)
-      spr.x = MARGIN
+      spr.x = MARGIN * 2   # 原位统一为 MARGIN*2(60): 取消选中后滑回的目标即其他项的静止位, 避免停在半途不对齐
       spr.y = TITLE_MARGIN + TITLE_TOP_MARGIN + ITEM_SPACING * i
       spr.opacity = 0
       spr.bitmap.draw_text(0, 0, spr.bitmap.width, spr.bitmap.height, tr(mm[:name]))
