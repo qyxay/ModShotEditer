@@ -1,6 +1,0 @@
-Map 141: T3  (20x15, tileset=19)
-
-  Event 1: To T4 @ (7,6)
-  Event 2: EV002 @ (9,5)
-  Event 3:  @ (12,5)
-  Event 4: set journal @ (1,1)

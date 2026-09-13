@@ -1,4 +1,0 @@
-Map 185: basement after sun  (55x30, tileset=20)
-
-  Event 1: set journal @ (26,9)
-  Event 2: door @ (12,14)

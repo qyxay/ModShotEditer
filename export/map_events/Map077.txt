@@ -1,7 +1,0 @@
-Map 77: debug2  (50x50, tileset=2)
-
-  Event 1: !generator @ (20,36)
-  Event 2: EV002 @ (23,31)
-    Page0: trigger=0  <face @prophet_hmm I am not programmed to feel>
-  Event 3: !bigpool @ (8,35)
-  Event 4: EV004 @ (15,24)

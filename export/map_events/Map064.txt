@@ -1,1 +1,0 @@
-Map 64: Livingroom  (42x30, tileset=9)

@@ -1,6 +1,0 @@
-Map 116: Office  (80x80, tileset=6)
-
-  Event 1: west exit @ (34,45)
-  Event 2: entrance @ (53,46)
-  Event 3: outdoor graphic @ (52,27)
-  Event 4: FAST TRAVEL @ (52,46)

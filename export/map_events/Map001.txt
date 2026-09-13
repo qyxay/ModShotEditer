@@ -1,3 +1,0 @@
-Map 1: INIT  (20x15, tileset=8)
-
-  Event 1: init @ (0,0)

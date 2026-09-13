@@ -1,1 +1,0 @@
-Map 83: Red ground  (50x50, tileset=6)

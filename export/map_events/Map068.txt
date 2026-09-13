@@ -1,3 +1,0 @@
-Map 68: IGNORE  (20x25, tileset=5)
-
-  Event 1: exit door @ (9,18)

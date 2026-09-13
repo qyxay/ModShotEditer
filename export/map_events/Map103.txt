@@ -1,1 +1,0 @@
-Map 103: Unused  (20x15, tileset=1)

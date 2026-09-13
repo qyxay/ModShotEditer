@@ -1,4 +1,0 @@
-Map 179: Water2  (26x21, tileset=8)
-
-  Event 1: door @ (12,10)
-  Event 2: wrapper @ (0,0)

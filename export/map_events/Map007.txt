@@ -1,1 +1,0 @@
-Map 7: Blue  (111x111, tileset=2)

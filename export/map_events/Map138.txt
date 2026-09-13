@@ -1,9 +1,0 @@
-Map 138: stairwell-demo  (70x100, tileset=15)
-
-  Event 1: south exit @ (20,83)
-  Event 2: south exit @ (21,83)
-  Event 3: north exit @ (41,35)
-  Event 4: indoor graphic @ (50,39)
-  Event 5: pc @ (45,84)
-    Page0: trigger=0  <face @ed [You are testing my patience.]> | <face @ed [Do you really want the answer?]> | <face @ed [When you view the film, it fills your entire window into our world, yes?]> | <face @ed [I believe you refer to the action I describe as "dragging".]> | <face @ed [The void is beyond the borders of your view.]> | <face @ed [Through the void, and back again...]> | <face @ed [Are you just here to waste more of my time?]> | <face @ed [Sigh.]> | <face @ed [Still clueless?]> | <face @ed [Figures.]> | <face @ed [Want another tip?]> | <face @ed [There's a void beyond the four walls that bind our world to yours. The edges of your viewport, where everything is obscured...]> | <face @ed [I'm sure you know what I'm talking about.]> | <face @ed [Pass the film through the void and back again.]> | <face @ed [Fine, keep at it.]> | <face @ed [It's not like I'm going anywhere.]> | <face @ed [Looking for a code, are you?]> | <face @ed [You're going to need this soon.]> | <face @ed [Take this film and expose it to the void.]> | <face @ed [The answer will be revealed when you bring it back again.]> | <face @niko The computer printed out a strange transparent sheet...>
-    Page1: trigger=0  <face @niko The screen is off.>

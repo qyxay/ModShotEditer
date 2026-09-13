@@ -1,9 +1,0 @@
-Map 17: Mineshaft entrance  (50x40, tileset=2)
-
-  Event 1: west exit @ (11,12)
-  Event 2: init @ (6,21)
-  Event 3: entrance left @ (25,14)
-  Event 4: entrance right @ (26,14)
-  Event 5: Map Events @ (25,12)
-    Page0: trigger=3  <face @silver [Wait!]> | <face @silver [I saw you heading towards this direction.]> | <face @silver [The mines have been abandoned for a long time, I cannot guarantee that it's safe.]> | <face @silver [If you must enter it, it is my duty to accompany you at least once.]> | <face @niko Oh, thanks!> | <face @niko The entrance is roped off...\>\n\@niko_speak And there's a sign here:> | <face $WARNING:\nAuthorized personnel only!\n\nVisitors must see the Head Engineer for permission to enter the mines.> | <face @niko I guess we should find the Head Engineer...>
-  Event 6: npc_silver @ (13,17)

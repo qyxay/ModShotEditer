@@ -1,5 +1,0 @@
-Map 6: IGNORE  (40x30, tileset=1)
-
-  Event 1: door @ (12,12)
-  Event 2: lightbulb @ (20,12)
-  Event 3: ambient @ (12,5)

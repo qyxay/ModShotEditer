@@ -1,1 +1,0 @@
-Map 9: Red sky  (88x111, tileset=6)

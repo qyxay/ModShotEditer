@@ -1,1 +1,0 @@
-Map 118: big office  (70x60, tileset=7)

@@ -1,6 +1,0 @@
-Map 263: pshot  (22x15, tileset=28)
-
-  Event 1: EV001 @ (11,8)
-  Event 2: EV002 @ (1,1)
-  Event 3: EV003 @ (10,7)
-  Event 4: EV004 @ (12,6)

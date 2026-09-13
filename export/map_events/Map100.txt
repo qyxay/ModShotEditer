@@ -1,1 +1,0 @@
-Map 100: ignore  (30x30, tileset=2)

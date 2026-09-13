@@ -1,5 +1,0 @@
-Map 42: Small Room  (40x30, tileset=5)
-
-  Event 1: exit left @ (18,20)
-  Event 2: exit right @ (19,20)
-  Event 3: EV003 @ (15,8)

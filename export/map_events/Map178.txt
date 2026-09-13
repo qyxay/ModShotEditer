@@ -1,6 +1,0 @@
-Map 178: 2  (40x40, tileset=5)
-
-  Event 1: EV001 @ (13,17)
-  Event 2: EV002 @ (17,25)
-  Event 3: indoors @ (21,20)
-  Event 4: EV004 @ (10,8)
