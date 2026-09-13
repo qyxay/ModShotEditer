@@ -1,4 +1,4 @@
-﻿# OneShot Mod 工作台 (ModShot)
+# OneShot Mod 工作台 (ModShot)
 
 基于自编译 [mkxp-z](https://github.com/mkxp-z/mkxp-z) 引擎（命名 **ModShot**）的 OneShot mod 开发/调试工作区。包含完整的游戏副本、mod 本体、脚本解包/打包工具和数据导出，全部脚本注入均通过 `preloadScript` 实现，**不修改原版 `xScripts.rxdata`**（游戏脚本本体除外）。
 
@@ -80,11 +80,14 @@ ModShot-mkxp-z/
 | `skip_dialogue` | true | 跳过所有对话（整段 Show Text 101） |
 | `skip_choice` | true | 自动选择第一个选项（Show Choices 102） |
 | `skip_uneasy` | true | 单独跳过读档时的 "Niko feels uneasy." 提示 |
-| `skip_event` | "block" | 事件阻止模式：block=阻止限制角色行动的事件 |
 | `always_travel` | true | 事件/对话运行中仍可按 Ctrl+J 打开跳地图（打开后暂停事件，关闭后继续） |
 | `always_settings` | true | 事件/对话运行中仍可按 Ctrl+D 打开开发者设置（打开后暂停事件，关闭后继续） |
 | `unshow_title` | true | 不展示标题界面，直接进游戏 |
 | `is_developer` | true | 开发者模式：设置页显示"开发者设置"栏 + 快捷键可用 |
+| `fly_mode` | false | 飞行模式初始状态：Ctrl+F 切换（无视障碍物 + run 速度×2 + 角色置顶，保留传送事件） |
+| `live_update` | true | 实时更新模式：RMXP 保存→同步后游戏内自动热重载当前地图；玩家站上障碍物自动飞行、走出恢复（默认开） |
+
+> 注：`skip_event` 已从开发者设置界面与 config 移除（界面第 12 项原为它，超出 480 视口被裁）。其内部引擎脚本 `skip_event.rb` 仍保留，供 Ctrl+J 跳关后的自由浏览模式使用（config 无该键时默认 `off`）。
 
 ## Mod 脚本清单
 
@@ -97,14 +100,16 @@ ModShot-mkxp-z/
 | `_patch_helper.rb` | PatchHelper：统一"等待类定义 + `Module#prepend` 打补丁"样板 |
 | `_status_log.rb` | StatusLog：统一向 logs/ 写状态文件 |
 | `skip_dialogue.rb` | 跳过对话（101 整段）、自动选第一项（102）、跳过 uneasy 提示 |
-| `skip_event.rb` | 事件阻止/快进：block 模式阻止限制角色行动的事件，含自由浏览模式 |
+| `skip_event.rb` | 事件阻止/快进内部引擎：已从开发者设置界面移除（config 无该键时默认 off）；**保留**供 Ctrl+J 跳关后的自由浏览模式使用 |
 | `picture_skip.rb` | 跳过图片过场（含 c112 Loop 直接跳过整个循环体） |
 | `quit_all_time.rb` | 忽略菜单/退出限制，随时可退出 |
 | `shortcut_keys.rb` | 全局快捷键：Ctrl+D 开发者设置、Ctrl+J 跳地图 |
-| `dev_settings.rb` | 开发者设置子界面：游戏内实时切换全部开关 + Jump Map 入口 |
+| `dev_settings.rb` | 开发者设置子界面：游戏内实时切换全部开关 + Jump Map 入口；分页显示（每页 8 项，左右键翻页、ACTION 切换开关，页码右下角） |
 | `dev_settings_patch.rb` | 给 Window_Settings 追加"开发者设置"栏 |
 | `jump_map.rb` | Jump Map 跳地图界面（书页式列表，模仿原版 FastTravel 传送链黑屏转场），落点数据 mods/mod/jump_points.json |
 | `debug_map.rb` | Ctrl+G 调试显示：格子可通行性（碰撞）+ 事件位置 |
+| `fly_mode.rb` | Ctrl+F 飞行模式：无视障碍物 + run 速度×2 + 角色置顶（FLY 徽标在所有图层之上，保留传送/接触触发事件） |
+| `live_update.rb` | 实时更新（事件驱动）：同步脚本写完 `settings\map_update.signal` 信号后，游戏内 ~83ms 内自动热重载对应地图（重建精灵组、抑制 autorun/parallel 重放、保留 erased/地图定制，5s 低频兜底自检）；玩家站上障碍物自动飞行（@through）、走出恢复基准 |
 | `title_screen.rb` | 控制标题界面（`save_exists` 挂钩实现 unshow_title） |
 
 ## 常用快捷键
@@ -114,6 +119,7 @@ ModShot-mkxp-z/
 | Ctrl+D | 打开开发者设置 | `is_developer: true` |
 | Ctrl+J | 打开跳地图 | — |
 | Ctrl+G | 碰撞 + 事件位置调试显示 | `is_developer: true` |
+| Ctrl+F | 飞行模式开关（无视障碍物 + run 速度） | — |
 | F1 / F2 / Alt+Enter | 引擎内置：按键设置 / FPS / 全屏 | 引擎配置开启 |
 
 ## 常用工作流

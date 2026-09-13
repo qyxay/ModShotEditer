@@ -12,6 +12,8 @@
 #    2) shortcut_keys.rb: Ctrl+D 快捷键直接打开
 #  功能条目(EXTRA_ACTIONS): 非布尔开关的可执行动作, 如 Jump Map
 #
+#  翻页: 项数超过 PAGE_SIZE 时自动分页, 上下键跨页, 页码在右下角。
+#
 #  配置: mods/mod/config.json
 #    "is_developer": true  → 设置页显示"开发者设置"栏
 #    "is_developer": false → 隐藏该栏
@@ -38,10 +40,8 @@ EXTRA_ACTIONS = [
 ]
 
 # --- 三态枚举键(非布尔): 键 → 可选值列表, 确认/左右键循环切换 ---
-# skip_event 由原来的布尔开关升级为 off|block|fast 三态模式
-ENUM_KEYS = {
-  'skip_event' => %w[off block fast]
-}
+# (skip_event 已从界面移除; 枚举机制保留备用)
+ENUM_KEYS = {}
 
 # --- 开发者设置子界面 ---
 class Window_DevSettings
@@ -51,6 +51,7 @@ class Window_DevSettings
   ITEM_SPACING = 28
   VALUE_MARGIN = 270
   ACTIVE_MARGIN = MARGIN * 2 + 20
+  PAGE_SIZE = 8               # 每页最多显示项数, 超出自动翻页(页码在右下角)
 
   def initialize
     @viewport = Viewport.new(0, 0, 640, 480)
@@ -70,6 +71,12 @@ class Window_DevSettings
     @flash_sprite.x = MARGIN
     @flash_sprite.visible = false
     @flash_timer = 0
+    # 页码指示 (右下角, 多页时显示)
+    @page_indicator = Sprite.new(@viewport)
+    @page_indicator.bitmap = Bitmap.new(120, 20)
+    @page_indicator.x = 640 - 120 - MARGIN
+    @page_indicator.y = 480 - 24 - 8
+    @page_indicator.visible = false
     @viewport.z = 9999
     @data_sprites = []
     @index = 0
@@ -116,17 +123,46 @@ class Window_DevSettings
     # 标题
     @title.bitmap.clear
     @title.bitmap.draw_text(0, 0, @title.bitmap.width, @title.bitmap.height, tr('Developer Settings'))
-    # 清掉旧 sprite
+    # 按当前页重建项 sprite (翻页时同样调用)
+    rebuild_page
+  end
+
+  # --- 翻页: 页码/页内容/重建 ---
+  def page_count
+    (display_items.size + PAGE_SIZE - 1) / PAGE_SIZE
+  end
+
+  def page
+    @index / PAGE_SIZE
+  end
+
+  def page_items
+    start = page * PAGE_SIZE
+    display_items[start, PAGE_SIZE] || []
+  end
+
+  # 按当前页重建项 sprite 并刷新页码指示
+  def rebuild_page
     @data_sprites.each { |spr| spr.dispose }
     @data_sprites = []
-    display_items.each_with_index do |key, i|
+    page_items.each_with_index do |key, j|
+      gi = page * PAGE_SIZE + j
       spr = Sprite.new(@viewport)
       spr.bitmap = Bitmap.new(400, ITEM_SPACING)
       spr.x = MARGIN * 2   # 原位统一为 MARGIN*2(60), 与 jump_map 一致: 取消选中后滑回目标=其他项静止位
-      spr.y = TITLE_MARGIN + TITLE_TOP_MARGIN + ITEM_SPACING * i
+      spr.y = TITLE_MARGIN + TITLE_TOP_MARGIN + ITEM_SPACING * j
       spr.opacity = 0
-      redraw(spr, i)
+      redraw(spr, gi)
       @data_sprites << spr
+    end
+    if page_count > 1
+      @page_indicator.bitmap.clear
+      @page_indicator.bitmap.font.size = 14
+      @page_indicator.bitmap.draw_text(0, 0, @page_indicator.bitmap.width, @page_indicator.bitmap.height,
+                                       format('%d/%d', page + 1, page_count), 2)
+      @page_indicator.visible = true
+    else
+      @page_indicator.visible = false
     end
   end
 
@@ -144,17 +180,17 @@ class Window_DevSettings
     @enum_keys = ENUM_KEYS.keys.select { |k| @config.key?(k) }
   end
 
-  def redraw(spr, i)
+  def redraw(spr, gi)
     return if @visible == false
-    item = display_items[i]
+    item = display_items[gi]
     spr.bitmap.clear
     spr.bitmap.draw_text(0, 0, spr.bitmap.width, spr.bitmap.height, tr(item))
-    if i < @keys.size
+    if gi < @keys.size
       # 布尔开关: 显示 ON/OFF
       val = @config[item]
       spr.bitmap.draw_text(VALUE_MARGIN, 0, spr.bitmap.width, spr.bitmap.height,
                            val ? tr('ON') : tr('OFF'))
-    elsif i < @keys.size + @enum_keys.size
+    elsif gi < @keys.size + @enum_keys.size
       # 三态枚举键: 显示当前值
       val = @config[item].to_s
       spr.bitmap.draw_text(VALUE_MARGIN, 0, spr.bitmap.width, spr.bitmap.height, tr(val))
@@ -165,7 +201,7 @@ class Window_DevSettings
   end
 
   def redraw_all
-    @data_sprites.each_with_index { |spr, i| redraw(spr, i) }
+    @data_sprites.each_with_index { |spr, j| redraw(spr, page * PAGE_SIZE + j) }
   end
 
   def update
@@ -174,9 +210,10 @@ class Window_DevSettings
       @jump_map.update
       return
     end
-    # 光标动画(与 Window_Settings 视觉一致)
-    @data_sprites.each_with_index do |spr, i|
-      if i == @index
+    # 光标动画(与 Window_Settings 视觉一致; j 为页内索引, gi 为全局索引)
+    @data_sprites.each_with_index do |spr, j|
+      gi = page * PAGE_SIZE + j
+      if gi == @index
         if spr.x < ACTIVE_MARGIN
           spr.x += 6
           spr.x = ACTIVE_MARGIN if spr.x > ACTIVE_MARGIN
@@ -192,6 +229,7 @@ class Window_DevSettings
       end
     end
 
+    old_page = page
     if Input.trigger?(Input::UP)
       @index = (@index - 1) % display_items.size
       $game_system.se_play($data_system.cursor_se)
@@ -200,8 +238,10 @@ class Window_DevSettings
       @index = (@index + 1) % display_items.size
       $game_system.se_play($data_system.cursor_se)
     end
+    # 跨页: 重建当前页的项
+    rebuild_page if page != old_page
 
-    # 确认键: 布尔开关/三态枚举直接切换; 功能条目执行对应动作
+    # ACTION: 切换当前开关 (布尔取反/枚举循环); 功能条目执行对应动作
     if Input.trigger?(Input::ACTION)
       if @index >= @keys.size + @enum_keys.size
         $game_system.se_play($data_system.decision_se)
@@ -210,9 +250,16 @@ class Window_DevSettings
         toggle(@index)
       end
     end
-    # 左右键: 仅对开关类(布尔+三态)生效, 功能条目忽略
+    # 左右键: 翻页 (页数 >1 时生效), 保持页内相对位置
     if Input.trigger?(Input::LEFT) || Input.trigger?(Input::RIGHT)
-      toggle(@index) if @index < @keys.size + @enum_keys.size
+      if page_count > 1
+        $game_system.se_play($data_system.cursor_se)
+        rel = @index - page * PAGE_SIZE
+        new_page = (page + (Input.trigger?(Input::LEFT) ? -1 : 1)) % page_count
+        items = display_items[new_page * PAGE_SIZE, PAGE_SIZE]
+        @index = new_page * PAGE_SIZE + [rel, items.size - 1].min
+        rebuild_page
+      end
     end
 
     if Input.trigger?(Input::CANCEL)
@@ -287,6 +334,7 @@ class Window_DevSettings
     @jump_map.dispose if @jump_map
     @data_sprites.each { |spr| spr.dispose }
     @flash_sprite.dispose
+    @page_indicator.dispose
     @title.dispose
     @bg.dispose
     @viewport.dispose
@@ -302,11 +350,12 @@ when 'quit_all_time'   then $quit_all_time_enabled = val
 when 'skip_dialogue'   then $skip_dialogue_enabled = val
 when 'skip_choice'     then $skip_choice_enabled = val
 when 'skip_uneasy'     then $skip_uneasy_enabled = val
-when 'skip_event'      then $skip_event_mode = val
 when 'always_settings' then $always_settings_enabled = val
 when 'always_travel'   then $always_travel_enabled = val
 when 'unshow_title'    then $unshow_title_enabled = val
 when 'is_developer'    then $dev_settings_enabled = val
+when 'fly_mode'        then $fly_mode_enabled = val
+when 'live_update'     then $live_update_enabled = val
     end
   end
 
@@ -314,7 +363,7 @@ when 'is_developer'    then $dev_settings_enabled = val
   def save_config
     $mod_config ||= @config
     ordered = {}
-    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy skip_event always_travel always_settings unshow_title is_developer].each do |k|
+    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy always_travel always_settings unshow_title is_developer fly_mode live_update].each do |k|
       ordered[k] = @config[k] if @config.key?(k)
     end
     @config.each do |k, v|
@@ -331,7 +380,7 @@ StatusLog.write('dev_settings_status.txt', [
   "config = #{JSON.pretty_generate(config)}",
   "entry = dev_settings_patch.rb (Window_Settings row) / shortcut_keys.rb (Ctrl+D)",
   "config_path = #{CONFIG_PATH}",
-  "sync_globals = apply_global case (10 keys)",
+  "sync_globals = apply_global case (11 keys, skip_event removed)",
+  "paging = PAGE_SIZE 8, page indicator bottom-right, UP/DOWN crosses pages",
   "loaded_at = #{Time.now}"
 ])
-
