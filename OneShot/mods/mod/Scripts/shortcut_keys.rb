@@ -3,7 +3,7 @@
 #
 #  Scene_Map 中的快捷键:
 #    Ctrl+D → 打开开发者设置(需 config "is_developer": true)
-#    Ctrl+J → 打开跳地图
+#    Ctrl+J → 打开跳地图(需 config "is_developer": true)
 #  基于 mkxp-z 扩展 Input.pressex?/triggerex?(SDL scancode 符号)。
 #
 #  事件/对话运行中可用性 (由 config 开关控制):
@@ -81,7 +81,7 @@ module ShortcutKeysPatch
       # 事件/对话运行中需 always_settings 放行
       return if in_event && !$always_settings_enabled
       open_dev_settings_shortcut
-    elsif ctrl && key_triggered?(:J)
+    elsif ctrl && key_triggered?(:J) && $dev_settings_enabled
       # 事件/对话运行中需 always_travel 放行
       return if in_event && !$always_travel_enabled
       open_jump_map_shortcut
@@ -168,7 +168,7 @@ end
 StatusLog.write('shortcut_keys_status.txt', [
   "shortcut_keys loaded at = #{Time.now}",
   "shortcut_ctrl_d = #{$dev_settings_enabled} (open dev settings)",
-  "shortcut_ctrl_j = true (open jump map)",
+  "shortcut_ctrl_j = #{$dev_settings_enabled} (open jump map, requires is_developer)",
   "always_settings = #{$always_settings_enabled} (allow Ctrl+D during events/dialogue)",
   "always_travel = #{$always_travel_enabled} (allow Ctrl+J during events/dialogue)",
   "event_pause = intercept super while dev_settings visible (pause interpreter/player/map)",

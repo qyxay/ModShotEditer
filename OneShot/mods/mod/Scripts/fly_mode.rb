@@ -1,7 +1,7 @@
 # ============================================================
 #  fly_mode.rb — Niko 飞行行走模式 (Fly)
 #
-#  按 Ctrl+F 进入/退出飞行模式:
+#  按 Ctrl+F 进入/退出飞行模式 (需 config "is_developer": true):
 #    * 无视障碍物: 地图内任意方向可通行 (不越过地图边界)
 #    * 速度: run 模式速度的 2 倍 (run=4→5, 32px/帧; 开关 251 反转时 run=3→4)
 #    * 角色置顶: 飞行中 Niko 显示在所有图层之上 (always_on_top)
@@ -56,7 +56,7 @@ module FlyMode
     $mod_config ||= {}
     $mod_config['fly_mode'] = $fly_mode_enabled
     ordered = {}
-    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy skip_event always_travel always_settings unshow_title is_developer fly_mode live_update].each do |k|
+    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy always_travel always_settings unshow_title is_developer fly_mode live_update].each do |k|
       ordered[k] = $mod_config[k] if $mod_config.key?(k)
     end
     $mod_config.each do |k, v|
@@ -120,6 +120,7 @@ module FlyModeScenePatch
   end
 
   def fly_toggle_handle
+    return unless $dev_settings_enabled
     return unless fly_toggle_triggered?
     return unless $game_map && $game_player
     # 转场/传送中禁用, 避免干扰 Graphics.freeze/transition
@@ -231,7 +232,7 @@ end
 StatusLog.write('fly_mode_status.txt', [
   "fly_mode loaded at = #{Time.now}",
   "fly_mode_enabled = #{$fly_mode_enabled} (initial from config)",
-  "toggle = Ctrl+F (Scene_Map, any time except transition/transfer)",
+  "toggle = Ctrl+F (Scene_Map, requires is_developer, except transition/transfer)",
   "obstacles = ignored while flying (map bounds still enforced)",
   "touch_events = PRESERVED: contact-trigger events (trigger 1/2, non-over_trigger) still block+fire, region triggers (over_trigger) fire on stop",
   "on_top = player always_on_top while flying (restored on exit), FLY badge z=20000 above all layers/windows",

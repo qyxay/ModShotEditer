@@ -21,11 +21,6 @@
 #    (同样 O(1)), 信号机制失效时仍能秒级响应。
 #    重载失败保留旧游标自动重试。
 #
-#  重载提示:
-#    每次热重载成功, 屏幕顶部居中显示 "MAP UPDATED (MapXXX)"
-#    浮动文字, 约 1.5s 后自动消失; 纯 Sprite 实现, 不弹窗、
-#    不等待按键、不打断游戏。
-#
 #  配置: mods/mod/config.json
 #    "live_update": true|false   总开关(实时更新 + 自动飞行一并生效)
 #    "fly_mode":    true|false   手动常驻飞行(与自动飞行叠加)
@@ -51,7 +46,6 @@ $fly_mode_enabled    = ($mod_config && $mod_config['fly_mode']) ? true : false
 
 module LiveUpdate
   SUPPRESS_FRAMES = 40        # 重载后抑制自动触发窗口(帧), ~0.67s
-  TOAST_FRAMES = 90           # 重载提示显示时长(帧), ~1.5s
   SIGNAL_POLL_FRAMES = 5      # 信号文件检测间隔(帧), ~83ms
   FALLBACK_CHECK_FRAMES = 30  # 兜底地图文件自检间隔(帧), 0.5s
   # 信号文件真实磁盘路径(不依赖虚拟 FS 相对路径解析, 与 fly_mode.rb 写 config 同理)
@@ -66,7 +60,6 @@ module LiveUpdate
   @use_mtime = nil            # nil=未探测; true=File.mtime 可用(快速模式); false=回退内容对比
   @meta_mtime = nil           # 最近一次成功重载后的文件 mtime
   @meta_size = nil            # 最近一次成功重载后的文件 size
-  @toast_until = 0            # 重载提示隐藏截止帧(0=未显示)
   @last_sig_frame = 0         # 上次信号检测帧
   @last_map_check_frame = 0   # 上次兜底自检帧
   @sig_mode = nil             # nil=未探测; :meta=File.mtime+size; :read=内容对比
@@ -100,7 +93,6 @@ module LiveUpdate
   # --- 每帧钩子 (Scene_Map#update prepend) ---
   def self.tick
     return unless enabled?
-    toast_tick
     map = $game_map
     player = $game_player
     return unless map && player && map.map_id.to_i > 0
@@ -386,12 +378,6 @@ module LiveUpdate
     # 重载成功后刷新元数据记录(防止下轮再次触发; 失败则保留旧记录自动重试)
     refresh_meta(map)
 
-    # 重载成功提示(浮动文字, 不打断游戏)
-    begin
-      toast_show(format('MAP UPDATED (Map%03d)', mid))
-    rescue StandardError
-    end
-
     StatusLog.append('live_update_trace.log',
                      "RELOAD map=#{mid} pos=#{px},#{py} erased=#{erased_ids.size} resume_parallel=#{resume_ids.inspect}")
   end
@@ -463,59 +449,7 @@ module LiveUpdate
   def self.set_player_through(player, val)
     player.instance_variable_set(:@through, val ? true : false)
   end
-
-  # --- 重载提示: 显示浮动文字, 不打断游戏 ---
-  def self.toast_show(text)
-    $live_update_toast ||= LiveUpdateToast.new
-    $live_update_toast.show(text)
-    @toast_until = (begin
-      Graphics.frame_count
-    rescue StandardError
-      0
-    end) + TOAST_FRAMES
-  end
-
-  # --- 重载提示: 到时自动隐藏 ---
-  def self.toast_tick
-    return if @toast_until <= 0
-    fc = begin
-      Graphics.frame_count
-    rescue StandardError
-      0
-    end
-    if fc >= @toast_until
-      @toast_until = 0
-      $live_update_toast.hide if $live_update_toast
-    end
-  end
 end
-
-# --- 重载提示条: 顶部居中浮动文字 (z=19000, 低于 FLY 徽标 20000) ---
-class LiveUpdateToast
-  def initialize
-    @viewport = Viewport.new(0, 0, 640, 480)
-    @viewport.z = 19000
-    @sprite = Sprite.new(@viewport)
-    @sprite.bitmap = Bitmap.new(280, 28)
-    @sprite.bitmap.font.size = 16
-    @sprite.bitmap.font.bold = true
-    @sprite.x = (640 - 280) / 2
-    @sprite.y = 44
-    @sprite.visible = false
-  end
-
-  def show(text)
-    @sprite.bitmap.clear
-    @sprite.bitmap.draw_text(0, 0, 280, 28, text, 1)
-    @sprite.visible = true
-  end
-
-  def hide
-    @sprite.visible = false
-  end
-end
-
-$live_update_toast = nil  # 惰性创建 (首次重载时实例化)
 
 # --- Scene_Map 每帧钩子 ---
 module LiveUpdateScenePatch
@@ -579,6 +513,5 @@ StatusLog.write('live_update_status.txt', [
   "fly = player on obstacle (4-dir blocked / out of bounds) -> @through=true; exit -> restore base",
   "suppress = autorun(3)/parallel(4) auto-start off for the reloaded map session; pre-reload parallel resumed by id after window",
   "busy_guard = event/message/menu/transfer/moving -> skip this poll",
-  "toast = MAP UPDATED (MapXXX) floating text on reload success, 1.5s auto-hide, non-blocking",
   "hook = Scene_Map#update, Game_Event#check_event_trigger_auto, Game_Event#refresh (PatchHelper.install)"
 ])

@@ -2,7 +2,7 @@
 #  jump_map.rb — "Jump Map" 跳地图界面 (Window_JumpMap)
 #
 #  在开发者设置(Window_DevSettings)中作为 "Jump Map" 栏进入:
-#  列出可跳地图(过滤内部/debug/测试图), 选中即模仿原版 FastTravel
+#  列出全部地图(含 debug/内部/测试图), 选中即模仿原版 FastTravel
 #  的传送链做黑屏转场跳转。书页式列表, 每页 JUMP_MAP_PER_PAGE 条,
 #  左右键翻页, 上下键页内选择。
 #
@@ -28,7 +28,7 @@ JUMP_MAP_FREEZE_AUTORUN = true
 # jump_points.json 路径: Scripts/../jump_points.json
 JUMP_POINTS_PATH = File.join(__dir__, '..', 'jump_points.json')
 
-# --- 地图过滤 ---
+# --- 地图过滤 (已放开: 允许跳入所有地图, 含 debug/内部/代号测试图) ---
 # 1) 名字黑名单: 命中即不显示
 JUMP_MAP_FILTER = /IGNORE|DEBUG|INTERNAL|UNUSED|\bTEST\b|^INIT\b|TELEPORT|DEMO|PROTOWALK|PSHOT|LANGUAGE\s?DEBUG|LANG\s?DEBUG/i
 # 2) 纯代号测试图 (Tower 下的 Teleport/Crossroads/Step 测试分支: T1..T16, C1..C7, S1..S4)
@@ -323,7 +323,7 @@ class Window_JumpMap
     @maps.index { |mm| mm[:id] == id }
   end
 
-  # 从 jump_points.json 加载可跳地图(过滤内部图与无落点项)
+  # 从 jump_points.json 加载全部地图(过滤已放开; 无落点回退 0,0)
   def load_maps
     # 缓存: jump_points.json 运行期间不变, 首次加载后复用,
     # 避免每次 Ctrl+J 都重复读文件 + 过滤 + 排序
@@ -339,11 +339,16 @@ class Window_JumpMap
       next unless m.is_a?(Hash)
       x = m['x'].to_i
       y = m['y'].to_i
-      next if x < 0 || y < 0            # 无落点(空/内部图)
+      # 无落点图(空/内部图, x/y 为负)回退到 (0,0); 跳转后若不可通行,
+      # 由 live_update 的障碍物自动飞行(@through)脱困
+      if x < 0 || y < 0
+        x = 0
+        y = 0
+      end
       name = m['name'].to_s
-      next if name =~ JUMP_MAP_FILTER               # 名字黑名单
-      next if name =~ JUMP_MAP_NAME_PATTERN         # 纯代号测试图 (T1/C1/S1...)
-      next if ancestor_blacklisted?(id.to_i)        # 祖先链内部图
+      # (过滤已放开: 允许跳入所有地图)
+      # (过滤已放开)
+      # (过滤已放开)
       @maps << { id: id.to_i, x: x, y: y, dir: m['dir'].to_i, name: name }
     end
     @maps.sort_by! { |mm| mm[:id] }
@@ -376,9 +381,9 @@ end
 StatusLog.write('jump_map_status.txt', [
   "jump_map loaded at = #{Time.now}",
   "jump_points_path = #{JUMP_POINTS_PATH}",
-  "filter = #{JUMP_MAP_FILTER.inspect}",
-  "name_pattern = #{JUMP_MAP_NAME_PATTERN.inspect}",
-  "parent_filter = #{JUMP_MAP_PARENT_FILTER.inspect}",
+  "filter = ALL MAPS ENABLED (name/pattern/parent filters disabled; no-location maps fall back to 0,0)",
+  "name_pattern = disabled",
+  "parent_filter = disabled",
   "per_page = #{JUMP_MAP_PER_PAGE}",
   "paging = book-style, LEFT/RIGHT flip page, UP/DOWN move cursor",
   "fade = background stays black (no lower menu flash)",
