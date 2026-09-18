@@ -21,11 +21,14 @@ param([ValidateSet('Menu','Manual','Watch')]$Mode = 'Menu')
 
 $ErrorActionPreference = 'Stop'
 
-$src   = 'C:\Users\Qyxay\Desktop\onehsot\ModShot-mkxp-z\OneShot\Data'
-$dst   = 'C:\Users\Qyxay\Desktop\onehsot\ModShot-mkxp-z\OneShot\mods\mod\Data'
-$bak   = 'C:\Users\Qyxay\Desktop\onehsot\ModShot-mkxp-z\OneShot\mods\mod\backup\data_sync'
+# --- paths are relative to this script's own folder ($PSScriptRoot), so the
+# --- whole repo can be moved/copied anywhere and the sync still works ---
+$root   = $PSScriptRoot                          # repo root (script sits next to OneShot/)
+$src    = Join-Path $root 'OneShot\Data'         # RMXP project data
+$dst    = Join-Path $root 'OneShot\mods\mod\Data' # patch data layer the game loads
+$bak    = Join-Path $root 'OneShot\mods\mod\backup\data_sync'
 $exclude = @('Scripts.rxdata', 'xScripts.rxdata')
-$sigDir  = Join-Path $dst '..\settings'
+$sigDir  = Join-Path $root 'OneShot\mods\mod\settings'
 $sigFile = Join-Path $sigDir 'map_update.signal'
 
 if (-not (Test-Path -LiteralPath $src)) { Write-Host "[ERROR] Source not found: $src" -ForegroundColor Red; Read-Host 'Press Enter to exit'; exit 1 }

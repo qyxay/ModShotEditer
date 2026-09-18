@@ -7,7 +7,19 @@
 #  左右键翻页, 上下键页内选择。
 #
 #  纯 preload 实现, 不修改游戏原始文件。
-#  落点数据: mods/mod/jump_points.json (预扫描生成, 见附录说明)
+#
+#  ★ 数据源 (2026-09 重构: 不再依赖手工维护的 jump_points.json):
+#    * 地图列表 : 运行时读取 Data/MapInfos.rxdata (惰性缓存) ——
+#                 新增/改名/删除地图自动同步, 无需维护外部 JSON。
+#    * 落点     : 跳转确认时解析, 优先级:
+#                  1) 可选覆盖层 jump_points.json (有效 x/y, 人工微调)
+#                  2) 原游戏入口落点 —— 首次打开跳地图时预构建索引,
+#                     收集全部地图事件页 + 公共事件中的 Transfer Player
+#                     (201) 指令 (即门事件/切换地图时玩家出现的位置);
+#                  3) 地图中心 —— 中心不可通行时 BFS 环形扩张找最近可行格;
+#                  4) 全图不可通行/读取失败回退 (0,0),
+#                     由 live_update 的障碍物自动飞行脱困。
+#    通行判定复刻 Game_Map#passable? 的 tileset 层 (与 debug_map.rb 同源)。
 #
 #  依赖:
 #    dev_settings.rb 提供 Window_DevSettings(EXTRA_ACTIONS 入口 / open_jump_map)
@@ -25,19 +37,190 @@ require 'json'
 # 玩家自由行动; 模式持续到游戏重启。
 JUMP_MAP_FREEZE_AUTORUN = true
 
-# jump_points.json 路径: Scripts/../jump_points.json
+# 可选覆盖层路径(文件不存在则完全动态): Scripts/../jump_points.json
 JUMP_POINTS_PATH = File.join(__dir__, '..', 'jump_points.json')
-
-# --- 地图过滤 (已放开: 允许跳入所有地图, 含 debug/内部/代号测试图) ---
-# 1) 名字黑名单: 命中即不显示
-JUMP_MAP_FILTER = /IGNORE|DEBUG|INTERNAL|UNUSED|\bTEST\b|^INIT\b|TELEPORT|DEMO|PROTOWALK|PSHOT|LANGUAGE\s?DEBUG|LANG\s?DEBUG/i
-# 2) 纯代号测试图 (Tower 下的 Teleport/Crossroads/Step 测试分支: T1..T16, C1..C7, S1..S4)
-JUMP_MAP_NAME_PATTERN = /^[TCS]\d+$/i
-# 3) 祖先链黑名单: 若某地图的父级链上存在这些名字, 也视为内部图
-JUMP_MAP_PARENT_FILTER = /IGNORE|DEBUG|UNUSED|INTERNAL|\bTEST\b|^INIT\b|TELEPORT/i
 
 # 一页最多显示条数(书页式)
 JUMP_MAP_PER_PAGE = 10
+
+# --- 动态跳转数据源 ---
+# 地图列表 = Data/MapInfos.rxdata(唯一真源); 落点 = 运行时计算(覆盖层优先)。
+module JumpPoints
+  module_function
+
+  # 运行时惰性加载 MapInfos(游戏初始化后 load_data 可用); 失败回退空表
+  def mapinfos
+    @mapinfos ||= begin
+      load_data('Data/MapInfos.rxdata')
+    rescue StandardError
+      {}
+    end
+  end
+
+  # 全部地图列表(与历史行为一致: 过滤放开, 全量列出含 debug/内部/测试图)
+  def all_maps
+    mapinfos.keys.map(&:to_i).sort.map do |id|
+      info = mapinfos[id]
+      name = info && !info.name.to_s.empty? ? info.name.to_s : "Map#{id}"
+      { id: id, name: name, x: nil, y: nil, dir: 2 }
+    end
+  end
+
+  # 落点解析优先级: 可选覆盖层(有效 x/y) -> 原游戏入口落点(跨地图传送201指令)
+  # -> 地图中心(不可通行时环形扩张) -> 回退 (0,0) (live_update 自动飞行兜底)
+  def landing(map_id)
+    ov = overlay[map_id.to_s]
+    if ov.is_a?(Hash) && ov['x'].to_i >= 0 && ov['y'].to_i >= 0
+      return { x: ov['x'].to_i, y: ov['y'].to_i, dir: ov['dir'].to_i }
+    end
+    map = (load_data(sprintf('Data/Map%03d.rxdata', map_id)) rescue nil)
+    return { x: 0, y: 0, dir: 2 } unless map
+    ts = tileset(map.tileset_id)
+    return { x: 0, y: 0, dir: 2 } unless ts
+    w = map.width
+    h = map.height
+    data = map.data
+    passages = ts.passages
+    priorities = ts.priorities
+    # 1) 原游戏入口落点: 所有指向本图的 Transfer Player(201) 指令的落点
+    (entrances[map_id] || []).uniq.each do |ex, ey, edir|
+      next unless landable?(data, passages, priorities, ex, ey, w, h)
+      return { x: ex, y: ey, dir: edir.to_i }
+    end
+    # 2) 地图中心(从中心环形扩张找最近可行格)
+    cx, cy = center_landing(data, passages, priorities, w, h)
+    { x: cx, y: cy, dir: 2 }
+  end
+
+  # 可选覆盖层: jump_points.json 存在则读取(向后兼容旧数据/人工微调)
+  def overlay
+    @overlay ||= begin
+      if File.exist?(JUMP_POINTS_PATH)
+        JSON.parse(File.read(JUMP_POINTS_PATH))
+      else
+        {}
+      end
+    rescue StandardError
+      {}
+    end
+  end
+
+  # 原游戏入口落点索引: map_id -> [[x, y, dir], ...]
+  # 来源: 全部地图事件页 + 公共事件中的 Transfer Player(201) 指令
+  # (即"切换地图/门事件"时玩家实际出现的位置)。一次性构建并缓存;
+  # 构建耗时写入 jump_map_runtime.txt。构建失败降级为空索引(全部回退中心)。
+  def entrances
+    return @entrances if @entrances
+    begin
+      t0 = Time.now
+      idx = {}
+      # 公共事件中的传送(如公共门/传送脚本)
+      ces = (load_data('Data/CommonEvents.rxdata') rescue nil)
+      ces.each { |ce| scan_command_list(idx, ce.list) if ce } if ces
+      # 所有地图事件页
+      mapinfos.keys.each do |mid|
+        map = (load_data(sprintf('Data/Map%03d.rxdata', mid)) rescue nil)
+        next unless map
+        map.events.each_value do |ev|
+          ev.pages.each { |pg| scan_command_list(idx, pg.list) }
+        end
+      end
+      @entrances = idx
+      total = idx.values.sum(&:size)
+      jlog_sync("entrance index built: #{mapinfos.size} maps, #{total} transfers (#{((Time.now - t0) * 1000).to_i}ms)")
+    rescue StandardError => e
+      @entrances = {}
+      jlog_sync("entrance index build FAILED, fallback to map-center: #{e.class}: #{e.message}")
+    end
+    @entrances
+  end
+
+  # 从事件命令列表提取 Transfer Player(201): parameters = [map_id, x, y, dir, ...]
+  def scan_command_list(idx, list)
+    return unless list
+    list.each do |cmd|
+      next unless cmd.code == 201
+      p = cmd.parameters
+      next unless p && p.size >= 3
+      mid = p[0]
+      next unless mid.is_a?(Integer) && mid > 0
+      (idx[mid] ||= []) << [p[1].to_i, p[2].to_i, p[3].to_i]
+    end
+  end
+
+  # 地图中心落点: 中心格可行则用之, 否则 BFS 环形扩张找最近可行格;
+  # 全图不可通行回退 (0,0) (live_update 自动飞行兜底)
+  def center_landing(data, passages, priorities, w, h)
+    cx = w / 2
+    cy = h / 2
+    return [cx, cy] if landable?(data, passages, priorities, cx, cy, w, h)
+    seen = { [cx, cy] => true }
+    q = [[cx, cy]]
+    head = 0
+    while head < q.size
+      x, y = q[head]
+      head += 1
+      [2, 4, 6, 8].each do |d|
+        nx = x + (d == 6 ? 1 : d == 4 ? -1 : 0)
+        ny = y + (d == 2 ? 1 : d == 8 ? -1 : 0)
+        next if nx < 0 || ny < 0 || nx >= w || ny >= h
+        k = [nx, ny]
+        next if seen[k]
+        seen[k] = true
+        return [nx, ny] if landable?(data, passages, priorities, nx, ny, w, h)
+        q << [nx, ny]
+      end
+    end
+    [0, 0]
+  end
+
+  # Tilesets 数据库(按 tileset_id 索引, 惰性加载并缓存)
+  def tileset(tileset_id)
+    @tilesets ||= (load_data('Data/Tilesets.rxdata') rescue nil)
+    @tilesets && @tilesets[tileset_id]
+  end
+
+  # 该格是否"存在至少一个可通行相邻格"(站上去能走出去)
+  def landable?(data, passages, priorities, x, y, w, h)
+    [2, 4, 6, 8].any? do |d|
+      nx = x + (d == 6 ? 1 : d == 4 ? -1 : 0)
+      ny = y + (d == 2 ? 1 : d == 8 ? -1 : 0)
+      next false if nx < 0 || ny < 0 || nx >= w || ny >= h
+      static_passable?(data, passages, priorities, nx, ny, 1 << (d / 2 - 1))
+    end
+  end
+
+  # tileset 静态层判定: 复刻 Game_Map#passable?(xscripts/0016:359-388),
+  # 与 debug_map.rb 的 static_passable? 同源(含 blank 三空层逻辑)。
+  # 注意: 判定对象是"目标格"(从当前格向 d 走要检查的格), 与 passable? 一致。
+  def static_passable?(data, passages, priorities, x, y, bit)
+    blank = 0
+    [2, 1, 0].each do |i|
+      tile_id = data[x, y, i]
+      next if tile_id == nil
+      if tile_id < 48 && i > 0
+        blank += 1
+        next if blank < 3
+      end
+      return false if passages[tile_id] & bit != 0
+      return false if passages[tile_id] & 0x0f == 0x0f
+      return true if priorities[tile_id] == 0
+    end
+    true
+  end
+
+  # 同步日志(入口索引构建耗时等): 复用 jump_map_runtime.txt
+  def jlog_sync(msg)
+    begin
+      dir = File.join(__dir__, '..', 'logs')
+      Dir.mkdir(dir) unless File.directory?(dir)
+      File.open(File.join(dir, 'jump_map_runtime.txt'), 'a') do |f|
+        f.puts("[#{Time.now.strftime('%H:%M:%S')}] #{msg}")
+      end
+    rescue StandardError
+    end
+  end
+end
 
 # --- 地图跳转子界面 ---
 # 书页式: 每页 JUMP_MAP_PER_PAGE 条, 底部显示页码, 左右键翻页, 上下键页内选择。
@@ -80,7 +263,7 @@ class Window_JumpMap
     @page = 0      # 当前页码(0-based)
     @visible = false
     @fade_in = false
-        @fade_out_ticks = 0
+    @fade_out_ticks = 0
     @fade_out = false
     @transfer_player = nil
     @maps = []
@@ -106,6 +289,7 @@ class Window_JumpMap
   def open
     load_maps
     return if @maps.empty?
+    JumpPoints.entrances   # 预热入口落点索引(首次构建约 1-3s, 此后缓存复用, 卡顿只发生在第一次打开)
     # 定位当前所在地图: 若在可跳列表中则跳到对应页并选中, 否则回退到第 0 页首项
     cur = locate_current_map
     if cur
@@ -257,11 +441,12 @@ class Window_JumpMap
       end
     end
 
-    # 确认: 保存目标并淡出, 淡出结束后设置传送 flags
+    # 确认: 此时解析落点(覆盖层优先, 否则动态计算), 保存目标并淡出;
+    # 淡出结束后设置传送 flags
     if Input.trigger?(Input::ACTION)
       $game_system.se_play($data_system.decision_se)
       jlog("ACTION index=#{@index} map=#{@maps[@index][:name]}(#{@maps[@index][:id]}) -> fade_out")
-      @transfer_player = @maps[@index]
+      @transfer_player = @maps[@index].merge(JumpPoints.landing(@maps[@index][:id]))
       @fade_out = true
       return
     end
@@ -293,29 +478,6 @@ class Window_JumpMap
     (@maps.size.to_f / JUMP_MAP_PER_PAGE).ceil
   end
 
-  # 运行时惰性加载 MapInfos(游戏初始化后 load_data 可用)
-  def mapinfos
-    @mapinfos ||= begin
-      load_data('Data/MapInfos.rxdata')
-    rescue StandardError
-      {}
-    end
-  end
-
-  # 祖先链是否含内部图标记
-  def ancestor_blacklisted?(id)
-    seen = {}
-    cur = id
-    while cur && cur > 0 && !seen[cur]
-      seen[cur] = true
-      info = mapinfos[cur]
-      break unless info
-      return true if info.name.to_s =~ JUMP_MAP_PARENT_FILTER
-      cur = info.parent_id.to_i
-    end
-    false
-  end
-
   # 当前所在地图在可跳列表中的索引(不在列表中返回 nil)
   def locate_current_map
     return nil unless $game_map
@@ -323,35 +485,12 @@ class Window_JumpMap
     @maps.index { |mm| mm[:id] == id }
   end
 
-  # 从 jump_points.json 加载全部地图(过滤已放开; 无落点回退 0,0)
+  # 地图列表来自 JumpPoints(MapInfos 动态生成, 缓存复用;
+  # 与历史行为一致: 过滤放开, 全量列出)
   def load_maps
-    # 缓存: jump_points.json 运行期间不变, 首次加载后复用,
-    # 避免每次 Ctrl+J 都重复读文件 + 过滤 + 排序
     @maps = @maps_cache
     return if @maps
-    @maps = []
-    data = begin
-      JSON.parse(File.read(JUMP_POINTS_PATH))
-    rescue StandardError
-      {}
-    end
-    data.each do |id, m|
-      next unless m.is_a?(Hash)
-      x = m['x'].to_i
-      y = m['y'].to_i
-      # 无落点图(空/内部图, x/y 为负)回退到 (0,0); 跳转后若不可通行,
-      # 由 live_update 的障碍物自动飞行(@through)脱困
-      if x < 0 || y < 0
-        x = 0
-        y = 0
-      end
-      name = m['name'].to_s
-      # (过滤已放开: 允许跳入所有地图)
-      # (过滤已放开)
-      # (过滤已放开)
-      @maps << { id: id.to_i, x: x, y: y, dir: m['dir'].to_i, name: name }
-    end
-    @maps.sort_by! { |mm| mm[:id] }
+    @maps = JumpPoints.all_maps
     @maps_cache = @maps
   end
 
@@ -380,10 +519,11 @@ end
 # --- 写状态文件 ---
 StatusLog.write('jump_map_status.txt', [
   "jump_map loaded at = #{Time.now}",
-  "jump_points_path = #{JUMP_POINTS_PATH}",
-  "filter = ALL MAPS ENABLED (name/pattern/parent filters disabled; no-location maps fall back to 0,0)",
-  "name_pattern = disabled",
-  "parent_filter = disabled",
+  "data = dynamic: map list from Data/MapInfos.rxdata (cached, no external JSON required)",
+  "landing = overlay(x/y>=0) -> original-game entrance (Transfer 201 targets) -> map center (BFS) -> (0,0)",
+  "entrances = prebuilt once at first open: all map event pages + CommonEvents, Transfer Player(201) params",
+  "overlay = #{JUMP_POINTS_PATH} optional (kept for manual fine-tuning; absent -> fully dynamic)",
+  "fallback = (0,0) on read failure / fully-blocked map (live_update auto-fly rescues)",
   "per_page = #{JUMP_MAP_PER_PAGE}",
   "paging = book-style, LEFT/RIGHT flip page, UP/DOWN move cursor",
   "fade = background stays black (no lower menu flash)",
