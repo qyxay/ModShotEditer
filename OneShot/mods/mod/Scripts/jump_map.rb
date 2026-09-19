@@ -238,8 +238,6 @@ module JumpPoints
     end
   end
 end
-
-# --- 地图跳转子界面 ---
 # 书页式: 每页 JUMP_MAP_PER_PAGE 条, 底部显示页码, 左右键翻页, 上下键页内选择。
 # 背景全程不透明黑色(淡入淡出只作用于文字), 避免跳转时露出下层设置菜单。
 class Window_JumpMap
@@ -286,6 +284,10 @@ class Window_JumpMap
     @maps = []
     @mapinfos = nil
     @on_transfer = nil
+    # --- 搜索模式状态 ---
+    @search_mode = false       # 是否处于搜索输入状态
+    @search_text = ''          # 当前搜索关键词
+    @filtered_maps = nil       # 过滤后的列表 (nil = 未过滤, 用 @maps)
   end
 
   def visible
@@ -349,6 +351,12 @@ class Window_JumpMap
   end
 
   def update_inner
+    # 搜索模式: 走独立的按键处理分支
+    if @search_mode
+      update_search
+      return
+    end
+
     if @fade_in
       @title.opacity += 20
       @title.opacity = 255 if @title.opacity > 255
@@ -428,7 +436,7 @@ class Window_JumpMap
     end
 
     page_start = @page * JUMP_MAP_PER_PAGE
-    page_last = [page_start + JUMP_MAP_PER_PAGE, @maps.size].min - 1
+    page_last = [page_start + JUMP_MAP_PER_PAGE, visible_maps.size].min - 1
 
     # 上下键: 仅在本页内移动光标
     if Input.trigger?(Input::UP)
@@ -462,10 +470,27 @@ class Window_JumpMap
     # 淡出结束后设置传送 flags
     if Input.trigger?(Input::ACTION)
       $game_system.se_play($data_system.decision_se)
-      jlog("ACTION index=#{@index} map=#{@maps[@index][:name]}(#{@maps[@index][:id]}) -> fade_out")
-      @transfer_player = @maps[@index].merge(JumpPoints.landing(@maps[@index][:id]))
+      sel = visible_maps[@index]
+      jlog("ACTION index=#{@index} map=#{sel[:name]}(#{sel[:id]}) -> fade_out")
+      @transfer_player = sel.merge(JumpPoints.landing(sel[:id]))
       @fade_out = true
       return
+    end
+
+    # 按 S 进入搜索模式
+    if Input.respond_to?(:triggerex?)
+      begin
+        if Input.triggerex?(:S)
+          @search_mode = true
+          @search_text = ''
+          @filtered_maps = @maps.dup
+          # 更新标题显示搜索提示
+          @title.bitmap.clear
+          @title.bitmap.draw_text(0, 0, @title.bitmap.width, @title.bitmap.height, 'Search:')
+          return
+        end
+      rescue StandardError
+      end
     end
 
     # 取消: 返回开发者设置(开发者设置一直保持可见, 只是被本界面盖住)
@@ -490,9 +515,121 @@ class Window_JumpMap
 
   private
 
+  # 当前可见列表: 搜索模式下用过滤后的, 否则用完整的
+  def visible_maps
+    @filtered_maps || @maps
+  end
+
   def page_count
-    return 1 if @maps.empty?
-    (@maps.size.to_f / JUMP_MAP_PER_PAGE).ceil
+    return 1 if visible_maps.empty?
+    (visible_maps.size.to_f / JUMP_MAP_PER_PAGE).ceil
+  end
+
+  # --- 搜索模式: 按键处理 + 实时过滤 ---
+  # 按 S 进入; 字母/数字键追加到关键词, BACKSPACE 删除,
+  # ENTER 确认选中, ESC 退出搜索(回到完整列表)。
+  def update_search
+    char = nil
+    if Input.respond_to?(:triggerex?)
+      ('A'..'Z').each do |c|
+        char = c.downcase if Input.triggerex?(:"#{c}") rescue false
+        break if char
+      end
+      if char.nil?
+        ('0'..'9').each do |c|
+          char = c if Input.triggerex?(:"#{c}") rescue false
+          break if char
+        end
+      end
+    end
+    if char
+      @search_text += char
+      apply_filter
+    end
+
+    # BACKSPACE
+    if Input.respond_to?(:triggerex?) && (Input.triggerex?(:BACKSPACE) rescue false)
+      @search_text = @search_text[0..-2].to_s
+      apply_filter
+    end
+
+    # 光标
+    page_start = @page * JUMP_MAP_PER_PAGE
+    page_last = [page_start + JUMP_MAP_PER_PAGE, visible_maps.size].min - 1
+    if Input.trigger?(Input::UP) && visible_maps.any?
+      @index = (@index > page_start) ? @index - 1 : page_last
+      $game_system.se_play($data_system.cursor_se)
+    end
+    if Input.trigger?(Input::DOWN) && visible_maps.any?
+      @index = (@index < page_last) ? @index + 1 : page_start
+      $game_system.se_play($data_system.cursor_se)
+    end
+    if Input.trigger?(Input::LEFT) && @page > 0
+      @page -= 1
+      @index = @page * JUMP_MAP_PER_PAGE
+      refresh_list
+      $game_system.se_play($data_system.cursor_se)
+    end
+    if Input.trigger?(Input::RIGHT) && @page < page_count - 1
+      @page += 1
+      @index = @page * JUMP_MAP_PER_PAGE
+      refresh_list
+      $game_system.se_play($data_system.cursor_se)
+    end
+
+    # ENTER: 确认
+    if Input.trigger?(Input::ACTION) && visible_maps.any?
+      $game_system.se_play($data_system.decision_se)
+      sel = visible_maps[@index]
+      jlog("SEARCH-ACTION index=#{@index} map=#{sel[:name]}(#{sel[:id]})")
+      @search_mode = false
+      @transfer_player = sel.merge(JumpPoints.landing(sel[:id]))
+      @fade_out = true
+      return
+    end
+
+    # ESC: 退出搜索
+    if Input.trigger?(Input::CANCEL)
+      $game_system.se_play($data_system.cancel_se)
+      @search_mode = false
+      @search_text = ''
+      @filtered_maps = nil
+      @index = 0
+      @page = 0
+      @title.bitmap.clear
+      @title.bitmap.draw_text(0, 0, @title.bitmap.width, @title.bitmap.height, tr('Jump Map'))
+      refresh_list
+    end
+
+    # 光标动画
+    @data_sprites.each_with_index do |spr, i|
+      if i == @index - @page * JUMP_MAP_PER_PAGE
+        spr.x += 6 if spr.x < ACTIVE_MARGIN
+        spr.x = ACTIVE_MARGIN if spr.x > ACTIVE_MARGIN
+        spr.opacity += 10 if spr.opacity < 255
+      else
+        spr.x -= 6 if spr.x > MARGIN * 2
+        spr.x = MARGIN * 2 if spr.x < MARGIN * 2
+        spr.opacity -= 10 if spr.opacity > 128
+        spr.opacity = 128 if spr.opacity < 128
+      end
+    end
+  end
+
+  # 模糊过滤: 不区分大小写, 子串匹配
+  def apply_filter
+    @filtered_maps = if @search_text.empty?
+      @maps.dup
+    else
+      kw = @search_text.downcase
+      @maps.select { |m| m[:name].to_s.downcase.include?(kw) }
+    end
+    @index = 0
+    @page = 0
+    @title.bitmap.clear
+    @title.bitmap.draw_text(0, 0, @title.bitmap.width, @title.bitmap.height,
+                            "Search: #{@search_text}")
+    refresh_list
   end
 
   # 当前所在地图在可跳列表中的索引(不在列表中返回 nil)
@@ -516,7 +653,7 @@ class Window_JumpMap
     @data_sprites.each { |spr| spr.dispose }
     @data_sprites = []
     start = @page * JUMP_MAP_PER_PAGE
-    visible_items = @maps[start, JUMP_MAP_PER_PAGE] || []
+    visible_items = visible_maps[start, JUMP_MAP_PER_PAGE] || []
     visible_items.each_with_index do |mm, i|
       spr = Sprite.new(@viewport)
       spr.bitmap = Bitmap.new(420, ITEM_SPACING)
