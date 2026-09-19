@@ -1,13 +1,13 @@
 {
-  "skip_pictures": true,
-  "quit_all_time": true,
   "skip_dialogue": false,
   "skip_choice": false,
   "skip_forced_move": false,
+  "skip_pictures": true,
+  "unshow_title": true,
   "skip_uneasy": true,
+  "quit_all_time": true,
   "always_travel": true,
   "always_settings": true,
-  "unshow_title": true,
   "is_developer": true,
   "fly_mode": false,
   "live_update": true
