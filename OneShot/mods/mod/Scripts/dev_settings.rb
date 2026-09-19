@@ -117,7 +117,7 @@ class Window_DevSettings
     return if display_items.empty?
     @index = 0
     @flash_timer = 0
-    @flash_sprite.visible = false
+    @flash_sprite.visible = false unless @flash_sprite.disposed?
     # 必须先置可见, 否则 open 内的 redraw 会因 @visible == false 而跳过绘制
     self.visible = true
     # 标题
@@ -272,8 +272,10 @@ class Window_DevSettings
     # 动作反馈提示的显示计时
     if @flash_timer > 0
       @flash_timer -= 1
-      @flash_sprite.visible = true if @flash_timer > 0
-      @flash_sprite.visible = false if @flash_timer == 0
+      unless @flash_sprite.disposed?
+        @flash_sprite.visible = true if @flash_timer > 0
+        @flash_sprite.visible = false if @flash_timer == 0
+      end
     end
   end
 
@@ -326,6 +328,15 @@ class Window_DevSettings
       @jump_map = nil   # 彻底重置, 防止复用残留状态(旧 sprites/旧回调)
       self.visible = false
       @parent_settings.visible = false if @parent_settings
+      # 彻底销毁并清引用: 跳转后若目标地图触发 real_load(读档), $scene 会
+      # 切换为新 Scene_Map, 旧窗口随之 dispose; 这里先销毁自身并把外层
+      # Window_Settings 的 @dev_settings 引用置 nil, 防止新场景帧循环
+      # 访问已销毁的 sprite (disposed sprite 崩溃)
+      begin
+        self.dispose
+        @parent_settings.instance_variable_set(:@dev_settings, nil) if @parent_settings
+      rescue StandardError
+      end
     }
     @jump_map.open
   end

@@ -42,7 +42,7 @@ module WindowSettingsDevPatch
   end
 
   def update
-    if @dev_settings && @dev_settings.visible
+    if @dev_settings && !@dev_settings.disposed? && @dev_settings.visible
       @dev_settings.update
       return
     end
