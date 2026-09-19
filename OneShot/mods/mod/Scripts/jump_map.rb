@@ -57,13 +57,30 @@ module JumpPoints
     end
   end
 
-  # 全部地图列表(与历史行为一致: 过滤放开, 全量列出含 debug/内部/测试图)
+  # 全部地图列表: 按 MapInfos 的 parent_id 做深度优先(DFS)树形遍历,
+  # 与 RPG Maker XP 编辑器左侧地图树一致; 每项带 depth 字段用于缩进显示。
   def all_maps
-    mapinfos.keys.map(&:to_i).sort.map do |id|
-      info = mapinfos[id]
-      name = info && !info.name.to_s.empty? ? info.name.to_s : "Map#{id}"
-      { id: id, name: name, x: nil, y: nil, dir: 2 }
+    infos = mapinfos
+    # 按 parent_id 分组
+    children = Hash.new { |h, k| h[k] = [] }
+    infos.each do |id, info|
+      next unless info
+      children[info.parent_id] << [id.to_i, info]
     end
+    # 每组按 order 排序 (RPG Maker XP 树中同级地图的顺序)
+    children.each { |_k, v| v.sort_by! { |_id, info| info.order } }
+
+    result = []
+    # DFS: 从 parent_id=0 的根节点开始, 递归遍历子节点
+    dfs = lambda do |parent_id, depth|
+      children[parent_id].each do |id, info|
+        name = !info.name.to_s.empty? ? info.name.to_s : "Map#{id}"
+        result << { id: id, name: name, depth: depth, x: nil, y: nil, dir: 2 }
+        dfs.call(id, depth + 1)
+      end
+    end
+    dfs.call(0, 0)
+    result
   end
 
   # 落点解析优先级: 可选覆盖层(有效 x/y) -> 原游戏入口落点(跨地图传送201指令)
@@ -506,7 +523,9 @@ class Window_JumpMap
       spr.x = MARGIN * 2   # 原位统一为 MARGIN*2(60): 取消选中后滑回的目标即其他项的静止位, 避免停在半途不对齐
       spr.y = TITLE_MARGIN + TITLE_TOP_MARGIN + ITEM_SPACING * i
       spr.opacity = 0
-      spr.bitmap.draw_text(0, 0, spr.bitmap.width, spr.bitmap.height, tr(mm[:name]))
+      # 树形缩进: 每层 depth 用 2 个空格前缀 (与 RPG Maker XP 地图树视觉一致)
+      prefix = '  ' * (mm[:depth] || 0)
+      spr.bitmap.draw_text(0, 0, spr.bitmap.width, spr.bitmap.height, tr(prefix + mm[:name].to_s))
       @data_sprites << spr
     end
     # 页码: "当前页 / 总页数"
