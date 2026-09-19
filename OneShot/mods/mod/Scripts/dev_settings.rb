@@ -51,7 +51,7 @@ class Window_DevSettings
   ITEM_SPACING = 28
   VALUE_MARGIN = 270
   ACTIVE_MARGIN = MARGIN * 2 + 20
-  PAGE_SIZE = 8               # 每页最多显示项数, 超出自动翻页(页码在右下角)
+  PAGE_SIZE = 9               # 每页最多显示项数, 超出自动翻页(页码在右下角)
 
   def initialize
     @viewport = Viewport.new(0, 0, 640, 480)
