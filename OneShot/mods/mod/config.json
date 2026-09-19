@@ -3,12 +3,12 @@
   "quit_all_time": true,
   "skip_dialogue": false,
   "skip_choice": false,
+  "skip_forced_move": false,
   "skip_uneasy": true,
   "always_travel": true,
   "always_settings": true,
   "unshow_title": true,
   "is_developer": true,
   "fly_mode": false,
-  "live_update": true,
-  "skip_forced_move": false
+  "live_update": true
 }

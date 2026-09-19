@@ -382,7 +382,7 @@ when 'skip_forced_move' then $skip_forced_move = val
   def save_config
     $mod_config ||= @config
     ordered = {}
-    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy always_travel always_settings skip_forced_move unshow_title is_developer fly_mode live_update].each do |k|
+    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_forced_move skip_uneasy always_travel always_settings unshow_title is_developer fly_mode live_update].each do |k|
       ordered[k] = @config[k] if @config.key?(k)
     end
     @config.each do |k, v|
