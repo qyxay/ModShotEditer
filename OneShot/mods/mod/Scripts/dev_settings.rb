@@ -374,6 +374,7 @@ when 'unshow_title'    then $unshow_title_enabled = val
 when 'is_developer'    then $dev_settings_enabled = val
 when 'fly_mode'        then $fly_mode_enabled = val
 when 'live_update'     then $live_update_enabled = val
+when 'skip_forced_move' then $skip_forced_move = val
     end
   end
 
@@ -381,7 +382,7 @@ when 'live_update'     then $live_update_enabled = val
   def save_config
     $mod_config ||= @config
     ordered = {}
-    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy always_travel always_settings unshow_title is_developer fly_mode live_update].each do |k|
+    %w[skip_pictures quit_all_time skip_dialogue skip_choice skip_uneasy always_travel always_settings unshow_title is_developer fly_mode live_update skip_forced_move].each do |k|
       ordered[k] = @config[k] if @config.key?(k)
     end
     @config.each do |k, v|

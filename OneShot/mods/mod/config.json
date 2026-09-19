@@ -9,5 +9,6 @@
   "unshow_title": true,
   "is_developer": true,
   "fly_mode": false,
-  "live_update": true
+  "live_update": true,
+  "skip_forced_move": false
 }
