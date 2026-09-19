@@ -228,6 +228,34 @@ PatchHelper.install('Game_Player', methods: [:update_move]) do |k|
   k.prepend(FlyModeMoveSpeedPatch)
 end
 
+# ============================================================
+#  Game_Event 补丁: fly 模式开启时, 事件移动无视地形碰撞
+#  (地图边界仍生效, 防止事件飞出地图)
+#
+#  原版 Game_Event 没有自己的 passable?, 继承 Game_Character。
+#  这里 prepend 一层: $fly_mode_enabled 时直接返回 true (保留地图边界),
+#  否则走原版 Game_Character#passable?。
+#  影响范围: 所有 Game_Event 实例 (强制移动路线 / 随机移动),
+#  不影响 Game_Follower (追随者仍走原版逻辑)。
+# ============================================================
+module FlyModeEventPassPatch
+  def passable?(x, y, d)
+    new_x = x + (d == 6 ? 1 : d == 4 ? -1 : 0)
+    new_y = y + (d == 2 ? 1 : d == 8 ? -1 : 0)
+    # 地图边界仍生效
+    return false unless $game_map.valid?(new_x, new_y)
+    if $fly_mode_enabled
+      return true
+    end
+    super
+  end
+end
+
+# --- 等待类定义完成后 prepend 补丁 ---
+PatchHelper.install('Game_Event', methods: [:passable?]) do |k|
+  k.prepend(FlyModeEventPassPatch)
+end
+
 # --- 写状态文件 ---
 StatusLog.write('fly_mode_status.txt', [
   "fly_mode loaded at = #{Time.now}",
@@ -238,6 +266,7 @@ StatusLog.write('fly_mode_status.txt', [
   "on_top = player always_on_top while flying (restored on exit), FLY badge z=20000 above all layers/windows",
   "speed = 2x run-mode speed (run=4→5=32px/frame; switch 251 inverted run=3→4), enforced at update_move",
   "scope = free movement only (events / forced move routes / dialogue / menu unaffected)",
+  "event_wallhack = Game_Event#passable? returns true while fly_mode_enabled (map bounds kept), affects forced move routes & random movement, not followers",
   "config_writeback = fly_mode key synced to config.json on toggle",
-  "patches = Scene_Map#update, Game_Player#passable?, Game_Player#update_move"
+  "patches = Scene_Map#update, Game_Player#passable?, Game_Player#update_move, Game_Event#passable?"
 ])
