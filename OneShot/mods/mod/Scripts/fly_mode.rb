@@ -229,14 +229,14 @@ PatchHelper.install('Game_Player', methods: [:update_move]) do |k|
 end
 
 # ============================================================
-#  Game_Event 补丁: fly 模式开启时, 事件移动无视地形碰撞
+#  Game_Character 补丁: fly 模式开启时, Game_Event 无视地形碰撞
 #  (地图边界仍生效, 防止事件飞出地图)
 #
 #  原版 Game_Event 没有自己的 passable?, 继承 Game_Character。
-#  这里 prepend 一层: $fly_mode_enabled 时直接返回 true (保留地图边界),
-#  否则走原版 Game_Character#passable?。
+#  这里 prepend 到 Game_Character: $fly_mode_enabled 且 self 是
+#  Game_Event 时直接返回 true (保留地图边界), 否则走原版逻辑。
 #  影响范围: 所有 Game_Event 实例 (强制移动路线 / 随机移动),
-#  不影响 Game_Follower (追随者仍走原版逻辑)。
+#  不影响 Game_Player (已重写 passable?) / Game_Follower (已重写)。
 # ============================================================
 module FlyModeEventPassPatch
   def passable?(x, y, d)
@@ -244,7 +244,7 @@ module FlyModeEventPassPatch
     new_y = y + (d == 2 ? 1 : d == 8 ? -1 : 0)
     # 地图边界仍生效
     return false unless $game_map.valid?(new_x, new_y)
-    if $fly_mode_enabled
+    if $fly_mode_enabled && self.is_a?(Game_Event)
       return true
     end
     super
@@ -252,7 +252,7 @@ module FlyModeEventPassPatch
 end
 
 # --- 等待类定义完成后 prepend 补丁 ---
-PatchHelper.install('Game_Event', methods: [:passable?]) do |k|
+PatchHelper.install('Game_Character', methods: [:passable?]) do |k|
   k.prepend(FlyModeEventPassPatch)
 end
 
