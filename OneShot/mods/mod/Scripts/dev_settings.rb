@@ -93,6 +93,12 @@ class Window_DevSettings
     @on_closed = nil
     # 全局实例引用: 供 Jump Map 跳转后"按 config 自动应用开关"用(免 ObjectSpace 扫描)
     $dev_settings_instance = self
+    @disposed = false
+  end
+
+  # 是否已 dispose (纯 Ruby 类无内置 disposed? 方法, 自行标记)
+  def disposed?
+    @disposed
   end
 
   # 完整显示列表 = 布尔开关 + 三态枚举键 + 固定功能条目
@@ -342,6 +348,7 @@ class Window_DevSettings
   end
 
   def dispose
+    @disposed = true
     @jump_map.dispose if @jump_map
     @data_sprites.each { |spr| spr.dispose }
     @flash_sprite.dispose
