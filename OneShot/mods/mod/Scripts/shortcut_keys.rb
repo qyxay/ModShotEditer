@@ -133,7 +133,10 @@ module ShortcutKeysPatch
   end
 
   def open_dev_settings_shortcut
-    ds = $dev_settings_instance ||= Window_DevSettings.new
+    # 旧实例可能已被 on_transfer 销毁(jump map 跳转后), 检查 disposed? 后新建
+    ds = $dev_settings_instance
+    ds = nil if ds && ds.disposed?
+    ds = $dev_settings_instance = Window_DevSettings.new unless ds
     ds.parent_settings = @window_settings
     # 关闭时恢复被借用的设置窗口(visible + 槽位), 避免残留设置界面
     ds.on_closed = proc {
