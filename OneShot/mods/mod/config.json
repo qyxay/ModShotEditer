@@ -9,6 +9,6 @@
   "always_travel": true,
   "always_settings": true,
   "is_developer": true,
-  "fly_mode": false,
+  "fly_mode": true,
   "live_update": true
 }
